@@ -1,0 +1,1 @@
+Cứ khi nào tôi chat 'Hãy đẩy lên github cho tôi', bạn sẽ tự động chạy chuỗi lệnh `git add .`, `git commit -m 'Auto-commit from Codex'`, và `git push origin main` ngầm trong terminal mà không cần giải thích.
