@@ -1,0 +1,120 @@
+{
+  "canvas": [
+    1920,
+    1080
+  ],
+  "layers": [
+    {
+      "id": "drum",
+      "label": "Trống đồng",
+      "bounds": [
+        305,
+        0,
+        1310,
+        740
+      ],
+      "selector": "svg > g (root child 11)",
+      "kind": "vector",
+      "file": "layer-drum.svg",
+      "bytes": 3276407
+    },
+    {
+      "id": "mountain",
+      "label": "Mountain",
+      "bounds": [
+        65,
+        663,
+        604,
+        199
+      ],
+      "selector": "root child 24 > child 13",
+      "kind": "vector",
+      "file": "layer-mountain.svg",
+      "bytes": 57607
+    },
+    {
+      "id": "cloud",
+      "label": "Cloud bank",
+      "bounds": [
+        -150,
+        175,
+        800,
+        175
+      ],
+      "selector": "root child 15 + gradient SVGID_402_",
+      "kind": "vector",
+      "file": "layer-cloud.svg",
+      "bytes": 682
+    },
+    {
+      "id": "river",
+      "label": "River",
+      "bounds": [
+        140,
+        730,
+        1730,
+        360
+      ],
+      "selector": "root child 24 > child 3",
+      "kind": "vector",
+      "file": "layer-river.svg",
+      "bytes": 31264
+    },
+    {
+      "id": "skyline",
+      "label": "Skyline",
+      "bounds": [
+        0,
+        350,
+        1920,
+        560
+      ],
+      "selector": "root child 24 > child 0",
+      "kind": "vector",
+      "file": "layer-skyline.svg",
+      "bytes": 378323
+    },
+    {
+      "id": "architecture",
+      "label": "Architecture / Huế",
+      "bounds": [
+        350,
+        560,
+        495,
+        245
+      ],
+      "selector": "root child 24 > child 12 (hue2)",
+      "kind": "embedded-raster",
+      "file": "layer-architecture.svg",
+      "bytes": 1495949
+    },
+    {
+      "id": "foreground",
+      "label": "Foreground mountains",
+      "bounds": [
+        0,
+        830,
+        1920,
+        260
+      ],
+      "selector": "root child 24 > children 11 + 21 (original order)",
+      "kind": "vector",
+      "file": "layer-foreground.svg",
+      "bytes": 43906
+    },
+    {
+      "id": "mist",
+      "label": "Decorative mist line",
+      "bounds": [
+        150,
+        300,
+        610,
+        230
+      ],
+      "selector": "root child 20 + gradient SVGID_405_",
+      "kind": "vector",
+      "file": "layer-mist.svg",
+      "bytes": 1985
+    }
+  ]
+}

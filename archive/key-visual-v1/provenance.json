@@ -1,0 +1,31 @@
+{
+  "sources": [
+    {
+      "path": "publish/assets/key-visual/key visual.svg",
+      "sha256": "3865ec31d5466fb711a9f209b1a2c3323689424f5c447df265def9dad9c8ebf2"
+    },
+    {
+      "path": "publish/assets/key-visual/logo.svg",
+      "sha256": "727f94f6ad5cfafcbc926748b37740399465f8f0e187929e8ef8c3d95f1a95ea"
+    },
+    {
+      "path": "publish/assets/key-visual/typo.svg",
+      "sha256": "07a5f2932905e11985e56fd554fce9986581bf3f3cd0201f196edf34fb3a8698"
+    }
+  ],
+  "derivatives": {
+    "landscape.svg": "Unmodified original; contains embedded raster image",
+    "logo.svg": "Whitespace crop only",
+    "campaign-lockup.svg": "Whitespace crop only",
+    "signature-ornament.svg": "typo.svg path indices 26–30",
+    "signature-marker.svg": "typo.svg path index 16",
+    "layer-drum.svg": "publish/assets/key-visual/key visual.svg: svg > g (root child 11); original colors, geometry, clip/filter/gradient dependencies retained; vector",
+    "layer-mountain.svg": "publish/assets/key-visual/key visual.svg: root child 24 > child 13; original colors, geometry, clip/filter/gradient dependencies retained; vector",
+    "layer-cloud.svg": "publish/assets/key-visual/key visual.svg: root child 15 + gradient SVGID_402_; original colors, geometry, clip/filter/gradient dependencies retained; vector",
+    "layer-river.svg": "publish/assets/key-visual/key visual.svg: root child 24 > child 3; original colors, geometry, clip/filter/gradient dependencies retained; vector",
+    "layer-skyline.svg": "publish/assets/key-visual/key visual.svg: root child 24 > child 0; original colors, geometry, clip/filter/gradient dependencies retained; vector",
+    "layer-architecture.svg": "publish/assets/key-visual/key visual.svg: root child 24 > child 12 (hue2); original colors, geometry, clip/filter/gradient dependencies retained; embedded-raster",
+    "layer-foreground.svg": "publish/assets/key-visual/key visual.svg: root child 24 > children 11 + 21 (original order); original colors, geometry, clip/filter/gradient dependencies retained; vector",
+    "layer-mist.svg": "publish/assets/key-visual/key visual.svg: root child 20 + gradient SVGID_405_; original colors, geometry, clip/filter/gradient dependencies retained; vector"
+  }
+}
