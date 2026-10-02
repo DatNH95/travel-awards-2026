@@ -5,6 +5,7 @@ import { BrandGraphic, SectionMarker, SignatureDivider } from '@/components/bran
 import { Container, Eyebrow, Section, TextLink, ResponsiveImage } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
 import { ScrollReveal } from '@/components/scroll-reveal';
+import { HeroStage, NominationCountdown } from '@/components/hero-stage';
 import './home.css';
 
 export const metadata: Metadata = {
@@ -38,17 +39,16 @@ export default function HomePage() {
       </Container>
     </header>
     <main id="main">
-      <section className="home-hero" aria-labelledby="hero-title">
+      <HeroStage>
         <Image className="home-hero-landscape" src="/assets/key-visual/travel-awards-kv-v2.png" alt="" aria-hidden="true" width={1920} height={1080} unoptimized preload />
         <div className="home-hero-content">
           <Eyebrow>Travel Awards 2026</Eyebrow>
           <h1 id="hero-title"><span className="home-sr-only">THE FIRST SIGNATURE — DẤU ẤN TIÊN PHONG</span><BrandGraphic variant="campaign" /></h1>
           <p className="home-hero-statement">Tôn vinh những dấu ấn góp phần định hình<br className="home-desktop-break" /> tương lai du lịch Việt Nam.</p>
-          <NominationLink />
-          <p className="home-hero-deadline">Hạn gửi đề cử <span>16.11.2026</span></p>
+          <div className="home-hero-actions"><NominationCountdown /><NominationLink /></div>
         </div>
-        <div className="home-hero-foot"><span>Di sản Việt Nam. Tầm nhìn tiên phong.</span><a href="#about">Khám phá hành trình <span aria-hidden="true">↓</span></a></div>
-      </section>
+        <div className="home-hero-foot"><a href="#about">Khám phá hành trình <span aria-hidden="true">↓</span></a></div>
+      </HeroStage>
       <Section id="about" className="home-about">
         <Container>
           <ChapterLabel number="01">Về Travel Awards</ChapterLabel>
@@ -56,7 +56,6 @@ export default function HomePage() {
             <h2 className="type-display-l"><span className="home-about-signature">The First Signature</span><br />Dấu ấn tiên phong</h2>
             <div className="home-copy"><p className="type-body-large">Travel Awards là giải thưởng thường niên về du lịch nhằm tôn vinh những điểm đến, doanh nghiệp và dịch vụ du lịch tiêu biểu của Việt Nam.</p><p>Chủ đề của mùa giải đầu tiên Travel Awards, đánh dấu sự khởi đầu của hành trình tôn vinh những điểm đến, doanh nghiệp và cá nhân tiên phong đang kiến tạo những giá trị mới cho du lịch Việt Nam. Mỗi dấu ấn được ghi nhận không chỉ là thành tựu của hôm nay mà còn là nguồn cảm hứng cho sự phát triển bền vững của ngành trong tương lai.</p><TextLink href="#participate">Xem thể lệ</TextLink></div>
           </div>
-          <div className="home-about-signoff"><span>Vietnam Heritage</span><span>Contemporary Travel</span><span>Editorial Award</span></div>
         </Container>
       </Section>
       <Section id="journey" className="home-journey">
@@ -113,7 +112,7 @@ export default function HomePage() {
         <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationLink /><p className="home-final-deadline">Nhận đề cử đến 16.11.2026</p></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
-        <Container className="home-organizer-inner"><Eyebrow>Đơn vị tổ chức</Eyebrow><p>Thông tin đơn vị tổ chức và đối tác sẽ được công bố.</p></Container>
+        <Container className="home-organizer-inner"><Eyebrow>Đơn vị tổ chức</Eyebrow><div className="home-organizer-logos"><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div></Container>
       </Section>
     </main>
     <footer className="home-footer"><Container><div className="home-footer-top"><div><Link href="/" aria-label="Travel Awards — Trang chủ"><BrandGraphic variant="logo" /></Link><p>Dấu ấn tiên phong.<br />Tương lai du lịch Việt Nam.</p></div><nav aria-label="Điều hướng chân trang"><a href="#about">Về giải thưởng</a><a href="#awards">Hệ thống giải thưởng</a><a href="#participate">Cách tham gia</a><a href="#news">Tin tức</a></nav><div><Eyebrow>Travel Awards 2026</Eyebrow><TextLink href="/nomination">Gửi đề cử của bạn</TextLink></div></div><div className="home-footer-bottom"><span>© 2026 Travel Awards</span><span>THE FIRST SIGNATURE</span><a href="#main">Về đầu trang ↑</a></div></Container></footer>
