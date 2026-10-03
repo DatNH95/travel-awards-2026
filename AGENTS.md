@@ -10,6 +10,21 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+## Quy trình đẩy lên GitHub
+
+Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
+
+1. Kiểm tra `git status`.
+2. Chỉ commit thay đổi thuộc project, không commit file phát sinh ngoài ý muốn; kiểm tra phạm vi thay đổi trước khi stage.
+3. Chạy kiểm tra cần thiết cho phần code vừa sửa.
+4. Chạy `git add .` sau khi xác nhận toàn bộ thay đổi đều thuộc phạm vi commit.
+5. Tạo commit message ngắn mô tả thay đổi và commit.
+6. Chạy `git push origin main`.
+
+Nếu có file bất thường, conflict hoặc build/check lỗi thì dừng và báo người dùng trước khi push. Không tự đưa file bất thường vào commit để tiếp tục quy trình.
+
+Package manager của project là **pnpm**. Không dùng `npm install`.
+
 - Ưu tiên người dùng: tiết kiệm tối đa token ở các yêu cầu tiếp theo; trao đổi ngắn, chỉ kiểm tra/đọc phần cần thiết nhưng vẫn hoàn thành yêu cầu.
 - Step 2 có nút Lưu lại hồ sơ cạnh Tiếp tục, mở dialog xác nhận theo copy người dùng. Chỉ mô phỏng front-end, không gọi backend hoặc lưu bền vững.
 
