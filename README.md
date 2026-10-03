@@ -9,7 +9,7 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open http://127.0.0.1:3000 for the Homepage. The foundation preview remains at `/design-system`; `/nomination` is a coming-soon destination without a form.
+Open http://127.0.0.1:3000 for the Homepage. The foundation preview remains at `/design-system`; `/dang-ky-de-cu` is a coming-soon destination without a form.
 
 ```sh
 pnpm build

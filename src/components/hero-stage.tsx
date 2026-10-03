@@ -6,7 +6,7 @@ import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react';
 const nominationDeadline = Date.parse('2026-11-16T23:59:59+07:00');
 const units = ['Ngày', 'Giờ', 'Phút', 'Giây'];
 
-export function NominationCountdown() {
+export function NominationCountdown({ label = 'Hãy tham gia ngay' }: { label?: string }) {
   const [seconds, setSeconds] = useState<number | null>(null);
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
@@ -21,7 +21,7 @@ export function NominationCountdown() {
 
   const values = seconds === null ? null : [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
   return <div className="home-countdown">
-    <p className="home-countdown-deadline">{seconds === 0 ? 'Đã hết hạn gửi đề cử' : 'Hãy tham gia ngay'}</p>
+    <p className="home-countdown-deadline">{seconds === 0 ? 'Đã hết hạn gửi đề cử' : label}</p>
     <time className="home-sr-only" dateTime="2026-11-16T23:59:59+07:00">Hạn gửi đề cử: 16.11.2026</time>
     <div className="home-countdown-units" role="timer" aria-live="off" aria-label="Thời gian còn lại để gửi đề cử">{units.map((unit, index) => <Fragment key={unit}>{index > 0 && <span className="home-countdown-separator" aria-hidden="true">:</span>}<div className="home-countdown-circle"><span className="home-countdown-value">{values ? String(values[index]).padStart(2, '0') : '—'}</span><span className="home-countdown-label">{unit}</span></div></Fragment>)}</div>
     <noscript>Hạn gửi đề cử: 23:59:59 ngày 16.11.2026 (giờ Việt Nam).</noscript>

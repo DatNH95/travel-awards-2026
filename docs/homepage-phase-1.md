@@ -8,7 +8,7 @@ The root route now renders the Homepage in the requested order: Header, Hero, Ab
 - Existing primary, soft mint and deep teal surfaces establish the page rhythm. Arial / Helvetica sans-serif is shared by display, headings and body; it remains a temporary UI fallback.
 - Asymmetric type-led sections, generous whitespace, ruled timeline and an editorial award list replace card layouts. SignatureDivider appears only in the Awards chapter.
 - Awards tabs support pointer and arrow/Home/End keyboard interaction and display 6 or 9 entries.
-- Every nomination CTA leads to `/nomination`, a lightweight coming-soon destination without a form or backend.
+- Every nomination CTA leads to `/dang-ky-de-cu`, a lightweight coming-soon destination without a form or backend.
 
 ## Pending official content
 

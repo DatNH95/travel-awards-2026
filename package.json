@@ -10,17 +10,18 @@
     "assets:generate": "node scripts/prepare-assets.cjs"
   },
   "dependencies": {
+    "libphonenumber-js": "1.13.14",
     "next": "16.3.8",
     "react": "19.3.0",
     "react-dom": "19.3.0"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.3",
-    "tailwindcss": "4.3.3",
-    "typescript": "7.0.2",
     "@types/node": "26.6.3",
     "@types/react": "19.3.0",
-    "@types/react-dom": "19.3.0"
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "4.3.3",
+    "typescript": "7.0.2"
   },
   "packageManager": "pnpm@11.19.0"
 }

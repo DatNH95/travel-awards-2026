@@ -10,7 +10,52 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+- Ưu tiên người dùng: tiết kiệm tối đa token ở các yêu cầu tiếp theo; trao đổi ngắn, chỉ kiểm tra/đọc phần cần thiết nhưng vẫn hoàn thành yêu cầu.
+- Step 2 có nút Lưu lại hồ sơ cạnh Tiếp tục, mở dialog xác nhận theo copy người dùng. Chỉ mô phỏng front-end, không gọi backend hoặc lưu bền vững.
+
+### Nomination 03.10.2026 — Prompt 02
+
+- Đối chiếu sheet mới: tab form đăng ký, A81:A165 chứa mục III của 5 hạng mục Trụ cột còn lại; toàn bộ trường và minh chứng đã khớp registration-data.ts. Tab Nhóm giải thưởng khác đã được gộp vào tab form đăng ký. Chưa có phần III riêng Tiên phong trong vùng bổ sung.
+
+- Form đăng ký: viền focus #23aaff; viền và thông báo lỗi #da0803, lỗi ưu tiên khi ô vẫn đang focus. Áp dụng input/textarea, ô điện thoại và URL; không đổi focus token toàn website.
+- Refinement mới: cụm breadcrumb/title/countdown cách menu header 24pt (32px), chỉ áp dụng trang đăng ký.
+- Dấu sao bắt buộc màu đỏ; Người đại diện chỉ là title, Họ và tên/điện thoại/email bắt buộc, chức vụ tùy chọn. Mã quốc gia nằm trong ô điện thoại, mặc định Việt Nam; libphonenumber-js 1.13.14 kiểm tra số quốc tế, email/số sai hiện lỗi nội tuyến.
+- Hình ảnh tùy chọn, mỗi ảnh 1–10MB, PNG/JPG/JPEG/WebP/GIF/AVIF/HEIC/HEIF. Hồ sơ giới thiệu PDF/PPT/PPTX tối đa 20MB mỗi tệp. Pháp lý gồm upload PDF/DOC/DOCX và ô link bản scan (cung cấp ít nhất một cách). Video link full-width có icon quả cầu và placeholder https://. Tệp chọn thêm được cộng dồn, bỏ trùng và có nút bỏ từng tệp; chưa upload thật.
+- Build/TypeScript đạt; kiểm tra lỗi liên hệ, ngưỡng dung lượng, đổi quốc gia, Next/Back giữ tệp/dữ liệu và mobile 390px không tràn. Native required validation chặn chuyển bước khi thiếu thông tin.
+
+- Cập nhật mới: gộp steps 03/04/05 vào step 02 Thông tin đăng ký, tiến trình còn 4 bước Chọn giải thưởng → Thông tin đăng ký → Xác nhận → Thành công. Step 2 có các phần thông tin đăng ký/đại diện, thông tin đề cử, số liệu chuyên môn theo 6 hạng mục Trụ cột, điều kiện tuân thủ, hồ sơ và minh chứng từ Google Sheet `1ZRUXD1NWpcISnEUJFeiCT2U8hgSYiSRRBwSAVDZ1PIc` (tabs form đăng ký và Nhóm giải thưởng khác).
+- Trường Cơ quan/đơn vị đại diện đề cử chỉ hiện cho Điểm đến du lịch của năm. Sheet chưa có trường chuyên môn riêng cho 9 Tiên phong; hiện phần chung và ghi chú chờ bổ sung, không tự đặt trường chuyên môn.
+- Draft thông tin và tệp giữ trong phiên component khi Back/Next; chưa có backend/upload thật, validation bắt buộc, email/điện thoại và định dạng/dung lượng tệp đã triển khai; giới hạn số từ chưa triển khai. Step 3 vẫn trạng thái chờ, chưa gửi hồ sơ hoặc mở Thành công. Những ghi chú cũ “chỉ step 1 / 7 bước” bên dưới được thay thế bởi cập nhật này.
+- Cụm title/lead đầu trang được gom thành một khối bên trái countdown, gap 0.5rem; title line-height 1.2 và lead 1.4 theo refinement mới, chỉ áp dụng trang đăng ký. Build/TypeScript đạt; browser kiểm tra đủ 6 cấu hình chuyên môn, Tiên phong, Back/Next giữ dữ liệu, mobile 390px không tràn và console sạch.
+- Intro trang đăng ký dùng breadcrumb “Trang chủ / Đăng ký” thay Travel Awards 2026. Countdown chung Homepage đặt bên phải ngang hàng title trên desktop, xếp dưới title trên mobile; nhãn “Thời gian nhận đề cử còn lại:”, giữ deadline và style ô tròn/blur Homepage.
+- Step 1 dùng lưu ý chung cho Trụ cột và Tiên phong: “Lưu ý: Mỗi hồ sơ chỉ đăng ký cho một hạng mục. Trường hợp muốn tham gia nhiều hạng mục, vui lòng thực hiện hồ sơ riêng cho từng hạng mục.” Thay dòng mô tả Hai nhóm giải thưởng, 15 hạng mục; vẫn chọn một hạng mục mỗi hồ sơ.
+- Route đăng ký đã đổi thành `/dang-ky-de-cu`; toàn bộ internal link/CTA cập nhật cùng route này. Chỉ đổi route, không đổi UI/logic hoặc thêm redirect cho route cũ.
+- Nền riêng trang `/dang-ky-de-cu` dùng `#f5f5f5` theo yêu cầu người dùng; header/footer Phase 1 giữ nền hiện có, không đổi token foundation.
+- Theo yêu cầu bổ sung, `/dang-ky-de-cu` giữ nguyên header/footer Homepage Phase 1 qua `SiteHeader` / `SiteFooter` dùng chung cùng CSS hiện có. Link Thể lệ / Tin tức / Giải thưởng từ nomination dẫn về section Homepage; Về đầu trang vẫn về đầu trang hiện tại. Homepage giữ giao diện và hành vi cũ.
+- `/dang-ky-de-cu` dùng App Router hiện có: application shell, progress 7 bước, Step 1 chọn một hạng mục và Back/Next; desktop progress trái / form phải, mobile một cột progress trên.
+- Dữ liệu 6 Trụ cột / 9 Tiên phong chuyển nguyên văn từ AwardTabs sang `src/data/awards.ts`; Homepage và nomination dùng chung, không thay giao diện/copy Homepage.
+- Tiếp tục khóa khi chưa chọn; sau khi chọn chỉ mở trạng thái chờ bước 2. Quay lại bằng nút hoặc progress giữ lựa chọn trong phiên component; reload không lưu lựa chọn. Các bước khác chưa mở, chưa có form bước sau, backend, upload hoặc animation.
+- Build và TypeScript đạt; browser kiểm tra desktop, mobile 390px không tràn ngang, chọn hạng mục ở cả hai nhóm, Next/Back giữ lựa chọn, Homepage và link về trang chủ; console không có lỗi/cảnh báo.
+- Các mô tả `/dang-ky-de-cu` là trang thông báo ở phần handoff cũ bên dưới đã được thay thế bởi iteration này. Tiếp tục các bước sau chỉ khi có brief mới.
+
 ### Refinement 03.10.2026 — Tin tức và đăng ký đề cử
+
+- CTA Đăng ký đề cử chuẩn dùng component `NominationCTA` trong primitives, có SVG arrow ↗ currentColor, kích thước token 160×55px. Header/Hero/tham gia/Final CTA cùng dùng component này; có specimen `/design-system#controls`. Khi thêm button đề cử ở trang sau, dùng NominationCTA thay vì tự dựng style; text link giữ vai trò riêng.
+
+- Mọi button Đăng ký đề cử trên Homepage (header/Hero/tham gia/Final CTA) cùng kích thước: cao 3.25rem, padding .875rem 1.125rem, chữ 15px/140%, width fit-content; bỏ mũi tên phụ để width đồng nhất. Text link Awards giữ vai trò riêng. Arrow Khám phá hành trình chuyển động xuống nhẹ 2 nhịp rồi nghỉ, lặp chu kỳ 3 giây; reduced motion tắt.
+
+- CTA Hero dùng width fit-content, padding ngang 1.125rem, gap .75rem và letter-spacing .02em để gọn theo nhãn; thay width cố định 15rem.
+
+- Ngoại lệ typography campaign: **Glow On The Go** và **Dấu ấn tiếp theo. Có thể là bạn.** trả giãn dòng về .98 như ban đầu; heading thông thường giữ 140%.
+
+- Quy ước mới: toàn bộ token display/heading dùng line-height **140%** (thay 160%), áp dụng Design System và các trang sau; giãn dòng title bài News vẫn 160%. Chỉ cụm **giải thưởng** trong heading Awards dùng Logo blue `--color-brand-primary` (#0076BE); phần chữ còn lại và title Đăng ký giữ màu nền tảng. Khi làm UI, dùng màu chọn lọc cho từ/cụm được chỉ định để tạo điểm nhấn, không tự tô cả tiêu đề. Minitalk bỏ override .98. Mọi CTA đề cử thống nhất nhãn **Đăng ký đề cử**, route `/dang-ky-de-cu`; Hero CTA rộng 15rem để nhãn mới không xuống dòng.
+
+- Header menu dùng font-size 15px và thêm CTA **Đăng ký đề cử** sau Tin tức, style button primary Design System, dẫn `/dang-ky-de-cu`; dùng chung Homepage và trang đề cử. Mọi CTA Gửi đề cử đã kiểm tra cùng dẫn `/dang-ky-de-cu`.
+
+- Sửa nhấp nháy reveal khi cuộn lên tại Final CTA: theo dõi vị trí layout bằng offset (không chịu ảnh hưởng transform/clip-path), cập nhật qua requestAnimationFrame khi scroll/resize. Entry cách mép 32px; chỉ reset sau khi ra ngoài viewport 64px để tránh bật/tắt ở ranh giới. Vẫn replay hai chiều và tôn trọng reduced motion.
+
+- Scroll reveal **chạy lại khi nội dung vào viewport ở cả chiều cuộn xuống và lên** trên toàn Homepage, gồm Hero title; reset class khi rời viewport, không unobserve sau lần đầu. Hero giữ kiểu signature-reveal; heading khác mở chữ trái sang phải. Reduced motion tắt hiệu ứng; count-up 15 vẫn một lần.
+- Tránh nhấp nháy reveal: clip-path có thể làm observer báo không giao nhau giữa animation; chỉ xóa class khi bounding box thực sự ra ngoài viewport, không reset theo isIntersecting=false đơn thuần.
 
 - Header có icon thông báo `public/assets/key-visual/notification.svg` 20×20 đặt sau chữ Đăng nhập; chỉ hiển thị icon, chưa có popup hay chức năng thông báo.
 
@@ -80,7 +125,7 @@ pnpm assets:generate
 | `src/styles/tokens.css` | Palette semantic, typography, spacing, grid, image ratios và motion tokens |
 | `src/app/layout.tsx` | Root layout tiếng Việt, skip link `#main`, metadata mặc định; hiện `robots` noindex/nofollow |
 | `src/app/design-system/page.tsx` | Trang review foundation `/design-system` |
-| `src/app/nomination/page.tsx` | `/nomination`: thông báo sẽ cập nhật, không phải form |
+| `src/app/dang-ky-de-cu/page.tsx` | `/dang-ky-de-cu`: thông báo sẽ cập nhật, không phải form |
 | `src/components/primitives.tsx` | `Container`, `Section`, `Surface`, `Eyebrow`, `SectionHeading`, `Button`, `TextLink`, `ResponsiveImage` |
 | `src/components/brand-graphics.tsx` | `BrandGraphic`, `SignatureDivider`, `SectionMarker`, `GraphicAccent` |
 | `src/components/award-tabs.tsx` | Tabs Trụ cột/Tiên phong, keyboard navigation, 6/9 entries placeholder |
@@ -131,7 +176,7 @@ Thứ tự giữ nguyên: **Header → Hero → About → Award Journey → Awar
 | About `#about` | Giữ hai cột: tiêu đề The First Signature / Dấu ấn tiên phong bên trái cùng font sans-serif, nội dung người dùng cung cấp bên phải; link **Xem chi tiết** → `#participate`. Đã bỏ ba signoff và đường kẻ bên dưới. |
 | Journey `#journey` | Tiêu đề Agenda sự kiện; timeline ba cột: 01 / Đề cử — Vòng Sơ loại (Tháng 9 - Tháng 11), 02 / Bình chọn — Sơ loại / Chung kết (Tháng 11 - Tháng 12), 03 / Vinh danh — Gala trao giải (Tháng 1/2027). Nội dung chính thức do người dùng cung cấp; tỷ trọng 40% độc giả / 60% Hội đồng, riêng Giải Bình chọn hoàn toàn theo độc giả. Bỏ câu phụ cạnh tiêu đề, thêm Xem thể lệ tới #participate; nhãn vòng và thời gian 18px; thời gian cùng màu tiêu đề, cách tiêu đề 0.5rem và cách mô tả 1.5rem, mô tả box 01 hiển thị đầy đủ không chấm lửng; box 02/03 giới hạn 38 từ, chỉ thêm dấu chấm lửng nếu dài hơn (giữ copy đầy đủ trong source; ba cột cùng chiều cao, cụm tiêu đề/thời gian sát nhau và mô tả bắt đầu cùng hàng). Line reveal trái sang phải 1400ms, chữ fade 1200ms với delay 250–450ms, chạy một lần khi cuộn và tắt khi reduced motion. Lịch mới chỉ cập nhật Journey; countdown Hero chưa được yêu cầu đổi. |
 | Awards `#awards` | Surface mint, nhãn Giải thưởng; số 15 lớn hơn, đếm 0–15 trong 1800ms khi vào viewport một lần, reduced motion hiển thị ngay 15; tab Trụ cột 6 / Tiên phong 9, list có số thứ tự. Click và ArrowLeft/Right/Home/End hoạt động. Tên/tiêu chí vẫn placeholder “chờ công bố”. |
-| Participation `#participate` | 01 Chọn hạng mục → 02 Chuẩn bị hồ sơ → 03 Gửi đề cử; CTA `/nomination`. |
+| Participation `#participate` | 01 Chọn hạng mục → 02 Chuẩn bị hồ sơ → 03 Gửi đề cử; CTA `/dang-ky-de-cu`. |
 | Minitalk `#minitalk` | Glow On The Go.; surface deep; lịch/khách mời chưa công bố. |
 | News `#news` | 1 featured + 3 bài phụ, copy ghi rõ preview, featured dùng KV V2; chưa có bài/ảnh/link bài chính thức. |
 | Final CTA `#nominate` | Surface deep, “Dấu ấn tiếp theo. Có thể là bạn.”, CTA và deadline. |
@@ -148,7 +193,7 @@ Lưu ý đánh số: người dùng gọi **khu vực 1 = Header**, **khu vực 
 
 Links hiện tại:
 
-- Mọi CTA gửi đề cử → `/nomination`. Route này chỉ có thông báo nhận đề cử 16.10–16.11.2026 và quay về hướng dẫn tham gia.
+- Mọi CTA gửi đề cử → `/dang-ky-de-cu`. Route này chỉ có thông báo nhận đề cử 16.10–16.11.2026 và quay về hướng dẫn tham gia.
 - Header `Thể lệ` và About `Xem chi tiết` → `#participate`, chưa có trang thể lệ chính thức.
 - Header `Tin tức` → `#news`; icon home/logo → `/`.
 - Publisher → `https://vnexpress.net/`, Du lịch → `https://vnexpress.net/du-lich`.
@@ -184,4 +229,8 @@ Links hiện tại:
 - [ ] Đồng bộ tài liệu cũ khi cập nhật docs: `docs/design-foundation.md`, `docs/visual-refinement.md`, `docs/verification.md` vẫn có câu “No Homepage” từ snapshot foundation; README/docs chưa ghi đầy đủ ngoại lệ serif và refinement header/About/scroll. **Code hiện tại và handoff này là trạng thái mới hơn**, không xóa Homepage để khớp notes cũ.
 
 Sau mỗi iteration, cập nhật phần trạng thái/checklist của file này nếu có quyết định quan trọng mới; không ghi session IDs hoặc trạng thái runtime tạm thời thành quy ước dự án.
+
+
+
+
 

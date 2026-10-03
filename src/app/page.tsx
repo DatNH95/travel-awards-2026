@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Link from 'next/link';
+
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
-import { Container, Eyebrow, Section, TextLink } from '@/components/primitives';
+import { Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { HeroStage, NominationCountdown } from '@/components/hero-stage';
-import { HeaderNavigation } from '@/components/header-navigation';
+import { SiteHeader } from '@/components/site-header';
 import { AwardCount } from '@/components/award-count';
 import { SiteFooter } from '@/components/site-footer';
 import './home.css';
@@ -16,9 +16,6 @@ export const metadata: Metadata = {
   description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 16.11.2026.',
 };
 
-function NominationLink({ children = 'GỬI ĐỀ CỬ' }: { children?: React.ReactNode }) {
-  return <Link href="/nomination" className="button button--primary home-cta">{children}<span aria-hidden="true">↗</span></Link>;
-}
 
 // Demo articles from VnExpress Du lịch; replace when campaign news is supplied.
 const newsItems = [
@@ -47,18 +44,7 @@ const newsItems = [
 export default function HomePage() {
   return <div className="home">
     <ScrollReveal />
-    <header className="home-header">
-      <div className="home-publisher-bar">
-        <Container className="home-publisher-inner">
-          <div className="home-publisher-links"><a className="home-publisher-name" href="https://vnexpress.net/">VnExpress</a><span className="home-publisher-separator" aria-hidden="true" /><a href="https://vnexpress.net/du-lich">Du lịch</a></div>
-          <div className="home-account-actions"><a className="home-account-link" href="https://my.vnexpress.net/" target="_blank" rel="noopener noreferrer"><Image src="/assets/key-visual/login.svg" alt="" aria-hidden="true" width={20} height={20} unoptimized /><span>Đăng nhập</span></a><Image className="home-header-notification" src="/assets/key-visual/notification.svg" alt="Thông báo" width={20} height={20} unoptimized /></div>
-        </Container>
-      </div>
-      <Container className="home-header-inner">
-        <Link href="/#main" aria-label="Travel Awards — Trang chủ"><BrandGraphic variant="logo" /></Link>
-        <HeaderNavigation />
-      </Container>
-    </header>
+    <SiteHeader />
     <main id="main">
       <HeroStage>
         <Image className="home-hero-landscape" src="/assets/key-visual/travel-awards-kv-v2.png" alt="" aria-hidden="true" width={1920} height={1080} unoptimized preload />
@@ -66,7 +52,7 @@ export default function HomePage() {
           <Eyebrow>Travel Awards 2026</Eyebrow>
           <h1 id="hero-title"><span className="home-sr-only">THE FIRST SIGNATURE — DẤU ẤN TIÊN PHONG</span><BrandGraphic variant="campaign" /></h1>
           <p className="home-hero-statement">Tôn vinh những dấu ấn góp phần định hình<br className="home-desktop-break" /> tương lai du lịch Việt Nam.</p>
-          <div className="home-hero-actions"><NominationCountdown /><NominationLink /></div>
+          <div className="home-hero-actions"><NominationCountdown /><NominationCTA className="home-cta" /></div>
         </div>
         <div className="home-hero-foot"><a href="#about">Khám phá hành trình <span aria-hidden="true">↓</span></a></div>
       </HeroStage>
@@ -101,7 +87,7 @@ export default function HomePage() {
             <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Tìm hạng mục phù hợp với dấu ấn bạn muốn đề cử.</p></div></div>
             <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Kể câu chuyện của bạn cùng thông tin và minh chứng liên quan.</p></div></div>
             <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 16.11.2026.</p></div></div>
-            <NominationLink />
+            <NominationCTA className="home-cta" />
           </div></div>
         </Container>
       </Section>
@@ -122,7 +108,7 @@ export default function HomePage() {
         </Container>
       </Section>
       <Section id="nominate" tone="brand-deep" className="home-final-cta">
-        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationLink /><p className="home-final-deadline">Nhận đề cử đến 16.11.2026</p></Container>
+        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta" /><p className="home-final-deadline">Nhận đề cử đến 16.11.2026</p></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
         <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>
@@ -131,3 +117,4 @@ export default function HomePage() {
     <SiteFooter />
   </div>;
 }
+

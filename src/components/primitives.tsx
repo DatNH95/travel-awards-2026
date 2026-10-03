@@ -1,4 +1,5 @@
 import Image, { type ImageProps } from 'next/image';
+import Link from 'next/link';
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, ReactNode } from 'react';
 
 export type SurfaceTone = 'primary' | 'brand-soft' | 'brand-deep' | 'secondary' | 'inverse';
@@ -28,6 +29,10 @@ export function SectionHeading({ eyebrow, children, description, level = 2 }: { 
 
 export function Button({ variant = 'primary', className, type = 'button', ...props }: ButtonHTMLAttributes<HTMLButtonElement> & { variant?: 'primary' | 'secondary' }) {
   return <button type={type} className={cx('button', `button--${variant}`, className)} {...props} />;
+}
+
+export function NominationCTA({ className }: { className?: string }) {
+  return <Link href="/dang-ky-de-cu" className={cx('button', 'button--primary', 'button--nomination', className)}>Đăng ký đề cử<svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>;
 }
 
 export function TextLink({ className, children, disabled, ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { disabled?: boolean }) {
