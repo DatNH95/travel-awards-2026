@@ -10,6 +10,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+- Hero typo Dấu ấn tiên phong có ánh sáng lướt theo mask artwork gốc, chu kỳ 7 giây có khoảng nghỉ; không đổi SVG/màu nền chữ. Reduced motion tắt sheen. Build/TypeScript đạt.
+
 ## Quy trình đẩy lên GitHub
 
 Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
