@@ -35,6 +35,10 @@
   --color-disabled-text: #32787c;
   --font-display: Arial, Helvetica, sans-serif;
   --font-body: Arial, Helvetica, sans-serif;
+  --text-news-title: 2rem;
+  --text-news-section-title: var(--text-display-l);
+  --text-news-title-secondary: 1.5rem;
+  --text-news-title--line-height: 1.6;
   --spacing: 0.25rem;
   --spacing-gutter: clamp(1.25rem, 4vw, 4rem);
   --spacing-section: clamp(3.5rem, 7vw, 7rem);
@@ -53,7 +57,7 @@
   --text-display-xl: clamp(3rem, 7vw, 6.5rem);
   --text-display-xl--line-height: 0.98;
   --text-display-xl--letter-spacing: -0.02em;
-  --text-display-l: clamp(2.5rem, 5vw, 4.75rem);
+  --text-display-l: 38pt;
   --text-display-l--line-height: 1.05;
   --text-display-l--letter-spacing: -0.02em;
   --text-heading-1: clamp(2.25rem, 4vw, 3.5rem);

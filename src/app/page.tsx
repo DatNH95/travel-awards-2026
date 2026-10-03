@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import { BrandGraphic, SectionMarker, SignatureDivider } from '@/components/brand-graphics';
-import { Container, Eyebrow, Section, TextLink, ResponsiveImage } from '@/components/primitives';
+import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
+import { Container, Eyebrow, Section, TextLink } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { HeroStage, NominationCountdown } from '@/components/hero-stage';
@@ -20,14 +20,29 @@ function NominationLink({ children = 'GỬI ĐỀ CỬ' }: { children?: React.Re
   return <Link href="/nomination" className="button button--primary home-cta">{children}<span aria-hidden="true">↗</span></Link>;
 }
 
-function ChapterLabel({ number, children }: { number: string; children: React.ReactNode }) {
-  return <div className="home-chapter"><span>{number}</span><SectionMarker /><Eyebrow>{children}</Eyebrow></div>;
-}
-
-function journeyLead(text: string) {
-  const words = text.trim().split(/\s+/);
-  return words.length > 38 ? `${words.slice(0, 38).join(' ')}…` : text;
-}
+// Demo articles from VnExpress Du lịch; replace when campaign news is supplied.
+const newsItems = [
+  {
+    title: 'Tà Xùa lần đầu được vinh danh điểm đến mới nổi hàng đầu châu Á',
+    href: 'https://vnexpress.net/ta-xua-lan-dau-duoc-vinh-danh-diem-den-moi-noi-hang-dau-chau-a-5126915.html',
+    image: 'https://i1-dulich.vnecdn.net/2026/10/01/2aobor24edwga8cozpy3gh08dgf2j1-3502-7965-1790818861.webp?w=1200&h=675&q=100&dpr=1&fit=crop&s=-4yZB3eD8lf5Ylkuk6L7yg',
+  },
+  {
+    title: 'Tour cùng kiểm lâm xuyên rừng Cát Tiên được đề cử giải du lịch thế giới',
+    href: 'https://vnexpress.net/tour-cung-kiem-lam-xuyen-rung-cat-tien-duoc-de-cu-giai-du-lich-the-gioi-5126696.html',
+    image: 'https://i1-dulich.vnecdn.net/2026/09/30/trekking-canhdongtalai-1790755-6724-8000-1790755048.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ouyLF0Ak6vYQlXk_JKvTfQ',
+  },
+  {
+    title: 'Cao Bằng vào mùa gặt',
+    href: 'https://vnexpress.net/cao-bang-vao-mua-gat-5125445.html',
+    image: 'https://i2-vnexpress.vnecdn.net/2026/09/27/DJI-0251-copy-4-1790519911.png?w=1200&h=675&q=100&dpr=1&fit=crop&s=TinwzC029-jInqWaUduOjw',
+  },
+  {
+    title: "Phong Nha - Kẻ Bàng giành 'cú đúp' giải thưởng du lịch quốc tế",
+    href: 'https://vnexpress.net/phong-nha-ke-bang-gianh-cu-dup-giai-thuong-du-lich-quoc-te-5125627.html',
+    image: 'https://i1-dulich.vnecdn.net/2026/09/28/dji-1790570736-3186-1790570740.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=IBzng60cz4dpQdDmRDBr2A',
+  },
+];
 
 export default function HomePage() {
   return <div className="home">
@@ -36,7 +51,7 @@ export default function HomePage() {
       <div className="home-publisher-bar">
         <Container className="home-publisher-inner">
           <div className="home-publisher-links"><a className="home-publisher-name" href="https://vnexpress.net/">VnExpress</a><span className="home-publisher-separator" aria-hidden="true" /><a href="https://vnexpress.net/du-lich">Du lịch</a></div>
-          <a className="home-account-link" href="https://my.vnexpress.net/" target="_blank" rel="noopener noreferrer"><Image src="/assets/key-visual/login.svg" alt="" aria-hidden="true" width={20} height={20} unoptimized /><span>Đăng nhập</span></a>
+          <div className="home-account-actions"><a className="home-account-link" href="https://my.vnexpress.net/" target="_blank" rel="noopener noreferrer"><Image src="/assets/key-visual/login.svg" alt="" aria-hidden="true" width={20} height={20} unoptimized /><span>Đăng nhập</span></a><Image className="home-header-notification" src="/assets/key-visual/notification.svg" alt="Thông báo" width={20} height={20} unoptimized /></div>
         </Container>
       </div>
       <Container className="home-header-inner">
@@ -57,7 +72,6 @@ export default function HomePage() {
       </HeroStage>
       <Section id="about" className="home-about">
         <Container>
-          <ChapterLabel number="01">Về Travel Awards</ChapterLabel>
           <div className="home-split">
             <h2 className="type-display-l"><span className="home-about-signature">The First Signature</span><br />Dấu ấn tiên phong</h2>
             <div className="home-copy"><p className="type-body-large">Travel Awards là giải thưởng thường niên về du lịch nhằm tôn vinh những điểm đến, doanh nghiệp và dịch vụ du lịch tiêu biểu của Việt Nam.</p><p>Chủ đề của mùa giải đầu tiên Travel Awards, đánh dấu sự khởi đầu của hành trình tôn vinh những điểm đến, doanh nghiệp và cá nhân tiên phong đang kiến tạo những giá trị mới cho du lịch Việt Nam. Mỗi dấu ấn được ghi nhận không chỉ là thành tựu của hôm nay mà còn là nguồn cảm hứng cho sự phát triển bền vững của ngành trong tương lai.</p><TextLink href="#participate">Xem chi tiết</TextLink></div>
@@ -66,27 +80,24 @@ export default function HomePage() {
       </Section>
       <Section id="journey" className="home-journey">
         <Container>
-          <ChapterLabel number="02">Award Journey</ChapterLabel>
-          <div className="home-section-title"><h2 className="type-display-l">Hành trình của một dấu ấn.</h2><TextLink href="#participate">Xem thể lệ</TextLink></div>
+          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink href="#participate">Xem thể lệ</TextLink></div>
           <ol className="home-timeline">
             <li><span className="home-timeline-index">01 / Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 9 - Tháng 11</p></div><p>Các doanh nghiệp, điểm đến, dịch vụ và đơn vị hoạt động trong lĩnh vực du lịch trên toàn quốc gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục thông qua cổng đăng ký trên chuyên trang Travel Awards.</p></li>
-            <li><span className="home-timeline-index">02 / Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>{journeyLead('Công bố danh sách các đề cử hợp lệ bước vào vòng Sơ loại. Độc giả VnExpress bình chọn cho các đề cử yêu thích, đồng thời Hội đồng chuyên môn tiến hành đánh giá theo bộ tiêu chí của từng hạng mục. Kết quả được tính dựa trên 40% điểm bình chọn của độc giả và 60% điểm đánh giá của Hội đồng chuyên môn.')}</p></li>
-            <li><span className="home-timeline-index">03 / Vinh danh</span><div className="home-timeline-summary"><h3 className="type-heading-2">Gala trao giải</h3><p className="home-timeline-date">Tháng 1/2027</p></div><p>{journeyLead('Công bố danh sách đề cử vào vòng Chung kết. Độc giả tiếp tục bình chọn cho các đề cử xuất sắc nhất, song song với quá trình chấm điểm của Hội đồng chuyên môn. Kết quả chung cuộc được tính dựa trên 40% điểm bình chọn của độc giả và 60% điểm đánh giá của Hội đồng chuyên môn đối với tất cả các hạng mục, ngoại trừ Giải Bình chọn, được quyết định hoàn toàn dựa trên kết quả bình chọn của độc giả.')}</p></li>
+            <li><span className="home-timeline-index">02 / Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Công bố danh sách đề cử. Độc giả tiếp tục bình chọn cho các đề cử xuất sắc nhất, song song với quá trình chấm điểm của Hội đồng chuyên môn. Kết quả chung cuộc được tính dựa trên 40% điểm bình chọn của độc giả và 60% điểm đánh giá của Hội đồng chuyên môn đối với tất cả các hạng mục, ngoại trừ Giải Bình chọn, được quyết định hoàn toàn dựa trên kết quả bình chọn của độc giả.</p></li>
+            <li><span className="home-timeline-index">03 / Vinh danh</span><div className="home-timeline-summary"><h3 className="type-heading-2">Gala trao giải</h3><p className="home-timeline-date">Tháng 1/2027</p></div><p>Công bố các đề cử trúng giải, hoạt động bên lề Gala vinh danh.</p></li>
           </ol>
         </Container>
       </Section>
       <Section id="awards" tone="brand-soft" className="home-awards">
         <Container>
-          <ChapterLabel number="03">Giải thưởng</ChapterLabel>
-          <div className="home-split"><div><h2 className="type-display-l">Giá trị bền vững.<br />Tinh thần tiên phong.</h2><p className="home-awards-intro">Hai nhóm giải thưởng. Mười lăm hạng mục.<br />Nhiều cách để tạo nên một dấu ấn.</p></div><div className="home-awards-count"><AwardCount /><Eyebrow>Hạng mục vinh danh</Eyebrow></div></div>
+          <div className="home-split"><div><h2 className="type-display-l home-awards-title">Hạng mục <span>giải thưởng</span><br />Travel Awards</h2><p className="home-awards-intro">Hai nhóm giải thưởng chính, 15 hạng mục.</p></div><div className="home-awards-count"><AwardCount /><Eyebrow>Hạng mục vinh danh</Eyebrow></div></div>
           <SignatureDivider />
           <AwardTabs />
         </Container>
       </Section>
       <Section id="participate" className="home-participate">
         <Container>
-          <ChapterLabel number="04">How to Participate</ChapterLabel>
-          <div className="home-split"><h2 className="type-display-l">Dấu ấn của bạn.<br />Bắt đầu từ đây.</h2><div className="home-steps">
+          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><TextLink href="#nomination-guide">Hướng dẫn đăng ký</TextLink></div><div id="nomination-guide" className="home-steps">
             <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Tìm hạng mục phù hợp với dấu ấn bạn muốn đề cử.</p></div></div>
             <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Kể câu chuyện của bạn cùng thông tin và minh chứng liên quan.</p></div></div>
             <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 16.11.2026.</p></div></div>
@@ -96,21 +107,17 @@ export default function HomePage() {
       </Section>
       <Section id="minitalk" tone="brand-deep" className="home-minitalk">
         <Container>
-          <ChapterLabel number="05">Minitalk / Những cuộc trò chuyện</ChapterLabel>
-          <div className="home-minitalk-grid"><div><Eyebrow>Travel. Ideas. Inspiration.</Eyebrow><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><p className="type-heading-2">Đi để khám phá.<br />Gặp để mở lối.</p><p>Những cuộc trò chuyện về hành trình, cảm hứng và các góc nhìn mới cho du lịch Việt Nam.</p><div className="home-coming-soon"><span className="type-label">Sắp công bố</span><p>Lịch trò chuyện và khách mời sẽ được cập nhật.</p></div></div></div>
+          <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chuỗi minitalk chia sẻ về tư duy chăm da khoa học, phong cách sống hiện đại và giải pháp dưỡng da đặc trị đa nhiệm dành riêng cho phái đẹp trong mỗi hành trình du lịch, di chuyển nhưng da vẫn đẹp.</p><div className="home-coming-soon"><span className="home-minitalk-reminder-icon" aria-hidden="true" /><p>Tập đầu tiên ngày 23/10.</p></div></div></div>
         </Container>
       </Section>
       <Section id="news" className="home-news">
         <Container>
-          <ChapterLabel number="06">News / Nhật ký hành trình</ChapterLabel>
-          <div className="home-section-title"><h2 className="type-display-l">Những câu chuyện tiếp nối.</h2><span className="home-content-status">Nội dung preview · chờ bài viết chính thức</span></div>
+          <div className="home-section-title"><h2 className="type-display-l">Tin tức</h2></div>
           <div className="home-news-grid">
-            <article className="home-news-feature"><ResponsiveImage src="/assets/key-visual/travel-awards-kv-v2.png" alt="Cảnh quan và địa danh Việt Nam từ Key Visual Travel Awards 2026" ratio="wide" unoptimized /><Eyebrow>Travel Awards 2026 / Câu chuyện thương hiệu</Eyebrow><h3 className="type-heading-1">Dấu ấn tiên phong:<br />mở ra một hành trình mới.</h3><p>Một góc nhìn về những giá trị góp phần định hình tương lai du lịch Việt Nam.</p></article>
-            <div className="home-news-secondary">
-              <article><Eyebrow>01 / Giải thưởng</Eyebrow><h3 className="type-heading-2">Hai nhóm giải thưởng.<br />Một tinh thần tiên phong.</h3><p>Ghi nhận nền tảng bền vững và những hướng đi mới.</p></article>
-              <article><Eyebrow>02 / Hành trình</Eyebrow><h3 className="type-heading-2">Từ câu chuyện của bạn<br />đến dấu ấn cộng đồng.</h3><p>Cùng lan tỏa những hành trình xứng đáng được biết đến.</p></article>
-              <article><Eyebrow>03 / Minitalk</Eyebrow><h3 className="type-heading-2">Glow On The Go.<br />Cảm hứng trên mỗi bước đi.</h3><p>Những cuộc gặp gỡ để nhìn du lịch từ một góc mới.</p></article>
-            </div>
+            {newsItems.map((item, index) => <article className={`home-news-item${index === 0 ? ' home-news-item--featured' : ''}`} key={item.href}>
+              <a className="home-news-image" href={item.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={1000} height={600} unoptimized /></a>
+              <h3 className="type-news-title"><a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
+            </article>)}
           </div>
         </Container>
       </Section>

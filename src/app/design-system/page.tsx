@@ -11,9 +11,11 @@ const palette = [
   ['brand-leaf', 'Landscape leaf', '#BADCAD'], ['text-primary', 'Ink', '#263C53'],
 ] as const;
 const typography = [
-  ['display-xl', 'Display XL', 'Dấu ấn tiên phong'], ['display-l', 'Display L', 'The First Signature'],
+  ['display-xl', 'Display XL', 'Dấu ấn tiên phong'], ['display-l', 'Section title · 38pt (50.667px)', 'The First Signature'],
   ['heading-1', 'Heading 1', 'Một hành trình mới'], ['heading-2', 'Heading 2', 'Tôn vinh những dấu ấn'],
   ['heading-3', 'Heading 3', 'Câu chuyện của điểm đến'],
+  ['news-title', 'News title · 24pt (32px) / giãn dòng 160%', 'Những câu chuyện trên hành trình khám phá Việt Nam'],
+  ['news-title-secondary', 'News title phụ · 18pt (24px) / giãn dòng 160%', 'Câu chuyện của những điểm đến Việt Nam'],
   ['body-large', 'Body Large', 'Nơi di sản, thiên nhiên và những hành trình gặp nhau.'],
   ['body', 'Body', 'Mỗi dấu ấn mở ra một góc nhìn mới về du lịch Việt Nam.'],
   ['body-small', 'Body Small', 'Khám phá những trải nghiệm tạo nên sự khác biệt.'],
@@ -53,7 +55,6 @@ export default function DesignSystem() {
       <Section id="images"><Container><SpecimenTitle number="05">Image treatment</SpecimenTitle><p className="preview-note">Ưu tiên crop editorial 4:3, 3:4 hoặc 16:9; cạnh thẳng, không bo góc mặc định. Motif chữ nằm ngoài ảnh để giữ nội dung ảnh rõ ràng. Repo chưa có photography chính thức.</p><div className="image-grid"><figure><ResponsiveImage src="/assets/key-visual/travel-awards-kv-v2.png" alt="Crop minh họa từ KV: cảnh quan, núi và dòng sông" unoptimized /><figcaption>ResponsiveImage / 4:3 · minh họa crop bằng KV, chưa phải ảnh photography.</figcaption><div className="mt-4 contour-line" aria-hidden="true" /></figure><figure><div className="image-placeholder"><div><SectionMarker /><p className="type-heading-3 mt-4">Chờ ảnh chính thức</p><p className="type-body-small mt-4">Điểm đến · Con người · Trải nghiệm</p></div></div><figcaption>Khung photography 4:3 · chỉ là placeholder cho việc review treatment.</figcaption></figure><figure className="image-full-bleed-specimen"><ResponsiveImage ratio="wide" treatment="full-bleed" src="/assets/key-visual/travel-awards-kv-v2.png" alt="KV minh họa treatment full bleed 16:9" unoptimized /><figcaption>Full bleed 16:9 · chiếm toàn bề ngang vùng composition, không border/card. Mẫu này dùng KV; ảnh photography vẫn chưa có.</figcaption></figure></div></Container></Section>
 
       <MotionRefinement />
-
       <Section id="headings" tone="brand-deep"><Container><SpecimenTitle number="06">Section heading</SpecimenTitle><SectionHeading eyebrow="The First Signature" description="Một hệ thống chung cho những câu chuyện, hành trình và dấu ấn sẽ được phát triển ở các bước tiếp theo.">Tôn vinh dấu ấn.<br />Mở lối hành trình.</SectionHeading></Container></Section>
     </main>
     <footer className="preview-footer"><Container className="preview-footer-inner"><p className="type-caption">Travel Awards 2026 · Foundation review</p><p className="type-caption">Homepage và các phase sẽ được triển khai sau.</p></Container></footer>

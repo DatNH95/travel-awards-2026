@@ -10,6 +10,34 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+### Refinement 03.10.2026 — Tin tức và đăng ký đề cử
+
+- Header có icon thông báo `public/assets/key-visual/notification.svg` 20×20 đặt sau chữ Đăng nhập; chỉ hiển thị icon, chưa có popup hay chức năng thông báo.
+
+- Quy ước mới: **title heading section 38pt = 50.667px**, dùng `--text-display-l` / `type-display-l` trên Homepage và các page sau này; ghi trong specimen Typography Design System. Thay các override 38px của Awards và 40px của tiêu đề Tin tức. Title bài tin/hạng mục và typography campaign Hero/Minitalk/Final CTA vẫn giữ vai trò riêng.
+
+- Awards heading hai dòng **Hạng mục giải thưởng / Travel Awards**, dùng chuẩn heading mới **38pt (50.667px)**, giữ cụm **giải thưởng** cùng một dòng; lead **Hai nhóm giải thưởng chính, 15 hạng mục.** Giữ count-up 15 và layout tabs.
+
+- Tiên phong đã có đủ 9 tên theo thứ tự người dùng cung cấp trong `pioneeringCategories`: Nhân vật du lịch; Sáng kiến du lịch bền vững; Điểm đến du lịch xanh; Sản phẩm du lịch sáng tạo; Chuyển đổi số xuất sắc; Làng du lịch cộng đồng; Trải nghiệm ẩm thực; Gương mặt truyền thông (Đại sứ); Chiến dịch quảng bá. Bỏ toàn bộ placeholder/pending ở cả hai tab; cùng text link tới `#participate` và hover/focus như Trụ cột. Tiêu chí và trang chi tiết từng hạng mục vẫn chưa được cung cấp.
+
+- Trụ cột có 6 tên chính thức người dùng cung cấp: Điểm đến du lịch của năm; Doanh nghiệp lữ hành của năm; Khách sạn của năm; Khu nghỉ dưỡng của năm (Resort); Hãng hàng không du lịch của năm; Trải nghiệm du lịch của năm. Bỏ Chờ công bố và note pending; link hạng mục dẫn tới hướng dẫn tham gia `#participate`, hover/focus đổi màu brand, underline và hiện mũi tên; chưa có tiêu chí/trang chi tiết hạng mục.
+
+- About: **The First Signature** dùng màu `--color-action-primary` (#0076BE), cùng nền nút Gửi đề cử; thay quyết định màu signature green trước đó. Typography và bố cục giữ nguyên.
+- Theo yêu cầu mới **bỏ line ngăn cách About và Agenda**, giữ whitespace hiện có. Homepage bỏ toàn bộ chapter label nhỏ có số thứ tự ở đầu section (About/Journey/Awards); title chính giữ nguyên. **Section heading vẫn giữ trong Design System** theo xác nhận của người dùng.
+- Hero countdown có ba dấu **:** ngăn giữa bốn ô Ngày / Giờ / Phút / Giây, căn giữa theo chiều dọc; ô tròn và blur giữ nguyên, dấu phân cách decorative aria-hidden.
+
+- Agenda bước 02 Sơ loại / Chung kết dùng copy mới bắt đầu **Công bố danh sách đề cử. Độc giả tiếp tục bình chọn…**, nêu tỷ trọng 40% độc giả / 60% Hội đồng và ngoại lệ Giải Bình chọn. Theo yêu cầu mới hiển thị **toàn bộ lead**, bỏ giới hạn 38 từ và dấu …; giữ bố cục ba cột và hàng cùng chiều cao.
+- Agenda bước 03 Vinh danh dùng lead **Công bố các đề cử trúng giải, hoạt động bên lề Gala vinh danh.**; hiển thị đầy đủ, không dấu ….
+
+- Minitalk bỏ chapter label 05 và Travel. Ideas. Inspiration.; **Đẹp không dịch chuyển** nằm ở đầu cột phải, thay cụm Đi để khám phá / Gặp để mở lối; cột trái chỉ giữ Glow On The Go. Mô tả dùng copy người dùng về tư duy chăm da khoa học, lối sống hiện đại và dưỡng da đa nhiệm trong hành trình du lịch. Thay Sắp công bố bằng icon `notification.svg` rung nhẹ theo nhịp có nghỉ và **Tập đầu tiên ngày 23/10.**; reduced motion tắt rung. Không thêm chức năng đăng ký nhắc nhở.
+
+- Mục 04 bỏ chapter label **Đăng ký đề cử**; tiêu đề chia hai dòng **Đăng ký / tham gia đề cử**. Text link **Hướng dẫn đăng ký** dưới tiêu đề cuộn tới ba bước hiện có (`#nomination-guide`). Bỏ ornament/star dưới link; vùng tròn radial gradient aqua/mint/blue đặt lệch trái hắt vào cụm chữ, CSS lan tỏa chậm chu kỳ 7 giây (scale .94–1.18, opacity .8–1), chữ đứng yên, không cản thao tác. Reduced motion giữ vùng màu tĩnh. Không thêm form hoặc trang hướng dẫn mới.
+- News đổi tiêu đề thành **Tin tức**, bỏ nhãn preview/category và lead; người dùng đã xác nhận **4 tin: 1 chính + 3 phụ**. Desktop tin chính bên trái có thumbnail lớn, ba tin phụ xếp dọc bên phải; mọi ảnh crop **5:3**. Giữ font và reveal heading của foundation.
+- Hover title đổi màu semantic text-brand; hover ảnh zoom nhẹ 1.035 trong 600ms, crop trong khung cố định, reduced motion tắt zoom.
+- Typography News title chính **24pt = 32px**, ba tin phụ **18pt = 24px**, cùng giãn dòng **160%** (người dùng đã xác nhận là line-height, không phải padding). Token `--text-news-title`, `--text-news-title-secondary`, `--text-news-title--line-height`; có specimen trong `/design-system#typography`.
+- Tiêu đề section **Tin tức** giảm xuống **30pt = 40px**, dùng token `--text-news-section-title`; cỡ title bài giữ nguyên.
+- Demo bốn bài từ VnExpress Du lịch: Tà Xùa được vinh danh, tour kiểm lâm Cát Tiên, Cao Bằng mùa gặt và Phong Nha - Kẻ Bàng; dùng ảnh CDN gốc và link bài gốc. Đây là dữ liệu demo được người dùng yêu cầu; thay bằng tin campaign khi có nội dung chính thức, không tự thêm nhãn preview lên giao diện.
+
 Cập nhật: 02.10.2026. Tổng hợp từ lịch sử trao đổi và code hiện tại. Đọc file này trước khi tiếp tục; yêu cầu mới của người dùng luôn được ưu tiên. Giữ nguyên khối hướng dẫn Next.js tự sinh ở trên.
 
 ## 1. Vai trò và phạm vi hiện tại
@@ -101,14 +129,14 @@ Thứ tự giữ nguyên: **Header → Hero → About → Award Journey → Awar
 | Header | Thanh trên: VnExpress / Du lịch / Đăng nhập 14px, weight 400, icon login.svg và các link đã chốt. Thanh điều hướng dưới cao 65px, sticky khi cuộn (thanh publisher cuộn khỏi màn hình), bóng đổ nhẹ chỉ khi scrollY > 48px; Thể lệ / Tin tức 14px, weight 400; hover/active dùng màu và underline của text-link Design System; active cập nhật theo hash điều hướng. Logo và home.svg cùng dẫn tới /#main. Không có CTA đề cử ở header. |
 | Hero | KV V2 PNG + lockup SVG gốc; Travel Awards 2026; THE FIRST SIGNATURE / DẤU ẤN TIÊN PHONG; “Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam.”; CTA GỬI ĐỀ CỬ, deadline 16.11.2026. |
 | About `#about` | Giữ hai cột: tiêu đề The First Signature / Dấu ấn tiên phong bên trái cùng font sans-serif, nội dung người dùng cung cấp bên phải; link **Xem chi tiết** → `#participate`. Đã bỏ ba signoff và đường kẻ bên dưới. |
-| Journey `#journey` | Timeline ba cột: 01 / Đề cử — Vòng Sơ loại (Tháng 9 - Tháng 11), 02 / Bình chọn — Sơ loại / Chung kết (Tháng 11 - Tháng 12), 03 / Vinh danh — Gala trao giải (Tháng 1/2027). Nội dung chính thức do người dùng cung cấp; tỷ trọng 40% độc giả / 60% Hội đồng, riêng Giải Bình chọn hoàn toàn theo độc giả. Bỏ câu phụ cạnh tiêu đề, thêm Xem thể lệ tới #participate; nhãn vòng và thời gian 18px; thời gian cùng màu tiêu đề, cách tiêu đề 0.5rem và cách mô tả 1.5rem, mô tả box 01 hiển thị đầy đủ không chấm lửng; box 02/03 giới hạn 38 từ, chỉ thêm dấu chấm lửng nếu dài hơn (giữ copy đầy đủ trong source; ba cột cùng chiều cao, cụm tiêu đề/thời gian sát nhau và mô tả bắt đầu cùng hàng). Line reveal trái sang phải 1400ms, chữ fade 1200ms với delay 250–450ms, chạy một lần khi cuộn và tắt khi reduced motion. Lịch mới chỉ cập nhật Journey; countdown Hero chưa được yêu cầu đổi. |
+| Journey `#journey` | Tiêu đề Agenda sự kiện; timeline ba cột: 01 / Đề cử — Vòng Sơ loại (Tháng 9 - Tháng 11), 02 / Bình chọn — Sơ loại / Chung kết (Tháng 11 - Tháng 12), 03 / Vinh danh — Gala trao giải (Tháng 1/2027). Nội dung chính thức do người dùng cung cấp; tỷ trọng 40% độc giả / 60% Hội đồng, riêng Giải Bình chọn hoàn toàn theo độc giả. Bỏ câu phụ cạnh tiêu đề, thêm Xem thể lệ tới #participate; nhãn vòng và thời gian 18px; thời gian cùng màu tiêu đề, cách tiêu đề 0.5rem và cách mô tả 1.5rem, mô tả box 01 hiển thị đầy đủ không chấm lửng; box 02/03 giới hạn 38 từ, chỉ thêm dấu chấm lửng nếu dài hơn (giữ copy đầy đủ trong source; ba cột cùng chiều cao, cụm tiêu đề/thời gian sát nhau và mô tả bắt đầu cùng hàng). Line reveal trái sang phải 1400ms, chữ fade 1200ms với delay 250–450ms, chạy một lần khi cuộn và tắt khi reduced motion. Lịch mới chỉ cập nhật Journey; countdown Hero chưa được yêu cầu đổi. |
 | Awards `#awards` | Surface mint, nhãn Giải thưởng; số 15 lớn hơn, đếm 0–15 trong 1800ms khi vào viewport một lần, reduced motion hiển thị ngay 15; tab Trụ cột 6 / Tiên phong 9, list có số thứ tự. Click và ArrowLeft/Right/Home/End hoạt động. Tên/tiêu chí vẫn placeholder “chờ công bố”. |
 | Participation `#participate` | 01 Chọn hạng mục → 02 Chuẩn bị hồ sơ → 03 Gửi đề cử; CTA `/nomination`. |
 | Minitalk `#minitalk` | Glow On The Go.; surface deep; lịch/khách mời chưa công bố. |
 | News `#news` | 1 featured + 3 bài phụ, copy ghi rõ preview, featured dùng KV V2; chưa có bài/ảnh/link bài chính thức. |
 | Final CTA `#nominate` | Surface deep, “Dấu ấn tiếp theo. Có thể là bạn.”, CTA và deadline. |
 | Organizer `#organizer` | Hai cụm căn giữa, mỗi nhãn body-large trên logo: VnExpress — Đơn vị tổ chức đứng trước; FPT Online — Đơn vị vận hành đứng sau. Dùng SVG trong `public/assets/key-visual/`. |
-| Footer | Theo cấu trúc Vietnam iContent: logo/menu ngang, hàng tiện ích, hai cột thông tin báo/liên hệ, bản quyền. Toàn bộ chữ dùng font-body sans-serif. Thông tin báo và email chung đối chiếu footer nguồn; đầu mối tài trợ do người dùng cung cấp: Vũ Bình Minh, MinhVB@fpt.com, 0915681515; nhãn/nội dung căn cột, chữ thông tin footer màu đen. Chưa có fanpage/form góp ý riêng, góp ý dùng mailto email sự kiện chung. Component site-footer.tsx. |
+| Footer | Theo cấu trúc Vietnam iContent: logo/menu ngang, hàng tiện ích, hai cột thông tin báo/liên hệ, bản quyền. Toàn bộ chữ dùng font-body sans-serif. Thông tin báo và email chung đối chiếu footer nguồn; đầu mối tài trợ do người dùng cung cấp: Vũ Bình Minh, MinhVB@fpt.com, 0915681515; nhãn/nội dung căn cột, chữ thông tin footer màu đen; bản quyền 14px như lead; cụm phường Cầu Giấy, Hà Nội không ngắt dòng; hover nút tiện ích đổi nền nhẹ không gạch chân. Fanpage dùng facebook.svg, chưa gắn link theo yêu cầu người dùng; Góp ý dùng sms.svg và mailto email sự kiện chung. Hai nút theo màu/bo góc Vietnam iContent (ngoại lệ màu tiện ích footer đã được người dùng yêu cầu), font-body giữ nguyên. Component site-footer.tsx. |
 
 Copy About do người dùng cung cấp, không tự viết lại khi chỉnh visual:
 

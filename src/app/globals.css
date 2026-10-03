@@ -58,6 +58,8 @@
   .type-heading-1 { font-size: var(--text-heading-1); line-height: var(--text-heading-1--line-height); }
   .type-heading-2 { font-size: var(--text-heading-2); line-height: var(--text-heading-2--line-height); }
   .type-heading-3 { font-size: var(--text-heading-3); line-height: var(--text-heading-3--line-height); }
+  .type-news-title { font-family: var(--font-body); font-weight: 400; font-size: var(--text-news-title); line-height: var(--text-news-title--line-height); }
+  .type-news-title-secondary { font-family: var(--font-body); font-weight: 400; font-size: var(--text-news-title-secondary); line-height: var(--text-news-title--line-height); }
   .type-body-large { font-size: var(--text-body-large); line-height: var(--text-body-large--line-height); }
   .type-body { font-size: var(--text-body); line-height: var(--text-body--line-height); }
   .type-body-small { font-size: var(--text-body-small); line-height: var(--text-body-small--line-height); }
