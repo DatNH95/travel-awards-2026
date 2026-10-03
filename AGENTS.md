@@ -12,6 +12,17 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 - Hero typo Dấu ấn tiên phong có ánh sáng lướt theo mask artwork gốc, chu kỳ 7 giây có khoảng nghỉ; không đổi SVG/màu nền chữ. Reduced motion tắt sheen. Build/TypeScript đạt.
 
+## Quy trình đồng bộ project
+
+Khi người dùng nói "Đồng bộ project", thực hiện theo thứ tự:
+
+1. Chạy `git fetch origin`.
+2. Kiểm tra local status bằng `git status`, gồm cả file chưa được theo dõi.
+3. Nếu có local changes chưa commit, divergence hoặc conflict, dừng và báo người dùng.
+4. Nếu local sạch và không có divergence/conflict, cập nhật từ `origin/main` bằng fast-forward (`git merge --ff-only origin/main`); nếu đã đồng bộ thì không cần cập nhật.
+
+Không làm mất local changes; không tự stash, reset, xóa file hoặc giải quyết conflict để tiếp tục đồng bộ.
+
 ## Quy trình đẩy lên GitHub
 
 Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
