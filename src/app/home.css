@@ -24,6 +24,7 @@
 .home-header .brand-graphic--logo { width: 8.75rem; }
 .home-header nav { display: flex; align-items: center; gap: 2rem; font-size: var(--text-navigation); font-weight: 400; }
 .home-header nav a:not(.button) { display: inline-flex; align-items: center; min-height: 2.75rem; padding-block: .75rem; }
+.home-header .button--nomination { --spacing-cta-nomination-height: 48px; }
 .home-header a:not(.button):hover { color: var(--color-text-brand); }
 .home-header nav a:not(.button) { color: var(--color-text-brand); transition: color var(--duration-fast); text-underline-offset: .35rem; text-decoration-thickness: var(--border-width); }
 .home-header nav a:not(.button):hover { color: var(--color-link-hover); text-decoration: underline; }
@@ -33,11 +34,13 @@
 .home-nav-home img { width: 1.25rem; height: 1.25rem; }
 .home-cta { letter-spacing: .07em; min-height: 3.25rem; }
 .home-hero { position: relative; isolation: isolate; aspect-ratio: 16 / 9; min-height: 43rem; overflow: hidden; background: var(--color-surface-brand-soft); }
-.home-hero-landscape { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: translate3d(var(--hero-depth-x, 0px), var(--hero-depth-y, 0px), 0) scale(1.045); transition: transform var(--duration-reveal) var(--ease-signature); }
+.home-hero-landscape { position: absolute; z-index: -1; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; transform: perspective(1400px) translate3d(var(--hero-depth-x, 0px), var(--hero-depth-y, 0px), 0) rotateX(var(--hero-tilt-x, 0deg)) rotateY(var(--hero-tilt-y, 0deg)) scale(var(--hero-depth-scale, 1.06)); transition: transform calc(var(--duration-reveal) * 1.5) var(--ease-signature); }
 .home-hero-content { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(2.5rem, 3vw, 4rem) 1.25rem 8rem; }
 .home-hero-content > .eyebrow { color: var(--color-brand-teal); letter-spacing: .24em; }
-.home-hero h1 { margin: 1.4rem 0 1.1rem; animation: signature-reveal var(--duration-depth) var(--ease-signature) both; }
-.home-hero .brand-graphic--campaign { width: clamp(18rem, 26vw, 28rem); }
+.home-hero h1 { position: relative; margin: 1.4rem 0 1.1rem; animation: signature-reveal var(--duration-depth) var(--ease-signature) both; }
+.home-hero h1::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 40%, color-mix(in srgb, var(--color-surface-primary) 85%, transparent) 48%, transparent 56%); background-size: 300% 100%; mask: url('/assets/key-visual/campaign-lockup.svg') center / 100% 100% no-repeat; -webkit-mask: url('/assets/key-visual/campaign-lockup.svg') center / 100% 100% no-repeat; transform: translate3d(calc(var(--hero-depth-x, 0px) * -.3), calc(var(--hero-depth-y, 0px) * -.15), 0); transition: transform calc(var(--duration-reveal) * 1.5) var(--ease-signature); opacity: 0; animation: hero-type-gloss 7s ease-in-out var(--duration-depth) infinite; }
+@keyframes hero-type-gloss { 0%, 8% { background-position: 100% 0; opacity: 0; } 14% { opacity: .65; } 36% { background-position: 0% 0; opacity: .65; } 42%, 100% { background-position: 0% 0; opacity: 0; } }
+.home-hero .brand-graphic--campaign { width: clamp(18rem, 26vw, 28rem); transform: translate3d(calc(var(--hero-depth-x, 0px) * -.3), calc(var(--hero-depth-y, 0px) * -.15), 0); transition: transform calc(var(--duration-reveal) * 1.5) var(--ease-signature); }
 .home-hero-statement { font-size: var(--text-body-large); line-height: 1.6; color: var(--color-text-primary); }
 .home-hero-actions { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 1rem; margin-top: 1.5rem; }
 .home-hero-actions .home-cta { max-width: 100%; flex-shrink: 0; }
@@ -232,4 +235,4 @@
   .home-footer-top { grid-template-columns: 1fr; gap: 2.5rem; }
   .home-footer-bottom { flex-wrap: wrap; }
 }
-@media (prefers-reduced-motion: reduce) { .home-hero-landscape { transform: none; } }
+@media (prefers-reduced-motion: reduce) { .home-hero-landscape, .home-hero .brand-graphic--campaign { transform: none; } }

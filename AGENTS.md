@@ -55,6 +55,12 @@ Package manager của project là **pnpm**. Không dùng `npm install`.
 
 ### Refinement 03.10.2026 — Tin tức và đăng ký đề cử
 
+- Typo Hero có vệt sáng trắng mềm lướt trên mask SVG lockup gốc, chu kỳ 7 giây có nghỉ, không cản click/không đổi artwork; reduced motion tắt.
+
+- Hero depth mới: PNG V2 nghiêng phối cảnh nhẹ theo chuột (tối đa 1.2°/1.4°), dịch 10px/8px; scroll thêm 24px và scale 1.06–1.08. Lockup dịch ngược rất nhẹ tạo khoảng cách lớp, transition 900ms; nội dung/CTA đứng yên. Không redraw/tách layer PNG, không filter/đổi màu. Reduced motion tắt transform.
+
+- Ngoại lệ CTA header: cao **48px**, rộng 160px; các CTA Đăng ký đề cử khác giữ 160×55px.
+
 - Box News Homepage: tiêu đề **Tin tức** là link `/tin-tuc`; thêm **Xem tất cả ↗** cạnh tiêu đề cùng dẫn folder `/tin-tuc`.
 
 - Link **Tin tức** trên header dùng `/tin-tuc` thay anchor #news; active trên trang danh sách và bài chi tiết `/tin-tuc/[slug]`.

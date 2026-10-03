@@ -41,8 +41,11 @@ export function HeroStage({ children }: { children: ReactNode }) {
       frame = 0;
       const rect = element.getBoundingClientRect();
       const progress = Math.max(0, Math.min(1, -rect.top / rect.height));
-      element.style.setProperty('--hero-depth-x', `${pointerX * 4}px`);
-      element.style.setProperty('--hero-depth-y', `${progress * 20 + pointerY * 4}px`);
+      element.style.setProperty('--hero-depth-x', `${pointerX * 10}px`);
+      element.style.setProperty('--hero-depth-y', `${progress * 24 + pointerY * 8}px`);
+      element.style.setProperty('--hero-tilt-x', `${-pointerY * 1.2}deg`);
+      element.style.setProperty('--hero-tilt-y', `${pointerX * 1.4}deg`);
+      element.style.setProperty('--hero-depth-scale', `${1.06 + progress * .02}`);
     };
     const queue = () => {
       if (!preference.matches && !frame) frame = requestAnimationFrame(paint);
@@ -60,6 +63,9 @@ export function HeroStage({ children }: { children: ReactNode }) {
         cancelAnimationFrame(frame); frame = 0;
         element.style.removeProperty('--hero-depth-x');
         element.style.removeProperty('--hero-depth-y');
+        element.style.removeProperty('--hero-tilt-x');
+        element.style.removeProperty('--hero-tilt-y');
+        element.style.removeProperty('--hero-depth-scale');
       } else queue();
     };
     window.addEventListener('scroll', queue, { passive: true });
