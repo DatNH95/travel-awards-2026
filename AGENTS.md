@@ -88,7 +88,7 @@ pnpm assets:generate
 - Countdown Hero dùng nền trắng trong mờ 65% và backdrop blur 12px, viền aqua; không dùng gradient. Chỉ blur nền phía sau, chữ/số giữ sắc nét. Dòng “Hãy tham gia ngay” dùng body-large 18px, weight 600, màu text-brand.
 - Hero mới có parallax nhẹ trên toàn PNG V2: scale 1.045, scroll tối đa 20px, pointer mouse ±4px; không tách/redraw layer hoặc đổi màu. Reduced motion bỏ transform. Countdown gồm 4 ô tròn (aspect-ratio 1, không co giãn), dòng nhắc “Hãy tham gia ngay” và CTA đặt dưới countdown; cập nhật mỗi giây, dừng và giữ 0 khi hết hạn; giờ đóng tạm tính **23:59:59 ngày 16.11.2026 UTC+07:00**, cần xác nhận giờ chính thức. CTA Hero rộng 12rem; các CTA khác giữ nguyên.
 - **Quy ước người dùng đã chốt: mọi title/heading chính phải hiện dần khi cuộn vào màn hình.** Khi thêm/chỉnh section tiếp theo, giữ quy tắc này; không chỉ animate cả block rồi bỏ qua heading.
-- `html` có smooth scrolling. `ScrollReveal` observe `.home main > .section > .layout-container` và mọi `h1`, `h2`, `h3` trong `.home main`, threshold 0.05, bottom root margin -32px; add `.home-scroll-enter` cho block hoặc `.home-heading-enter` cho heading rồi unobserve để chạy một lần. Heading reveal dùng 900ms (1.5 × token duration), fade và dịch lên nhẹ; gồm Hero, section titles và các tiêu đề phụ.
+- `html` có smooth scrolling. `ScrollReveal` observe `.home main > .section > .layout-container` và mọi `h1`, `h2`, `h3` trong `.home main`, threshold 0.05, bottom root margin -32px; add `.home-scroll-enter` cho block hoặc `.home-heading-enter` cho heading rồi unobserve để chạy một lần. Heading section và tiêu đề phụ dùng heading-text-reveal 1400ms: mở chữ từ trái sang phải bằng clip-path và dịch ngang nhẹ, thay fade trước đây. Hero giữ hiệu ứng entrance riêng; reduced motion tắt hiệu ứng.
 - Reveal dùng keyframe `signature-reveal`, duration 600ms và distance 0.5rem từ tokens. Không ẩn nội dung SSR để đợi JavaScript, không đổi layout hay chạy loop.
 - `prefers-reduced-motion` tắt animation/transition/smooth scroll; observer không chạy nếu đã bật giảm chuyển động và dừng khi preference chuyển sang reduce.
 
@@ -98,17 +98,17 @@ Thứ tự giữ nguyên: **Header → Hero → About → Award Journey → Awar
 
 | Vùng | Trạng thái/copy đã chốt |
 | --- | --- |
-| Header | Hai tầng theo cách bố trí AI4VN: trên `VnExpress | Du lịch` và icon user + `Đăng nhập MyVnE`; dưới logo Travel Awards trái, icon home + `Thể lệ` + `Tin tức` phải. Không còn CTA đề cử ở header. |
+| Header | Thanh trên: VnExpress / Du lịch / Đăng nhập 14px, weight 400, icon login.svg và các link đã chốt. Thanh điều hướng dưới cao 65px, sticky khi cuộn (thanh publisher cuộn khỏi màn hình), bóng đổ nhẹ chỉ khi scrollY > 48px; Thể lệ / Tin tức 14px, weight 400; hover/active dùng màu và underline của text-link Design System; active cập nhật theo hash điều hướng. Logo và home.svg cùng dẫn tới /#main. Không có CTA đề cử ở header. |
 | Hero | KV V2 PNG + lockup SVG gốc; Travel Awards 2026; THE FIRST SIGNATURE / DẤU ẤN TIÊN PHONG; “Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam.”; CTA GỬI ĐỀ CỬ, deadline 16.11.2026. |
-| About `#about` | Giữ hai cột: tiêu đề The First Signature / Dấu ấn tiên phong bên trái cùng font sans-serif, nội dung người dùng cung cấp bên phải; link **Xem thể lệ** → `#participate`. Đã bỏ ba signoff và đường kẻ bên dưới. |
-| Journey `#journey` | Đề cử 16.10–16.11.2026; Bình chọn 23.11–21.12.2026; Vinh danh 15.01.2027. Timeline editorial, không card. |
-| Awards `#awards` | Surface mint, tổng 15; tab Trụ cột 6 / Tiên phong 9, list có số thứ tự. Click và ArrowLeft/Right/Home/End hoạt động. Tên/tiêu chí vẫn placeholder “chờ công bố”. |
+| About `#about` | Giữ hai cột: tiêu đề The First Signature / Dấu ấn tiên phong bên trái cùng font sans-serif, nội dung người dùng cung cấp bên phải; link **Xem chi tiết** → `#participate`. Đã bỏ ba signoff và đường kẻ bên dưới. |
+| Journey `#journey` | Timeline ba cột: 01 / Đề cử — Vòng Sơ loại (Tháng 9 - Tháng 11), 02 / Bình chọn — Sơ loại / Chung kết (Tháng 11 - Tháng 12), 03 / Vinh danh — Gala trao giải (Tháng 1/2027). Nội dung chính thức do người dùng cung cấp; tỷ trọng 40% độc giả / 60% Hội đồng, riêng Giải Bình chọn hoàn toàn theo độc giả. Bỏ câu phụ cạnh tiêu đề, thêm Xem thể lệ tới #participate; nhãn vòng và thời gian 18px; thời gian cùng màu tiêu đề, cách tiêu đề 0.5rem và cách mô tả 1.5rem, mô tả box 01 hiển thị đầy đủ không chấm lửng; box 02/03 giới hạn 38 từ, chỉ thêm dấu chấm lửng nếu dài hơn (giữ copy đầy đủ trong source; ba cột cùng chiều cao, cụm tiêu đề/thời gian sát nhau và mô tả bắt đầu cùng hàng). Line reveal trái sang phải 1400ms, chữ fade 1200ms với delay 250–450ms, chạy một lần khi cuộn và tắt khi reduced motion. Lịch mới chỉ cập nhật Journey; countdown Hero chưa được yêu cầu đổi. |
+| Awards `#awards` | Surface mint, nhãn Giải thưởng; số 15 lớn hơn, đếm 0–15 trong 1800ms khi vào viewport một lần, reduced motion hiển thị ngay 15; tab Trụ cột 6 / Tiên phong 9, list có số thứ tự. Click và ArrowLeft/Right/Home/End hoạt động. Tên/tiêu chí vẫn placeholder “chờ công bố”. |
 | Participation `#participate` | 01 Chọn hạng mục → 02 Chuẩn bị hồ sơ → 03 Gửi đề cử; CTA `/nomination`. |
 | Minitalk `#minitalk` | Glow On The Go.; surface deep; lịch/khách mời chưa công bố. |
 | News `#news` | 1 featured + 3 bài phụ, copy ghi rõ preview, featured dùng KV V2; chưa có bài/ảnh/link bài chính thức. |
 | Final CTA `#nominate` | Surface deep, “Dấu ấn tiếp theo. Có thể là bạn.”, CTA và deadline. |
-| Organizer `#organizer` | Cụm căn giữa, nhãn Đơn vị tổ chức cỡ body-large ở trên, hai logo FPT Online và VnExpress ở dưới từ SVG trong `public/assets/key-visual/`; đối tác khác chưa được cung cấp. |
-| Footer | Logo, tagline, anchor menu, CTA đề cử và về đầu trang. |
+| Organizer `#organizer` | Hai cụm căn giữa, mỗi nhãn body-large trên logo: VnExpress — Đơn vị tổ chức đứng trước; FPT Online — Đơn vị vận hành đứng sau. Dùng SVG trong `public/assets/key-visual/`. |
+| Footer | Theo cấu trúc Vietnam iContent: logo/menu ngang, hàng tiện ích, hai cột thông tin báo/liên hệ, bản quyền. Toàn bộ chữ dùng font-body sans-serif. Thông tin báo và email chung đối chiếu footer nguồn; đầu mối tài trợ do người dùng cung cấp: Vũ Bình Minh, MinhVB@fpt.com, 0915681515; nhãn/nội dung căn cột, chữ thông tin footer màu đen. Chưa có fanpage/form góp ý riêng, góp ý dùng mailto email sự kiện chung. Component site-footer.tsx. |
 
 Copy About do người dùng cung cấp, không tự viết lại khi chỉnh visual:
 
@@ -121,7 +121,7 @@ Lưu ý đánh số: người dùng gọi **khu vực 1 = Header**, **khu vực 
 Links hiện tại:
 
 - Mọi CTA gửi đề cử → `/nomination`. Route này chỉ có thông báo nhận đề cử 16.10–16.11.2026 và quay về hướng dẫn tham gia.
-- Header `Thể lệ` và About `Xem thể lệ` → `#participate`, chưa có trang thể lệ chính thức.
+- Header `Thể lệ` và About `Xem chi tiết` → `#participate`, chưa có trang thể lệ chính thức.
 - Header `Tin tức` → `#news`; icon home/logo → `/`.
 - Publisher → `https://vnexpress.net/`, Du lịch → `https://vnexpress.net/du-lich`.
 - MyVnE → `https://my.vnexpress.net/` mở tab mới với `noopener noreferrer`; chỉ liên kết ngoài, **chưa tích hợp SSO/auth**.
