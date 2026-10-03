@@ -17,13 +17,17 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
 
 1. Kiểm tra `git status`.
-2. Chỉ commit thay đổi thuộc project, không commit file phát sinh ngoài ý muốn; kiểm tra phạm vi thay đổi trước khi stage.
-3. Chạy kiểm tra cần thiết cho phần code vừa sửa.
-4. Chạy `git add .` sau khi xác nhận toàn bộ thay đổi đều thuộc phạm vi commit.
-5. Tạo commit message ngắn mô tả thay đổi và commit.
-6. Chạy `git push origin main`.
+2. Chạy `git fetch origin`.
+3. Nếu `origin/main` có commit mới, đồng bộ bằng `git rebase origin/main` trước khi push; bảo toàn thay đổi local chưa commit khi cần.
+4. Nếu có conflict, dừng và báo người dùng; không tự chọn phiên bản và không force push.
+5. Chỉ commit thay đổi thuộc project, không commit file phát sinh ngoài ý muốn; kiểm tra phạm vi thay đổi trước khi stage.
+6. Chạy kiểm tra cần thiết cho phần vừa sửa.
+7. Stage các thay đổi thuộc phạm vi commit, tạo commit message ngắn mô tả thay đổi và commit.
+8. Chạy `git push origin main`.
 
 Nếu có file bất thường, conflict hoặc build/check lỗi thì dừng và báo người dùng trước khi push. Không tự đưa file bất thường vào commit để tiếp tục quy trình.
+
+Không force push.
 
 Package manager của project là **pnpm**. Không dùng `npm install`.
 
