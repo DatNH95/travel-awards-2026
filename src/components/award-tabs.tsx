@@ -1,9 +1,10 @@
 'use client';
 
 import { useRef, useState } from 'react';
+import Link from 'next/link';
 import { TextLink } from './primitives';
 
-import { pillarCategories, pioneeringCategories } from '@/data/awards';
+import { pillarCategories, pioneeringCategories, awardCategoryId } from '@/data/awards';
 
 const groups = [
   { name: 'Trụ cột', count: 6, title: 'Những giá trị tạo nên nền tảng.', description: 'Ghi nhận những dấu ấn góp phần xây dựng và phát triển du lịch Việt Nam.' },
@@ -28,7 +29,7 @@ export function AwardTabs() {
     </div>
     <div role="tabpanel" id={`award-panel-${active}`} aria-labelledby={`award-tab-${active}`} tabIndex={0} className="home-award-panel">
       <div className="home-award-group-copy"><p className="type-label">Nhóm giải thưởng / {group.name}</p><h3 className="type-heading-1">{group.title}</h3><p>{group.description}</p><TextLink href="/dang-ky-de-cu">Đăng ký đề cử</TextLink></div>
-      <div><ol className="home-award-list home-award-list--named">{categories.map((category, index) => <li key={category}><span>{String(index + 1).padStart(2, '0')}</span><a className="home-award-category-link" href="#participate">{category}<span aria-hidden="true">↗</span></a></li>)}</ol></div>
+      <div><ol className="home-award-list home-award-list--named">{categories.map((category, index) => <li key={category}><span>{String(index + 1).padStart(2, '0')}</span><Link className="home-award-category-link" href={`/dang-ky-de-cu?category=${awardCategoryId(active, index)}`}>{category}<span aria-hidden="true">↗</span></Link></li>)}</ol></div>
     </div>
   </div>;
 }

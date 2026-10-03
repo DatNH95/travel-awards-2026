@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 import Link from 'next/link';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
@@ -27,7 +28,7 @@ export default function NominationPage() {
           <NominationCountdown label="Thời gian nhận đề cử còn lại:" />
         </div>
       </header>
-      <NominationFlow />
+      <Suspense fallback={<p>Đang tải hạng mục đề cử…</p>}><NominationFlow /></Suspense>
     </Container></Section></main>
     <SiteFooter homePrefix="/" />
   </div>;

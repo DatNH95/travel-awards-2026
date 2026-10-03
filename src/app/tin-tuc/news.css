@@ -1,0 +1,56 @@
+.news-site { --news-rule: 1px solid var(--color-border-default); }
+.news-main { padding-block: 32px 80px; }
+.news-breadcrumb { font: 14px/1.5 Arial, Helvetica, sans-serif; color: var(--color-text-secondary); margin-bottom: 24px; }
+.news-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 10px; padding: 0; margin: 0; list-style: none; }
+.news-breadcrumb li + li::before { content: '/'; margin-right: 10px; color: var(--color-border-default); }
+.news-site .news-breadcrumb a:hover { color: var(--color-text-brand); text-decoration: underline; }
+.news-columns { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 40px; align-items: start; }
+.news-columns > * { min-width: 0; }
+.news-title { font-family: var(--font-news-title), Georgia, serif; font-size: 24px; font-weight: 700; line-height: 1.6; color: #111111; margin: 8px 0 12px; overflow-wrap: anywhere; }
+.news-site .news-title a { color: inherit; }
+.news-site .news-title a:hover { color: var(--color-text-brand); }
+.news-site .news-title a:focus-visible { outline: 2px solid var(--color-brand-primary); outline-offset: 4px; }
+.news-lead { font: 16px/1.6 Arial, Helvetica, sans-serif; margin: 0; color: var(--color-text-primary); }
+.news-thumbnail { display: block; aspect-ratio: 5 / 3; overflow: hidden; background: var(--color-surface-secondary); }
+.news-thumbnail img { width: 100%; height: 100%; object-fit: cover; transition: transform 600ms ease; }
+.news-card:hover .news-thumbnail img { transform: scale(1.035); }
+.news-card--featured { padding-bottom: 32px; }
+.news-card--featured .news-card-copy { padding-top: 18px; }
+.news-card--row { display: grid; grid-template-columns: minmax(160px, 34%) minmax(0, 1fr); gap: 24px; border-top: var(--news-rule); padding-block: 28px; }
+.news-card--row .news-title { margin-top: 6px; }
+.news-sidebar { border-left: var(--news-rule); padding-left: 0; }
+.news-ad { width: 300px; height: 600px; background: var(--color-surface-secondary); border: var(--news-rule); display: flex; flex-direction: column; align-items: center; padding: 16px; color: var(--color-text-secondary); }
+.news-ad > span { font-size: 10px; letter-spacing: .15em; }
+.news-ad > div { display: flex; flex: 1; flex-direction: column; justify-content: center; text-align: center; gap: 12px; }
+.news-ad strong { font: 400 28px/1.4 Arial, Helvetica, sans-serif; color: var(--color-text-brand); }
+.news-ad small { font-size: 12px; }
+.news-headline { margin-top: 14px; }
+.news-sapo { font: 700 18px/1.6 Arial, Helvetica, sans-serif; margin: 0 0 16px; }
+.news-body { font: 18px/1.75 Arial, Helvetica, sans-serif; margin-top: 28px; overflow-wrap: anywhere; }
+.news-body p { margin: 0 0 24px; }
+.news-body h2 { margin-top: 32px; }
+.news-body figure { margin: 28px 0; }
+.news-body figure img { display: block; width: 100%; height: auto; }
+.news-body figcaption { font: 14px/1.5 Arial, Helvetica, sans-serif; color: var(--color-text-secondary); background: var(--color-surface-secondary); padding: 12px 16px; }
+.news-author { font: 700 16px/1.5 Arial, Helvetica, sans-serif; text-align: right; margin: 28px 0; }
+.news-ad--inline { width: 100%; height: 180px; margin: 32px 0; }
+.news-ad--inline strong { font-size: 20px; }
+.news-back { display: inline-flex; margin-bottom: 32px; }
+.news-related { padding-top: 28px; border-top: var(--news-rule); }
+.news-related > h2 { margin: 0 0 24px; }
+.news-related-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.news-card--related .news-lead { font-size: 14px; }
+@media (max-width: 1023px) {
+  .news-columns { grid-template-columns: minmax(0, 1fr); }
+  .news-sidebar { display: none; }
+}
+@media (max-width: 599px) {
+  .news-main { padding-block: 24px 48px; }
+  .news-card--row { grid-template-columns: minmax(0, 1fr); gap: 16px; padding-block: 24px; }
+  .news-related-grid { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .news-sapo, .news-body { font-size: 17px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .news-thumbnail img { transition: none; }
+  .news-card:hover .news-thumbnail img { transform: none; }
+}

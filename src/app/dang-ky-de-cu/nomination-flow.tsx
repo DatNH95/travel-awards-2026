@@ -1,16 +1,22 @@
 'use client';
 
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { useRef, useState } from 'react';
 import { Button } from '@/components/primitives';
-import { awardGroups } from '@/data/awards';
+import { awardGroups, awardCategoryFromId } from '@/data/awards';
 import { RegistrationFields, type RegistrationDraft } from './registration-fields';
 
 const steps = ['Chọn giải thưởng', 'Thông tin đăng ký', 'Xác nhận', 'Thành công'];
 
 export function NominationFlow() {
+  const categoryId = useSearchParams().get('category') ?? '';
+  return <NominationForm key={categoryId} initialSelection={awardCategoryFromId(categoryId)} />;
+}
+
+function NominationForm({ initialSelection }: { initialSelection: string }) {
   const [step, setStep] = useState(0);
-  const [selection, setSelection] = useState('');
+  const [selection, setSelection] = useState(initialSelection);
   const [draft, setDraft] = useState<RegistrationDraft>({ values: {}, checks: {}, files: {} });
   const title = useRef<HTMLHeadingElement>(null);
   const saveDialog = useRef<HTMLDialogElement>(null);

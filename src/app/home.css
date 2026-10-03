@@ -137,6 +137,9 @@
 #nomination-guide { scroll-margin-top: 6rem; }
 .home-news-grid { display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 1.5rem 3rem; align-items: start; }
 .home-news .home-section-title h2 { font-size: var(--text-news-section-title); }
+.home-news .home-section-title h2 a:hover { color: var(--color-text-brand); text-decoration: underline; text-underline-offset: .35rem; text-decoration-thickness: var(--border-width); }
+.home-news .home-section-title { display: flex; align-items: center; justify-content: space-between; }
+.home-news .home-section-title > .text-link { flex-shrink: 0; }
 .home-news-item { display: grid; grid-template-columns: minmax(0, .8fr) minmax(0, 1fr); gap: 1.25rem; align-items: start; grid-column: 2; }
 .home-news-item--featured { display: block; grid-column: 1; grid-row: 1 / span 3; }
 .home-news-image { display: block; overflow: hidden; }

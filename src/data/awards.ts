@@ -21,3 +21,15 @@ export const pioneeringCategories = [
 
 export const awardGroups = [{ name: 'Trụ cột', categories: pillarCategories }, { name: 'Tiên phong', categories: pioneeringCategories }];
 
+export function awardCategoryId(groupIndex: number, categoryIndex: number) {
+  return `${groupIndex === 0 ? 'tru-cot' : 'tien-phong'}-${categoryIndex + 1}`;
+}
+
+export function awardCategoryFromId(id: string) {
+  for (const [groupIndex, group] of awardGroups.entries()) {
+    const index = group.categories.findIndex((_, categoryIndex) => awardCategoryId(groupIndex, categoryIndex) === id);
+    if (index !== -1) return group.categories[index];
+  }
+  return '';
+}
+

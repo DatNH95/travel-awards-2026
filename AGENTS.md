@@ -40,6 +40,12 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ### Refinement 03.10.2026 — Tin tức và đăng ký đề cử
 
+- Box News Homepage: tiêu đề **Tin tức** là link `/tin-tuc`; thêm **Xem tất cả ↗** cạnh tiêu đề cùng dẫn folder `/tin-tuc`.
+
+- Link **Tin tức** trên header dùng `/tin-tuc` thay anchor #news; active trên trang danh sách và bài chi tiết `/tin-tuc/[slug]`.
+
+- Link từng hạng mục ở cả hai tab dẫn `/dang-ky-de-cu?category=tru-cot-1`…`tru-cot-6` hoặc `tien-phong-1`…`tien-phong-9`; trang đăng ký tự chọn đúng radio tại bước 1 và cho đổi lựa chọn. Query không hợp lệ/không có query giữ trạng thái chưa chọn. Mapping dùng chung trong `src/data/awards.ts`, NominationFlow đọc query trong Suspense; reload URL giữ lựa chọn ban đầu.
+
 - CTA Đăng ký đề cử chuẩn dùng component `NominationCTA` trong primitives, có SVG arrow ↗ currentColor, kích thước token 160×55px. Header/Hero/tham gia/Final CTA cùng dùng component này; có specimen `/design-system#controls`. Khi thêm button đề cử ở trang sau, dùng NominationCTA thay vì tự dựng style; text link giữ vai trò riêng.
 
 - Mọi button Đăng ký đề cử trên Homepage (header/Hero/tham gia/Final CTA) cùng kích thước: cao 3.25rem, padding .875rem 1.125rem, chữ 15px/140%, width fit-content; bỏ mũi tên phụ để width đồng nhất. Text link Awards giữ vai trò riêng. Arrow Khám phá hành trình chuyển động xuống nhẹ 2 nhịp rồi nghỉ, lặp chu kỳ 3 giây; reduced motion tắt.

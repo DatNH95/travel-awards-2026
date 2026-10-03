@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import Link from 'next/link';
 
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
@@ -98,7 +99,7 @@ export default function HomePage() {
       </Section>
       <Section id="news" className="home-news">
         <Container>
-          <div className="home-section-title"><h2 className="type-display-l">Tin tức</h2></div>
+          <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true">↗</span></Link></div>
           <div className="home-news-grid">
             {newsItems.map((item, index) => <article className={`home-news-item${index === 0 ? ' home-news-item--featured' : ''}`} key={item.href}>
               <a className="home-news-image" href={item.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={1000} height={600} unoptimized /></a>
