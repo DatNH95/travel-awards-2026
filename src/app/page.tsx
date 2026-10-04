@@ -87,7 +87,7 @@ export default function HomePage() {
       </Section>
       <Section id="participate" className="home-participate">
         <Container>
-          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><TextLink href="#nomination-guide">Hướng dẫn đăng ký</TextLink></div><div id="nomination-guide" className="home-steps">
+          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><div className="home-participate-logo"><BrandGraphic variant="logo" label="Travel Awards" /></div></div><div id="nomination-guide" className="home-steps">
             <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Tìm hạng mục phù hợp với dấu ấn bạn muốn đề cử.</p></div></div>
             <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Kể câu chuyện của bạn cùng thông tin và minh chứng liên quan.</p></div></div>
             <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 16.11.2026.</p></div></div>

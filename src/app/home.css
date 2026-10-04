@@ -295,3 +295,8 @@
 .home-news-ad { border: 0; }
 .home-news-ad img { width: 300px; height: 600px; object-fit: contain; }
 
+
+.home-participate-logo { position: relative; width: min(20rem, 100%); margin-top: 1.5rem; }
+.home-participate-logo .brand-graphic { width: 100%; height: auto; }
+.home-participate-logo::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 40%, color-mix(in srgb, var(--color-surface-primary) 85%, transparent) 48%, transparent 56%); background-size: 300% 100%; mask: url('/assets/key-visual/logo.svg') center / 100% 100% no-repeat; -webkit-mask: url('/assets/key-visual/logo.svg') center / 100% 100% no-repeat; opacity: 0; animation: hero-type-gloss 7s ease-in-out var(--duration-depth) infinite; }
+@media (prefers-reduced-motion: reduce) { .home-participate-logo::after { animation: none; } }
