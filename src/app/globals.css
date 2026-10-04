@@ -177,3 +177,10 @@
 
 .button.button--nomination { width: var(--container-cta-nomination); min-width: var(--container-cta-nomination); height: var(--spacing-cta-nomination-height); min-height: var(--spacing-cta-nomination-height); padding: .875rem .5rem; gap: .375rem; font-size: .9375rem; line-height: 1.4; letter-spacing: .02em; white-space: nowrap; }
 .button--nomination svg { flex: 0 0 12px; }
+
+/* Live landing specimens retain their own viewport and sticky behavior. */
+.landing-demo-grid { display: grid; gap: 2rem; margin-block: 2rem; }
+.landing-demo-grid figcaption { margin-bottom: 1rem; }
+.landing-demo-frame { overflow: auto; border: var(--border-width) solid var(--color-border-default); background: var(--color-surface-primary); }
+.landing-demo-frame iframe { display: block; border: 0; max-width: none; }
+.landing-demo-frame--mobile { width: min(100%, 392px); }

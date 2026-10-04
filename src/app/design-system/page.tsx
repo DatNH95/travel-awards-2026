@@ -22,7 +22,7 @@ const typography = [
   ['label', 'Label', 'Travel Awards 2026'], ['caption', 'Caption', 'Hệ thống thị giác · Bản xem trước'],
   ['navigation', 'Navigation', 'Dấu ấn · Hành trình · Câu chuyện'],
 ] as const;
-const sections = [['colors', 'Màu sắc'], ['typography', 'Typography'], ['controls', 'Buttons & links'], ['graphics', 'Graphic elements'], ['images', 'Image treatment'], ['headings', 'Section heading'], ['surfaces', 'Surfaces'], ['hierarchy', 'Graphic hierarchy'], ['kv-layers', 'KV V2'], ['motion', 'Motion']] as const;
+const sections = [['colors', 'Màu sắc'], ['typography', 'Typography'], ['controls', 'Buttons & links'], ['graphics', 'Graphic elements'], ['images', 'Image treatment'], ['headings', 'Section heading'], ['surfaces', 'Surfaces'], ['hierarchy', 'Graphic hierarchy'], ['kv-layers', 'KV V2'], ['motion', 'Motion'], ['landing-header-footer', 'Header + Footer']] as const;
 
 function SpecimenTitle({ number, children }: { number: string; children: React.ReactNode }) {
   return <div className="preview-section-top"><span className="preview-section-number">{number}</span><SectionMarker /><h2>{children}</h2></div>;
@@ -56,6 +56,49 @@ export default function DesignSystem() {
 
       <MotionRefinement />
       <Section id="headings" tone="brand-deep"><Container><SpecimenTitle number="06">Section heading</SpecimenTitle><SectionHeading eyebrow="The First Signature" description="Một hệ thống chung cho những câu chuyện, hành trình và dấu ấn sẽ được phát triển ở các bước tiếp theo.">Tôn vinh dấu ấn.<br />Mở lối hành trình.</SectionHeading></Container></Section>
+      <Section id="landing-header-footer"><Container>
+        <SpecimenTitle number="07">header + footer Landing page Desktop/Mobile</SpecimenTitle>
+        <p className="preview-note">Quy chuẩn đã chốt cho các landing page của Travel Awards. Tái sử dụng SiteHeader, HeaderNavigation và SiteFooter; dùng font sans-serif và token của Design System.</p>
+        <div className="landing-demo-grid">
+          <figure>
+            <figcaption className="type-heading-3">Desktop · 1200px</figcaption>
+            <div className="landing-demo-frame landing-demo-frame--desktop"><iframe src="/design-system/landing-preview" title="Header và footer thực tế trên desktop" loading="lazy" width="1200" height="700" /></div>
+          </figure>
+          <figure>
+            <figcaption className="type-heading-3">Mobile · 390px</figcaption>
+            <div className="landing-demo-frame landing-demo-frame--mobile"><iframe src="/design-system/landing-preview" title="Header hai cấp và footer thực tế trên mobile" loading="lazy" width="390" height="720" /></div>
+          </figure>
+        </div>
+        <p className="preview-note">Mẫu dùng component thật, có logo, icon, CTA và liên kết hiện hành. Cuộn bên trong từng khung để thử sticky; khung desktop có thể cuộn ngang trên màn hình nhỏ.</p>
+        <div className="refinement-grid">
+          <div className="hierarchy-specimen">
+            <h3 className="type-heading-3">Header · Desktop</h3>
+            <p>Thanh thông tin phía trên cao 48px: VnExpress / Du lịch và Đăng nhập dùng chữ thường, cỡ 14px. Icon login đứng cạnh Đăng nhập; icon notification đứng sau chữ Đăng nhập.</p>
+            <p>Thanh điều hướng cao 65px, logo và icon Home dẫn về /#main. Menu Thể lệ, Tin tức cỡ 15px, không bold; hover và active dùng màu, gạch chân từ Design System. Tin tức dẫn về /tin-tuc.</p>
+            <p>Khi cuộn, thanh điều hướng sticky và có shadow nhẹ; thanh thông tin cuộn khỏi màn hình.</p>
+          </div>
+          <div className="hierarchy-specimen">
+            <h3 className="type-heading-3">Header · Mobile</h3>
+            <p>Áp dụng dưới 48rem. Tách hai cấp rõ ràng: cấp 1 cao 65px gồm logo bên trái và CTA bên phải; cấp 2 tối thiểu 45px gồm icon Home, Thể lệ, Tin tức trên một hàng, cho phép cuộn ngang.</p>
+            <p>Chỉ cấp 1 giữ cố định khi cuộn và có shadow nhẹ. Cấp 2 cùng thanh thông tin cuộn theo trang. Giữ khoảng trống cho hàng cố định để tránh nhảy bố cục; anchor chừa 65px cho header.</p>
+            <p>CTA header dùng NominationCTA: 160 × 45px, chữ Đăng ký đề cử, có arrow, dẫn về /dang-ky-de-cu. CTA trong nội dung giữ 160 × 55px.</p>
+          </div>
+          <div className="hierarchy-specimen">
+            <h3 className="type-heading-3">Footer · Desktop / Mobile</h3>
+            <p>Bố cục theo footer landing page Vietnam iContent, font theo Design System: logo + điều hướng; nhóm tiện ích; thông tin tòa soạn và liên hệ / tài trợ; bản quyền.</p>
+            <p>Desktop: thông tin chia hai cột. Mobile: xếp một cột; logo, menu và tiện ích xuống hàng, các nút có thể wrap. Footer cuộn theo trang.</p>
+            <p>Text nội dung và bản quyền màu đen; © 1997–2026 cùng cỡ chữ với Thuộc Bộ Khoa học và Công nghệ. Phường Cầu Giấy, Hà Nội giữ cùng một dòng. Nhãn và giá trị liên hệ căn theo cột.</p>
+            <p>Fanpage dùng facebook.svg, nền xanh nhạt; tạm disabled khi chưa có URL. Góp ý cho sự kiện dùng sms.svg, nền hồng nhạt và mailto:sukien@vnexpress.net. Trở lại VnExpress và Điều khoản sử dụng có cùng cách hover đổi nền nhẹ.</p>
+          </div>
+          <div className="hierarchy-specimen">
+            <h3 className="type-heading-3">Thông tin &amp; asset dùng chung</h3>
+            <p>VnExpress → https://vnexpress.net/ · Du lịch → https://vnexpress.net/du-lich · Đăng nhập → https://my.vnexpress.net/.</p>
+            <p>Asset gốc trong /assets/key-visual/: logo, home.svg, login.svg, notification.svg, facebook.svg, sms.svg. Không vẽ lại hoặc đổi nhận diện logo.</p>
+            <p>Tài trợ sự kiện: Vũ Bình Minh · MinhVB@fpt.com · 0915681515. Email và điện thoại dùng link mailto / tel.</p>
+            <p>Vùng đơn vị: VnExpress là đơn vị tổ chức, đứng trước FPT Online là đơn vị vận hành. Mỗi cụm căn giữa, nhãn phía trên và logo phía dưới.</p>
+          </div>
+        </div>
+      </Container></Section>
     </main>
     <footer className="preview-footer"><Container className="preview-footer-inner"><p className="type-caption">Travel Awards 2026 · Foundation review</p><p className="type-caption">Homepage và các phase sẽ được triển khai sau.</p></Container></footer>
   </>;

@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { NominationCTA } from './primitives';
+
 import { useEffect, useState } from 'react';
 
 export function HeaderNavigation({ homePrefix = '' }: { homePrefix?: '' | '/' }) {
@@ -25,10 +25,12 @@ export function HeaderNavigation({ homePrefix = '' }: { homePrefix?: '' | '/' })
   }, [homePrefix]);
 
   return <nav aria-label="Điều hướng chính" data-scrolled={scrolled ? 'true' : undefined}>
+    <div className="home-header-links">
     <a href="/#main" className="home-nav-home" aria-label="Trang chủ" aria-current={active === '#main' ? 'location' : undefined}><Image src="/assets/key-visual/home.svg" alt="" aria-hidden="true" width={20} height={20} unoptimized /></a>
     <a href={`${homePrefix}#participate`} aria-current={active === '#participate' ? 'location' : undefined}>Thể lệ</a>
     <Link href="/tin-tuc" aria-current={pathname === '/tin-tuc' || pathname.startsWith('/tin-tuc/') ? 'page' : undefined}>Tin tức</Link>
-    <NominationCTA className="home-header-cta" />
+    </div>
+
   </nav>;
 }
 

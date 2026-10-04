@@ -60,7 +60,7 @@ export default function HomePage() {
       <Section id="about" className="home-about">
         <Container>
           <div className="home-split">
-            <h2 className="type-display-l"><span className="home-about-signature">The First Signature</span><br />Dấu ấn tiên phong</h2>
+            <h2 className="type-display-l"><span className="home-about-signature"><span>The</span>{' '}<span>First</span>{' '}<span>Signature</span></span><br />Dấu ấn tiên phong</h2>
             <div className="home-copy"><p className="type-body-large">Travel Awards là giải thưởng thường niên về du lịch nhằm tôn vinh những điểm đến, doanh nghiệp và dịch vụ du lịch tiêu biểu của Việt Nam.</p><p>Chủ đề của mùa giải đầu tiên Travel Awards, đánh dấu sự khởi đầu của hành trình tôn vinh những điểm đến, doanh nghiệp và cá nhân tiên phong đang kiến tạo những giá trị mới cho du lịch Việt Nam. Mỗi dấu ấn được ghi nhận không chỉ là thành tựu của hôm nay mà còn là nguồn cảm hứng cho sự phát triển bền vững của ngành trong tương lai.</p><TextLink href="#participate">Xem chi tiết</TextLink></div>
           </div>
         </Container>
