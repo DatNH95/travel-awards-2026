@@ -291,3 +291,6 @@ Sau mỗi iteration, cập nhật phần trạng thái/checklist của file này
 - Breadcrumb trang con đi trực tiếp từ Trang chủ chỉ gồm Trang chủ / tên trang (ví dụ Trang chủ / Thể lệ), không thêm cấp Travel Awards.
 - Intro Thể lệ: chỉ breadcrumb và title Thể lệ; bỏ nhãn Travel Awards 2026, slogan và CTA đăng ký trong intro. Header và CTA trong nội dung giữ nguyên.
 - Khi bỏ thành phần giao diện, tự căn lại padding/khoảng cách vùng vừa chỉnh về 24px; không để khoảng trống từ thành phần đã bỏ. Intro Thể lệ padding trên/dưới 24px, breadcrumb cách title 24px, title không margin dư; nội dung dưới divider cách 24px.
+- Thể lệ: ảnh public/assets/key-visual/ADS 300x600.jpg dưới mục lục, cách 24px; cả cụm sidebar sticky desktop, có cuộn nội bộ khi cao hơn viewport; mobile xếp bình thường.
+- Nền riêng trang Thể lệ dùng #F7F7F7 theo yêu cầu người dùng; giữ palette foundation và header/footer dùng chung.
+- Footer dùng chung luôn có background #FFFFFF trên toàn bộ các trang, độc lập với nền trang.

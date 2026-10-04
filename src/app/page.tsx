@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import localFont from 'next/font/local';
 import Link from 'next/link';
 
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
@@ -17,6 +18,8 @@ export const metadata: Metadata = {
   description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 16.11.2026.',
 };
 
+
+const newsFont = localFont({ src: '../../public/fonts/merriweather/merriweather-bold.ttf', weight: '700', display: 'swap', variable: '--font-news-title' });
 
 // Demo articles from VnExpress Du lịch; replace when campaign news is supplied.
 const newsItems = [
@@ -97,15 +100,14 @@ export default function HomePage() {
           <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chuỗi minitalk chia sẻ về tư duy chăm da khoa học, phong cách sống hiện đại và giải pháp dưỡng da đặc trị đa nhiệm dành riêng cho phái đẹp trong mỗi hành trình du lịch, di chuyển nhưng da vẫn đẹp.</p><div className="home-coming-soon"><span className="home-minitalk-reminder-icon" aria-hidden="true" /><p>Tập đầu tiên ngày 23/10.</p></div></div></div>
         </Container>
       </Section>
-      <Section id="news" className="home-news">
+      <Section id="news" className={`home-news ${newsFont.variable}`}>
         <Container>
           <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true">↗</span></Link></div>
-          <div className="home-news-grid">
+          <div className="home-news-layout"><div className="home-news-grid">
             {newsItems.map((item, index) => <article className={`home-news-item${index === 0 ? ' home-news-item--featured' : ''}`} key={item.href}>
               <a className="home-news-image" href={item.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={1000} height={600} unoptimized /></a>
-              <h3 className="type-news-title"><a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>
-            </article>)}
-          </div>
+              <div className="home-news-copy"><h3 className="type-news-title"><a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>{index === 0 && <p className="home-news-lead">Tà Xùa lần đầu ghi dấu ấn với danh hiệu điểm đến mới nổi hàng đầu châu Á tại giải thưởng du lịch quốc tế.</p>}</div>
+            </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
       <Section id="nominate" tone="brand-deep" className="home-final-cta">

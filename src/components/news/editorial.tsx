@@ -16,6 +16,7 @@ export function NewsCard({ article, variant = 'row' }: { article: NewsArticle; v
 }
 
 export function AdSlot({ inline = false }: { inline?: boolean }) {
+  if (!inline) return <div className="news-ad news-ad--image"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></div>;
   return <div className={`news-ad${inline ? ' news-ad--inline' : ''}`} role="img" aria-label={`Vị trí quảng cáo ${inline ? 'ngang trong bài viết' : '300 × 600'}`}><span>QUẢNG CÁO</span><div><span>Travel Awards 2026</span><strong>{inline ? 'Không gian đồng hành' : '300 × 600'}</strong><small>Vị trí banner</small></div></div>;
 }
 
