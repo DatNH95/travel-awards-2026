@@ -104,3 +104,28 @@
 .news-detail { background: #fcfaf6; }
 .news-site .home-header, .news-site .home-footer { background: #ffffff; }
 .news-most-read h2::after { content: ''; display: block; width: 40px; height: 2px; margin-top: 8px; background: var(--color-brand-primary); }
+
+/* Listing lead package matches the Homepage: one feature above three stories. */
+.news-top-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px 24px; margin-bottom: 32px; }
+.news-top-grid .news-card--featured { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-column: 1 / -1; gap: 24px; padding-bottom: 0; }
+.news-top-grid .news-card--featured .news-card-copy { padding-top: 0; }
+.news-top-grid .news-card--featured .news-title { margin-top: 0; }
+.news-top-grid .news-card--related .news-title { font-size: 18px; margin-top: 16px; }
+.news-top-grid .news-card--related .news-lead { display: none; }
+@media (max-width: 767px) {
+  .news-top-grid { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .news-top-grid .news-card--featured { grid-template-columns: minmax(0, 1fr); }
+}
+
+.news-columns > .news-sidebar { position: sticky; top: 97px; }
+.news-latest { scroll-margin-top: 100px; }
+.news-pagination { display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+.news-page-item { display: inline-flex; align-items: center; gap: 8px; }
+.news-pagination a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; min-height: 40px; border: var(--news-rule); font: 16px/1.5 Arial, Helvetica, sans-serif; }
+.news-pagination a:hover { color: var(--color-text-brand); border-color: var(--color-brand-primary); }
+.news-pagination a[aria-current='page'] { background: var(--color-brand-primary); border-color: var(--color-brand-primary); color: #ffffff; }
+.news-page-ellipsis { padding-inline: 4px; }
+.news-main > .layout-container { --container-page: 1130px; }
+
+.news-card--row { border-top-color: #efefef; }
+.news-suggestions, .news-suggestions article, .news-most-read li { border-color: #efefef; }

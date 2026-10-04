@@ -102,6 +102,21 @@ export const newsArticles: NewsArticle[] = [
   },
 ];
 
-export function getNewsArticles() { return newsArticles; }
-export function getNewsArticle(slug: string) { return newsArticles.find(article => article.slug === slug); }
+const demoTopics = [
+  'Du lịch xanh từ những lựa chọn nhỏ', 'Một hành trình, nhiều trải nghiệm',
+  'Khám phá bản sắc qua ẩm thực địa phương', 'Cộng đồng làm nên câu chuyện điểm đến',
+  'Đi chậm để hiểu thêm một vùng đất', 'Những giá trị còn lại sau chuyến đi',
+  'Chăm chút trải nghiệm trong từng điểm dừng', 'Kết nối di sản với hành trình hôm nay',
+  'Cảnh quan và cảm hứng khám phá', 'Du lịch có trách nhiệm với địa phương',
+  'Tìm dấu ấn riêng trong mỗi hành trình', 'Chuẩn bị cho một chuyến đi đáng nhớ',
+];
+// Local demo records for six pages of twelve stories; no API or persistence.
+const demoArticles: NewsArticle[] = Array.from({ length: 71 }, (_, index) => {
+  const seed = newsArticles[index % 4];
+  const angles = ['', 'Góc nhìn: ', 'Trải nghiệm: ', 'Câu chuyện du lịch: ', 'Cảm hứng: ', 'Hành trình: '];
+  return { ...seed, slug: `cau-chuyen-du-lich-${index + 1}`, title: `${angles[Math.floor(index / 12)]}${demoTopics[index % 12]}` };
+});
+const allNewsArticles = [...newsArticles, ...demoArticles];
+export function getNewsArticles() { return allNewsArticles; }
+export function getNewsArticle(slug: string) { return allNewsArticles.find(article => article.slug === slug); }
 export function getRelatedNews(slug: string) { return newsArticles.filter(article => article.slug !== slug).slice(0, 3); }
