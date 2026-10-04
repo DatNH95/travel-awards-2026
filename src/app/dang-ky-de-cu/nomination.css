@@ -183,3 +183,11 @@
   .nomination-registration-form .nomination-field { scroll-margin-bottom: 7rem; }
 }
 
+.nomination-confirm-submit { display: flex; align-items: center; gap: 1rem; }
+.nomination-confirm-submit .button { flex-shrink: 0; }
+@media (max-width: 39.99rem) {
+  .nomination-confirmation-form > .nomination-mobile-bar { flex-wrap: wrap; }
+  .nomination-confirmation-form .nomination-confirm-submit { display: contents; }
+  .nomination-confirm-submit p { order: -1; flex: 0 0 100%; font-size: 0.75rem; }
+  .nomination-mobile-bar .nomination-confirm-submit > .button { flex: 1; width: auto; }
+}
