@@ -116,7 +116,109 @@ const demoArticles: NewsArticle[] = Array.from({ length: 71 }, (_, index) => {
   const angles = ['', 'Góc nhìn: ', 'Trải nghiệm: ', 'Câu chuyện du lịch: ', 'Cảm hứng: ', 'Hành trình: '];
   return { ...seed, slug: `cau-chuyen-du-lich-${index + 1}`, title: `${angles[Math.floor(index / 12)]}${demoTopics[index % 12]}` };
 });
-const allNewsArticles = [...newsArticles, ...demoArticles];
+const homepageArticles: NewsArticle[] = [
+  {
+    "lead": "Tà Xùa lần đầu được vinh danh điểm đến mới nổi hàng đầu châu Á",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nội dung demo để xem trước trang chi tiết tin tức của Travel Awards. Bài viết đầy đủ sẽ được cập nhật khi có nội dung chính thức."
+      },
+      {
+        "src": "https://i1-dulich.vnecdn.net/2026/10/01/2aobor24edwga8cozpy3gh08dgf2j1-3502-7965-1790818861.webp?w=1200&h=675&q=100&dpr=1&fit=crop&s=-4yZB3eD8lf5Ylkuk6L7yg",
+        "caption": "Ảnh: VnExpress Du lịch.",
+        "type": "image",
+        "alt": "Tà Xùa lần đầu được vinh danh điểm đến mới nổi hàng đầu châu Á"
+      }
+    ],
+    "category": "Du lịch",
+    "title": "Tà Xùa lần đầu được vinh danh điểm đến mới nổi hàng đầu châu Á",
+    "slug": "ta-xua-lan-dau-duoc-vinh-danh-diem-den-moi-noi-hang-dau-chau-a-5126915",
+    "publishedAt": "2026-10-01T09:00:00+07:00",
+    "author": "Travel Awards · Demo",
+    "image": {
+      "src": "https://i1-dulich.vnecdn.net/2026/10/01/2aobor24edwga8cozpy3gh08dgf2j1-3502-7965-1790818861.webp?w=1200&h=675&q=100&dpr=1&fit=crop&s=-4yZB3eD8lf5Ylkuk6L7yg",
+      "caption": "Ảnh: VnExpress Du lịch.",
+      "alt": "Tà Xùa lần đầu được vinh danh điểm đến mới nổi hàng đầu châu Á"
+    }
+  },
+  {
+    "lead": "Tour cùng kiểm lâm xuyên rừng Cát Tiên được đề cử giải du lịch thế giới",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nội dung demo để xem trước trang chi tiết tin tức của Travel Awards. Bài viết đầy đủ sẽ được cập nhật khi có nội dung chính thức."
+      },
+      {
+        "src": "https://i1-dulich.vnecdn.net/2026/09/30/trekking-canhdongtalai-1790755-6724-8000-1790755048.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ouyLF0Ak6vYQlXk_JKvTfQ",
+        "caption": "Ảnh: VnExpress Du lịch.",
+        "type": "image",
+        "alt": "Tour cùng kiểm lâm xuyên rừng Cát Tiên được đề cử giải du lịch thế giới"
+      }
+    ],
+    "category": "Du lịch",
+    "title": "Tour cùng kiểm lâm xuyên rừng Cát Tiên được đề cử giải du lịch thế giới",
+    "slug": "tour-cung-kiem-lam-xuyen-rung-cat-tien-duoc-de-cu-giai-du-lich-the-gioi-5126696",
+    "publishedAt": "2026-10-01T09:00:00+07:00",
+    "author": "Travel Awards · Demo",
+    "image": {
+      "src": "https://i1-dulich.vnecdn.net/2026/09/30/trekking-canhdongtalai-1790755-6724-8000-1790755048.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ouyLF0Ak6vYQlXk_JKvTfQ",
+      "caption": "Ảnh: VnExpress Du lịch.",
+      "alt": "Tour cùng kiểm lâm xuyên rừng Cát Tiên được đề cử giải du lịch thế giới"
+    }
+  },
+  {
+    "lead": "Cao Bằng vào mùa gặt",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nội dung demo để xem trước trang chi tiết tin tức của Travel Awards. Bài viết đầy đủ sẽ được cập nhật khi có nội dung chính thức."
+      },
+      {
+        "src": "https://i2-vnexpress.vnecdn.net/2026/09/27/DJI-0251-copy-4-1790519911.png?w=1200&h=675&q=100&dpr=1&fit=crop&s=TinwzC029-jInqWaUduOjw",
+        "caption": "Ảnh: VnExpress Du lịch.",
+        "type": "image",
+        "alt": "Cao Bằng vào mùa gặt"
+      }
+    ],
+    "category": "Du lịch",
+    "title": "Cao Bằng vào mùa gặt",
+    "slug": "cao-bang-vao-mua-gat-5125445",
+    "publishedAt": "2026-10-01T09:00:00+07:00",
+    "author": "Travel Awards · Demo",
+    "image": {
+      "src": "https://i2-vnexpress.vnecdn.net/2026/09/27/DJI-0251-copy-4-1790519911.png?w=1200&h=675&q=100&dpr=1&fit=crop&s=TinwzC029-jInqWaUduOjw",
+      "caption": "Ảnh: VnExpress Du lịch.",
+      "alt": "Cao Bằng vào mùa gặt"
+    }
+  },
+  {
+    "lead": "Phong Nha - Kẻ Bàng giành 'cú đúp' giải thưởng du lịch quốc tế",
+    "content": [
+      {
+        "type": "paragraph",
+        "text": "Nội dung demo để xem trước trang chi tiết tin tức của Travel Awards. Bài viết đầy đủ sẽ được cập nhật khi có nội dung chính thức."
+      },
+      {
+        "src": "https://i1-dulich.vnecdn.net/2026/09/28/dji-1790570736-3186-1790570740.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=IBzng60cz4dpQdDmRDBr2A",
+        "caption": "Ảnh: VnExpress Du lịch.",
+        "type": "image",
+        "alt": "Phong Nha - Kẻ Bàng giành 'cú đúp' giải thưởng du lịch quốc tế"
+      }
+    ],
+    "category": "Du lịch",
+    "title": "Phong Nha - Kẻ Bàng giành 'cú đúp' giải thưởng du lịch quốc tế",
+    "slug": "phong-nha-ke-bang-gianh-cu-dup-giai-thuong-du-lich-quoc-te-5125627",
+    "publishedAt": "2026-10-01T09:00:00+07:00",
+    "author": "Travel Awards · Demo",
+    "image": {
+      "src": "https://i1-dulich.vnecdn.net/2026/09/28/dji-1790570736-3186-1790570740.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=IBzng60cz4dpQdDmRDBr2A",
+      "caption": "Ảnh: VnExpress Du lịch.",
+      "alt": "Phong Nha - Kẻ Bàng giành 'cú đúp' giải thưởng du lịch quốc tế"
+    }
+  }
+];
+const allNewsArticles = [...newsArticles, ...homepageArticles, ...demoArticles];
 export function getNewsArticles() { return allNewsArticles; }
 export function getNewsArticle(slug: string) { return allNewsArticles.find(article => article.slug === slug); }
 export function getRelatedNews(slug: string) { return newsArticles.filter(article => article.slug !== slug).slice(0, 3); }

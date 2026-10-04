@@ -1,6 +1,6 @@
 export const megabyte = 1_000_000;
 export const introductionLimit = 20 * megabyte;
-const imageExtensions = /\.(png|jpe?g|webp|gif|avif|heic|heif)$/i;
+const imageExtensions = /\.(png|jpe?g)$/i;
 
 export function dossierError(key: string, files: File[], legalLink = ''): string {
   if (key === 'dossier-0') {
@@ -13,7 +13,9 @@ export function dossierError(key: string, files: File[], legalLink = ''): string
     if (files.some(file => !/\.(pdf|doc|docx)$/i.test(file.name))) return 'Tài liệu pháp lý/chứng nhận chấp nhận PDF, DOC hoặc DOCX.';
   }
   if (key === 'dossier-3') {
-    if (files.some(file => !imageExtensions.test(file.name))) return 'Vui lòng chọn ảnh PNG, JPG/JPEG, WEBP, GIF, AVIF hoặc HEIC/HEIF.';
+    if (files.length < 3) return 'Vui lòng chọn tối thiểu 3 ảnh.';
+    if (files.length > 10) return 'Chỉ được chọn tối đa 10 ảnh.';
+    if (files.some(file => !imageExtensions.test(file.name))) return 'Chỉ chấp nhận ảnh JPG, JPEG hoặc PNG.';
     if (files.some(file => file.size < megabyte || file.size > 10 * megabyte)) return 'Mỗi ảnh cần có dung lượng từ 1 MB đến 10 MB.';
   }
   return '';
@@ -21,3 +23,4 @@ export function dossierError(key: string, files: File[], legalLink = ''): string
 export function mergeDossierFiles(previous: File[], incoming: File[]): File[] {
   return [...previous, ...incoming].filter((file, index, list) => list.findIndex(item => item.name === file.name && item.size === file.size && item.lastModified === file.lastModified) === index);
 }
+

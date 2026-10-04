@@ -25,22 +25,22 @@ const newsFont = localFont({ src: '../../public/fonts/merriweather/merriweather-
 const newsItems = [
   {
     title: 'Tà Xùa lần đầu được vinh danh điểm đến mới nổi hàng đầu châu Á',
-    href: 'https://vnexpress.net/ta-xua-lan-dau-duoc-vinh-danh-diem-den-moi-noi-hang-dau-chau-a-5126915.html',
+    href: '/tin-tuc/ta-xua-lan-dau-duoc-vinh-danh-diem-den-moi-noi-hang-dau-chau-a-5126915',
     image: 'https://i1-dulich.vnecdn.net/2026/10/01/2aobor24edwga8cozpy3gh08dgf2j1-3502-7965-1790818861.webp?w=1200&h=675&q=100&dpr=1&fit=crop&s=-4yZB3eD8lf5Ylkuk6L7yg',
   },
   {
     title: 'Tour cùng kiểm lâm xuyên rừng Cát Tiên được đề cử giải du lịch thế giới',
-    href: 'https://vnexpress.net/tour-cung-kiem-lam-xuyen-rung-cat-tien-duoc-de-cu-giai-du-lich-the-gioi-5126696.html',
+    href: '/tin-tuc/tour-cung-kiem-lam-xuyen-rung-cat-tien-duoc-de-cu-giai-du-lich-the-gioi-5126696',
     image: 'https://i1-dulich.vnecdn.net/2026/09/30/trekking-canhdongtalai-1790755-6724-8000-1790755048.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=ouyLF0Ak6vYQlXk_JKvTfQ',
   },
   {
     title: 'Cao Bằng vào mùa gặt',
-    href: 'https://vnexpress.net/cao-bang-vao-mua-gat-5125445.html',
+    href: '/tin-tuc/cao-bang-vao-mua-gat-5125445',
     image: 'https://i2-vnexpress.vnecdn.net/2026/09/27/DJI-0251-copy-4-1790519911.png?w=1200&h=675&q=100&dpr=1&fit=crop&s=TinwzC029-jInqWaUduOjw',
   },
   {
     title: "Phong Nha - Kẻ Bàng giành 'cú đúp' giải thưởng du lịch quốc tế",
-    href: 'https://vnexpress.net/phong-nha-ke-bang-gianh-cu-dup-giai-thuong-du-lich-quoc-te-5125627.html',
+    href: '/tin-tuc/phong-nha-ke-bang-gianh-cu-dup-giai-thuong-du-lich-quoc-te-5125627',
     image: 'https://i1-dulich.vnecdn.net/2026/09/28/dji-1790570736-3186-1790570740.jpg?w=1200&h=675&q=100&dpr=1&fit=crop&s=IBzng60cz4dpQdDmRDBr2A',
   },
 ];
@@ -105,8 +105,8 @@ export default function HomePage() {
           <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true">↗</span></Link></div>
           <div className="home-news-layout"><div className="home-news-grid">
             {newsItems.map((item, index) => <article className={`home-news-item${index === 0 ? ' home-news-item--featured' : ''}`} key={item.href}>
-              <a className="home-news-image" href={item.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={1000} height={600} unoptimized /></a>
-              <div className="home-news-copy"><h3 className="type-news-title"><a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a></h3>{index === 0 && <p className="home-news-lead">Tà Xùa lần đầu ghi dấu ấn với danh hiệu điểm đến mới nổi hàng đầu châu Á tại giải thưởng du lịch quốc tế.</p>}</div>
+              <a className="home-news-image" href={item.href} tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={1000} height={600} unoptimized /></a>
+              <div className="home-news-copy"><h3 className="type-news-title"><a href={item.href}>{item.title}</a></h3>{index === 0 && <p className="home-news-lead">Tà Xùa lần đầu ghi dấu ấn với danh hiệu điểm đến mới nổi hàng đầu châu Á tại giải thưởng du lịch quốc tế.</p>}</div>
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>

@@ -22,6 +22,8 @@ export function NominationFlow() {
 function NominationForm({ initialSelection, previewStep }: { initialSelection: string; previewStep: number | null }) {
   const [step, setStep] = useState(previewStep ?? 0);
   const [selection, setSelection] = useState(initialSelection);
+  const [activeGroup, setActiveGroup] = useState(Math.max(0, awardGroups.findIndex(group => group.categories.includes(initialSelection))));
+  const groupTabs = useRef<(HTMLButtonElement | null)[]>([]);
   const [draft, setDraft] = useState<RegistrationDraft>({ values: {}, checks: {}, files: {} });
   const title = useRef<HTMLHeadingElement>(null);
   const saveDialog = useRef<HTMLDialogElement>(null);
@@ -58,8 +60,8 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
         <fieldset className="nomination-choices" aria-describedby="nomination-choice-help">
           <legend className="type-body-large">Chọn một hạng mục bạn muốn đề cử.</legend>
           <p id="nomination-choice-help" className="nomination-muted type-body-small">Lưu ý: Mỗi hồ sơ chỉ đăng ký cho một hạng mục. Trường hợp muốn tham gia nhiều hạng mục, vui lòng thực hiện hồ sơ riêng cho từng hạng mục.</p>
-          <div className="nomination-groups">{awardGroups.map((group, groupIndex) => <section key={group.name} aria-labelledby={`nomination-group-${groupIndex}`}>
-            <h3 id={`nomination-group-${groupIndex}`} className="type-heading-3">{group.name} <span className="type-body-small">{group.categories.length} hạng mục</span></h3>
+          <div className="nomination-group-tabs" role="tablist" aria-label="Nhóm giải thưởng">{awardGroups.map((group, index) => <button type="button" role="tab" key={group.name} id={`nomination-group-tab-${index}`} aria-controls={`nomination-group-panel-${index}`} aria-selected={activeGroup === index} tabIndex={activeGroup === index ? 0 : -1} ref={node => { groupTabs.current[index] = node; }} onClick={() => setActiveGroup(index)} onKeyDown={event => { let next: number; if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') next = 1 - activeGroup; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = 1; else return; event.preventDefault(); setActiveGroup(next); groupTabs.current[next]?.focus(); }}>{group.name} <span className="type-body-small">({group.categories.length})</span></button>)}</div>
+          <div className="nomination-groups">{awardGroups.map((group, groupIndex) => <section key={group.name} hidden={activeGroup !== groupIndex} role="tabpanel" id={`nomination-group-panel-${groupIndex}`} aria-labelledby={`nomination-group-tab-${groupIndex}`}>
             <div className="nomination-category-list">{group.categories.map((category, index) => <label key={category} className="nomination-category" data-selected={selection === category}>
               <input type="radio" name="award-category" value={category} checked={selection === category} onChange={() => setSelection(category)} />
               <span className="nomination-category-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
@@ -72,7 +74,7 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
           <Link href="/" className="button button--secondary">Quay lại trang chủ</Link>
           <Button type="submit" disabled={!selection}>Tiếp tục <span aria-hidden="true">→</span></Button>
         </div>
-      </form> : step === 1 ? <form noValidate onSubmit={event => { event.preventDefault(); navigate(2); }}>
+      </form> : step === 1 ? <form className="nomination-registration-form" noValidate onSubmit={event => { event.preventDefault(); navigate(2); }}>
         <RegistrationFields selection={selection} draft={draft} onChange={setDraft} />
         <Button className="nomination-mobile-save" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
         <div className="nomination-actions nomination-mobile-bar">
@@ -110,6 +112,10 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
     </dialog>
   </div>;
 }
+
+
+
+
 
 
 

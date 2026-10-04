@@ -58,11 +58,12 @@ export function RegistrationFields({ selection, draft, onChange }: { selection: 
           <div className="nomination-field nomination-field--wide"><label htmlFor={`${id}-legal-link`}>Link Google Docs bản scan</label><UrlControl id={`${id}-legal-link`} name="legal-scan-link" value={draft.values['legal-scan-link'] ?? ''} placeholder="https://docs.google.com/..." onChange={value => onChange({ ...draft, values: { ...draft.values, 'legal-scan-link': value } })} /></div>
         </fieldset>
         <DossierFileField id={`${id}-dossier-2`} fieldKey="dossier-2" label="Tài liệu chứng minh số liệu hoạt động" files={draft.files['dossier-2'] ?? []} onChange={files => onChange({ ...draft, files: { ...draft.files, 'dossier-2': files } })} />
-        <DossierFileField id={`${id}-dossier-3`} fieldKey="dossier-3" label="Hình ảnh" help="Không bắt buộc. Mỗi ảnh từ 1 MB đến 10 MB. Chấp nhận PNG, JPG/JPEG, WEBP, GIF, AVIF, HEIC/HEIF." accept=".png,.jpg,.jpeg,.webp,.gif,.avif,.heic,.heif" files={draft.files['dossier-3'] ?? []} onChange={files => onChange({ ...draft, files: { ...draft.files, 'dossier-3': files } })} />
+        <DossierFileField id={`${id}-dossier-3`} fieldKey="dossier-3" label="Hình ảnh*" help="Bắt buộc: tối thiểu 3 ảnh, tối đa 10 ảnh. Chỉ chấp nhận JPG, JPEG, PNG. Mỗi ảnh từ 1 MB đến 10 MB." accept=".jpg,.jpeg,.png" files={draft.files['dossier-3'] ?? []} onChange={files => onChange({ ...draft, files: { ...draft.files, 'dossier-3': files } })} />
         <div className="nomination-field nomination-field--wide"><label htmlFor={`${id}-video-link`}>Video giới thiệu</label><p className="type-body-small nomination-muted">Dán link YouTube, Drive hoặc nền tảng tương ứng.</p><UrlControl id={`${id}-video-link`} name="video-0" value={draft.values['video-0'] ?? ''} onChange={value => onChange({ ...draft, values: { ...draft.values, 'video-0': value } })} /></div>
         <DossierFileField id={`${id}-dossier-4`} fieldKey="dossier-4" label="Các tài liệu khác" files={draft.files['dossier-4'] ?? []} onChange={files => onChange({ ...draft, files: { ...draft.files, 'dossier-4': files } })} />
       </div>
     </fieldset>
   </div>;
 }
+
 

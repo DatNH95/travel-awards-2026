@@ -16,7 +16,7 @@ export function ConfirmationStep({ selection, draft, onEdit, onSubmit }: { selec
       return <div key={field.label}><dt>{field.label.replace(/\*$/, '')}</dt><dd>{value ? <>{field.type === 'tel' && country ? `+${country.callingCode} · ` : ''}{value}</> : 'Chưa cung cấp'}</dd></div>;
     })}</dl>;
   }
-  return <form onSubmit={event => { event.preventDefault(); if (agreed) onSubmit(); }}>
+  return <form className="nomination-confirmation-form" onSubmit={event => { event.preventDefault(); if (agreed) onSubmit(); }}>
     <p className="type-body-large">Vui lòng kiểm tra thông tin trước khi xác nhận hồ sơ.</p>
     <section className="nomination-form-section"><h3 className="type-heading-3">Hạng mục đăng ký</h3><p>{selection}</p></section>
     <section className="nomination-form-section"><h3 className="type-heading-3">I. Thông tin đăng ký</h3>{review(registrationFields, 'registration')}<h4 className="type-body-large">Người đại diện hồ sơ</h4>{review(representativeFields, 'representative')}{selection === 'Điểm đến du lịch của năm' && review([{ label: 'Cơ quan/đơn vị đại diện đề cử' }], 'destination')}</section>
@@ -28,5 +28,6 @@ export function ConfirmationStep({ selection, draft, onEdit, onSubmit }: { selec
     <div className="nomination-actions nomination-mobile-bar"><Button type="button" variant="secondary" onClick={onEdit}>← Quay lại chỉnh sửa</Button><Button type="submit" disabled={!agreed}>Gửi hồ sơ <span aria-hidden="true">→</span></Button></div>
   </form>;
 }
+
 
 
