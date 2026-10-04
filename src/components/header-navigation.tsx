@@ -27,10 +27,11 @@ export function HeaderNavigation({ homePrefix = '' }: { homePrefix?: '' | '/' })
   return <nav aria-label="Điều hướng chính" data-scrolled={scrolled ? 'true' : undefined}>
     <div className="home-header-links">
     <a href="/#main" className="home-nav-home" aria-label="Trang chủ" aria-current={active === '#main' ? 'location' : undefined}><Image src="/assets/key-visual/home.svg" alt="" aria-hidden="true" width={20} height={20} unoptimized /></a>
-    <a href={`${homePrefix}#participate`} aria-current={active === '#participate' ? 'location' : undefined}>Thể lệ</a>
+    <Link href="/the-le" aria-current={pathname === '/the-le' ? 'page' : undefined}>Thể lệ</Link>
     <Link href="/tin-tuc" aria-current={pathname === '/tin-tuc' || pathname.startsWith('/tin-tuc/') ? 'page' : undefined}>Tin tức</Link>
     </div>
 
   </nav>;
 }
+
 

@@ -278,3 +278,16 @@ Sau mỗi iteration, cập nhật phần trạng thái/checklist của file này
 
 
 
+
+### Trang Thể lệ — 04.10.2026
+- Route /the-le giữ header/footer và design system; mục lục sticky 6 phần, mobile hai cột; tiêu chí dùng native details.
+- 15 hạng mục, đối tượng, mô tả, tiêu chí và tỷ trọng từ tab Tiêu chí sheet người dùng; snapshot criteria.json.
+- Lịch tháng: 10/2026; 11–12/2026; 12/2026–1/2027; 1/2027, từ Tổng quan các phase; không dùng mốc air.
+- Tab Thể lệ trống: điều lệ chi tiết hiển thị đang cập nhật.
+- Header/footer, Homepage Xem thể lệ và About Xem chi tiết dẫn /the-le; CTA hạng mục giữ query category.
+- Build/TypeScript đạt; Edge desktop 1440px/mobile 390px không tràn, 15 accordion, mục lục và console đã kiểm tra.
+
+### Quy ước phần đầu trang con — 04.10.2026
+- Breadcrumb trang con đi trực tiếp từ Trang chủ chỉ gồm Trang chủ / tên trang (ví dụ Trang chủ / Thể lệ), không thêm cấp Travel Awards.
+- Intro Thể lệ: chỉ breadcrumb và title Thể lệ; bỏ nhãn Travel Awards 2026, slogan và CTA đăng ký trong intro. Header và CTA trong nội dung giữ nguyên.
+- Khi bỏ thành phần giao diện, tự căn lại padding/khoảng cách vùng vừa chỉnh về 24px; không để khoảng trống từ thành phần đã bỏ. Intro Thể lệ padding trên/dưới 24px, breadcrumb cách title 24px, title không margin dư; nội dung dưới divider cách 24px.

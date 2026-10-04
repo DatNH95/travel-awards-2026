@@ -61,15 +61,15 @@ export default function HomePage() {
         <Container>
           <div className="home-split">
             <h2 className="type-display-l"><span className="home-about-signature"><span>The</span>{' '}<span>First</span>{' '}<span>Signature</span></span><br />Dấu ấn tiên phong</h2>
-            <div className="home-copy"><p className="type-body-large">Travel Awards là giải thưởng thường niên về du lịch nhằm tôn vinh những điểm đến, doanh nghiệp và dịch vụ du lịch tiêu biểu của Việt Nam.</p><p>Chủ đề của mùa giải đầu tiên Travel Awards, đánh dấu sự khởi đầu của hành trình tôn vinh những điểm đến, doanh nghiệp và cá nhân tiên phong đang kiến tạo những giá trị mới cho du lịch Việt Nam. Mỗi dấu ấn được ghi nhận không chỉ là thành tựu của hôm nay mà còn là nguồn cảm hứng cho sự phát triển bền vững của ngành trong tương lai.</p><TextLink href="#participate">Xem chi tiết</TextLink></div>
+            <div className="home-copy"><p className="type-body-large">Travel Awards là giải thưởng thường niên về du lịch nhằm tôn vinh những điểm đến, doanh nghiệp và dịch vụ du lịch tiêu biểu của Việt Nam.</p><p>Chủ đề của mùa giải đầu tiên Travel Awards, đánh dấu sự khởi đầu của hành trình tôn vinh những điểm đến, doanh nghiệp và cá nhân tiên phong đang kiến tạo những giá trị mới cho du lịch Việt Nam. Mỗi dấu ấn được ghi nhận không chỉ là thành tựu của hôm nay mà còn là nguồn cảm hứng cho sự phát triển bền vững của ngành trong tương lai.</p><TextLink href="/the-le#gioi-thieu">Xem chi tiết</TextLink></div>
           </div>
         </Container>
       </Section>
       <Section id="journey" className="home-journey">
         <Container>
-          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink href="#participate">Xem thể lệ</TextLink></div>
+          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink href="/the-le">Xem thể lệ</TextLink></div>
           <ol className="home-timeline">
-            <li><span className="home-timeline-index">01 / Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 9 - Tháng 11</p></div><p>Các doanh nghiệp, điểm đến, dịch vụ và đơn vị hoạt động trong lĩnh vực du lịch trên toàn quốc gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục thông qua cổng đăng ký trên chuyên trang Travel Awards.</p></li>
+            <li><span className="home-timeline-index">01 / Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 10 - 11</p></div><p>Các doanh nghiệp, điểm đến, dịch vụ và đơn vị hoạt động trong lĩnh vực du lịch trên toàn quốc gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục thông qua cổng đăng ký trên chuyên trang Travel Awards.</p></li>
             <li><span className="home-timeline-index">02 / Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Công bố danh sách đề cử. Độc giả tiếp tục bình chọn cho các đề cử xuất sắc nhất, song song với quá trình chấm điểm của Hội đồng chuyên môn. Kết quả chung cuộc được tính dựa trên 40% điểm bình chọn của độc giả và 60% điểm đánh giá của Hội đồng chuyên môn đối với tất cả các hạng mục, ngoại trừ Giải Bình chọn, được quyết định hoàn toàn dựa trên kết quả bình chọn của độc giả.</p></li>
             <li><span className="home-timeline-index">03 / Vinh danh</span><div className="home-timeline-summary"><h3 className="type-heading-2">Gala trao giải</h3><p className="home-timeline-date">Tháng 1/2027</p></div><p>Công bố các đề cử trúng giải, hoạt động bên lề Gala vinh danh.</p></li>
           </ol>
@@ -118,4 +118,5 @@ export default function HomePage() {
     <SiteFooter />
   </div>;
 }
+
 

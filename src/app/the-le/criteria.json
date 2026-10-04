@@ -1,0 +1,221 @@
+[
+  {
+    "name": "Nhóm giải thưởng trụ cột",
+    "awards": [
+      {
+        "name": "Điểm đến du lịch của năm (Cấp tỉnh / thành)",
+        "audience": "Các điểm đến cấp tỉnh, thành phố trực thuộc Trung ương, đề cử qua Sở Du lịch, Sở VHTTDL hoặc UBND tỉnh, thành phố.",
+        "description": "Vinh danh địa phương có bước phát triển du lịch nổi bật nhất trong năm: tăng trưởng khách, sản phẩm mới, hạ tầng, chính sách và hình ảnh điểm đến được nâng tầm rõ rệt.",
+        "criteria": [
+          "Trách nhiệm bền vững: bảo tồn di sản, môi trường & cộng đồng",
+          "Tăng trưởng lượt khách & doanh thu du lịch",
+          "Phát triển sản phẩm mới, hạ tầng & kết nối giao thông",
+          "Chính sách, môi trường đầu tư & xúc tiến du lịch",
+          "Độ phủ truyền thông & nhận diện thương hiệu điểm đến (khảo sát + dữ liệu Destination Navigate – Outbox)",
+          "Mức độ hài lòng của du khách (khảo sát)"
+        ],
+        "expert": "70%",
+        "reader": "30%"
+      },
+      {
+        "name": "Doanh nghiệp lữ hành của năm",
+        "audience": "Doanh nghiệp lữ hành nội địa và quốc tế (tour operator, đại lý lữ hành) có giấy phép hợp lệ, đang hoạt động tại Việt Nam.",
+        "description": "Vinh danh doanh nghiệp lữ hành vận hành xuất sắc, sản phẩm tour đa dạng, đội ngũ chuyên nghiệp và được khách hàng tin tưởng cao nhất.",
+        "criteria": [
+          "Trách nhiệm bền vững: du lịch có trách nhiệm với điểm đến & đối tác địa phương",
+          "Quy mô, doanh thu & tốc độ tăng trưởng kinh doanh",
+          "Đa dạng & chất lượng sản phẩm tour",
+          "Năng lực vận hành, đội ngũ hướng dẫn viên & CSKH",
+          "Ứng dụng công nghệ, đổi mới sản phẩm",
+          "Mức độ hài lòng khách hàng (khảo sát)"
+        ],
+        "expert": "60%",
+        "reader": "40%"
+      },
+      {
+        "name": "Khách sạn của năm",
+        "audience": "Khách sạn đã xếp hạng sao (4–5 sao) hoặc đạt chuẩn tương đương, đang hoạt động hợp pháp.",
+        "description": "Vinh danh khách sạn mang lại trải nghiệm lưu trú xuất sắc: cơ sở vật chất, dịch vụ chuyên nghiệp và cảm nhận thực tế của khách lưu trú.",
+        "criteria": [
+          "Thực hành bền vững, bảo vệ môi trường",
+          "Chất lượng cơ sở vật chất & tiện nghi",
+          "Chất lượng dịch vụ & đội ngũ nhân sự",
+          "Đổi mới trải nghiệm khách hàng",
+          "Điểm đánh giá trên nền tảng đặt phòng (OTA) & review trong năm",
+          "Mức độ hài lòng của khách lưu trú (khảo sát)"
+        ],
+        "expert": "50%",
+        "reader": "50%"
+      },
+      {
+        "name": "Khu nghỉ dưỡng của năm (Resort)",
+        "audience": "Khu nghỉ dưỡng / resort đã xếp hạng hoặc đạt chuẩn tương đương, đang hoạt động hợp pháp.",
+        "description": "Vinh danh resort mang đến trải nghiệm nghỉ dưỡng đẳng cấp: không gian, cảnh quan, bản sắc địa phương và dịch vụ cao cấp trọn vẹn.",
+        "criteria": [
+          "Thực hành bền vững, bảo vệ môi trường",
+          "Không gian, kiến trúc & cảnh quan",
+          "Dịch vụ nghỉ dưỡng cao cấp (spa, ẩm thực, giải trí)",
+          "Bản sắc địa phương & tính độc đáo",
+          "Điểm đánh giá trên nền tảng đặt phòng (OTA) & review trong năm",
+          "Mức độ hài lòng của khách nghỉ dưỡng (khảo sát)"
+        ],
+        "expert": "50%",
+        "reader": "50%"
+      },
+      {
+        "name": "Hãng hàng không du lịch của năm",
+        "audience": "Hãng hàng không nội địa và quốc tế đang khai thác đường bay đi/đến/trong Việt Nam.",
+        "description": "Vinh danh hãng bay đóng góp tích cực vào phát triển du lịch qua mạng lưới đường bay, chất lượng phục vụ và hợp tác quảng bá điểm đến.",
+        "criteria": [
+          "Trách nhiệm bền vững: giảm phát thải, nhiên liệu bền vững",
+          "Mạng đường bay, tần suất & đường bay du lịch mới",
+          "Chất lượng dịch vụ, tỷ lệ đúng giờ",
+          "Chính sách giá & chương trình kích cầu du lịch",
+          "Hợp tác quảng bá điểm đến với địa phương/doanh nghiệp",
+          "Đổi mới trải nghiệm khách hàng",
+          "Mức độ hài lòng của hành khách (khảo sát)"
+        ],
+        "expert": "70%",
+        "reader": "30%"
+      },
+      {
+        "name": "Trải nghiệm du lịch của năm",
+        "audience": "Sản phẩm/chương trình trải nghiệm cụ thể (tour chuyên đề, lễ hội, show diễn, hành trình khám phá) do doanh nghiệp, địa phương hoặc tổ chức triển khai trong năm.",
+        "description": "Vinh danh một sản phẩm/trải nghiệm cụ thể gây tiếng vang và được du khách yêu thích nhất trong năm.",
+        "criteria": [
+          "Trách nhiệm với cộng đồng/di sản tại nơi diễn ra (nếu áp dụng)",
+          "Tính sáng tạo, độc đáo của trải nghiệm",
+          "Chất lượng tổ chức, chuyên nghiệp trong vận hành",
+          "Mức độ yêu thích thực tế của du khách (khảo sát)",
+          "Mức độ lan tỏa truyền thông & mạng xã hội",
+          "Số lượng & tăng trưởng khách tham gia"
+        ],
+        "expert": "40%",
+        "reader": "60%"
+      }
+    ]
+  },
+  {
+    "name": "Nhóm giải thưởng tiên phong",
+    "awards": [
+      {
+        "name": "Nhân vật du lịch của năm (Cá nhân)",
+        "audience": "Cá nhân hoạt động trong ngành du lịch — lãnh đạo doanh nghiệp, chuyên gia, nghệ nhân, nhà quản lý, nhà nghiên cứu…",
+        "description": "Vinh danh cá nhân có đóng góp đáng kể, tạo ảnh hưởng tích cực cho hình ảnh và sự phát triển của du lịch Việt Nam.",
+        "criteria": [
+          "Tính tiên phong, sáng tạo trong đóng góp cho ngành",
+          "Hiệu quả/tác động thực tế đo lường được (sáng kiến, dự án đã triển khai)",
+          "Ghi nhận từ cộng đồng chuyên môn, đồng nghiệp trong ngành",
+          "Mức độ được công chúng biết đến (khảo sát – chỉ đo độ nhận biết)"
+        ],
+        "expert": "90%",
+        "reader": "10%"
+      },
+      {
+        "name": "Sáng kiến du lịch bền vững của năm",
+        "audience": "Doanh nghiệp, tổ chức hoặc địa phương triển khai dự án/sáng kiến bền vững trong lĩnh vực du lịch.",
+        "description": "Vinh danh dự án/sáng kiến có tác động đo lường được đến phát triển bền vững — môi trường, cộng đồng, văn hóa bản địa.",
+        "criteria": [
+          "Mức độ đổi mới so với thực hành hiện tại",
+          "Tính khả thi & hiệu quả đo lường được",
+          "Tác động môi trường & xã hội cụ thể",
+          "Khả năng nhân rộng",
+          "Mức độ ủng hộ, ghi nhận của công chúng (khảo sát)"
+        ],
+        "expert": "80%",
+        "reader": "20%"
+      },
+      {
+        "name": "Điểm đến du lịch xanh của năm",
+        "audience": "Địa phương hoặc khu/điểm du lịch cụ thể (mọi cấp) tiên phong về thực hành xanh.",
+        "description": "Vinh danh địa phương/khu du lịch tiên phong bảo vệ môi trường, giảm phát thải và bảo tồn tài nguyên thiên nhiên.",
+        "criteria": [
+          "Mức độ đổi mới trong chính sách & hành động môi trường",
+          "Hiệu quả đo lường được (chứng nhận xanh: Green Key, ESG…)",
+          "Sự tham gia & hưởng lợi của cộng đồng địa phương",
+          "Cảm nhận của du khách về trải nghiệm xanh (khảo sát)"
+        ],
+        "expert": "70%",
+        "reader": "30%"
+      },
+      {
+        "name": "Sản phẩm du lịch sáng tạo của năm",
+        "audience": "Doanh nghiệp/tổ chức sở hữu hoặc vận hành sản phẩm, dịch vụ du lịch mới ra mắt trong năm.",
+        "description": "Vinh danh sản phẩm/dịch vụ du lịch mới, có tính đột phá — tour chuyên đề, ứng dụng công nghệ, hình thức trải nghiệm mới.",
+        "criteria": [
+          "Tính mới & độc đáo",
+          "Tiềm năng phát triển & khả năng nhân rộng dài hạn",
+          "Mức độ đón nhận của thị trường",
+          "Đánh giá của du khách trải nghiệm thực tế (khảo sát)"
+        ],
+        "expert": "50%",
+        "reader": "50%"
+      },
+      {
+        "name": "Chuyển đổi số xuất sắc trong du lịch",
+        "audience": "Doanh nghiệp, điểm đến hoặc cơ quan quản lý du lịch ứng dụng công nghệ số vào vận hành/trải nghiệm khách hàng.",
+        "description": "Vinh danh doanh nghiệp/điểm đến ứng dụng công nghệ số hiệu quả để nâng cao trải nghiệm khách hàng và hiệu quả vận hành.",
+        "criteria": [
+          "Mức độ ứng dụng công nghệ (AI, dữ liệu, ứng dụng…)",
+          "Hiệu quả cải thiện trải nghiệm khách hàng",
+          "Hiệu quả vận hành nội bộ",
+          "Đánh giá của người dùng thực tế (khảo sát)"
+        ],
+        "expert": "70%",
+        "reader": "30%"
+      },
+      {
+        "name": "Làng du lịch cộng đồng tiêu biểu của năm",
+        "audience": "Làng du lịch cộng đồng, hợp tác xã du lịch, mô hình homestay do cộng đồng địa phương vận hành.",
+        "description": "Vinh danh mô hình du lịch cộng đồng/làng/homestay giúp bảo tồn văn hóa bản địa và tạo sinh kế cho người dân địa phương.",
+        "criteria": [
+          "Tính đặc sắc, khác biệt của mô hình (bảo tồn văn hóa, bản sắc địa phương)",
+          "Tính bền vững trong vận hành",
+          "Mức độ tham gia & hưởng lợi của cộng đồng địa phương",
+          "Chất lượng trải nghiệm cho du khách (khảo sát)"
+        ],
+        "expert": "60%",
+        "reader": "40%"
+      },
+      {
+        "name": "Trải nghiệm ẩm thực du lịch của năm",
+        "audience": "Nhà hàng, thương hiệu ẩm thực hoặc điểm đến ẩm thực gắn liền với hoạt động du lịch.",
+        "description": "Vinh danh điểm đến/thương hiệu ẩm thực gắn với du lịch, góp phần định vị ẩm thực Việt Nam trên bản đồ du lịch thế giới.",
+        "criteria": [
+          "Chất lượng & tính đặc trưng, sáng tạo của ẩm thực",
+          "Chất lượng trải nghiệm phục vụ du khách",
+          "Mức độ lan tỏa truyền thông, giải thưởng quốc tế",
+          "Đánh giá của thực khách/du khách (khảo sát)"
+        ],
+        "expert": "40%",
+        "reader": "60%"
+      },
+      {
+        "name": "Gương mặt truyền thông du lịch của năm (Đại sứ)",
+        "audience": "Cá nhân (nghệ sĩ, KOL, nhà sáng tạo nội dung, nhà báo) có hoạt động truyền thông/quảng bá về du lịch Việt Nam.",
+        "description": "Vinh danh cá nhân có đóng góp lan tỏa hình ảnh du lịch Việt Nam qua truyền thông và mạng xã hội.",
+        "criteria": [
+          "Tính sáng tạo, tiên phong trong cách truyền tải nội dung du lịch",
+          "Tính xác thực, phù hợp với hình ảnh ngành du lịch",
+          "Hiệu quả lan tỏa đo lường được (reach, engagement – chuẩn hóa theo quy mô)",
+          "Mức độ yêu thích, tin tưởng của công chúng (bình chọn có kiểm soát)"
+        ],
+        "expert": "30%",
+        "reader": "70%"
+      },
+      {
+        "name": "Chiến dịch quảng bá du lịch của năm",
+        "audience": "Địa phương, doanh nghiệp hoặc tổ chức thực hiện chiến dịch truyền thông/marketing du lịch về điểm đến Việt Nam trong năm.",
+        "description": "Vinh danh chiến dịch truyền thông/marketing du lịch có hiệu ứng lan tỏa và hiệu quả kích cầu nổi bật.",
+        "criteria": [
+          "Tính sáng tạo & thông điệp chiến dịch",
+          "Hiệu quả kích cầu đo lường được",
+          "Độ phủ & hiệu quả lan tỏa truyền thông đa kênh",
+          "Đánh giá của công chúng (khảo sát)"
+        ],
+        "expert": "50%",
+        "reader": "50%"
+      }
+    ]
+  }
+]
