@@ -35,9 +35,9 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
     <nav className="nomination-progress" aria-label="Tiến trình đề cử">
       <p className="type-label">Các bước tham gia</p>
       <ol>{steps.map((label, index) => <li key={label} data-state={index === step ? 'current' : index < step ? 'complete' : 'upcoming'}>
-        <button type="button" aria-current={index === step ? 'step' : undefined} disabled={previewStep === null && index > step} onClick={() => navigate(index)}>
-          <span className="nomination-step-number" aria-hidden="true">{index < step ? '✓' : String(index + 1).padStart(2, '0')}</span>
-          <span>{label}</span>
+        <button type="button" aria-label={label} aria-current={index === step ? 'step' : undefined} disabled={previewStep === null && index > step} onClick={() => navigate(index)}>
+          <span className="nomination-step-number" aria-hidden="true"><span className="nomination-step-desktop-number">{index < step ? '✓' : String(index + 1).padStart(2, '0')}</span><span className="nomination-step-mobile-number">{String(index + 1).padStart(2, '0')}</span></span>
+          <span className="nomination-step-label">{label}</span>
           <span className="sr-only">{index === step ? ' — Bước hiện tại' : index < step ? ' — Đã hoàn tất' : ' — Chưa mở'}</span>
         </button>
       </li>)}</ol>
@@ -68,16 +68,17 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
           </section>)}</div>
         </fieldset>
         <div className="nomination-selection type-body-small" role="status">{selection ? <>Đã chọn: <strong>{selection}</strong></> : 'Chưa chọn hạng mục.'}</div>
-        <div className="nomination-actions">
+        <div className="nomination-actions nomination-mobile-bar">
           <Link href="/" className="button button--secondary">Quay lại trang chủ</Link>
           <Button type="submit" disabled={!selection}>Tiếp tục <span aria-hidden="true">→</span></Button>
         </div>
       </form> : step === 1 ? <form noValidate onSubmit={event => { event.preventDefault(); navigate(2); }}>
         <RegistrationFields selection={selection} draft={draft} onChange={setDraft} />
-        <div className="nomination-actions">
+        <Button className="nomination-mobile-save" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
+        <div className="nomination-actions nomination-mobile-bar">
           <Button variant="secondary" onClick={() => navigate(0)}>← Quay lại</Button>
           <div className="nomination-action-next">
-          <Button type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
+          <Button className="nomination-save-action" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
           <Button type="submit">Tiếp tục <span aria-hidden="true">→</span></Button>
           </div>
         </div>
@@ -91,7 +92,7 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
           <Button type="button" onClick={() => emailDialog.current?.showModal()}>Kiểm tra email</Button>
         </div>
         <p className="type-body-small nomination-muted">Giao diện xem trước: hồ sơ chưa được gửi và chưa có email xác nhận.</p>
-        <div className="nomination-actions"><Button variant="secondary" onClick={() => navigate(2)}>← Xem lại hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>
+        <div className="nomination-actions nomination-mobile-bar"><Button variant="secondary" onClick={() => navigate(2)}>← Xem lại hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>
       </div>}
     </div>
     <dialog ref={emailDialog} className="nomination-save-dialog" aria-labelledby="nomination-email-title">
@@ -109,6 +110,8 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
     </dialog>
   </div>;
 }
+
+
 
 
 
