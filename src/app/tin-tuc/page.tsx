@@ -3,7 +3,6 @@ import Link from 'next/link';
 import { Container } from '@/components/primitives';
 import { NewsBreadcrumb, NewsCard, NewsSidebar } from '@/components/news/editorial';
 import { getNewsArticles } from '@/data/news';
-import { ScrollReveal } from '@/components/scroll-reveal';
 
 export const metadata: Metadata = { title: 'Tin tức — Travel Awards 2026', description: 'Tin tức, câu chuyện và hành trình Travel Awards 2026.' };
 
@@ -15,7 +14,7 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
   const page = Number.isInteger(requested) && requested >= 1 ? Math.min(requested, totalPages) : 1;
   const pages = [...new Set([1, 2, 3, 4, page, totalPages])].filter(value => value <= totalPages).sort((a, b) => a - b);
   const pageLink = (value: number) => `/tin-tuc?page=${value}#news-latest`;
-  return <><ScrollReveal /><main id="main" className="news-main"><Container><NewsBreadcrumb />
+  return <main id="main" className="news-main"><Container><NewsBreadcrumb />
     <div className="news-columns"><div className="news-list">
       <section className="news-top-grid" aria-label="Tin nổi bật">{articles.slice(0, 4).map((article, index) => <NewsCard key={article.slug} article={article} variant={index === 0 ? 'featured' : 'related'} />)}</section>
       <section id="news-latest" className="news-latest" aria-label={`Danh sách tin tức, trang ${page}`}>{list.slice((page - 1) * 12, page * 12).map(article => <NewsCard key={article.slug} article={article} />)}</section>
@@ -28,5 +27,5 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
         {page < totalPages && <Link href={pageLink(page + 1)} aria-label="Trang tiếp theo">&gt;</Link>}
       </nav>
     </div><NewsSidebar /></div>
-  </Container></main></>;
+  </Container></main>;
 }

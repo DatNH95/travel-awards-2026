@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
-import { ScrollReveal } from '@/components/scroll-reveal';
 import { HeroStage, NominationCountdown } from '@/components/hero-stage';
 import { SiteHeader } from '@/components/site-header';
 import { AwardCount } from '@/components/award-count';
@@ -47,7 +46,6 @@ const newsItems = [
 
 export default function HomePage() {
   return <div className="home">
-    <ScrollReveal />
     <SiteHeader />
     <main id="main">
       <HeroStage>

@@ -8,14 +8,16 @@ export function ScrollReveal() {
     if (preference.matches) return;
 
     // Animate on entry, without hiding server-rendered content or changing layout.
-    // Reset after leaving the viewport so both scroll directions replay the reveal.
-    const targets = document.querySelectorAll<HTMLElement>('.home main > .section > .layout-container, .home main h1, .home main h2, .home main h3, .home-timeline li');
+    // Each target reveals only on its first entry during this page visit.
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('.home main > .section > .layout-container, .home main h1, .home main h2, .home main h3, .home-timeline li'))
+      .filter(target => !target.closest('.home-news, .news-site, .home-hero'));
+    const revealed = new Set<HTMLElement>();
     let frame = 0;
     const update = () => {
       frame = 0;
       if (preference.matches) return;
       for (const target of targets) {
-        if (!target.isConnected) continue;
+        if (!target.isConnected || revealed.has(target)) continue;
         // Layout offsets ignore our animated transforms and clip-paths.
         // Reading the animated intersection/rectangle creates a feedback loop.
         let documentTop = 0;
@@ -27,9 +29,7 @@ export function ScrollReveal() {
         const revealClass = target.matches('.home-timeline li') ? 'home-timeline-step-enter' : target.matches('h1, h2, h3') ? 'home-heading-enter' : 'home-scroll-enter';
         if (bottom > 32 && top < window.innerHeight - 32) {
           target.classList.add(revealClass);
-        } else if (bottom < -64 || top > window.innerHeight + 64) {
-          // Separate entry/reset boundaries prevent jitter at the viewport edge.
-          target.classList.remove(revealClass);
+          revealed.add(target);
         }
       }
     };

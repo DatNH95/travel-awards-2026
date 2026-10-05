@@ -1,19 +1,25 @@
 .nomination { min-height: 100vh; background: #f5f5f5; }
-.nomination main > .section { background: transparent; padding-top: 24pt; }
-.nomination-intro { display: grid; gap: 1.25rem; margin-bottom: var(--spacing-content); }
+.nomination main > .section { background: transparent; padding-top: 24px; }
+.nomination-intro { display: grid; gap: 16px; margin-bottom: 24px; }
 .nomination-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; margin: 0; padding: 0; color: var(--color-text-secondary); }
-.nomination-breadcrumb a { display: inline-flex; align-items: center; min-height: 2.75rem; }
+.nomination-breadcrumb a { display: inline-flex; align-items: center; }
 .nomination-breadcrumb li { display: flex; align-items: center; }
 .nomination-breadcrumb a:hover { color: var(--color-text-brand); text-decoration: underline; }
-.nomination-title-row { display: flex; justify-content: space-between; align-items: center; gap: var(--spacing-content); }
+.nomination-title-row { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .nomination-title-row .home-countdown { flex-shrink: 0; }
+.nomination .home-countdown-deadline { font-size: 16px; margin-bottom: 8px; }
+.nomination .home-countdown-circle { width: 56px; }
+.nomination .home-countdown-value { font-size: 20px; }
+.nomination .home-countdown-separator { font-size: 20px; }
 .nomination-title-copy { display: grid; gap: 0.5rem; min-width: 0; }
-.nomination-title-copy h1 { line-height: 1.2; }
+.nomination .nomination-title-copy h1 { font-size: 28px; line-height: 1.2; }
+.nomination :is(.type-heading-2, .type-heading-3) { font-size: 30px; }
+.nomination :is(p, legend).type-body-large { font-size: 16px; }
 .nomination-title-copy > p { max-width: var(--container-reading); line-height: 1.4; color: var(--color-text-secondary); }
 @media (max-width: 63.99rem) { .nomination-title-row { flex-direction: column; align-items: flex-start; } }
 .nomination-intro .eyebrow, .nomination-step-heading .type-label { color: var(--color-text-brand); }
 .nomination-intro > p:last-child { max-width: var(--container-reading); color: var(--color-text-secondary); }
-.nomination-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: var(--spacing-content); align-items: start; padding-top: var(--spacing-content); border-top: var(--border-width) solid var(--color-border-default); }
+.nomination-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 24px; align-items: start; padding-top: 24px; border-top: var(--border-width) solid var(--color-border-default); }
 .nomination-progress { position: sticky; top: 2rem; }
 .nomination-progress ol { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
 .nomination-progress button { display: flex; align-items: center; gap: 0.875rem; width: 100%; min-height: 3.5rem; padding: 0.5rem; text-align: left; background: transparent; border: 0; cursor: pointer; color: var(--color-text-primary); border-radius: var(--radius-control); }
@@ -21,9 +27,10 @@
 .nomination-progress li[data-state='current'] button { background: var(--color-surface-brand-soft); color: var(--color-text-brand); font-weight: 600; }
 .nomination-step-number { display: grid; place-items: center; flex: 0 0 2rem; height: 2rem; border: var(--border-width) solid var(--color-border-default); border-radius: var(--radius-pill); font-size: var(--text-body-small); }
 .nomination-progress li[data-state='current'] .nomination-step-number, .nomination-progress li[data-state='complete'] .nomination-step-number { background: var(--color-action-primary); color: var(--color-action-foreground); border-color: var(--color-action-primary); }
-.nomination-content { min-width: 0; border-left: var(--border-width) solid var(--color-border-default); padding-left: var(--spacing-content); }
+.nomination-content { min-width: 0; border-left: var(--border-width) solid var(--color-border-default); padding-left: 24px; }
 .nomination-step-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.5rem; }
 .nomination-step-heading h2 { min-width: 0; }
+.nomination-step-heading:has(+ form .nomination-choices) { margin-bottom: 14px; }
 .nomination-choices { min-width: 0; border: 0; margin: 0; padding: 0; }
 .nomination-choices legend { padding: 0; margin-bottom: 0.5rem; }
 .nomination-muted { color: var(--color-text-secondary); }
@@ -144,7 +151,6 @@
 
 .nomination-step-mobile-number { display: none; }
 @media (max-width: 39.99rem) {
-  .nomination-title-copy h1 { font-size: 28px; }
   .nomination-title-row .home-countdown { align-self: center; text-align: center; }
   .nomination-progress ol { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.5rem; }
   .nomination-progress button { flex-direction: column; justify-content: flex-start; gap: 0.5rem; text-align: center; padding: 0.5rem 0.25rem; }
