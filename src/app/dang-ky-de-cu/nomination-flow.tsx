@@ -16,11 +16,13 @@ export function NominationFlow() {
   const categoryId = params.get('category') ?? '';
   const preview = params.get('preview');
   const previewStep = preview === 'confirmation' ? 2 : ['1', '2', '3', '4'].includes(preview ?? '') ? Number(preview) - 1 : null;
-  return <NominationForm key={`${categoryId}-${previewStep}`} initialSelection={awardCategoryFromId(categoryId) || (previewStep !== null ? awardGroups[0].categories[0] : '')} previewStep={previewStep} />;
+  const requestedStep = params.get('step');
+  const initialStep = ['1', '2', '3', '4'].includes(requestedStep ?? '') ? Number(requestedStep) - 1 : previewStep ?? 0;
+  return <NominationForm key={`${categoryId}-${previewStep}-${initialStep}`} initialSelection={awardCategoryFromId(categoryId) || (previewStep !== null || initialStep > 0 ? awardGroups[0].categories[0] : '')} previewStep={previewStep} initialStep={initialStep} />;
 }
 
-function NominationForm({ initialSelection, previewStep }: { initialSelection: string; previewStep: number | null }) {
-  const [step, setStep] = useState(previewStep ?? 0);
+function NominationForm({ initialSelection, previewStep, initialStep }: { initialSelection: string; previewStep: number | null; initialStep: number }) {
+  const [step, setStep] = useState(initialStep);
   const [selection, setSelection] = useState(initialSelection);
   const [activeGroup, setActiveGroup] = useState(Math.max(0, awardGroups.findIndex(group => group.categories.includes(initialSelection))));
   const groupTabs = useRef<(HTMLButtonElement | null)[]>([]);
