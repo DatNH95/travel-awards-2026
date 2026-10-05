@@ -14,6 +14,7 @@
 .nomination-title-copy { display: grid; gap: 0.5rem; min-width: 0; }
 .nomination .nomination-title-copy h1 { font-size: 28px; line-height: 1.2; }
 .nomination :is(.type-heading-2, .type-heading-3) { font-size: 30px; }
+.nomination .nomination-form-section > :is(legend, h3).type-heading-3 { font-size: 30px; }
 .nomination :is(p, legend).type-body-large { font-size: 16px; }
 .nomination-title-copy > p { max-width: var(--container-reading); line-height: 1.4; color: var(--color-text-secondary); }
 @media (max-width: 63.99rem) { .nomination-title-row { flex-direction: column; align-items: flex-start; } }
@@ -46,6 +47,7 @@
 .nomination-selection { margin-top: 1.5rem; color: var(--color-text-secondary); }
 .nomination-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: var(--border-width) solid var(--color-border-default); }
 .nomination-actions a { text-decoration: none; }
+.nomination .nomination-actions .button { height: 42px; min-height: 42px; padding-block: 0.5rem; }
 .nomination-pending { padding: var(--spacing-content); display: grid; gap: 1rem; }
 /* No motion in this iteration, including primitive transitions. */
 .nomination main *, .nomination main *::before, .nomination main *::after { animation: none; transition: none; scroll-behavior: auto; }
@@ -141,6 +143,9 @@
 
 .nomination-success { display: grid; gap: 1.5rem; }
 .nomination-success-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.nomination-success > .nomination-success-actions { align-items: center; }
+.nomination-hotline-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
+.nomination-success > .nomination-success-actions .button { height: 42px; min-height: 42px; padding-block: 0.5rem; }
 .nomination-success-actions .button { white-space: normal; text-align: center; }
 @media (max-width: 39.99rem) { .nomination-success-actions .button { width: 100%; } }
 .nomination-hotline { border-radius: 5px; gap: 0.75rem; }
@@ -162,7 +167,7 @@
   .nomination:has(.nomination-mobile-bar) { padding-bottom: calc(6rem + env(safe-area-inset-bottom)); }
   .nomination-mobile-bar { position: fixed; inset: auto 0 0; z-index: 40; display: flex; flex-direction: row; flex-wrap: nowrap; gap: 0.75rem; margin: 0; padding: 0.75rem 1rem calc(0.75rem + env(safe-area-inset-bottom)); background: var(--color-surface-primary); box-shadow: 0 -4px 16px rgb(38 60 83 / 8%); }
   .nomination-mobile-bar > .button, .nomination-mobile-bar > .nomination-action-next { flex: 1; min-width: 0; width: auto; }
-  .nomination-mobile-bar .button { width: 100%; min-height: 3rem; padding-inline: 0.5rem; font-size: 0.875rem; white-space: normal; text-align: center; }
+  .nomination-mobile-bar .button { width: 100%; height: 42px; min-height: 42px; padding: 0.5rem; font-size: 0.875rem; white-space: normal; text-align: center; }
   .nomination-mobile-bar .nomination-action-next { display: flex; }
   .nomination-mobile-bar .nomination-save-action { display: none; }
 }
@@ -186,6 +191,7 @@
 
 @media (min-width: 64rem) {
   .nomination-registration-form > .nomination-actions, .nomination-confirmation-form > .nomination-actions { position: sticky; bottom: 0; z-index: 30; padding: 1rem; background: var(--color-surface-primary); box-shadow: 0 -4px 16px rgb(38 60 83 / 8%); }
+  .nomination :is(.nomination-registration-form, .nomination-confirmation-form) > .nomination-actions .button { height: 42px; min-height: 42px; padding-block: 0.5rem; }
   .nomination-registration-form .nomination-field { scroll-margin-bottom: 7rem; }
 }
 

@@ -31,7 +31,7 @@ export function RegistrationFields({ selection, draft, onChange }: { selection: 
   return <div className="nomination-registration">
     <p className="nomination-selection">Hạng mục đã chọn: <strong>{selection}</strong></p>
     <p className="type-body-small nomination-muted">Các trường có dấu <span className="nomination-required">*</span> là thông tin bắt buộc theo hồ sơ đăng ký. Thông tin hiện chỉ được giữ trong phiên này, chưa gửi đến Ban tổ chức.</p>
-    <fieldset className="nomination-form-section"><legend className="type-heading-3">I. Thông tin đăng ký</legend>
+    <fieldset className="nomination-form-section"><legend className="type-heading-3">I. Thông tin</legend>
       {renderFields(registrationFields, 'registration')}
       <h3 className="type-body-large">Người đại diện hồ sơ</h3>
       {renderFields(representativeFields, 'representative')}

@@ -89,8 +89,7 @@ function NominationForm({ initialSelection, previewStep }: { initialSelection: s
         <h2 ref={title} tabIndex={-1} className="type-heading-2">Thành công</h2></div>
         <p className="type-body-large">Cảm ơn bạn đã tham gia đăng ký đề cử, mọi thắc mắc xin liên hệ ban tổ chức theo hotline.</p>
         <div className="nomination-success-actions">
-          <a href="tel:0838880123" className="button button--primary nomination-hotline"><span className="nomination-hotline-icon" aria-hidden="true" />Hotline Ban tổ chức: 083 888 0123</a>
-          <a href="tel:0915681515" className="button button--primary nomination-hotline"><span className="nomination-hotline-icon" aria-hidden="true" />Hợp tác sự kiện: 0915681515</a>
+          <div className="nomination-hotline-contact"><p>Hotline Ban tổ chức:</p><a href="tel:0838880123" className="button button--primary nomination-hotline"><span className="nomination-hotline-icon" aria-hidden="true" />083 888 0123</a></div>
           <Button type="button" onClick={() => emailDialog.current?.showModal()}>Kiểm tra email</Button>
         </div>
         <p className="type-body-small nomination-muted">Giao diện xem trước: hồ sơ chưa được gửi và chưa có email xác nhận.</p>
