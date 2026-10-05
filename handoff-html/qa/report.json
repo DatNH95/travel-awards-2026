@@ -1,0 +1,706 @@
+{
+  "pages": 107,
+  "measurements": [
+    {
+      "file": "index.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 6829,
+        "h1": 374.390625,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6829,
+        "h1": 374.390625
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "the-le.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 6941,
+        "h1": 134.734375,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6941,
+        "h1": 134.734375
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4003,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4003
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-de-cu.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 1485,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 1485,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-1.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 5702,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 5702,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-2.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 5470,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 5470,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-3.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 5734,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 5734,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-4.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 5873,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 5873,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-5.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 5686,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 5686,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-6.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 5736,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 5736,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-1.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-2.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-3.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-4.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-5.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-6.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-7.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-8.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-9.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4607,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4607,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "xac-nhan.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 4104,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 4104,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "thanh-cong.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 1338,
+        "h1": 518.3125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 1338,
+        "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-travel-awards-dau-an-tien-phong.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 2527,
+        "h1": 670,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 2527,
+        "h1": 670
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 10270,
+        "h1": 304,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 10270,
+        "h1": 304
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "the-le.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 10111,
+        "h1": 134.734375,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 10111,
+        "h1": 134.734375
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 8101,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 8101
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-de-cu.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 2576,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 2576,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-1.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 7862,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 7862,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-2.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 7531,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 7531,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-3.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 8027,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 8027,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-4.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 8068,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 8068,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-5.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 7724,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 7724,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tru-cot-6.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 8192,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 8192,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-1.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-2.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-3.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-4.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-5.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-6.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-7.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-8.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "dang-ky-tien-phong-9.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6483,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6483,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "xac-nhan.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 6307,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 6307,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "thanh-cong.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 2301,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 2301,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-travel-awards-dau-an-tien-phong.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 3267,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 3267,
+        "h1": 350
+      },
+      "heightDifference": 0
+    }
+  ],
+  "failures": []
+}

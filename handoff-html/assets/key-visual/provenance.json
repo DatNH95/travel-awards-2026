@@ -1,0 +1,24 @@
+{
+  "visualReference": "travel-awards-kv-v2.png",
+  "sources": [
+    {
+      "path": "publish/assets/key-visual/travel-awards-kv-v2.png",
+      "sha256": "94bd54f1396af9b21734aa49d6acadec58b94b948a5dc0311d75bd7ecc60ade8"
+    },
+    {
+      "path": "publish/assets/key-visual/logo.svg",
+      "sha256": "727f94f6ad5cfafcbc926748b37740399465f8f0e187929e8ef8c3d95f1a95ea"
+    },
+    {
+      "path": "publish/assets/key-visual/typo.svg",
+      "sha256": "07a5f2932905e11985e56fd554fce9986581bf3f3cd0201f196edf34fb3a8698"
+    }
+  ],
+  "derivatives": {
+    "travel-awards-kv-v2.png": "Byte-for-byte official KV V2; color, effect and appearance authority",
+    "logo.svg": "Whitespace crop only",
+    "campaign-lockup.svg": "Whitespace crop only",
+    "signature-ornament.svg": "typo.svg path indices 26–30",
+    "signature-marker.svg": "typo.svg path index 16"
+  }
+}

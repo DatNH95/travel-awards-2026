@@ -1,0 +1,3 @@
+# Keep the verification report; screenshots are local review artifacts.
+qa/*
+!qa/report.json
