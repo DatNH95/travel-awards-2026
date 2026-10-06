@@ -95,11 +95,15 @@
   const countdowns = $$('.home-countdown');
   if (countdowns.length) {
     const tick = () => {
-      const seconds = Math.max(0, Math.floor((Date.parse('2026-11-16T23:59:59+07:00') - Date.now()) / 1000));
+      const now = Date.now();
+      const opening = Date.parse('2026-10-16T00:00:00+07:00');
+      const beforeOpening = now < opening;
+      const seconds = Math.max(0, Math.floor(((beforeOpening ? opening : Date.parse('2026-11-16T23:59:00+07:00')) - now) / 1000));
       const values = [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
       countdowns.forEach(block => {
         $$('.home-countdown-value', block).forEach((el, i) => { el.textContent = String(values[i]).padStart(2,'0'); });
-        if (!seconds) $('.home-countdown-deadline', block).textContent = 'Đã hết hạn gửi đề cử';
+        $('.home-countdown-deadline', block).textContent = !seconds ? 'Đã hết hạn gửi đề cử' : beforeOpening ? 'Thời gian mở nhận đề cử còn lại:' : document.body.classList.contains('nomination') ? 'Thời gian nhận đề cử còn lại:' : 'Hãy tham gia ngay';
+        $('.home-countdown-units', block).setAttribute('aria-label', beforeOpening ? 'Thời gian còn lại đến khi mở nhận đề cử' : 'Thời gian còn lại để gửi đề cử');
       });
       if (seconds) window.setTimeout(tick,1000);
     }; tick();

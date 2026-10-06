@@ -61,7 +61,7 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
   await page.goto('http://127.0.0.1:3001'+route,{waitUntil:'networkidle'});
   if(kind==='nomination') await page.waitForSelector('.nomination-layout');
   if(editStage) {
-    await page.getByRole('button',{name:'← Chỉnh sửa hồ sơ',exact:true}).click();
+    await page.getByRole('button',{name:'Chỉnh sửa hồ sơ',exact:true}).click();
     await page.getByRole('heading',{name:'Chỉnh sửa hồ sơ',exact:true}).waitFor();
     if(editStage>1) {
       await page.locator('.nomination-registration-form button[type=submit]').click();

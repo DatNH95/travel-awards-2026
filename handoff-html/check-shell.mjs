@@ -68,8 +68,20 @@ try {
   if(!await page.locator('dialog[open]').count())failures.push('Dialog failed');
   await page.goto(pathToFileURL(path.join(root,'tin-tuc.html')).href);
   await page.getByRole('link',{name:'Trang 2',exact:true}).click();await page.waitForURL('**/tin-tuc-2.html#news-latest');
+  for(const [now,label,seconds] of [
+    ['2026-10-15T23:59:59+07:00','Thời gian mở nhận đề cử còn lại:','01'],
+    ['2026-10-16T00:00:00+07:00','Hãy tham gia ngay','00'],
+    ['2026-11-16T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
+  ]) {
+    const phasePage=await browser.newPage();
+    await phasePage.route(/^https?:/,route=>route.abort());
+    await phasePage.addInitScript(value=>{Date.now=()=>value;},Date.parse(now));
+    await phasePage.goto(pathToFileURL(path.join(root,'index.html')).href);
+    if(await phasePage.locator('.home-countdown-deadline').textContent()!==label||await phasePage.locator('.home-countdown-value').last().textContent()!==seconds)failures.push(`Countdown phase failed: ${now}`);
+    await phasePage.close();
+  }
   failures.push(...uiErrors);
-  await fs.writeFile(path.join(root,'qa/shell-report.json'),JSON.stringify({pages:files.length,responsiveChecks:checks.length,checks,failures},null,2));
+  await fs.writeFile(path.join(root,'qa/shell-report.json'),JSON.stringify({pages:files.length,responsiveChecks:checks.length,countdownChecks:3,checks,failures},null,2));
   console.log(JSON.stringify({pages:files.length,responsiveChecks:checks.length,failures},null,2));
   if(failures.length)process.exitCode=1;
 }finally{await browser.close();}

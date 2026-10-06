@@ -43,7 +43,7 @@ Tech cần nối draft và review, validation số quốc tế, giới hạn t�
 ## Kiểm tra bàn giao
 
 - 110 file HTML: kiểm tra đường dẫn CSS, JavaScript, assets và link nội bộ; không có Next runtime.
-- 50 lượt kiểm tra ở 1440px/390px: Homepage, Thể lệ, Tin tức, bài chi tiết, đủ 15 form Step 2 và các trạng thái đề cử/cập nhật; không tràn ngang. Ngoại lệ đối chiếu đã được người dùng chấp thuận nằm trong báo cáo QA.
+- Lượt cập nhật mới nhất: 44 đối chiếu ở 1440px/390px cho Homepage, đủ 15 form Step 2 và các trạng thái đề cử/cập nhật; không tràn ngang, bố cục khớp source. Kiểm tra shell/link toàn bộ 110 file và countdown trước mở/đang nhận/hết hạn đều đạt.
 - Kiểm tra tab Tiên phong đủ 9 hạng mục, deep link chọn đúng hạng mục, chuyển sang template form và dialog; không lỗi JavaScript hoặc ID trùng trên các trang được kiểm tra.
 - Screenshot đối chiếu và kết quả nằm trong `qa/`, báo cáo `qa/report.json`. Không đưa thư mục QA và công cụ export/verify lên production.
 - Công cụ export chỉ cập nhật `handoff-html/`; source và bản bàn giao được commit cùng nhau theo quy trình project.

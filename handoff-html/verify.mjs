@@ -25,7 +25,8 @@ const page=await browser.newPage({reducedMotion:'reduce'});
 const qaDirectory=path.join(root,'qa',String(Date.now()));
 await fs.mkdir(qaDirectory,{recursive:true});
 const errors=[];page.on('pageerror',error=>errors.push(error.message));
-const samples=['index.html','the-le.html','tin-tuc.html','dang-ky-de-cu.html',...manifest.categories.map(id=>`dang-ky-${id}.html`),'xac-nhan.html','thanh-cong.html','chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html',manifest.pages.find(p=>p.file.startsWith('tin-travel')).file];
+const allSamples=['index.html','the-le.html','tin-tuc.html','dang-ky-de-cu.html',...manifest.categories.map(id=>`dang-ky-${id}.html`),'xac-nhan.html','thanh-cong.html','chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html',manifest.pages.find(p=>p.file.startsWith('tin-travel')).file];
+const samples=process.argv.includes('--affected-only')?allSamples.filter(file=>{const source=manifest.pages.find(p=>p.file===file).source;return source==='/'||source.startsWith('/dang-ky-de-cu');}):allSamples;
 const measurements=[];
 for(const width of [1440,390]) {
  await page.setViewportSize({width,height:1000});
@@ -39,7 +40,7 @@ for(const width of [1440,390]) {
   await sourcePage.goto('http://127.0.0.1:3001'+source,{waitUntil:'networkidle'});await sourcePage.evaluate(()=>document.fonts.ready);
   const editStage=manifest.pages.find(p=>p.file===file).editStage;
   if(editStage) {
-    await sourcePage.getByRole('button',{name:'← Chỉnh sửa hồ sơ',exact:true}).click();
+    await sourcePage.getByRole('button',{name:'Chỉnh sửa hồ sơ',exact:true}).click();
     await sourcePage.getByRole('heading',{name:'Chỉnh sửa hồ sơ',exact:true}).waitFor();
     if(editStage>1){await sourcePage.locator('.nomination-registration-form button[type=submit]').click();await sourcePage.getByRole('heading',{name:'Xác nhận cập nhật',exact:true}).waitFor();}
     if(editStage>2){await sourcePage.locator('.nomination-confirmation-form input[type=checkbox][required]').check();await sourcePage.getByRole('button',{name:'Lưu thay đổi'}).click();await sourcePage.getByRole('heading',{name:'Cập nhật hồ sơ thành công',exact:true}).waitFor();}
@@ -65,7 +66,7 @@ await page.locator('button[type=submit]').click();await page.waitForURL('**/dang
 await page.getByRole('button',{name:'Lưu lại hồ sơ',exact:true}).filter({visible:true}).first().click();
 if(!await page.locator('dialog[open]').count())failures.push('Save dialog failed');
 await page.goto(pathToFileURL(path.join(root,'thanh-cong.html')).href);
-await page.getByRole('button',{name:'← Chỉnh sửa hồ sơ',exact:true}).click();await page.waitForURL('**/chinh-sua-ho-so.html');
+await page.getByRole('button',{name:'Chỉnh sửa hồ sơ',exact:true}).click();await page.waitForURL('**/chinh-sua-ho-so.html');
 await page.locator('.nomination-registration-form button[type=submit]').click();await page.waitForURL('**/xac-nhan-cap-nhat.html');
 await page.locator('.nomination-confirmation-form input[type=checkbox][required]').check();
 await page.getByRole('button',{name:'Lưu thay đổi'}).click();await page.waitForURL('**/cap-nhat-thanh-cong.html');

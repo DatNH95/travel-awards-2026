@@ -41,6 +41,18 @@ Nếu có file bất thường, conflict hoặc build/check lỗi thì dừng v�
 
 Không force push.
 
+### Cấu trúc handoff HTML đã chốt
+
+Áp dụng ở mọi lần cập nhật `handoff-html/` và khi người dùng nói "Đẩy lên GitHub":
+
+- `header.home-header` và `footer.home-footer` là con trực tiếp của `body`; không bọc toàn trang bằng `div.home`, không dùng thẻ `main` bọc nội dung. Class `home` trên `body` được giữ làm scope CSS. Đặt `id="main"` trên section nội dung để skip-link hoạt động.
+- Homepage: `body > header`, `body > div.wrap-homepage.width_common > section`, `body > footer`. Wrapper giữ toàn chiều ngang; container nội dung giữ kích thước responsive hiện có.
+- Class section Homepage theo thứ tự: `section home-hero`, `section home-about`, `section home-agenda`, `section home-awards`, `section home-participate`, `section home-minitalk`, `section home-tin-tuc`, `section home-final-cta`, `section home-organizer`. Có thể giữ thêm class surface/theme; giữ ID và class thành phần con phục vụ CSS/link/handler.
+- Các trang con giữ cấu trúc handoff đã chốt, header/footer trực tiếp trong body và không có `div.home`/`main` bọc nội dung. Không đưa wrapper hoặc runtime Next.js trở lại khi export từ source.
+- HTML/CSS thuần; chỉ giữ JS thuần cần thiết. Xóa node Next dư/ẩn, hydration scripts, `next-route-announcer` và class tự sinh không dùng. Chuyển toàn bộ link nội bộ sang file HTML tương đối, kể cả link có query/anchor và phân trang.
+- Duy trì quy chuẩn trong công cụ export/migration để lần xuất sau không làm mất cấu trúc. Kiểm tra shell, link, ID, console/JS, các thao tác liên quan và responsive desktop/mobile; sửa lỗi chuyển đổi trước khi push. Giữ báo cáo QA trong repo, không commit screenshot đã ignore.
+- Chuyển đổi handoff không tự sửa source Next.js; cập nhật source và handoff tương ứng theo yêu cầu mới của người dùng.
+
 Package manager của project là **pnpm**. Không dùng `npm install`.
 
 - Ưu tiên người dùng: tiết kiệm tối đa token ở các yêu cầu tiếp theo; trao đổi ngắn, chỉ kiểm tra/đọc phần cần thiết nhưng vẫn hoàn thành yêu cầu.

@@ -48,6 +48,7 @@
 .nomination-actions { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; margin-top: 2rem; padding-top: 1.5rem; border-top: var(--border-width) solid var(--color-border-default); }
 .nomination-actions a { text-decoration: none; }
 .nomination .nomination-actions .button { height: 42px; min-height: 42px; padding-block: 0.5rem; }
+.nomination main .button { gap: 8px; }
 .nomination-pending { padding: var(--spacing-content); display: grid; gap: 1rem; }
 /* No motion in this iteration, including primitive transitions. */
 .nomination main *, .nomination main *::before, .nomination main *::after { animation: none; transition: none; scroll-behavior: auto; }
@@ -118,6 +119,7 @@
 .nomination-phone-control[data-invalid='true'], .nomination-url-control:has(input:user-invalid) { border-color: var(--nomination-error); }
 .nomination-review { display: grid; gap: 1rem; margin: 0; }
 .nomination-review > div { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); gap: 1rem; border-bottom: var(--border-width) solid var(--color-border-default); padding-bottom: 1rem; }
+.nomination-confirmation-form > .nomination-form-section:is(:nth-of-type(2), :nth-of-type(3), :nth-of-type(5)) .nomination-review > div:last-child { border-bottom: 0; }
 .nomination-review dt { font-weight: 600; }
 .nomination-review dd { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
 .nomination-review dd ul { margin: 0; padding-left: 1.25rem; }
@@ -188,6 +190,7 @@
 @media (min-width: 64rem) { .nomination-category-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 39.99rem) { .nomination-choice-next { display: none; } .nomination-group-tabs button { flex: 1; } }
 .nomination-choice-toolbar p:has(strong), .nomination-selection:has(strong) { font-size: var(--text-body-large); color: var(--color-action-primary); }
+.nomination .nomination-selection:has(strong) { font-size: 16px; }
 
 @media (min-width: 64rem) {
   .nomination-registration-form > .nomination-actions, .nomination-confirmation-form > .nomination-actions { position: sticky; bottom: 0; z-index: 30; padding: 1rem; background: var(--color-surface-primary); box-shadow: 0 -4px 16px rgb(38 60 83 / 8%); }

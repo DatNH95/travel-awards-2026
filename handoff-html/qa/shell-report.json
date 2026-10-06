@@ -1,6 +1,7 @@
 {
   "pages": 110,
   "responsiveChecks": 16,
+  "countdownChecks": 3,
   "checks": [
     {
       "file": "index.html",

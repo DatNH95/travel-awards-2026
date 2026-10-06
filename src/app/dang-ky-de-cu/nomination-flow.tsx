@@ -63,7 +63,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
       {step === 0 ? <form onSubmit={event => { event.preventDefault(); if (selection) navigate(1); }}>
         <fieldset className="nomination-choices" aria-describedby="nomination-choice-help">
           <legend className="type-body-large">Chọn một hạng mục bạn muốn đề cử.</legend>
-          <p id="nomination-choice-help" className="nomination-muted type-body-small">Lưu ý: Mỗi hồ sơ chỉ đăng ký cho một hạng mục. Trường hợp muốn tham gia nhiều hạng mục, vui lòng thực hiện hồ sơ riêng cho từng hạng mục.</p>
+          <p id="nomination-choice-help" className="nomination-muted type-body-small">Mỗi hồ sơ chỉ đăng ký cho một hạng mục. Trường hợp muốn tham gia nhiều hạng mục, vui lòng thực hiện bằng tài khoản MyVNE ID mới.</p>
           <div className="nomination-group-tabs" role="tablist" aria-label="Nhóm giải thưởng">{awardGroups.map((group, index) => <button type="button" role="tab" key={group.name} id={`nomination-group-tab-${index}`} aria-controls={`nomination-group-panel-${index}`} aria-selected={activeGroup === index} tabIndex={activeGroup === index ? 0 : -1} ref={node => { groupTabs.current[index] = node; }} onClick={() => setActiveGroup(index)} onKeyDown={event => { let next: number; if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') next = 1 - activeGroup; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = 1; else return; event.preventDefault(); setActiveGroup(next); groupTabs.current[next]?.focus(); }}>{group.name} <span className="type-body-small">({group.categories.length})</span></button>)}</div>
           <div className="nomination-groups">{awardGroups.map((group, groupIndex) => <section key={group.name} hidden={activeGroup !== groupIndex} role="tabpanel" id={`nomination-group-panel-${groupIndex}`} aria-labelledby={`nomination-group-tab-${groupIndex}`}>
             <div className="nomination-category-list">{group.categories.map((category, index) => <label key={category} className="nomination-category" data-selected={selection === category}>
@@ -83,7 +83,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
         <RegistrationFields selection={selection} draft={draft} onChange={setDraft} />
         <Button className="nomination-mobile-save" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
         <div className="nomination-actions nomination-mobile-bar">
-          <Button variant="secondary" onClick={() => navigate(0)}>← Quay lại</Button>
+          <Button variant="secondary" onClick={() => navigate(0)}><span aria-hidden="true">←</span>Quay lại</Button>
           <div className="nomination-action-next">
           <Button className="nomination-save-action" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
           <Button type="submit">Tiếp tục <span aria-hidden="true">→</span></Button>
@@ -97,8 +97,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
           <div className="nomination-hotline-contact"><p>Hotline Ban tổ chức:</p><a href="tel:0838880123" className="button button--primary nomination-hotline"><span className="nomination-hotline-icon" aria-hidden="true" />083 888 0123</a></div>
           <Button type="button" onClick={() => emailDialog.current?.showModal()}>Kiểm tra email</Button>
         </div>
-        <p className="type-body-small nomination-muted">Giao diện xem trước: hồ sơ chưa được gửi và chưa có email xác nhận.</p>
-        <div className="nomination-actions nomination-mobile-bar"><Button variant="secondary" onClick={() => navigate(1)}>← Chỉnh sửa hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>
+        <div className="nomination-actions nomination-mobile-bar"><Button variant="secondary" onClick={() => navigate(1)}><span aria-hidden="true">←</span>Chỉnh sửa hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>
       </div>}
     </div>
     <dialog ref={emailDialog} className="nomination-save-dialog" aria-labelledby="nomination-email-title">

@@ -2,16 +2,20 @@
 
 import { Fragment, useEffect, useRef, useState, type ReactNode } from 'react';
 
-// End of the supplied closing date in Vietnam. Confirm the official closing hour before launch.
-const nominationDeadline = Date.parse('2026-11-16T23:59:59+07:00');
+const nominationOpening = Date.parse('2026-10-16T00:00:00+07:00');
+const nominationDeadline = Date.parse('2026-11-16T23:59:00+07:00');
 const units = ['Ngày', 'Giờ', 'Phút', 'Giây'];
 
 export function NominationCountdown({ label = 'Hãy tham gia ngay' }: { label?: string }) {
   const [seconds, setSeconds] = useState<number | null>(null);
+  const [beforeOpening, setBeforeOpening] = useState(false);
   useEffect(() => {
     let timer: ReturnType<typeof setTimeout>;
     const tick = () => {
-      const remaining = Math.max(0, Math.floor((nominationDeadline - Date.now()) / 1000));
+      const now = Date.now();
+      const upcoming = now < nominationOpening;
+      setBeforeOpening(upcoming);
+      const remaining = Math.max(0, Math.floor(((upcoming ? nominationOpening : nominationDeadline) - now) / 1000));
       setSeconds(remaining);
       if (remaining > 0) timer = setTimeout(tick, 1000);
     };
@@ -21,10 +25,11 @@ export function NominationCountdown({ label = 'Hãy tham gia ngay' }: { label?: 
 
   const values = seconds === null ? null : [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
   return <div className="home-countdown">
-    <p className="home-countdown-deadline">{seconds === 0 ? 'Đã hết hạn gửi đề cử' : label}</p>
-    <time className="home-sr-only" dateTime="2026-11-16T23:59:59+07:00">Hạn gửi đề cử: 16.11.2026</time>
-    <div className="home-countdown-units" role="timer" aria-live="off" aria-label="Thời gian còn lại để gửi đề cử">{units.map((unit, index) => <Fragment key={unit}>{index > 0 && <span className="home-countdown-separator" aria-hidden="true">:</span>}<div className="home-countdown-circle"><span className="home-countdown-value">{values ? String(values[index]).padStart(2, '0') : '—'}</span><span className="home-countdown-label">{unit}</span></div></Fragment>)}</div>
-    <noscript>Hạn gửi đề cử: 23:59:59 ngày 16.11.2026 (giờ Việt Nam).</noscript>
+    <p className="home-countdown-deadline">{seconds === 0 ? 'Đã hết hạn gửi đề cử' : beforeOpening ? 'Thời gian mở nhận đề cử còn lại:' : label}</p>
+    <time className="home-sr-only" dateTime="2026-10-16T00:00:00+07:00">Mở nhận đề cử: 00:00 ngày 16.10.2026</time>
+    <time className="home-sr-only" dateTime="2026-11-16T23:59:00+07:00">Hạn gửi đề cử: 23:59 ngày 16.11.2026</time>
+    <div className="home-countdown-units" role="timer" aria-live="off" aria-label={beforeOpening ? 'Thời gian còn lại đến khi mở nhận đề cử' : 'Thời gian còn lại để gửi đề cử'}>{units.map((unit, index) => <Fragment key={unit}>{index > 0 && <span className="home-countdown-separator" aria-hidden="true">:</span>}<div className="home-countdown-circle"><span className="home-countdown-value">{values ? String(values[index]).padStart(2, '0') : '—'}</span><span className="home-countdown-label">{unit}</span></div></Fragment>)}</div>
+    <noscript>Nhận đề cử từ 00:00 ngày 16.10.2026 đến 23:59 ngày 16.11.2026 (giờ Việt Nam).</noscript>
   </div>;
 }
 
