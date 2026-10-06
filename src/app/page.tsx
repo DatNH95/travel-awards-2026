@@ -4,7 +4,7 @@ import localFont from 'next/font/local';
 import Link from 'next/link';
 
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
-import { Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
+import { CTAArrow, Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
 import { HeroStage, NominationCountdown } from '@/components/hero-stage';
 import { SiteHeader } from '@/components/site-header';
@@ -100,16 +100,16 @@ export default function HomePage() {
       </Section>
       <Section id="news" className={`home-news ${newsFont.variable}`}>
         <Container>
-          <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true">↗</span></Link></div>
+          <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true"><CTAArrow /></span></Link></div>
           <div className="home-news-layout"><div className="home-news-grid">
             {newsItems.map((item, index) => <article className={`home-news-item${index === 0 ? ' home-news-item--featured' : ''}`} key={item.href}>
               <a className="home-news-image" href={item.href} tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={1000} height={600} unoptimized /></a>
-              <div className="home-news-copy"><h3 className="type-news-title"><a href={item.href}>{item.title}</a></h3>{index === 0 && <p className="home-news-lead">Tà Xùa lần đầu ghi dấu ấn với danh hiệu điểm đến mới nổi hàng đầu châu Á tại giải thưởng du lịch quốc tế.</p>}</div>
+              <div className="home-news-copy"><h3 className="type-news-title"><a href={item.href}>{item.title}</a></h3>{index === 0 && <p className="home-news-lead"><a href={item.href}>Tà Xùa lần đầu ghi dấu ấn với danh hiệu điểm đến mới nổi hàng đầu châu Á tại giải thưởng du lịch quốc tế.</a></p>}</div>
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
       <Section id="nominate" tone="brand-deep" className="home-final-cta">
-        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta" /><p className="home-final-deadline">Nhận đề cử đến 16.11.2026</p></Container>
+        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta" /></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
         <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>

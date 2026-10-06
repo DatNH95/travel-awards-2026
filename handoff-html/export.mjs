@@ -2,6 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
+import { flattenDocument, flattenStyles } from './structure.mjs';
 const require = createRequire(import.meta.url);
 const { chromium } = require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root = process.cwd();
@@ -34,27 +35,44 @@ const postcss = require(path.join(root,'node_modules/.pnpm',postcssFolder,'node_
 const baseStyles = postcss.parse(reset+'\n'+global);
 baseStyles.walkRules(rule=>{if(/\.(preview-|landing-demo-)/.test(rule.selector))rule.remove();});
 baseStyles.walkAtRules(rule=>{if(rule.nodes&&!rule.nodes.length)rule.remove();});
-await fs.writeFile(path.join(out,'css/base.css'),baseStyles.toString());
+await fs.writeFile(path.join(out,'css/base.css'),flattenStyles(baseStyles.toString())+'\n.section-layout { padding-block: 0; }\n');
 for (const [source,name] of [['src/app/home.css','home'],['src/app/the-le/rules.css','rules'],['src/app/tin-tuc/news.css','news'],['src/app/dang-ky-de-cu/nomination.css','nomination']]) {
   const css = (await fs.readFile(path.join(root,source),'utf8')).replaceAll('/assets/','../assets/');
-  await fs.writeFile(path.join(out,`css/${name}.css`),css);
+  await fs.writeFile(path.join(out,`css/${name}.css`),flattenStyles(css));
 }
 await fs.cp(path.join(root,'public/assets'),path.join(out,'assets'),{recursive:true});
 await fs.cp(path.join(root,'public/fonts'),path.join(out,'fonts'),{recursive:true});
+const fontLicense=path.join(out,'fonts/merriweather/OFL.txt');
+await fs.writeFile(fontLicense,(await fs.readFile(fontLicense,'utf8')).replace(/[ \t]+$/gm,''));
 const categories = [...Array.from({length:6},(_,i)=>`tru-cot-${i+1}`),...Array.from({length:9},(_,i)=>`tien-phong-${i+1}`)];
 const newsSource = await fs.readFile(path.join(root,'src/data/news.ts'),'utf8');
 const slugs = [...newsSource.matchAll(/(?:slug:|'slug':|"slug":)\s*['"]([^'"]+)['"]/g)].map(m=>m[1]).filter(s=>!s.includes('`'));
 slugs.push(...Array.from({length:71},(_,i)=>`cau-chuyen-du-lich-${i+1}`));
 const routes = [['/','index.html','home'],['/the-le','the-le.html','rules'],['/tin-tuc','tin-tuc.html','news'],['/dang-ky-de-cu','dang-ky-de-cu.html','nomination'],['/dang-ky-de-cu?preview=3','xac-nhan.html','nomination'],['/dang-ky-de-cu?preview=4','thanh-cong.html','nomination']];
+routes.push(...['chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html'].map((file,index)=>['/dang-ky-de-cu?preview=4',file,'nomination',index+1]));
 for(const id of categories) routes.push([`/dang-ky-de-cu?category=${id}&step=2`,`dang-ky-${id}.html`,'nomination']);
 for(let i=2;i<=7;i++) routes.push([`/tin-tuc?page=${i}`,`tin-tuc-${i}.html`,'news']);
 for(const slug of new Set(slugs)) routes.push([`/tin-tuc/${slug}`,`tin-${slug}.html`,'news']);
 const browser = await chromium.launch({channel:'msedge',headless:true});
 const page = await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
+await page.addInitScript(`window.flattenHandoffDocument = ${flattenDocument.toString()}`);
 let count = 0;
-for(const [route,file,kind] of routes.filter(([,file]) => process.argv.length < 3 || process.argv.slice(2).includes(file))) {
+for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv.length < 3 || process.argv.slice(2).includes(file))) {
   await page.goto('http://127.0.0.1:3001'+route,{waitUntil:'networkidle'});
   if(kind==='nomination') await page.waitForSelector('.nomination-layout');
+  if(editStage) {
+    await page.getByRole('button',{name:'← Chỉnh sửa hồ sơ',exact:true}).click();
+    await page.getByRole('heading',{name:'Chỉnh sửa hồ sơ',exact:true}).waitFor();
+    if(editStage>1) {
+      await page.locator('.nomination-registration-form button[type=submit]').click();
+      await page.getByRole('heading',{name:'Xác nhận cập nhật',exact:true}).waitFor();
+    }
+    if(editStage>2) {
+      await page.locator('.nomination-confirmation-form input[type=checkbox][required]').check();
+      await page.getByRole('button',{name:'Lưu thay đổi'}).click();
+      await page.getByRole('heading',{name:'Cập nhật hồ sơ thành công',exact:true}).waitFor();
+    }
+  }
   // Capture both tab panels; keep the initial tab visible.
   const tablist = page.locator('[role=tablist]').first();
   let secondPanel = null;
@@ -81,6 +99,7 @@ for(const [route,file,kind] of routes.filter(([,file]) => process.argv.length < 
     const head=doc.querySelector('head');
     for(const name of ['tokens','base','home',...(kind==='home'?[]:[kind])]) {const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;head.append(link);}
     const script=doc.createElement('script');script.src='js/handoff.js';script.defer=true;head.append(script);
+    window.flattenHandoffDocument(doc);
     doc.documentElement.setAttribute('lang','vi');
     return '<!doctype html>\n'+doc.documentElement.outerHTML;
   },{kind,secondPanel});
@@ -98,9 +117,12 @@ for(const [route,file,kind] of routes.filter(([,file]) => process.argv.length < 
   });
   // Readable block boundaries without adding whitespace inside inline text.
   clean=clean.replace(/><(?=\/?(?:html|head|body|main|header|footer|nav|section|article|aside|div|form|fieldset|ul|ol|li|h[1-6]|p|dialog|details|summary|link|meta|script)\b)/g,'>\n<');
-  await fs.writeFile(path.join(out,file),clean);
+  for(let attempt=0; ; attempt++) {
+    try { await fs.writeFile(path.join(out,file),clean); break; }
+    catch(error) { if(error.code!=='UNKNOWN'||attempt>=7) throw error; await new Promise(resolve=>setTimeout(resolve,250)); }
+  }
   if(++count%15===0) console.log(`Exported ${count}/${routes.length}`);
 }
 await browser.close();
-await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify({pages:routes.map(([source,file])=>({source,file})),categories},null,2));
+await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify({pages:routes.map(([source,file,,editStage])=>({source,file,...(editStage?{editStage}:{})})),categories},null,2));
 console.log(`Done: ${count} HTML pages`);

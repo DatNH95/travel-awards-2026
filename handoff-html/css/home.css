@@ -9,10 +9,10 @@
 }
 .home a { text-decoration: none; }
 .home .text-link { text-decoration: underline; }
-.home-header { --text-navigation: 0.9375rem; background: var(--color-surface-primary); position: sticky; top: -3rem; z-index: 50; }
+.home-header { --text-navigation: 0.9375rem; background: var(--color-surface-primary); position: sticky; top: 0; z-index: 50; }
 .home-header { transition: box-shadow var(--duration-fast); }
 .home-header:has(nav[data-scrolled='true']) { box-shadow: 0 4px 16px color-mix(in srgb, var(--color-text-primary) 10%, transparent); }
-.home main > [id] { scroll-margin-top: 65px; }
+.home > section[id] { scroll-margin-top: 65px; }
 .home-publisher-bar { border-bottom: var(--home-rule); }
 .home-publisher-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3rem; font-size: var(--text-body-small); }
 .home-publisher-links { display: flex; align-items: center; gap: 1rem; }
@@ -62,6 +62,7 @@
 .home-chapter .brand-graphic--marker { width: 1.1rem; }
 .home-split { display: grid; grid-template-columns: 1.1fr 1fr; gap: 7%; }
 .home .type-display-l { font-size: var(--text-display-l); }
+.home-about { padding-bottom: calc(var(--spacing-section) * .75); }
 .home-about-signature { color: var(--color-action-primary); }
 .home-awards-title > span { color: var(--color-brand-primary); white-space: nowrap; }
 .home-account-actions { display: flex; align-items: center; gap: 1rem; }
@@ -70,6 +71,10 @@
 .home-copy > p:first-child { color: var(--color-text-primary); }
 .home-copy > p { color: var(--color-text-secondary); }
 .home-journey { padding-top: 1rem; }
+@media (min-width: 48rem) {
+  .home-about { padding-bottom: 0; }
+  .home-journey { padding-top: 20px; }
+}
 .home-section-title { display: flex; justify-content: space-between; align-items: end; gap: 2rem; margin-bottom: 3.5rem; }
 .home-section-title > p { font-size: var(--text-body-small); color: var(--color-text-secondary); }
 .home-timeline { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; }
@@ -253,10 +258,10 @@
   .home-header-inner > nav { display: flex; min-height: 45px; width: 100%; overflow-x: auto; overscroll-behavior-x: contain; -webkit-overflow-scrolling: touch; border-top: var(--home-rule); }
   .home-header-links { display: flex; flex-wrap: nowrap; gap: 1.5rem; width: max-content; }
   .home-header-links > a { flex: 0 0 auto; white-space: nowrap; }
-  .home main > [id] { scroll-margin-top: 110px; }
+  .home > section[id] { scroll-margin-top: 110px; }
 }
 @media (max-width: 47.99rem) {
-  .home-about-signature { display: inline-flex; justify-content: space-between; width: 100%; gap: .25rem; font-size: clamp(1.5rem, 9vw, var(--text-display-l)); }
+  .home-about-signature { display: inline-flex; justify-content: center; width: 100%; gap: .25em; font-size: clamp(1.5rem, 9vw, var(--text-display-l)); }
   .home-about-signature > span { white-space: nowrap; }
 }
 @media (max-width: 47.99rem) {
@@ -271,7 +276,7 @@
     background: var(--color-surface-primary);
     box-shadow: 0 4px 16px color-mix(in srgb, var(--color-text-primary) 10%, transparent);
   }
-  .home main > [id] { scroll-margin-top: 65px; }
+  .home > section[id] { scroll-margin-top: 65px; }
 }
 /* News: editorial feature, three supporting stories, fixed ad slot. */
 .home-news-layout { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 2rem; align-items: start; }

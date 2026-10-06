@@ -125,7 +125,6 @@
 .news-pagination a:hover { color: var(--color-text-brand); border-color: var(--color-brand-primary); }
 .news-pagination a[aria-current='page'] { background: var(--color-brand-primary); border-color: var(--color-brand-primary); color: #ffffff; }
 .news-page-ellipsis { padding-inline: 4px; }
-.news-main > .layout-container { --container-page: 1130px; }
 
 .news-card--row { border-top-color: #efefef; }
 .news-suggestions, .news-suggestions article, .news-most-read li { border-color: #efefef; }

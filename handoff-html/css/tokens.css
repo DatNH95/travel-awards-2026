@@ -43,7 +43,7 @@
   --spacing-section: clamp(3.5rem, 7vw, 7rem);
   --spacing-content: clamp(1.5rem, 3vw, 3rem);
   --spacing-grid-gap: clamp(1rem, 2vw, 2rem);
-  --container-page: 1130px;
+  --container-page: 1100px;
   --container-reading: 42rem;
   --container-cta-nomination: 160px;
   --spacing-cta-nomination-height: 55px;

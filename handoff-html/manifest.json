@@ -25,6 +25,21 @@
       "file": "thanh-cong.html"
     },
     {
+      "source": "/dang-ky-de-cu?preview=4",
+      "file": "chinh-sua-ho-so.html",
+      "editStage": 1
+    },
+    {
+      "source": "/dang-ky-de-cu?preview=4",
+      "file": "xac-nhan-cap-nhat.html",
+      "editStage": 2
+    },
+    {
+      "source": "/dang-ky-de-cu?preview=4",
+      "file": "cap-nhat-thanh-cong.html",
+      "editStage": 3
+    },
+    {
       "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
       "file": "dang-ky-tru-cot-1.html"
     },

@@ -52,11 +52,14 @@
     if (label === 'Đóng') button.addEventListener('click', () => button.closest('dialog')?.close());
     if (label.includes('Quay lại')) button.addEventListener('click', () => { location.href = 'dang-ky-de-cu.html'; });
     if (label.includes('Xem lại hồ sơ')) button.addEventListener('click', () => { location.href = 'xac-nhan.html'; });
+    if (label.includes('Chỉnh sửa hồ sơ')) button.addEventListener('click', () => { location.href = 'chinh-sua-ho-so.html'; });
   });
   // Handoff views only: prevent accidental GET submission of personal data.
   $$('.nomination-registration-form,.nomination-confirmation-form').forEach(form => {
     form.addEventListener('submit', event => {
       event.preventDefault();
+      if (location.pathname.endsWith('/chinh-sua-ho-so.html')) { location.href = 'xac-nhan-cap-nhat.html'; return; }
+      if (location.pathname.endsWith('/xac-nhan-cap-nhat.html')) { location.href = 'cap-nhat-thanh-cong.html'; return; }
       const dialog = document.getElementById('nomination-submit-title')?.closest('dialog');
       if (dialog) dialog.showModal();
     });

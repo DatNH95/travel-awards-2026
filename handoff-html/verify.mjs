@@ -10,6 +10,7 @@ const manifest=JSON.parse(await fs.readFile(path.join(root,'manifest.json'),'utf
 const failures=[];
 for(const {file} of manifest.pages) {
   const html=await fs.readFile(path.join(root,file),'utf8');
+  if (/<main\b|<div class="home"|<section[^>]*class="section\s/.test(html)) failures.push(`${file}: legacy page wrapper or section class`);
   if(/_next\/|self\.__next|data-nimg|@theme|tailwindcss/.test(html)) failures.push(`${file}: runtime residue`);
   for(const match of html.matchAll(/(?:href|src)="([^"#]+)"/g)) {
     const value=match[1]; if(/^(https?:|mailto:|tel:|data:)/.test(value))continue;
@@ -22,7 +23,7 @@ const page=await browser.newPage({reducedMotion:'reduce'});
 const qaDirectory=path.join(root,'qa',String(Date.now()));
 await fs.mkdir(qaDirectory,{recursive:true});
 const errors=[];page.on('pageerror',error=>errors.push(error.message));
-const samples=['index.html','the-le.html','tin-tuc.html','dang-ky-de-cu.html',...manifest.categories.map(id=>`dang-ky-${id}.html`),'xac-nhan.html','thanh-cong.html',manifest.pages.find(p=>p.file.startsWith('tin-travel')).file];
+const samples=['index.html','the-le.html','tin-tuc.html','dang-ky-de-cu.html',...manifest.categories.map(id=>`dang-ky-${id}.html`),'xac-nhan.html','thanh-cong.html','chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html',manifest.pages.find(p=>p.file.startsWith('tin-travel')).file];
 const measurements=[];
 for(const width of [1440,390]) {
  await page.setViewportSize({width,height:1000});
@@ -34,8 +35,16 @@ for(const width of [1440,390]) {
   const source=manifest.pages.find(p=>p.file===file).source;
   const sourcePage=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});
   await sourcePage.goto('http://127.0.0.1:3001'+source,{waitUntil:'networkidle'});await sourcePage.evaluate(()=>document.fonts.ready);
+  const editStage=manifest.pages.find(p=>p.file===file).editStage;
+  if(editStage) {
+    await sourcePage.getByRole('button',{name:'← Chỉnh sửa hồ sơ',exact:true}).click();
+    await sourcePage.getByRole('heading',{name:'Chỉnh sửa hồ sơ',exact:true}).waitFor();
+    if(editStage>1){await sourcePage.locator('.nomination-registration-form button[type=submit]').click();await sourcePage.getByRole('heading',{name:'Xác nhận cập nhật',exact:true}).waitFor();}
+    if(editStage>2){await sourcePage.locator('.nomination-confirmation-form input[type=checkbox][required]').check();await sourcePage.getByRole('button',{name:'Lưu thay đổi'}).click();await sourcePage.getByRole('heading',{name:'Cập nhật hồ sơ thành công',exact:true}).waitFor();}
+  }
   const reference=await sourcePage.evaluate(()=>({height:document.body.scrollHeight,h1:document.querySelector('h1')?.getBoundingClientRect().width}));
   measurements.push({file,width,actual,reference,heightDifference:actual.height-reference.height});
+  if(Math.abs(actual.height-reference.height)>2)failures.push(`${file}@${width}: layout height differs by ${actual.height-reference.height}`);
   if(['index.html','dang-ky-tru-cot-1.html','tin-tuc.html','the-le.html'].includes(file)) {
    await page.screenshot({path:path.join(qaDirectory,`${file}-${width}.png`),fullPage:true});
    await sourcePage.screenshot({path:path.join(qaDirectory,`source-${file}-${width}.png`),fullPage:true});
@@ -53,6 +62,12 @@ if(!((await page.locator('input[type=radio]:checked').getAttribute('value'))||''
 await page.locator('button[type=submit]').click();await page.waitForURL('**/dang-ky-tien-phong-1.html');
 await page.getByRole('button',{name:'Lưu lại hồ sơ',exact:true}).filter({visible:true}).first().click();
 if(!await page.locator('dialog[open]').count())failures.push('Save dialog failed');
+await page.goto(pathToFileURL(path.join(root,'thanh-cong.html')).href);
+await page.getByRole('button',{name:'← Chỉnh sửa hồ sơ',exact:true}).click();await page.waitForURL('**/chinh-sua-ho-so.html');
+await page.locator('.nomination-registration-form button[type=submit]').click();await page.waitForURL('**/xac-nhan-cap-nhat.html');
+await page.locator('.nomination-confirmation-form input[type=checkbox][required]').check();
+await page.getByRole('button',{name:'Lưu thay đổi'}).click();await page.waitForURL('**/cap-nhat-thanh-cong.html');
+if(!await page.getByRole('heading',{name:'Cập nhật hồ sơ thành công',exact:true}).count())failures.push('Edit/update handoff flow failed');
 failures.push(...errors);
 await browser.close();
 await fs.writeFile(path.join(root,'qa/report.json'),JSON.stringify({pages:manifest.pages.length,measurements,failures},null,2));

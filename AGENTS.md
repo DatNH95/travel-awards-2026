@@ -32,9 +32,10 @@ Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
 3. Nếu `origin/main` có commit mới, đồng bộ bằng `git rebase origin/main` trước khi push; bảo toàn thay đổi local chưa commit khi cần.
 4. Nếu có conflict, dừng và báo người dùng; không tự chọn phiên bản và không force push.
 5. Chỉ commit thay đổi thuộc project, không commit file phát sinh ngoài ý muốn; kiểm tra phạm vi thay đổi trước khi stage.
-6. Chạy kiểm tra cần thiết cho phần vừa sửa.
-7. Stage các thay đổi thuộc phạm vi commit, tạo commit message ngắn mô tả thay đổi và commit.
-8. Chạy `git push origin main`.
+6. Cập nhật bản HTML/CSS thuần trong `handoff-html/` theo các yêu cầu thay đổi mới của implementation, giữ giao diện responsive tương ứng; không thêm React/Next.js/Tailwind runtime. Không để bản bàn giao cũ khi đẩy source mới.
+7. Chạy kiểm tra cần thiết cho phần vừa sửa, gồm source và phần handoff bị ảnh hưởng; giữ báo cáo QA, không commit ảnh chụp kiểm tra đã ignore.
+8. Stage các thay đổi thuộc phạm vi commit, gồm cả source và bản bàn giao `handoff-html/` tương ứng, tạo commit message ngắn mô tả thay đổi và commit.
+9. Chạy `git push origin main`.
 
 Nếu có file bất thường, conflict hoặc build/check lỗi thì dừng và báo người dùng trước khi push. Không tự đưa file bất thường vào commit để tiếp tục quy trình.
 

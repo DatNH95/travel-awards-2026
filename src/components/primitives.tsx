@@ -31,13 +31,17 @@ export function Button({ variant = 'primary', className, type = 'button', ...pro
   return <button type={type} className={cx('button', `button--${variant}`, className)} {...props} />;
 }
 
+export function CTAArrow() {
+  return <svg className="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
+}
+
 export function NominationCTA({ className }: { className?: string }) {
-  return <Link href="/dang-ky-de-cu" className={cx('button', 'button--primary', 'button--nomination', className)}>Đăng ký đề cử<svg aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg></Link>;
+  return <Link href="/dang-ky-de-cu" className={cx('button', 'button--primary', 'button--nomination', className)}>Đăng ký đề cử<CTAArrow /></Link>;
 }
 
 export function TextLink({ className, children, disabled, ...props }: AnchorHTMLAttributes<HTMLAnchorElement> & { disabled?: boolean }) {
-  if (disabled) return <span className={cx('text-link', className)} aria-disabled="true">{children}<span aria-hidden="true">↗</span></span>;
-  return <a className={cx('text-link', className)} {...props}>{children}<span aria-hidden="true">↗</span></a>;
+  if (disabled) return <span className={cx('text-link', className)} aria-disabled="true">{children}<span aria-hidden="true"><CTAArrow /></span></span>;
+  return <a className={cx('text-link', className)} {...props}>{children}<span aria-hidden="true"><CTAArrow /></span></a>;
 }
 
 // Explicit alt is required. Editorial crops use a fixed ratio and preserve proportions.

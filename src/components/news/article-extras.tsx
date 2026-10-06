@@ -16,7 +16,7 @@ export function ArticleSuggestions() {
   return <section className="news-suggestions" aria-label="Tin bài gợi ý từ VnExpress Du lịch">
     {travelRecommendations.map(item => <article key={item.href}>
       <a className="news-suggestion-image" href={item.href} target="_blank" rel="noopener noreferrer" tabIndex={-1} aria-hidden="true"><Image src={item.image} alt="" width={240} height={144} unoptimized /></a>
-      <div><h2><a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a></h2><p>{item.lead}</p></div>
+      <div><h2><a href={item.href} target="_blank" rel="noopener noreferrer">{item.title}</a></h2><p><a href={item.href} target="_blank" rel="noopener noreferrer">{item.lead}</a></p></div>
     </article>)}
   </section>;
 }

@@ -1,5 +1,5 @@
 .nomination { min-height: 100vh; background: #f5f5f5; }
-.nomination main > .section { background: transparent; padding-top: 24px; }
+.nomination > .section-travel-awards-2026 { background: transparent; padding-top: 24px; }
 .nomination-intro { display: grid; gap: 16px; margin-bottom: 24px; }
 .nomination-breadcrumb ol { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; margin: 0; padding: 0; color: var(--color-text-secondary); }
 .nomination-breadcrumb a { display: inline-flex; align-items: center; }
@@ -50,7 +50,7 @@
 .nomination .nomination-actions .button { height: 42px; min-height: 42px; padding-block: 0.5rem; }
 .nomination-pending { padding: var(--spacing-content); display: grid; gap: 1rem; }
 /* No motion in this iteration, including primitive transitions. */
-.nomination main *, .nomination main *::before, .nomination main *::after { animation: none; transition: none; scroll-behavior: auto; }
+.nomination > section *, .nomination > section *::before, .nomination > section *::after { animation: none; transition: none; scroll-behavior: auto; }
 @media (max-width: 63.99rem) {
   .nomination-layout { grid-template-columns: minmax(0, 1fr); }
   .nomination-progress { position: static; }
@@ -133,10 +133,10 @@
 .nomination-step-stop > span { position: absolute; top: 1.125rem; left: 50%; transform: translateX(-50%); font-size: var(--text-caption); color: var(--color-text-secondary); }
 .nomination-step-anchor { position: absolute; top: 0; width: 0.875rem; height: 0.875rem; transform: translateX(-50%); border-radius: 50%; background: var(--color-action-primary); box-shadow: 0 0 0 4px var(--color-surface-brand-soft); }
 .nomination-step-anchor::before { content: ''; position: absolute; inset: -0.75rem; border-radius: 50%; background: radial-gradient(circle, var(--color-brand-accent), transparent 70%); z-index: -1; }
-.nomination main .nomination-step-anchor, .nomination main .nomination-step-fill { transition: left var(--duration-reveal) var(--ease-signature), width var(--duration-reveal) var(--ease-signature); }
-.nomination main .nomination-step-anchor::before { animation: nomination-anchor-glow 7s var(--ease-signature) infinite; }
+.nomination > section .nomination-step-anchor, .nomination > section .nomination-step-fill { transition: left var(--duration-reveal) var(--ease-signature), width var(--duration-reveal) var(--ease-signature); }
+.nomination > section .nomination-step-anchor::before { animation: nomination-anchor-glow 7s var(--ease-signature) infinite; }
 @keyframes nomination-anchor-glow { 0%, 100% { transform: scale(.94); opacity: .8; } 50% { transform: scale(1.18); opacity: 1; } }
-@media (prefers-reduced-motion: reduce) { .nomination main .nomination-step-anchor, .nomination main .nomination-step-fill { transition: none; } .nomination main .nomination-step-anchor::before { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .nomination > section .nomination-step-anchor, .nomination > section .nomination-step-fill { transition: none; } .nomination > section .nomination-step-anchor::before { animation: none; } }
 
 
 @media (max-width: 39.99rem) { .nomination-step-heading { flex-wrap: wrap; gap: 1rem; } .nomination-step-timeline { width: 100%; } }

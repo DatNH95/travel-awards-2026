@@ -11,7 +11,7 @@ export function NewsCard({ article, variant = 'row' }: { article: NewsArticle; v
   const Heading = variant === 'related' ? 'h3' : 'h2';
   return <article className={`news-card news-card--${variant}`}>
     <Link className="news-thumbnail" href={`/tin-tuc/${article.slug}`} tabIndex={-1} aria-hidden="true"><Image src={article.image.src} alt="" width={1000} height={600} unoptimized preload={variant === 'featured'} /></Link>
-    <div className="news-card-copy"><Heading className="news-title"><Link href={`/tin-tuc/${article.slug}`}>{article.title}</Link></Heading><p className="news-lead">{article.lead}</p></div>
+    <div className="news-card-copy"><Heading className="news-title"><Link href={`/tin-tuc/${article.slug}`}>{article.title}</Link></Heading><p className="news-lead"><Link href={`/tin-tuc/${article.slug}`}>{article.lead}</Link></p></div>
   </article>;
 }
 

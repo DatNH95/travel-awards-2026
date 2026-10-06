@@ -30,7 +30,7 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
 
 @layer components {
   .layout-container { width: min(calc(100% - 2 * var(--spacing-gutter)), var(--container-page)); margin-inline: auto; }
-  .section { padding-block: var(--spacing-section); }
+  .section-travel-awards-2026 { padding-block: var(--spacing-section); }
   .surface { color: var(--color-text-primary); }
   .surface--primary, .surface--brand-soft, .surface--secondary {
     --color-text-primary: var(--color-text-on-light-primary);
@@ -89,6 +89,7 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
   .button--secondary:active:not(:disabled) { background: var(--color-surface-mint); color: var(--color-brand-teal); transform: translateY(1px); }
   .button:disabled { color: var(--color-disabled-text); background: var(--color-disabled-surface); border-color: var(--color-border-default); cursor: not-allowed; }
   .text-link { display: inline-flex; align-items: center; gap: 0.75rem; min-height: 2.75rem; color: var(--color-text-brand); text-decoration: underline; text-underline-offset: 0.35rem; text-decoration-thickness: var(--border-width); font-size: var(--text-navigation); font-weight: 600; transition: color var(--duration-fast); }
+  .cta-arrow { display: inline-block; vertical-align: middle; flex-shrink: 0; }
   .text-link:hover { color: var(--color-link-hover); }
   .text-link:active { color: var(--color-action-active); }
   .text-link[aria-disabled] { color: var(--color-disabled-text); cursor: not-allowed; }
@@ -171,3 +172,5 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
 .button--nomination svg { flex: 0 0 12px; }
 
 /* Live landing specimens retain their own viewport and sticky behavior. */
+
+.section-layout { padding-block: 0; }

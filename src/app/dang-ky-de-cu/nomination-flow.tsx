@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { ConfirmationStep } from './confirmation-step';
 import { useSearchParams } from 'next/navigation';
 import { useRef, useState } from 'react';
-import { Button } from '@/components/primitives';
+import { CTAArrow, Button } from '@/components/primitives';
 import { awardGroups, awardCategoryFromId } from '@/data/awards';
 import { RegistrationFields, type RegistrationDraft } from './registration-fields';
 
@@ -23,6 +23,8 @@ export function NominationFlow() {
 
 function NominationForm({ initialSelection, previewStep, initialStep }: { initialSelection: string; previewStep: number | null; initialStep: number }) {
   const [step, setStep] = useState(initialStep);
+  const [submitted, setSubmitted] = useState(initialStep === 3);
+  const [updated, setUpdated] = useState(false);
   const [selection, setSelection] = useState(initialSelection);
   const [activeGroup, setActiveGroup] = useState(Math.max(0, awardGroups.findIndex(group => group.categories.includes(initialSelection))));
   const groupTabs = useRef<(HTMLButtonElement | null)[]>([]);
@@ -48,7 +50,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
     </nav>
     <div className="nomination-content">
       <header className="nomination-step-heading">
-        {step !== 3 && <h2 ref={title} tabIndex={-1} className="type-heading-2">{steps[step]}</h2>}
+        {step !== 3 && <h2 ref={title} tabIndex={-1} className="type-heading-2">{submitted && step === 1 ? 'Chỉnh sửa hồ sơ' : submitted && step === 2 ? 'Xác nhận cập nhật' : steps[step]}</h2>}
                 <div className="nomination-step-timeline" role="progressbar" aria-label={`Tiến trình đề cử: ${steps[step]}`} aria-valuemin={1} aria-valuemax={steps.length} aria-valuenow={step + 1}>
           <div className="nomination-step-track" aria-hidden="true">
             <span className="nomination-step-fill" style={{ width: `${step / (steps.length - 1) * 100}%` }} />
@@ -77,6 +79,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
           <Button type="submit" disabled={!selection}>Tiếp tục <span aria-hidden="true">→</span></Button>
         </div>
       </form> : step === 1 ? <form className="nomination-registration-form" noValidate onSubmit={event => { event.preventDefault(); navigate(2); }}>
+        {submitted && <p className="type-body-large">Bạn có thể chỉnh sửa nội dung, thêm hoặc thay thế tệp trong hồ sơ đã gửi. Tiếp tục để kiểm tra và lưu thay đổi.</p>}
         <RegistrationFields selection={selection} draft={draft} onChange={setDraft} />
         <Button className="nomination-mobile-save" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
         <div className="nomination-actions nomination-mobile-bar">
@@ -86,22 +89,22 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
           <Button type="submit">Tiếp tục <span aria-hidden="true">→</span></Button>
           </div>
         </div>
-      </form> : step === 2 ? <ConfirmationStep selection={selection} draft={draft} onEdit={() => navigate(1)} onSubmit={() => navigate(3)} /> : <div className="nomination-success">
+      </form> : step === 2 ? <ConfirmationStep selection={selection} draft={draft} isEditing={submitted} onEdit={() => navigate(1)} onSubmit={() => { setUpdated(submitted); setSubmitted(true); navigate(3); }} /> : <div className="nomination-success">
         <div className="nomination-success-heading"><Image src="/assets/key-visual/tick.svg" width={56} height={56} alt="" aria-hidden="true" />
-        <h2 ref={title} tabIndex={-1} className="type-heading-2">Thành công</h2></div>
+        <h2 ref={title} tabIndex={-1} className="type-heading-2">{updated ? 'Cập nhật hồ sơ thành công' : 'Thành công'}</h2></div>
         <p className="type-body-large">Cảm ơn bạn đã tham gia đăng ký đề cử, mọi thắc mắc xin liên hệ ban tổ chức theo hotline.</p>
         <div className="nomination-success-actions">
           <div className="nomination-hotline-contact"><p>Hotline Ban tổ chức:</p><a href="tel:0838880123" className="button button--primary nomination-hotline"><span className="nomination-hotline-icon" aria-hidden="true" />083 888 0123</a></div>
           <Button type="button" onClick={() => emailDialog.current?.showModal()}>Kiểm tra email</Button>
         </div>
         <p className="type-body-small nomination-muted">Giao diện xem trước: hồ sơ chưa được gửi và chưa có email xác nhận.</p>
-        <div className="nomination-actions nomination-mobile-bar"><Button variant="secondary" onClick={() => navigate(2)}>← Xem lại hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>
+        <div className="nomination-actions nomination-mobile-bar"><Button variant="secondary" onClick={() => navigate(1)}>← Chỉnh sửa hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>
       </div>}
     </div>
     <dialog ref={emailDialog} className="nomination-save-dialog" aria-labelledby="nomination-email-title">
       <h2 id="nomination-email-title" className="type-heading-3">Kiểm tra email</h2>
       <p>Mở hộp thư bạn dùng để đăng ký. Nếu dùng dịch vụ khác, vui lòng mở ứng dụng email của bạn.</p>
-      <div className="nomination-success-actions"><a className="button button--secondary" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail ↗</a><a className="button button--secondary" href="https://outlook.live.com/mail/" target="_blank" rel="noopener noreferrer">Outlook ↗</a><Button type="button" onClick={() => emailDialog.current?.close()}>Đóng</Button></div>
+      <div className="nomination-success-actions"><a className="button button--secondary" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail <CTAArrow /></a><a className="button button--secondary" href="https://outlook.live.com/mail/" target="_blank" rel="noopener noreferrer">Outlook <CTAArrow /></a><Button type="button" onClick={() => emailDialog.current?.close()}>Đóng</Button></div>
     </dialog>
     <dialog ref={submitDialog} className="nomination-save-dialog" aria-labelledby="nomination-submit-title">
       <h2 id="nomination-submit-title" className="type-heading-3">Xác nhận hồ sơ</h2><p>Bạn đã hoàn tất bước xác nhận trong bản xem trước. Hồ sơ chưa được gửi đến Ban tổ chức.</p><Button type="button" onClick={() => submitDialog.current?.close()}>Đóng</Button>
