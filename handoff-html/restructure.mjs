@@ -64,7 +64,7 @@ try {
       flatten(doc);
       return {
         html: doc.documentElement.outerHTML,
-        wrappers: doc.querySelectorAll('body > div, body > main, section.section').length,
+        wrappers: doc.querySelectorAll('body > div:not(.wrap-homepage), body > main').length,
         main: doc.querySelectorAll('#main').length,
       };
     }, { html, transform: flattenDocument.toString() });

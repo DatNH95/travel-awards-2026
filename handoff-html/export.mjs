@@ -104,7 +104,7 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
     return '<!doctype html>\n'+doc.documentElement.outerHTML;
   },{kind,secondPanel});
   // Flat portable paths, including pagination and category deep links.
-  let clean=html.replace(/(href|src|poster)="([^"#]+)"/g,(whole,attr,value)=> {
+  let clean=html.replace(/(href|src|poster)="([^"]+)"/g,(whole,attr,value)=> {
     if(value.startsWith('/assets/')||value.startsWith('/fonts/')) return `${attr}="${value.slice(1)}"`;
     if(!value.startsWith('/')) return whole;
     const u=new URL(value.replaceAll('&amp;','&'),'http://local');let dest;

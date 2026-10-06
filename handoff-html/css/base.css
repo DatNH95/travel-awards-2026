@@ -30,7 +30,7 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
 
 @layer components {
   .layout-container { width: min(calc(100% - 2 * var(--spacing-gutter)), var(--container-page)); margin-inline: auto; }
-  .section-travel-awards-2026 { padding-block: var(--spacing-section); }
+  .section-travel-awards-2026, .section { padding-block: var(--spacing-section); }
   .surface { color: var(--color-text-primary); }
   .surface--primary, .surface--brand-soft, .surface--secondary {
     --color-text-primary: var(--color-text-on-light-primary);

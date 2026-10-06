@@ -14,9 +14,17 @@ Bản bàn giao từ implementation hiện tại. Source Next.js không thay đ�
 
 ## CSS và assets
 
-HTML không có div bọc toàn trang: header, các section nội dung và footer là con trực tiếp của body. Các class scope/theme được đặt trên body để giữ style; class spacing `section` đổi thành `section-travel-awards-2026`. Trang Tin tức/Thể lệ giữ một section bố cục riêng (`section-layout`) để bảo toàn grid và sidebar. Container chung 1100px; không còn hàng publisher/đăng nhập. Công cụ export giữ cấu trúc này ở các lần xuất tiếp theo.
+Homepage dùng cấu trúc `body > header`, `body > div.wrap-homepage.width_common > section`, `body > footer` theo mẫu Tech. Wrapper giữ toàn chiều ngang để bảo toàn nền các box; container nội dung bên trong vẫn 1100px. Mỗi box bắt đầu bằng class `section` và tên riêng, lần lượt: `home-hero`, `home-about`, `home-agenda`, `home-awards`, `home-participate`, `home-minitalk`, `home-tin-tuc`, `home-final-cta`, `home-organizer`. ID section và các class thành phần con giữ nguyên để các link/handler hiện có hoạt động.
+
+Trang Tin tức/Thể lệ và form giữ cấu trúc hiện có; class spacing `section-travel-awards-2026` ở các trang này không đổi. Công cụ export áp dụng cấu trúc Homepage mới ở các lần xuất tiếp theo. Source Next.js không đổi.
+
+Toàn bộ trang handoff đặt `header.home-header` và `footer.home-footer` trực tiếp trong `body`; không có `div.home` hoặc thẻ `main` bọc nội dung. Class `home` trên body chỉ dùng làm scope CSS. `id="main"` nằm trên section nội dung để skip-link hoạt động. Không có node ẩn, script hydration hoặc `next-route-announcer` của Next. `qa/shell-report.json` kiểm tra shell, link, responsive và thao tác UI của bản bàn giao; `check-shell.mjs` không dùng trên production.
+
+Đã kiểm tra shell và đường dẫn của 110 file, 16 lượt responsive ở 1440px/390px, tab giải thưởng, chọn hạng mục, dialog và phân trang. Link có anchor (`#main`, `#news-latest`, các mục Thể lệ) cũng chuyển sang file HTML tương đối; export giữ cách chuyển này ở các lần xuất tiếp theo.
 
 `qa/structure-report.json` kiểm tra cấu trúc của toàn bộ HTML và đối chiếu bố cục trước/sau khi bỏ wrapper ở desktop 1440px và mobile 390px. `restructure.mjs`/`structure.mjs` là công cụ nội bộ, không deploy lên production.
+
+`qa/home-structure-report.json` đối chiếu trước/sau cập nhật wrapper và tên class Homepage; `update-home-structure.mjs` chỉ dùng để migration/QA, không deploy lên production.
 
 Nạp theo thứ tự `tokens.css` → `base.css` → `home.css` → CSS trang (`rules.css`, `news.css`, `nomination.css`). CSS tiêu chuẩn, không cần Tailwind compiler hoặc runtime. Giữ class semantic hiện tại để Tech có thể chia thành template/partial. Các breakpoint và reduced-motion giữ từ source.
 

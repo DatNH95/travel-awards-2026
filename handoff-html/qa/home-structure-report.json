@@ -1,0 +1,634 @@
+{
+  "checks": 8,
+  "structure": {
+    "wrapper": 1,
+    "sections": [
+      {
+        "id": "main",
+        "classes": "section home-hero"
+      },
+      {
+        "id": "about",
+        "classes": "section home-about surface surface--primary section--primary"
+      },
+      {
+        "id": "journey",
+        "classes": "section home-agenda surface surface--primary section--primary"
+      },
+      {
+        "id": "awards",
+        "classes": "section home-awards surface surface--brand-soft section--brand-soft"
+      },
+      {
+        "id": "participate",
+        "classes": "section home-participate surface surface--primary section--primary"
+      },
+      {
+        "id": "minitalk",
+        "classes": "section home-minitalk surface surface--brand-deep section--brand-deep"
+      },
+      {
+        "id": "news",
+        "classes": "section home-tin-tuc surface surface--primary section--primary"
+      },
+      {
+        "id": "nominate",
+        "classes": "section home-final-cta surface surface--brand-deep section--brand-deep"
+      },
+      {
+        "id": "organizer",
+        "classes": "section home-organizer surface surface--primary section--primary"
+      }
+    ],
+    "headerOutside": true,
+    "footerOutside": true,
+    "main": 1
+  },
+  "measurements": [
+    {
+      "file": "index.html",
+      "width": 1440,
+      "before": {
+        "height": 6693,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 975.796875,
+            "width": 1100,
+            "height": 339.40625
+          },
+          {
+            "x": 170,
+            "y": 1335.203125,
+            "width": 1100,
+            "height": 449.5625
+          },
+          {
+            "x": 170,
+            "y": 1986.359375,
+            "width": 1100,
+            "height": 998.140625
+          },
+          {
+            "x": 170,
+            "y": 3186.09375,
+            "width": 1100,
+            "height": 440.21875
+          },
+          {
+            "x": 170,
+            "y": 3827.90625,
+            "width": 1100,
+            "height": 349.21875
+          },
+          {
+            "x": 170,
+            "y": 4378.71875,
+            "width": 1100,
+            "height": 726.9375
+          },
+          {
+            "x": 170,
+            "y": 5327.40625,
+            "width": 1100,
+            "height": 385.890625
+          },
+          {
+            "x": 170,
+            "y": 5890.25,
+            "width": 1100,
+            "height": 212.90625
+          },
+          {
+            "x": 170,
+            "y": 6160.15625,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      },
+      "after": {
+        "height": 6693,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 975.796875,
+            "width": 1100,
+            "height": 339.40625
+          },
+          {
+            "x": 170,
+            "y": 1335.203125,
+            "width": 1100,
+            "height": 449.5625
+          },
+          {
+            "x": 170,
+            "y": 1986.359375,
+            "width": 1100,
+            "height": 998.140625
+          },
+          {
+            "x": 170,
+            "y": 3186.09375,
+            "width": 1100,
+            "height": 440.21875
+          },
+          {
+            "x": 170,
+            "y": 3827.90625,
+            "width": 1100,
+            "height": 349.21875
+          },
+          {
+            "x": 170,
+            "y": 4378.71875,
+            "width": 1100,
+            "height": 726.9375
+          },
+          {
+            "x": 170,
+            "y": 5327.40625,
+            "width": 1100,
+            "height": 385.890625
+          },
+          {
+            "x": 170,
+            "y": 5890.25,
+            "width": 1100,
+            "height": 212.90625
+          },
+          {
+            "x": 170,
+            "y": 6160.15625,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      }
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "before": {
+        "height": 10146,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 938.75,
+            "width": 350,
+            "height": 674.6875
+          },
+          {
+            "x": 20,
+            "y": 1671.4375,
+            "width": 350,
+            "height": 1021.46875
+          },
+          {
+            "x": 20,
+            "y": 2804.90625,
+            "width": 350,
+            "height": 1516.8125
+          },
+          {
+            "x": 20,
+            "y": 4433.71875,
+            "width": 350,
+            "height": 784.125
+          },
+          {
+            "x": 20,
+            "y": 5329.84375,
+            "width": 350,
+            "height": 485.578125
+          },
+          {
+            "x": 20,
+            "y": 5927.421875,
+            "width": 350,
+            "height": 2102.875
+          },
+          {
+            "x": 20,
+            "y": 8153.484375,
+            "width": 350,
+            "height": 360.015625
+          },
+          {
+            "x": 20,
+            "y": 8636.6875,
+            "width": 350,
+            "height": 457.8125
+          },
+          {
+            "x": 20,
+            "y": 9151.5,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      },
+      "after": {
+        "height": 10146,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 938.75,
+            "width": 350,
+            "height": 674.6875
+          },
+          {
+            "x": 20,
+            "y": 1671.4375,
+            "width": 350,
+            "height": 1021.46875
+          },
+          {
+            "x": 20,
+            "y": 2804.90625,
+            "width": 350,
+            "height": 1516.8125
+          },
+          {
+            "x": 20,
+            "y": 4433.71875,
+            "width": 350,
+            "height": 784.125
+          },
+          {
+            "x": 20,
+            "y": 5329.84375,
+            "width": 350,
+            "height": 485.578125
+          },
+          {
+            "x": 20,
+            "y": 5927.421875,
+            "width": 350,
+            "height": 2102.875
+          },
+          {
+            "x": 20,
+            "y": 8153.484375,
+            "width": 350,
+            "height": 360.015625
+          },
+          {
+            "x": 20,
+            "y": 8636.6875,
+            "width": 350,
+            "height": 457.8125
+          },
+          {
+            "x": 20,
+            "y": 9151.5,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      }
+    },
+    {
+      "file": "the-le.html",
+      "width": 1440,
+      "before": {
+        "height": 6984,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 65,
+            "width": 1100,
+            "height": 6385.34375
+          },
+          {
+            "x": 170,
+            "y": 6451.34375,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      },
+      "after": {
+        "height": 6984,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 65,
+            "width": 1100,
+            "height": 6385.34375
+          },
+          {
+            "x": 170,
+            "y": 6451.34375,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      }
+    },
+    {
+      "file": "the-le.html",
+      "width": 390,
+      "before": {
+        "height": 9973,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 114.75,
+            "width": 350,
+            "height": 8862.703125
+          },
+          {
+            "x": 20,
+            "y": 8978.453125,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      },
+      "after": {
+        "height": 9973,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 114.75,
+            "width": 350,
+            "height": 8862.703125
+          },
+          {
+            "x": 20,
+            "y": 8978.453125,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      }
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 1440,
+      "before": {
+        "height": 3916,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 97,
+            "width": 1100,
+            "height": 3205.453125
+          },
+          {
+            "x": 170,
+            "y": 3383.453125,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      },
+      "after": {
+        "height": 3916,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 97,
+            "width": 1100,
+            "height": 3205.453125
+          },
+          {
+            "x": 170,
+            "y": 3383.453125,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      }
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 390,
+      "before": {
+        "height": 8052,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 138.75,
+            "width": 350,
+            "height": 6869.296875
+          },
+          {
+            "x": 20,
+            "y": 7057.046875,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      },
+      "after": {
+        "height": 8052,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 138.75,
+            "width": 350,
+            "height": 6869.296875
+          },
+          {
+            "x": 20,
+            "y": 7057.046875,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      }
+    },
+    {
+      "file": "dang-ky-tru-cot-1.html",
+      "width": 1440,
+      "before": {
+        "height": 5675,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 89,
+            "width": 1100,
+            "height": 4951.828125
+          },
+          {
+            "x": 170,
+            "y": 5142.625,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      },
+      "after": {
+        "height": 5675,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 170,
+            "y": 0,
+            "width": 1100,
+            "height": 65
+          },
+          {
+            "x": 170,
+            "y": 89,
+            "width": 1100,
+            "height": 4951.828125
+          },
+          {
+            "x": 170,
+            "y": 5142.625,
+            "width": 1100,
+            "height": 508.6875
+          }
+        ]
+      }
+    },
+    {
+      "file": "dang-ky-tru-cot-1.html",
+      "width": 390,
+      "before": {
+        "height": 7813,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 138.75,
+            "width": 350,
+            "height": 6526.6875
+          },
+          {
+            "x": 20,
+            "y": 6722.4375,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      },
+      "after": {
+        "height": 7813,
+        "overflow": false,
+        "boxes": [
+          {
+            "x": 20,
+            "y": 0,
+            "width": 350,
+            "height": 114.75
+          },
+          {
+            "x": 20,
+            "y": 138.75,
+            "width": 350,
+            "height": 6526.6875
+          },
+          {
+            "x": 20,
+            "y": 6722.4375,
+            "width": 350,
+            "height": 970.59375
+          }
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

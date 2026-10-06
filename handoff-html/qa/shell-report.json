@@ -1,0 +1,87 @@
+{
+  "pages": 110,
+  "responsiveChecks": 16,
+  "checks": [
+    {
+      "file": "index.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "the-le.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "the-le.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "tin-travel-awards-dau-an-tien-phong.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "tin-travel-awards-dau-an-tien-phong.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "dang-ky-de-cu.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "dang-ky-de-cu.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "dang-ky-tru-cot-1.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "dang-ky-tru-cot-1.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "xac-nhan.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "xac-nhan.html",
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "file": "thanh-cong.html",
+      "width": 1440,
+      "overflow": false
+    },
+    {
+      "file": "thanh-cong.html",
+      "width": 390,
+      "overflow": false
+    }
+  ],
+  "failures": []
+}

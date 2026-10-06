@@ -10,10 +10,12 @@ const manifest=JSON.parse(await fs.readFile(path.join(root,'manifest.json'),'utf
 const failures=[];
 for(const {file} of manifest.pages) {
   const html=await fs.readFile(path.join(root,file),'utf8');
-  if (/<main\b|<div class="home"|<section[^>]*class="section\s/.test(html)) failures.push(`${file}: legacy page wrapper or section class`);
-  if(/_next\/|self\.__next|data-nimg|@theme|tailwindcss/.test(html)) failures.push(`${file}: runtime residue`);
-  for(const match of html.matchAll(/(?:href|src)="([^"#]+)"/g)) {
-    const value=match[1]; if(/^(https?:|mailto:|tel:|data:)/.test(value))continue;
+  if (/<main\b|<div class="home"/.test(html)) failures.push(`${file}: legacy page wrapper`);
+  if(file==='index.html'&&!/<div class="wrap-homepage width_common"/.test(html))failures.push('Homepage: missing Tech wrapper');
+  if(/_next\/|self\.__next|data-nimg|next-route-announcer|@theme|tailwindcss/.test(html)) failures.push(`${file}: runtime residue`);
+  for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+    const value=match[1]; if(/^(https?:|mailto:|tel:|data:|#)/.test(value))continue;
+    if(value.startsWith('/'))failures.push(`${file}: nonportable link ${value}`);
     const target=decodeURIComponent(value.split(/[?#]/)[0]);
     try{await fs.access(path.join(root,target));}catch{failures.push(`${file}: missing ${target}`);}
   }
