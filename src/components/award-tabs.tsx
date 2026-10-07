@@ -2,13 +2,13 @@
 
 import { useRef, useState } from 'react';
 import Link from 'next/link';
-import { CTAArrow, TextLink } from './primitives';
+import { CTAArrow, NominationCTA, TextLink } from './primitives';
 
 import { pillarCategories, pioneeringCategories, awardCategoryId } from '@/data/awards';
 
 const groups = [
-  { name: 'Trụ cột', count: 6, title: 'Những giá trị tạo nên nền tảng.', description: 'Ghi nhận những dấu ấn góp phần xây dựng và phát triển du lịch Việt Nam.' },
-  { name: 'Tiên phong', count: 9, title: 'Những hướng đi mở ra tương lai.', description: 'Tôn vinh tinh thần đổi mới và những góc nhìn mới cho hành trình phía trước.' },
+  { name: 'Trụ cột', count: 6, title: 'Những giá trị tạo nên nền tảng.' },
+  { name: 'Tiên phong', count: 9, title: 'Những hướng đi mở ra tương lai.' },
 ];
 
 export function AwardTabs() {
@@ -28,8 +28,8 @@ export function AwardTabs() {
       }}><span>{item.name}</span><sup>{String(item.count).padStart(2, '0')}</sup></button>)}
     </div>
     <div role="tabpanel" id={`award-panel-${active}`} aria-labelledby={`award-tab-${active}`} tabIndex={0} className="home-award-panel">
-      <div className="home-award-group-copy"><p className="type-label">Nhóm giải thưởng / {group.name}</p><h3 className="type-heading-1">{group.title}</h3><p>{group.description}</p><TextLink href="/dang-ky-de-cu">Đăng ký đề cử</TextLink></div>
-      <div><ol className="home-award-list home-award-list--named">{categories.map((category, index) => <li key={category}><span>{String(index + 1).padStart(2, '0')}</span><Link className="home-award-category-link" href={`/dang-ky-de-cu?category=${awardCategoryId(active, index)}`}>{category}<span aria-hidden="true"><CTAArrow /></span></Link></li>)}</ol></div>
+      <div className="home-award-group-copy"><h3 className="type-heading-1">{group.title}</h3><TextLink className="home-award-desktop-cta" href="/dang-ky-de-cu">Đăng ký đề cử</TextLink></div>
+      <div><ol className="home-award-list home-award-list--named">{categories.map((category, index) => <li key={category}><span>{String(index + 1).padStart(2, '0')}</span><Link className="home-award-category-link" href={`/dang-ky-de-cu?category=${awardCategoryId(active, index)}`}>{category}<span aria-hidden="true"><CTAArrow /></span></Link></li>)}</ol><NominationCTA className="home-award-mobile-cta cta-mobile-dang-ky" /></div>
     </div>
   </div>;
 }

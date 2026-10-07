@@ -23,7 +23,7 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 }
 @font-face { font-family:HandoffNews; src:url('../fonts/merriweather/merriweather-bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
-.news-site { --font-news-title:HandoffNews; }
+.news-site, .home-tin-tuc { --font-news-title:HandoffNews; }
 `;
 let tokens = await fs.readFile(path.join(root,'src/styles/tokens.css'),'utf8');
 tokens = tokens.replace('@theme static', ':root').replace(/\s*--[\w-]+-\*:\s*initial;/g,'');

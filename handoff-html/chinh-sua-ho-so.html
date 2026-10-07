@@ -42,23 +42,27 @@
 <div class="home-countdown">
 <p class="home-countdown-deadline">Thời gian mở nhận đề cử còn lại:</p><time class="home-sr-only" datetime="2026-10-16T00:00:00+07:00">Mở nhận đề cử: 00:00 ngày 16.10.2026</time><time class="home-sr-only" datetime="2026-11-16T23:59:00+07:00">Hạn gửi đề cử: 23:59 ngày 16.11.2026</time>
 <div class="home-countdown-units" role="timer" aria-live="off" aria-label="Thời gian còn lại đến khi mở nhận đề cử">
-<div class="home-countdown-circle"><span class="home-countdown-value">09</span><span class="home-countdown-label">Ngày</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">08</span><span class="home-countdown-label">Ngày</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">09</span><span class="home-countdown-label">Giờ</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">12</span><span class="home-countdown-label">Giờ</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">33</span><span class="home-countdown-label">Phút</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">32</span><span class="home-countdown-label">Phút</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">27</span><span class="home-countdown-label">Giây</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">14</span><span class="home-countdown-label">Giây</span>
 </div>
 </div><noscript>Nhận đề cử từ 00:00 ngày 16.10.2026 đến 23:59 ngày 16.11.2026 (giờ Việt Nam).</noscript>
 </div>
 </div>
 </header>
+<dialog class="nomination-save-dialog nomination-mobile-notice" aria-labelledby="nomination-mobile-notice-title" aria-describedby="nomination-mobile-notice-copy">
+<h2 id="nomination-mobile-notice-title" class="type-heading-3">Đăng ký đề cử</h2>
+<p id="nomination-mobile-notice-copy">Vui lòng truy cập bằng thiết bị desktop/laptop để trải nghiệm đăng ký được tốt nhất.</p><button type="button" class="button button--primary">Đã hiểu</button>
+</dialog>
 <div class="nomination-layout">
 <nav class="nomination-progress" aria-label="Tiến trình đề cử">
 <p class="type-label">Các bước tham gia</p>
 <ol>
-<li data-state="complete"><button type="button" aria-label="Chọn giải thưởng"><span class="nomination-step-number" aria-hidden="true"><span class="nomination-step-desktop-number">✓</span><span class="nomination-step-mobile-number">01</span></span><span class="nomination-step-label">Chọn giải thưởng</span><span class="sr-only"> — Đã hoàn tất</span></button>
+<li data-state="complete"><button type="button" aria-label="Chọn giải thưởng"><span class="nomination-step-number" aria-hidden="true"><span class="nomination-step-desktop-number">✓</span><span class="nomination-step-mobile-number">✓</span></span><span class="nomination-step-label">Chọn giải thưởng</span><span class="sr-only"> — Đã hoàn tất</span></button>
 </li>
 <li data-state="current"><button type="button" aria-label="Thông tin đăng ký" aria-current="step"><span class="nomination-step-number" aria-hidden="true"><span class="nomination-step-desktop-number">02</span><span class="nomination-step-mobile-number">02</span></span><span class="nomination-step-label">Thông tin đăng ký</span><span class="sr-only"> — Bước hiện tại</span></button>
 </li>
@@ -77,11 +81,10 @@
 </div>
 </header>
 <form class="nomination-registration-form" novalidate="">
-<p class="type-body-large">Bạn có thể chỉnh sửa nội dung, thêm hoặc thay thế tệp trong hồ sơ đã gửi. Tiếp tục để kiểm tra và lưu thay đổi.</p>
 <div class="nomination-registration">
 <p class="nomination-selection">Hạng mục đã chọn: <strong>Điểm đến du lịch của năm</strong>
 </p>
-<p class="type-body-small nomination-muted">Các trường có dấu <span class="nomination-required">*</span> là thông tin bắt buộc theo hồ sơ đăng ký. Bấm lưu hồ sơ để chỉnh sửa lại thông tin nếu cần thay đổi.</p>
+<p class="type-body-large nomination-muted">Các trường có dấu <span class="nomination-required">*</span> là thông tin bắt buộc theo hồ sơ đăng ký. Bấm lưu hồ sơ để chỉnh sửa lại thông tin nếu cần thay đổi.</p>
 <fieldset class="nomination-form-section"><legend class="type-heading-3">I. Thông tin</legend>
 <div class="nomination-field-grid">
 <div class="nomination-field"><label for="_r_0_-registration-0">Tên đơn vị/tổ chức/cá nhân<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-registration-0" required="" type="text" value="" name="registration-0">
@@ -194,8 +197,10 @@
 </div>
 </div>
 </fieldset>
-</div><button type="button" class="button button--secondary nomination-mobile-save">Lưu lại hồ sơ</button>
-<div class="nomination-actions nomination-mobile-bar"><button type="button" class="button button--secondary"><span aria-hidden="true">←</span>Quay lại</button>
+</div>
+<div class="nomination-mobile-inline-actions"><button type="button" class="button button--secondary">Lưu lại hồ sơ</button>
+</div>
+<div class="nomination-actions nomination-mobile-bar"><button type="button" class="button button--secondary"><span aria-hidden="true">←</span><span class="nomination-button-desktop-label">Quay lại</span><span class="nomination-button-mobile-label">Chọn giải thưởng</span></button>
 <div class="nomination-action-next"><button type="button" class="button button--secondary nomination-save-action">Lưu lại hồ sơ</button><button type="submit" class="button button--primary">Tiếp tục <span aria-hidden="true">→</span></button>
 </div>
 </div>
@@ -255,7 +260,7 @@
 </div></dl>
 </div>
 </div>
-<div class="home-footer-bottom"><span>© 1997–2026. Toàn bộ bản quyền thuộc VnExpress.</span><span>Travel Awards 2026</span>
+<div class="home-footer-bottom"><span>© 1997–2026. Toàn bộ bản quyền thuộc VnExpress.</span>
 </div>
 </div>
 </footer>

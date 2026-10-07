@@ -4,12 +4,33 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ConfirmationStep } from './confirmation-step';
 import { useSearchParams } from 'next/navigation';
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CTAArrow, Button } from '@/components/primitives';
 import { awardGroups, awardCategoryFromId } from '@/data/awards';
 import { RegistrationFields, type RegistrationDraft } from './registration-fields';
 
 const steps = ['Chọn giải thưởng', 'Thông tin đăng ký', 'Xác nhận', 'Thành công'];
+
+function MobileRegistrationNotice() {
+  const dialog = useRef<HTMLDialogElement>(null);
+  useEffect(() => {
+    if (!window.matchMedia('(max-width: 39.99rem)').matches) return;
+    const key = 'travel-awards-mobile-registration-notice-seen';
+    try {
+      if (localStorage.getItem(key)) return;
+      localStorage.setItem(key, '1');
+    } catch {
+      // Avoid repeating the notice if browser storage is unavailable.
+      return;
+    }
+    dialog.current?.showModal();
+  }, []);
+  return <dialog ref={dialog} className="nomination-save-dialog nomination-mobile-notice" aria-labelledby="nomination-mobile-notice-title" aria-describedby="nomination-mobile-notice-copy">
+    <h2 id="nomination-mobile-notice-title" className="type-heading-3">Đăng ký đề cử</h2>
+    <p id="nomination-mobile-notice-copy">Vui lòng truy cập bằng thiết bị desktop/laptop để trải nghiệm đăng ký được tốt nhất.</p>
+    <Button type="button" onClick={() => dialog.current?.close()}>Đã hiểu</Button>
+  </dialog>;
+}
 
 export function NominationFlow() {
   const params = useSearchParams();
@@ -18,7 +39,7 @@ export function NominationFlow() {
   const previewStep = preview === 'confirmation' ? 2 : ['1', '2', '3', '4'].includes(preview ?? '') ? Number(preview) - 1 : null;
   const requestedStep = params.get('step');
   const initialStep = ['1', '2', '3', '4'].includes(requestedStep ?? '') ? Number(requestedStep) - 1 : previewStep ?? 0;
-  return <NominationForm key={`${categoryId}-${previewStep}-${initialStep}`} initialSelection={awardCategoryFromId(categoryId) || (previewStep !== null || initialStep > 0 ? awardGroups[0].categories[0] : '')} previewStep={previewStep} initialStep={initialStep} />;
+  return <><MobileRegistrationNotice /><NominationForm key={`${categoryId}-${previewStep}-${initialStep}`} initialSelection={awardCategoryFromId(categoryId) || (previewStep !== null || initialStep > 0 ? awardGroups[0].categories[0] : '')} previewStep={previewStep} initialStep={initialStep} /></>;
 }
 
 function NominationForm({ initialSelection, previewStep, initialStep }: { initialSelection: string; previewStep: number | null; initialStep: number }) {
@@ -42,7 +63,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
       <p className="type-label">Các bước tham gia</p>
       <ol>{steps.map((label, index) => <li key={label} data-state={index === step ? 'current' : index < step ? 'complete' : 'upcoming'}>
         <button type="button" aria-label={label} aria-current={index === step ? 'step' : undefined} disabled={previewStep === null && index > step} onClick={() => navigate(index)}>
-          <span className="nomination-step-number" aria-hidden="true"><span className="nomination-step-desktop-number">{index < step ? '✓' : String(index + 1).padStart(2, '0')}</span><span className="nomination-step-mobile-number">{String(index + 1).padStart(2, '0')}</span></span>
+          <span className="nomination-step-number" aria-hidden="true"><span className="nomination-step-desktop-number">{index < step ? '✓' : String(index + 1).padStart(2, '0')}</span><span className="nomination-step-mobile-number">{index < step ? '✓' : String(index + 1).padStart(2, '0')}</span></span>
           <span className="nomination-step-label">{label}</span>
           <span className="sr-only">{index === step ? ' — Bước hiện tại' : index < step ? ' — Đã hoàn tất' : ' — Chưa mở'}</span>
         </button>
@@ -62,7 +83,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
       </header>
       {step === 0 ? <form onSubmit={event => { event.preventDefault(); if (selection) navigate(1); }}>
         <fieldset className="nomination-choices" aria-describedby="nomination-choice-help">
-          <legend className="type-body-large">Chọn một hạng mục bạn muốn đề cử.</legend>
+          <legend className="type-body-large"><span className="nomination-choice-desktop-lead">Chọn một hạng mục bạn muốn đề cử.</span><span className="nomination-choice-mobile-status" role="status">{selection ? <>Đã chọn: <strong>{selection}</strong></> : 'Chưa chọn hạng mục.'}</span></legend>
           <p id="nomination-choice-help" className="nomination-muted type-body-small">Mỗi hồ sơ chỉ đăng ký cho một hạng mục. Trường hợp muốn tham gia nhiều hạng mục, vui lòng thực hiện bằng tài khoản MyVNE ID mới.</p>
           <div className="nomination-group-tabs" role="tablist" aria-label="Nhóm giải thưởng">{awardGroups.map((group, index) => <button type="button" role="tab" key={group.name} id={`nomination-group-tab-${index}`} aria-controls={`nomination-group-panel-${index}`} aria-selected={activeGroup === index} tabIndex={activeGroup === index ? 0 : -1} ref={node => { groupTabs.current[index] = node; }} onClick={() => setActiveGroup(index)} onKeyDown={event => { let next: number; if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') next = 1 - activeGroup; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = 1; else return; event.preventDefault(); setActiveGroup(next); groupTabs.current[next]?.focus(); }}>{group.name} <span className="type-body-small">({group.categories.length})</span></button>)}</div>
           <div className="nomination-groups">{awardGroups.map((group, groupIndex) => <section key={group.name} hidden={activeGroup !== groupIndex} role="tabpanel" id={`nomination-group-panel-${groupIndex}`} aria-labelledby={`nomination-group-tab-${groupIndex}`}>
@@ -73,17 +94,18 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
             </label>)}</div>
           </section>)}</div>
         </fieldset>
-        <div className="nomination-selection type-body-small" role="status">{selection ? <>Đã chọn: <strong>{selection}</strong></> : 'Chưa chọn hạng mục.'}</div>
+        <div className="nomination-selection nomination-choice-desktop-status type-body-small" role="status">{selection ? <>Đã chọn: <strong>{selection}</strong></> : 'Chưa chọn hạng mục.'}</div>
         <div className="nomination-actions nomination-mobile-bar">
           <Link href="/" className="button button--secondary">Quay lại trang chủ</Link>
           <Button type="submit" disabled={!selection}>Tiếp tục <span aria-hidden="true">→</span></Button>
         </div>
       </form> : step === 1 ? <form className="nomination-registration-form" noValidate onSubmit={event => { event.preventDefault(); navigate(2); }}>
-        {submitted && <p className="type-body-large">Bạn có thể chỉnh sửa nội dung, thêm hoặc thay thế tệp trong hồ sơ đã gửi. Tiếp tục để kiểm tra và lưu thay đổi.</p>}
         <RegistrationFields selection={selection} draft={draft} onChange={setDraft} />
-        <Button className="nomination-mobile-save" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
+        <div className="nomination-mobile-inline-actions">
+          <Button type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
+        </div>
         <div className="nomination-actions nomination-mobile-bar">
-          <Button variant="secondary" onClick={() => navigate(0)}><span aria-hidden="true">←</span>Quay lại</Button>
+          <Button variant="secondary" onClick={() => navigate(0)}><span aria-hidden="true">←</span><span className="nomination-button-desktop-label">Quay lại</span><span className="nomination-button-mobile-label">Chọn giải thưởng</span></Button>
           <div className="nomination-action-next">
           <Button className="nomination-save-action" type="button" variant="secondary" onClick={() => saveDialog.current?.showModal()}>Lưu lại hồ sơ</Button>
           <Button type="submit">Tiếp tục <span aria-hidden="true">→</span></Button>

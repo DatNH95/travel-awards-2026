@@ -9,8 +9,8 @@ export function ScrollReveal() {
 
     // Animate on entry, without hiding server-rendered content or changing layout.
     // Each target reveals only on its first entry during this page visit.
-    const targets = Array.from(document.querySelectorAll<HTMLElement>('.home main > .section > .layout-container, .home main h1, .home main h2, .home main h3, .home-timeline li'))
-      .filter(target => !target.closest('.home-news, .news-site, .home-hero'));
+    const targets = Array.from(document.querySelectorAll<HTMLElement>('.home main > section h2'))
+      .filter(target => !target.closest('.news-site, .home-hero'));
     const revealed = new Set<HTMLElement>();
     let frame = 0;
     const update = () => {
@@ -26,7 +26,7 @@ export function ScrollReveal() {
         }
         const top = documentTop - window.scrollY;
         const bottom = top + target.offsetHeight;
-        const revealClass = target.matches('.home-timeline li') ? 'home-timeline-step-enter' : target.matches('h1, h2, h3') ? 'home-heading-enter' : 'home-scroll-enter';
+        const revealClass = 'home-heading-enter';
         if (bottom > 32 && top < window.innerHeight - 32) {
           target.classList.add(revealClass);
           revealed.add(target);

@@ -185,3 +185,8 @@
 .landing-demo-frame { overflow: auto; border: var(--border-width) solid var(--color-border-default); background: var(--color-surface-primary); }
 .landing-demo-frame iframe { display: block; border: 0; max-width: none; }
 .landing-demo-frame--mobile { width: min(100%, 392px); }
+
+/* cta-mobile-dang-ky: full container width, standard nomination height. */
+@media (max-width: 47.99rem) {
+  .button.button--nomination.cta-mobile-dang-ky { width: 100%; min-width: 0; }
+}

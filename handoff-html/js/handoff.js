@@ -1,4 +1,4 @@
-/* Optional UI helpers. No framework, network calls, uploads or persistent storage. */
+/* Optional UI helpers. No framework, network calls or uploads; only a notice preference is stored. */
 (() => {
   'use strict';
   const $ = (selector, root = document) => root.querySelector(selector);
@@ -50,10 +50,18 @@
     const title = dialogByLabel[label];
     if (title) button.addEventListener('click', () => document.getElementById(title)?.closest('dialog').showModal());
     if (label === 'Đóng') button.addEventListener('click', () => button.closest('dialog')?.close());
+    if (label === 'Đã hiểu') button.addEventListener('click', () => button.closest('dialog')?.close());
     if (label.includes('Quay lại')) button.addEventListener('click', () => { location.href = 'dang-ky-de-cu.html'; });
     if (label.includes('Xem lại hồ sơ')) button.addEventListener('click', () => { location.href = 'xac-nhan.html'; });
     if (label.includes('Chỉnh sửa hồ sơ')) button.addEventListener('click', () => { location.href = 'chinh-sua-ho-so.html'; });
   });
+  const mobileNotice = $('.nomination-mobile-notice');
+  if (mobileNotice && matchMedia('(max-width: 39.99rem)').matches) {
+    try {
+      const key = 'travel-awards-mobile-registration-notice-seen';
+      if (!localStorage.getItem(key)) { localStorage.setItem(key, '1'); mobileNotice.showModal(); }
+    } catch { /* Match the source when browser storage is unavailable. */ }
+  }
   // Handoff views only: prevent accidental GET submission of personal data.
   $$('.nomination-registration-form,.nomination-confirmation-form').forEach(form => {
     form.addEventListener('submit', event => {
@@ -108,4 +116,52 @@
       if (seconds) window.setTimeout(tick,1000);
     }; tick();
   }
+})();
+
+// Rules table of contents: track the visible section and open linked criteria.
+(() => {
+  const nav = document.querySelector('.rules-nav');
+  if (!nav) return;
+  const links = [...nav.querySelectorAll('a[href^="#"]')];
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)');
+  let frame = 0;
+  const update = () => {
+    frame = 0;
+    const mobile = matchMedia('(max-width:640px)').matches;
+    const scrollPadding = parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0;
+    let active = links[0];
+    for (const link of links) if (document.getElementById(link.hash.slice(1))?.getBoundingClientRect().top <= (mobile ? 100 : 160) + scrollPadding) active = link;
+    links.forEach(link => { if (link === active) link.setAttribute('aria-current', 'location'); else link.removeAttribute('aria-current'); });
+    if (mobile && active) {
+      const bounds = nav.getBoundingClientRect(), item = active.getBoundingClientRect();
+      if (item.left < bounds.left || item.right > bounds.right) nav.scrollTo({left:nav.scrollLeft + item.left - bounds.left - (bounds.width - item.width) / 2, behavior:reduced.matches ? 'instant' : 'smooth'});
+    }
+  };
+  const schedule = () => { if (!frame) frame = requestAnimationFrame(update); };
+  const openTarget = () => {
+    const target = document.getElementById(location.hash.slice(1));
+    if (target instanceof HTMLDetailsElement) { target.open = true; target.scrollIntoView({block:'start'}); }
+  };
+  addEventListener('scroll', schedule, {passive:true}); addEventListener('resize', schedule); addEventListener('hashchange', openTarget);
+  update(); openTarget();
+})();
+
+// Reveal only Homepage section titles, once per page visit.
+(() => {
+  const preference = matchMedia('(prefers-reduced-motion: reduce)');
+  if (preference.matches) return;
+  const titles = document.querySelectorAll('.wrap-homepage > section h2');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('home-heading-enter');
+      observer.unobserve(entry.target);
+    });
+  }, { rootMargin: '0px 0px -32px 0px', threshold: .05 });
+  titles.forEach(title => observer.observe(title));
+  preference.addEventListener('change', () => {
+    if (!preference.matches) return;
+    observer.disconnect();
+    titles.forEach(title => title.classList.remove('home-heading-enter'));
+  });
 })();

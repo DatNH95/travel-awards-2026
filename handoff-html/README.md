@@ -32,18 +32,18 @@ Nạp theo thứ tự `tokens.css` → `base.css` → `home.css` → CSS trang (
 
 ## JavaScript tùy chọn
 
-`js/handoff.js` là JavaScript thuần cho tab có bàn phím, chọn hạng mục/deep link, countdown, dialog, focus validation native và hiển thị tệp đã chọn. Không React, Next, hydration, router runtime hay thư viện bên ngoài. Có thể thay bằng handlers của Tech.
+`js/handoff.js` là JavaScript thuần cho tab có bàn phím, chọn hạng mục/deep link, countdown, dialog, focus validation native, hiển thị tệp đã chọn, reveal heading và mục lục Thể lệ. Thông báo đăng ký trên mobile lưu duy nhất cờ đã xem trong localStorage; không lưu hồ sơ. Không React, Next, hydration, router runtime hay thư viện bên ngoài. Có thể thay bằng handlers của Tech.
 
 Form là template tích hợp, không có backend/upload/email hoặc lưu bền vững. Step 2/3 chặn submit và mở thông báo mô phỏng; không chuyển dữ liệu giữa các file HTML. Step 3 hiển thị trạng thái draft trống. Giữ riêng các view giúp Tech tích hợp state/server validation theo codebase của mình.
 
-Tech cần nối draft và review, validation số quốc tế, giới hạn từ/dung lượng/định dạng/minh chứng pháp lý, cộng dồn/bỏ tệp và API gửi/lưu hồ sơ. Native required/email/url vẫn hoạt động. Chưa thay thế libphonenumber bằng regex đơn giản. Bản này ưu tiên giao diện responsive; bỏ pointer/scroll parallax, count-up và JS reveal trang theo yêu cầu giảm JS. CSS motion/sheens và reduced-motion giữ nguyên.
+Tech cần nối draft và review, validation số quốc tế, giới hạn từ/dung lượng/định dạng/minh chứng pháp lý, cộng dồn/bỏ tệp và API gửi/lưu hồ sơ. Native required/email/url vẫn hoạt động. Chưa thay thế libphonenumber bằng regex đơn giản. Bản này ưu tiên giao diện responsive; bỏ pointer/scroll parallax và count-up; heading Homepage reveal một lần theo implementation mới. CSS motion/sheens và reduced-motion giữ nguyên.
 
 `export.mjs` và `verify.mjs` chỉ là công cụ nội bộ tạo/kiểm tra artifact, không deploy cùng website. Export sử dụng server local đã build và Playwright có sẵn trong môi trường tạo artifact; website bàn giao không phụ thuộc các công cụ đó.
 
 ## Kiểm tra bàn giao
 
 - 110 file HTML: kiểm tra đường dẫn CSS, JavaScript, assets và link nội bộ; không có Next runtime.
-- Lượt cập nhật mới nhất: 44 đối chiếu ở 1440px/390px cho Homepage, đủ 15 form Step 2 và các trạng thái đề cử/cập nhật; không tràn ngang, bố cục khớp source. Kiểm tra shell/link toàn bộ 110 file và countdown trước mở/đang nhận/hết hạn đều đạt.
+- Lượt cập nhật mới nhất: 50 đối chiếu ở 1440px/390px cho Homepage, Thể lệ, Tin tức, đủ 15 form Step 2 và các trạng thái đề cử/cập nhật; không tràn ngang, bố cục khớp source (bỏ so sánh chiều cao trang chi tiết tin theo yêu cầu người dùng). Kiểm tra shell/link toàn bộ 110 file và countdown trước mở/đang nhận/hết hạn đều đạt.
 - Kiểm tra tab Tiên phong đủ 9 hạng mục, deep link chọn đúng hạng mục, chuyển sang template form và dialog; không lỗi JavaScript hoặc ID trùng trên các trang được kiểm tra.
 - Screenshot đối chiếu và kết quả nằm trong `qa/`, báo cáo `qa/report.json`. Không đưa thư mục QA và công cụ export/verify lên production.
 - Công cụ export chỉ cập nhật `handoff-html/`; source và bản bàn giao được commit cùng nhau theo quy trình project.

@@ -37,7 +37,7 @@ Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
 8. Stage các thay đổi thuộc phạm vi commit, gồm cả source và bản bàn giao `handoff-html/` tương ứng, tạo commit message ngắn mô tả thay đổi và commit.
 9. Chạy `git push origin main`.
 
-Nếu có file bất thường, conflict hoặc build/check lỗi thì dừng và báo người dùng trước khi push. Không tự đưa file bất thường vào commit để tiếp tục quy trình.
+Mỗi lần đẩy lên GitHub, tự kiểm tra và sửa bug, lỗi chuyển đổi, cache hoặc artifact cũ liên quan trong phạm vi project; chạy lại kiểm tra phần bị ảnh hưởng để đảm bảo handoff đúng cấu trúc, code sạch và khớp implementation. Kiểm tra trên bản build hiện tại, restart server sau build khi cần; không xóa dữ liệu hoặc local changes để xử lý cache. Chỉ dừng và báo nếu có conflict, file bất thường chưa xác định được phạm vi, hoặc lỗi không thể tự xử lý an toàn. Không push khi kiểm tra cần thiết còn lỗi và không tự đưa file bất thường vào commit.
 
 Không force push.
 

@@ -15,6 +15,10 @@
 .nomination .nomination-title-copy h1 { font-size: 28px; line-height: 1.2; }
 .nomination :is(.type-heading-2, .type-heading-3) { font-size: 30px; }
 .nomination .nomination-form-section > :is(legend, h3).type-heading-3 { font-size: 30px; }
+@media (max-width: 39.99rem) {
+  .nomination :is(.nomination-step-heading, .nomination-success-heading) > h2 { font-size: 24px; line-height: 1.4; }
+  .nomination .nomination-form-section > :is(legend, h3).type-heading-3 { font-size: 22px; line-height: 1.4; }
+}
 .nomination :is(p, legend).type-body-large { font-size: 16px; }
 .nomination-title-copy > p { max-width: var(--container-reading); line-height: 1.4; color: var(--color-text-secondary); }
 @media (max-width: 63.99rem) { .nomination-title-row { flex-direction: column; align-items: flex-start; } }
@@ -22,6 +26,7 @@
 .nomination-intro > p:last-child { max-width: var(--container-reading); color: var(--color-text-secondary); }
 .nomination-layout { display: grid; grid-template-columns: 17rem minmax(0, 1fr); gap: 24px; align-items: start; padding-top: 24px; border-top: var(--border-width) solid var(--color-border-default); }
 .nomination-progress { position: sticky; top: 2rem; }
+@media (max-width: 39.99rem) { .nomination-progress > .type-label { display: none; } .nomination .nomination-progress ol { margin-top: 0; } }
 .nomination-progress ol { list-style: none; margin: 1.25rem 0 0; padding: 0; display: grid; gap: 0.5rem; }
 .nomination-progress button { display: flex; align-items: center; gap: 0.875rem; width: 100%; min-height: 3.5rem; padding: 0.5rem; text-align: left; background: transparent; border: 0; cursor: pointer; color: var(--color-text-primary); border-radius: var(--radius-control); }
 .nomination-progress button:disabled { cursor: default; color: var(--color-text-secondary); }
@@ -31,10 +36,25 @@
 .nomination-content { min-width: 0; border-left: var(--border-width) solid var(--color-border-default); padding-left: 24px; }
 .nomination-step-heading { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; margin-bottom: 1.5rem; }
 .nomination-step-heading h2 { min-width: 0; }
+.nomination .nomination-step-heading:has(+ .nomination-registration-form) h2,
+.nomination > section .nomination-registration > p.nomination-selection,
+.nomination > section .nomination-registration > p.type-body-large { line-height: 1.4; }
 .nomination-step-heading:has(+ form .nomination-choices) { margin-bottom: 14px; }
 .nomination-choices { min-width: 0; border: 0; margin: 0; padding: 0; }
 .nomination-choices legend { padding: 0; margin-bottom: 0.5rem; }
+.nomination-choice-mobile-status { display: none; }
+.nomination-button-mobile-label { display: none; }
+@media (max-width: 39.99rem) {
+  .nomination-button-desktop-label { display: none; }
+  .nomination-button-mobile-label { display: inline; }
+}
+@media (max-width: 39.99rem) {
+  .nomination-choice-desktop-lead, .nomination-choice-desktop-status { display: none; }
+  .nomination-choice-mobile-status { display: inline; }
+  .nomination-choice-mobile-status:has(strong) { color: var(--color-action-primary); }
+}
 .nomination-muted { color: var(--color-text-secondary); }
+.nomination #nomination-choice-help { font-size: 16px; line-height: 1.5; }
 .nomination-groups { display: grid; gap: 2rem; margin-top: 2rem; }
 .nomination-groups h3 { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.5rem; padding-bottom: 1rem; color: var(--color-text-brand); }
 .nomination-groups h3 span { color: var(--color-text-secondary); }
@@ -113,6 +133,8 @@
 .nomination-action-next { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 .nomination-save-dialog { position: fixed; inset: 0; margin: auto; max-height: calc(100dvh - 2rem); overflow-y: auto; width: min(28rem, calc(100% - 2rem)); box-sizing: border-box; padding: 2rem; border: var(--border-width) solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); color: var(--color-text-primary); }
 .nomination-save-dialog::backdrop { background: rgb(38 60 83 / 40%); }
+.nomination-mobile-notice { padding: 24px; }
+.nomination-mobile-notice .button { width: 100%; height: 42px; min-height: 42px; padding-block: 8px; }
 .nomination-save-dialog p { margin-block: 1rem 1.5rem; }
 .nomination-field > input[aria-invalid='true'], .nomination-field > textarea[aria-invalid='true'],
 .nomination-field > input:user-invalid, .nomination-field > textarea:user-invalid,
@@ -149,7 +171,10 @@
 .nomination-hotline-contact { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; }
 .nomination-success > .nomination-success-actions .button { height: 42px; min-height: 42px; padding-block: 0.5rem; }
 .nomination-success-actions .button { white-space: normal; text-align: center; }
-@media (max-width: 39.99rem) { .nomination-success-actions .button { width: 100%; } }
+@media (max-width: 39.99rem) {
+  .nomination-success-actions .button { width: 100%; }
+  .nomination-success > .nomination-success-actions .nomination-hotline-contact { width: 100%; }
+}
 .nomination-hotline { border-radius: 5px; gap: 0.75rem; }
 .nomination-hotline img { flex-shrink: 0; }
 .nomination-success-heading { display: flex; align-items: center; gap: 1rem; } .nomination-success-heading img { flex-shrink: 0; }
@@ -174,6 +199,11 @@
   .nomination-mobile-bar .nomination-save-action { display: none; }
 }
 .nomination-mobile-save { display: none; }
+.nomination-mobile-inline-actions { display: none; }
+@media (max-width: 39.99rem) {
+  .nomination-mobile-inline-actions { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 24px; }
+  .nomination-mobile-inline-actions .button { width: 100%; height: 42px; min-height: 42px; padding: 8px 12px; font-size: 14px; line-height: 1.4; }
+}
 @media (max-width: 39.99rem) { .nomination-mobile-save { display: inline-flex; margin-top: 1.5rem; } .nomination-content { padding-bottom: 6rem; } }
 @media (max-width: 39.99rem) { .nomination-step-timeline { display: none; } }
 
@@ -191,6 +221,34 @@
 @media (max-width: 39.99rem) { .nomination-choice-next { display: none; } .nomination-group-tabs button { flex: 1; } }
 .nomination-choice-toolbar p:has(strong), .nomination-selection:has(strong) { font-size: var(--text-body-large); color: var(--color-action-primary); }
 .nomination .nomination-selection:has(strong) { font-size: 16px; }
+@media (max-width: 39.99rem) {
+  .nomination .home-countdown-circle { width: 48px; }
+  .nomination .home-countdown-value, .nomination .home-countdown-separator { font-size: 18px; }
+  .nomination .home-countdown-label { font-size: 10px; }
+  .nomination-layout { padding-top: 24px; border-top: var(--border-width) solid var(--color-border-default); gap: 24px; }
+  .nomination-content { padding-top: 0; border-top: 0; }
+  .nomination .nomination-progress ol { gap: 0; }
+  .nomination-progress li { position: relative; }
+  .nomination-progress li:not(:last-child)::after { content: ''; position: absolute; top: 22px; left: calc(50% + 18px); width: calc(100% - 36px); height: 1px; background: var(--color-border-default); }
+  .nomination-progress li[data-state='complete']::after { background: var(--color-action-primary); }
+  .nomination .nomination-progress button { justify-content: center; min-height: 44px; padding: 4px; background: transparent; }
+  .nomination .nomination-progress li[data-state='current'] button { background: transparent; }
+  .nomination .nomination-progress .nomination-step-number { width: 36px; height: 36px; font-size: 14px; }
+  .nomination .nomination-progress .nomination-step-label { display: none; }
+}
+@media (max-width: 39.99rem) {
+  .nomination :is(.nomination-registration, .nomination-confirmation-form, .nomination-success) { font-size: 16px; line-height: 1.5; }
+  .nomination :is(.nomination-registration, .nomination-confirmation-form, .nomination-success) p.type-body-large { font-size: 16px; line-height: 1.5; }
+  .nomination :is(.nomination-registration, .nomination-confirmation-form) :is(h3, h4).type-body-large { font-size: 18px; line-height: 1.4; }
+  .nomination :is(.nomination-field label, .nomination-legal-fields legend, .nomination-review dt) { font-size: 14px; line-height: 1.5; }
+  .nomination :is(.nomination-review dd, .nomination-checks, .nomination-review-checks, .nomination-evidence) { font-size: 16px; line-height: 1.5; }
+  .nomination :is(.nomination-registration, .nomination-confirmation-form, .nomination-success) .type-body-small { font-size: 14px; line-height: 1.5; }
+  .nomination .nomination-field :is(input, textarea), .nomination .nomination-phone-control input { font-size: 16px; line-height: 1.5; }
+  .nomination .nomination-confirm-submit p { font-size: 14px; line-height: 1.5; }
+  .nomination .nomination-success-actions .button, .nomination .nomination-mobile-save { font-size: 14px; line-height: 1.4; }
+  .nomination .nomination-save-dialog h2 { font-size: 22px; line-height: 1.4; }
+  .nomination .nomination-save-dialog p { font-size: 16px; line-height: 1.5; }
+}
 
 @media (min-width: 64rem) {
   .nomination-registration-form > .nomination-actions, .nomination-confirmation-form > .nomination-actions { position: sticky; bottom: 0; z-index: 30; padding: 1rem; background: var(--color-surface-primary); box-shadow: 0 -4px 16px rgb(38 60 83 / 8%); }

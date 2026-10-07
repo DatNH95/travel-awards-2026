@@ -233,6 +233,7 @@
   .home-news-item:not(.home-news-item--featured) { grid-template-columns: 1fr; gap: 1.25rem; }
   .home-section-title { display: grid; gap: 1.5rem; margin-bottom: 2.5rem; }
   .home-timeline { grid-template-columns: 1fr; gap: 2.5rem; }
+  .home-timeline li > p:last-child { font-size: 16px; }
   .home-awards-count { text-align: left; padding: 0; }
   .home-awards-count > span { font-size: 8rem; }
   .home-award-tabs { gap: 2rem; }
@@ -261,8 +262,11 @@
   .home main > [id] { scroll-margin-top: 110px; }
 }
 @media (max-width: 47.99rem) {
-  .home-about-signature { display: inline-flex; justify-content: center; width: 100%; gap: .25em; font-size: clamp(1.5rem, 9vw, var(--text-display-l)); }
+  .home-about-signature { display: inline-flex; justify-content: flex-start; width: 100%; gap: .25em; font-size: inherit; }
   .home-about-signature > span { white-space: nowrap; }
+
+
+
 }
 @media (max-width: 47.99rem) {
   .home-header { position: relative; top: auto; }
@@ -305,3 +309,138 @@
 .home-participate-logo .brand-graphic { width: 100%; height: auto; }
 .home-participate-logo::after { content: ''; position: absolute; inset: 0; pointer-events: none; background: linear-gradient(110deg, transparent 40%, color-mix(in srgb, var(--color-surface-primary) 85%, transparent) 48%, transparent 56%); background-size: 300% 100%; mask: url('/assets/key-visual/logo.svg') center / 100% 100% no-repeat; -webkit-mask: url('/assets/key-visual/logo.svg') center / 100% 100% no-repeat; opacity: 0; animation: hero-type-gloss 7s ease-in-out var(--duration-depth) infinite; }
 @media (prefers-reduced-motion: reduce) { .home-participate-logo::after { animation: none; } }
+
+@media (max-width: 47.99rem) {
+  .home :is(.home-about, .home-journey, .home-agenda, .home-awards, .home-participate, .home-minitalk, .home-news, .home-tin-tuc, .home-final-cta) h2 { font-size: 36px; white-space: normal; }
+  .home-about-signature { flex-wrap: wrap; }
+  .home .home-minitalk h2 { font-size: 48px; }
+  .home .home-final-cta h2 { font-size: 40px; }
+  .home-news-lead { display: none; }
+  .home :is(.home-news, .home-tin-tuc) .home-news-item h3.type-news-title { font-size: 20px; }
+  .home-steps p { font-size: 16px; }
+  .home-participate-logo { width: min(15rem, 100%); }
+}
+
+.home-award-panel .home-award-mobile-cta { display: none; }
+@media (max-width: 47.99rem) {
+  .home-award-group-copy > .home-award-desktop-cta { display: none; }
+  .home-award-panel .home-award-mobile-cta { display: inline-flex; margin-top: 1.5rem; }
+}
+
+@media (max-width: 47.99rem) {
+  .home-award-group-copy { gap: 20px; }
+  .home-award-panel { row-gap: 20px; }
+}
+
+@media (max-width: 47.99rem) {
+  .home :is(.home-about, .home-journey, .home-agenda, .home-awards, .home-participate, .home-minitalk, .home-news, .home-tin-tuc, .home-final-cta, .home-organizer) { padding-block: 32px; }
+}
+
+@media (max-width: 47.99rem) {
+  .home-awards-count { display: none; }
+}
+
+@media (max-width: 47.99rem) {
+  .home-about .home-split { row-gap: 16px; }
+}
+
+@media (max-width: 47.99rem) {
+  .home :is(.home-journey, .home-agenda) > .layout-container { position: relative; }
+  .home :is(.home-journey, .home-agenda) > .layout-container::before { content: ''; position: absolute; top: -32px; inset-inline: 0; border-top: var(--home-rule); }
+}
+
+
+
+@media (max-width: 47.99rem) {
+  .home :is(.home-journey, .home-agenda) .home-section-title { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+  .home .home-agenda-rules-cta { flex-shrink: 0; white-space: nowrap; }
+}
+
+@media (max-width: 47.99rem) {
+  .home-organizer-logos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); width: 100%; gap: 16px; align-items: start; }
+  .home-organizer-unit { min-width: 0; gap: 16px; }
+  .home-organizer-unit > .eyebrow { font-size: 14px; line-height: 1.4; letter-spacing: 0; }
+  .home-organizer-logos img { width: min(160px, 100%); }
+}
+
+@media (max-width: 47.99rem) {
+  .home-footer-utilities { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; align-items: stretch; width: 100%; }
+  .home-footer-utilities > div { display: contents; }
+  .home-footer-utilities .home-footer-utility { min-width: 0; justify-content: center; text-align: center; }
+  .home-footer-utilities > a { order: 0; }
+  .home-footer-utilities a[href='https://vnexpress.net/dieu-khoan-su-dung'] { order: 1; }
+  .home-footer-utilities .home-footer-utility--facebook { order: 2; }
+  .home-footer-utilities .home-footer-utility--feedback { order: 3; }
+  .home-footer-utilities a[href='#main'] { order: 4; grid-column: 1 / -1; }
+}
+
+.home-timeline-ratio { display: flex; align-items: center; flex-wrap: wrap; gap: .5rem; margin-top: 16px; color: var(--color-text-brand); }
+.home-timeline-ratio strong { font-weight: 700; }
+@media (max-width: 47.99rem) {
+  .home-copy, .home-award-group-copy { gap: 16px; }
+  .home-award-panel { row-gap: 16px; }
+  .home :is(.home-journey, .home-agenda) .home-section-title { margin-bottom: 16px; }
+  .home-timeline-summary { padding-bottom: 16px; }
+  .home-steps > div { padding-block: 16px; gap: 16px; }
+  .home-steps p { margin-top: 16px; }
+  .home-minitalk-grid, .home-minitalk-copy { gap: 16px; }
+  .home-award-panel .home-award-mobile-cta { margin-top: 16px; }
+}
+
+/* A continuous nomination guide, with the action following step 03. */
+.home-participate .home-split { align-items: start; column-gap: clamp(24px, 3vw, 48px); }
+.home-steps { display: grid; gap: 16px; }
+.home-steps > div { position: relative; border-top: 0; padding-block: 0; gap: 16px; }
+.home-steps > div > span { display: flex; align-items: center; justify-content: center; height: 32px; padding-top: 0; }
+.home-steps > div:not(:nth-of-type(3))::before { content: ''; position: absolute; left: 1.25rem; top: 32px; bottom: -16px; border-left: var(--home-rule); pointer-events: none; }
+.home-steps p { margin-top: 16px; }
+.home-steps > .home-cta { margin-top: 0; }
+@media (max-width: 47.99rem) {
+  .home-participate .home-participate-logo { display: none; }
+  .home-participate .home-split { row-gap: 16px; }
+}
+
+@media (max-width: 47.99rem) {
+  .home .home-news-ad, .home .news-ad, .home .news-sidebar, .home .rules-ad { display: none; }
+}
+
+/* Circular markers retain the guide's numbered sequence. */
+.home-steps > div > span { position: relative; z-index: 1; width: 40px; height: 40px; border: var(--border-width) solid var(--color-border-strong); border-radius: 50%; background: var(--color-surface-brand-soft); color: var(--color-text-brand); font-size: 14px; font-weight: 600; animation: nomination-step-pulse 6s ease-in-out infinite; }
+.home-steps > div:nth-of-type(2) > span { animation-delay: 1s; }
+.home-steps > div:nth-of-type(3) > span { animation-delay: 2s; }
+.home-steps > div:not(:nth-of-type(3))::before { top: 40px; }
+@keyframes nomination-step-pulse {
+  0%, 30%, 100% { box-shadow: 0 0 0 0 transparent; }
+  12% { box-shadow: 0 0 0 6px color-mix(in srgb, var(--color-brand-accent) 35%, transparent); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-steps > div > span { animation: none; }
+}
+
+@media (min-width: 48rem) {
+  .home-participate-logo { width: min(17rem, 100%); }
+}
+
+@media (min-width: 48rem) {
+  .home-organizer-unit > .eyebrow { font-size: 16px; }
+}
+
+@media (min-width: 48rem) {
+  .home-about { padding-bottom: 48px; }
+  .home :is(.home-journey, .home-agenda) { padding-top: 48px; }
+}
+
+@media (min-width: 48rem) {
+  .home :is(.home-journey, .home-agenda) > .layout-container { position: relative; }
+  .home :is(.home-journey, .home-agenda) > .layout-container::before { content: ''; position: absolute; top: -48px; inset-inline: 0; border-top: var(--home-rule); pointer-events: none; }
+}
+
+@media (min-width: 48rem) {
+  .home-about { padding-top: 96px; }
+}
+
+.home-participate-ornament { width: min(180px, 100%); margin-top: 24px; pointer-events: none; }
+.home-participate-ornament .brand-graphic { width: 100%; height: auto; }
+@media (max-width: 47.99rem) {
+  .home-participate-ornament { width: 120px; margin-top: 16px; }
+}

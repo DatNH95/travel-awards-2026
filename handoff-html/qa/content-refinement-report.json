@@ -1,0 +1,23 @@
+[
+  {
+    "width": 320,
+    "overflow": false,
+    "aboutParagraphs": 1,
+    "ratio": "40% Độc giả·60% Hội đồng",
+    "boxPadding": "32px"
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "aboutParagraphs": 1,
+    "ratio": "40% Độc giả·60% Hội đồng",
+    "boxPadding": "32px"
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "aboutParagraphs": 1,
+    "ratio": "40% Độc giả·60% Hội đồng",
+    "boxPadding": "100.8px"
+  }
+]

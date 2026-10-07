@@ -1,0 +1,32 @@
+[
+  {
+    "width": 320,
+    "overflow": false,
+    "steps": 3,
+    "ctaGap": 16,
+    "ctaWidth": 280,
+    "guideWidth": 280,
+    "logoVisible": false,
+    "horizontalRules": false
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "steps": 3,
+    "ctaGap": 16,
+    "ctaWidth": 350,
+    "guideWidth": 350,
+    "logoVisible": false,
+    "horizontalRules": false
+  },
+  {
+    "width": 1440,
+    "overflow": false,
+    "steps": 3,
+    "ctaGap": 16,
+    "ctaWidth": 160,
+    "guideWidth": 503.25,
+    "logoVisible": true,
+    "horizontalRules": false
+  }
+]

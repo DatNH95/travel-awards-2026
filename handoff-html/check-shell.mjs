@@ -10,6 +10,7 @@ const root=path.resolve('handoff-html');
 const files=(await fs.readdir(root)).filter(file=>file.endsWith('.html'));
 const browser=await chromium.launch({channel:'msedge',headless:true});
 const page=await browser.newPage({reducedMotion:'reduce'});
+await page.addInitScript(()=>{try{localStorage.setItem('travel-awards-mobile-registration-notice-seen','1');}catch{}});
 const failures=[],uiErrors=[],checks=[];
 page.on('pageerror',error=>uiErrors.push(error.message));
 // Remote editorial images are outside the document-shell check.
@@ -68,6 +69,19 @@ try {
   if(!await page.locator('dialog[open]').count())failures.push('Dialog failed');
   await page.goto(pathToFileURL(path.join(root,'tin-tuc.html')).href);
   await page.getByRole('link',{name:'Trang 2',exact:true}).click();await page.waitForURL('**/tin-tuc-2.html#news-latest');
+  const mobilePage=await browser.newPage({viewport:{width:390,height:844}});
+  await mobilePage.route(/^https?:/,route=>route.abort());
+  await mobilePage.goto(pathToFileURL(path.join(root,'dang-ky-de-cu.html')).href);
+  await mobilePage.evaluate(()=>localStorage.removeItem('travel-awards-mobile-registration-notice-seen'));
+  await mobilePage.reload();
+  if(!await mobilePage.locator('.nomination-mobile-notice[open]').count())failures.push('Mobile notice did not open');
+  await mobilePage.getByRole('button',{name:'Đã hiểu',exact:true}).click();
+  await mobilePage.reload();if(await mobilePage.locator('.nomination-mobile-notice[open]').count())failures.push('Mobile notice repeated');
+  await mobilePage.close();
+  await page.goto(pathToFileURL(path.join(root,'the-le.html')).href+'#criteria-0-1');
+  if(!await page.locator('#criteria-0-1').evaluate(el=>el.open))failures.push('Linked criteria did not open');
+  await page.getByRole('link',{name:/Điều lệ & quy định/}).click();
+  await page.waitForFunction(()=>document.querySelector('.rules-nav a[href="#quy-dinh"]')?.getAttribute('aria-current')==='location');
   for(const [now,label,seconds] of [
     ['2026-10-15T23:59:59+07:00','Thời gian mở nhận đề cử còn lại:','01'],
     ['2026-10-16T00:00:00+07:00','Hãy tham gia ngay','00'],

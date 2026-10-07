@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { CTAArrow, Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
+import { ScrollReveal } from '@/components/scroll-reveal';
 import { HeroStage, NominationCountdown } from '@/components/hero-stage';
 import { SiteHeader } from '@/components/site-header';
 import { AwardCount } from '@/components/award-count';
@@ -46,7 +47,7 @@ const newsItems = [
 
 export default function HomePage() {
   return <div className="home">
-    <SiteHeader />
+    <SiteHeader /><ScrollReveal />
     <main id="main">
       <HeroStage>
         <Image className="home-hero-landscape" src="/assets/key-visual/travel-awards-kv-v2.png" alt="" aria-hidden="true" width={1920} height={1080} unoptimized preload />
@@ -62,16 +63,16 @@ export default function HomePage() {
         <Container>
           <div className="home-split">
             <h2 className="type-display-l"><span className="home-about-signature"><span>The</span>{' '}<span>First</span>{' '}<span>Signature</span></span><br />Dấu ấn tiên phong</h2>
-            <div className="home-copy"><p className="type-body-large">Travel Awards là giải thưởng thường niên về du lịch nhằm tôn vinh những điểm đến, doanh nghiệp và dịch vụ du lịch tiêu biểu của Việt Nam.</p><p>Chủ đề của mùa giải đầu tiên Travel Awards, đánh dấu sự khởi đầu của hành trình tôn vinh những điểm đến, doanh nghiệp và cá nhân tiên phong đang kiến tạo những giá trị mới cho du lịch Việt Nam. Mỗi dấu ấn được ghi nhận không chỉ là thành tựu của hôm nay mà còn là nguồn cảm hứng cho sự phát triển bền vững của ngành trong tương lai.</p><TextLink href="/the-le#gioi-thieu">Xem chi tiết</TextLink></div>
+            <div className="home-copy"><p className="type-body-large">Travel Awards tôn vinh những điểm đến, doanh nghiệp và dịch vụ tiêu biểu, góp phần định hình tương lai du lịch Việt Nam.</p><TextLink href="/the-le#gioi-thieu">Xem chi tiết</TextLink></div>
           </div>
         </Container>
       </Section>
       <Section id="journey" className="home-journey">
         <Container>
-          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink href="/the-le">Xem thể lệ</TextLink></div>
+          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
           <ol className="home-timeline">
-            <li><span className="home-timeline-index">01 / Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 10 - 11</p></div><p>Các doanh nghiệp, điểm đến, dịch vụ và đơn vị hoạt động trong lĩnh vực du lịch trên toàn quốc gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục thông qua cổng đăng ký trên chuyên trang Travel Awards.</p></li>
-            <li><span className="home-timeline-index">02 / Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Độc giả bình chọn cho các đề cử xuất sắc nhất, song song với quá trình chấm điểm của Hội đồng chuyên môn. Kết quả chung cuộc được tính dựa trên 40% điểm bình chọn của độc giả và 60% điểm đánh giá của Hội đồng chuyên môn đối với tất cả các hạng mục.</p></li>
+            <li><span className="home-timeline-index">01 / Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 10 - 11</p></div><p>Gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục trên chuyên trang Travel Awards.</p></li>
+            <li><span className="home-timeline-index">02 / Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Độc giả bình chọn song song với Hội đồng chuyên môn chấm điểm.<span className="home-timeline-ratio"><span><strong>40%</strong> Độc giả</span><span aria-hidden="true">·</span><span><strong>60%</strong> Hội đồng</span></span></p></li>
             <li><span className="home-timeline-index">03 / Vinh danh</span><div className="home-timeline-summary"><h3 className="type-heading-2">Gala trao giải</h3><p className="home-timeline-date">Tháng 1/2027</p></div><p>Công bố các đề cử trúng giải, hoạt động bên lề Gala vinh danh.</p></li>
           </ol>
         </Container>
@@ -85,17 +86,17 @@ export default function HomePage() {
       </Section>
       <Section id="participate" className="home-participate">
         <Container>
-          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><div className="home-participate-logo"><BrandGraphic variant="logo" label="Travel Awards" /></div></div><div id="nomination-guide" className="home-steps">
-            <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Tìm hạng mục phù hợp với dấu ấn bạn muốn đề cử.</p></div></div>
-            <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Kể câu chuyện của bạn cùng thông tin và minh chứng liên quan.</p></div></div>
+          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><div className="home-participate-ornament" aria-hidden="true"><BrandGraphic variant="signature" /></div></div><div id="nomination-guide" className="home-steps">
+            <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></div></div>
+            <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></div></div>
             <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 16.11.2026.</p></div></div>
-            <NominationCTA className="home-cta" />
+            <NominationCTA className="home-cta cta-mobile-dang-ky" />
           </div></div>
         </Container>
       </Section>
       <Section id="minitalk" tone="brand-deep" className="home-minitalk">
         <Container>
-          <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chuỗi minitalk chia sẻ về tư duy chăm da khoa học, phong cách sống hiện đại và giải pháp dưỡng da đặc trị đa nhiệm dành riêng cho phái đẹp trong mỗi hành trình du lịch, di chuyển nhưng da vẫn đẹp.</p><div className="home-coming-soon"><span className="home-minitalk-reminder-icon" aria-hidden="true" /><p>Tập đầu tiên ngày 23/10.</p></div></div></div>
+          <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chăm da khoa học và dưỡng da đa nhiệm trong mỗi hành trình du lịch.</p><div className="home-coming-soon"><span className="home-minitalk-reminder-icon" aria-hidden="true" /><p>Tập đầu tiên ngày 23/10.</p></div></div></div>
         </Container>
       </Section>
       <Section id="news" className={`home-news ${newsFont.variable}`}>
@@ -109,7 +110,7 @@ export default function HomePage() {
         </Container>
       </Section>
       <Section id="nominate" tone="brand-deep" className="home-final-cta">
-        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta" /></Container>
+        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta cta-mobile-dang-ky" /></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
         <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>

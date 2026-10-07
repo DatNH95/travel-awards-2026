@@ -12,7 +12,7 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
 .sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0; }
 }
 @font-face { font-family:HandoffNews; src:url('../fonts/merriweather/merriweather-bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
-.news-site { --font-news-title:HandoffNews; }
+.news-site, .home-tin-tuc { --font-news-title:HandoffNews; }
 
 
 @layer base {
@@ -172,5 +172,10 @@ img,svg,video { display:block; vertical-align:middle; } img,video { max-width:10
 .button--nomination svg { flex: 0 0 12px; }
 
 /* Live landing specimens retain their own viewport and sticky behavior. */
+
+/* cta-mobile-dang-ky: full container width, standard nomination height. */
+@media (max-width: 47.99rem) {
+  .button.button--nomination.cta-mobile-dang-ky { width: 100%; min-width: 0; }
+}
 
 .section-layout { padding-block: 0; }
