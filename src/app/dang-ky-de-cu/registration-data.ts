@@ -5,7 +5,7 @@ export const registrationFields: RegistrationField[] = [
   { label: 'Website', type: 'url' }, { label: 'Fanpage/Kênh truyền thông chính thức', type: 'url' },
 ];
 export const representativeFields: RegistrationField[] = [
-  { label: 'Họ và tên*' }, { label: 'Chức vụ' }, { label: 'Số điện thoại*', type: 'tel' }, { label: 'Địa chỉ email*', type: 'email' },
+  { label: 'Họ và tên*' }, { label: 'Chức vụ' }, { label: 'Số điện thoại*', type: 'tel' }, { label: 'Email*', type: 'email' },
 ];
 export const nominationFields: RegistrationField[] = [
   { label: 'Tên đơn vị/điểm đến/thương hiệu/trải nghiệm được đề cử*' },
@@ -13,8 +13,11 @@ export const nominationFields: RegistrationField[] = [
   { label: 'Thành tích nổi bật trong năm xét giải*', type: 'textarea', help: 'Vui lòng nêu những kết quả, thành tựu hoặc dấu ấn nổi bật làm cơ sở cho hồ sơ đề cử. (300 - 500 từ)' },
   { label: 'Điểm khác biệt/nổi bật của đề cử*', type: 'textarea', help: 'Điều gì tạo nên giá trị hoặc dấu ấn riêng của đơn vị/điểm đến/thương hiệu/trải nghiệm.' },
 ];
-// Source: Form đăng ký Travel Awards 2026, tabs “form đăng ký” and “Nhóm giải thưởng khác”.
-// Keys follow the shared award names; no category-specific fields were supplied for Tiên phong.
+// Verified 2026-10-07 against “Demo form đăng ký”, A1:AA166:
+// https://docs.google.com/spreadsheets/d/1H9c-P0MIkqvflsUWEEpSEnv8pMmpurk-NVdPyJVVD-s/edit#gid=1548405136
+// All six pillar field/evidence sets match. The sheet lists nine pioneering
+// categories but supplies no category-specific fields or evidence for them.
+// Keep shared award keys and user-approved UI/copy refinements unchanged.
 export const professionalFields: Record<string, { fields: RegistrationField[]; evidence: string[] }> = {
   'Điểm đến du lịch của năm': {
     fields: fields(['Tổng lượt khách du lịch năm xét giải*', 'Tổng lượt khách năm liền trước*', 'Tổng doanh thu du lịch năm xét giải*', 'Tổng doanh thu du lịch năm liền trước', 'Các sản phẩm/hạ tầng du lịch mới đưa vào khai thác trong năm', 'Các chương trình xúc tiến đầu tư/quảng bá du lịch nổi bật', 'Các hoạt động bảo tồn di sản, môi trường và phát triển cộng đồng']),

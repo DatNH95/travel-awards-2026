@@ -1,6 +1,6 @@
 {
   "pages": 110,
-  "skipArticleHeight": true,
+  "skipArticleHeight": false,
   "measurements": [
     {
       "file": "index.html",
@@ -15,36 +15,6 @@
       "reference": {
         "height": 6374,
         "h1": 374.390625
-      },
-      "heightDifference": 0
-    },
-    {
-      "file": "the-le.html",
-      "width": 1440,
-      "actual": {
-        "width": 1440,
-        "scroll": 1440,
-        "height": 6984,
-        "h1": 134.734375,
-        "duplicateIds": []
-      },
-      "reference": {
-        "height": 6984,
-        "h1": 134.734375
-      },
-      "heightDifference": 0
-    },
-    {
-      "file": "tin-tuc.html",
-      "width": 1440,
-      "actual": {
-        "width": 1440,
-        "scroll": 1440,
-        "height": 3916,
-        "duplicateIds": []
-      },
-      "reference": {
-        "height": 3916
       },
       "heightDifference": 0
     },
@@ -381,22 +351,6 @@
       "reference": {
         "height": 1265,
         "h1": 518.3125
-      },
-      "heightDifference": 0
-    },
-    {
-      "file": "tin-travel-awards-dau-an-tien-phong.html",
-      "width": 1440,
-      "actual": {
-        "width": 1440,
-        "scroll": 1440,
-        "height": 2501,
-        "h1": 670,
-        "duplicateIds": []
-      },
-      "reference": {
-        "height": 2501,
-        "h1": 670
       },
       "heightDifference": 0
     },
@@ -417,36 +371,6 @@
       "heightDifference": 0
     },
     {
-      "file": "the-le.html",
-      "width": 390,
-      "actual": {
-        "width": 390,
-        "scroll": 390,
-        "height": 8726,
-        "h1": 79.78125,
-        "duplicateIds": []
-      },
-      "reference": {
-        "height": 8726,
-        "h1": 79.78125
-      },
-      "heightDifference": 0
-    },
-    {
-      "file": "tin-tuc.html",
-      "width": 390,
-      "actual": {
-        "width": 390,
-        "scroll": 390,
-        "height": 7992,
-        "duplicateIds": []
-      },
-      "reference": {
-        "height": 7992
-      },
-      "heightDifference": 0
-    },
-    {
       "file": "dang-ky-de-cu.html",
       "width": 390,
       "actual": {
@@ -778,22 +702,6 @@
       },
       "reference": {
         "height": 1990,
-        "h1": 350
-      },
-      "heightDifference": 0
-    },
-    {
-      "file": "tin-travel-awards-dau-an-tien-phong.html",
-      "width": 390,
-      "actual": {
-        "width": 390,
-        "scroll": 390,
-        "height": 3159,
-        "h1": 350,
-        "duplicateIds": []
-      },
-      "reference": {
-        "height": 3159,
         "h1": 350
       },
       "heightDifference": 0
