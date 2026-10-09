@@ -1,23 +1,94 @@
-[
-  {
-    "width": 320,
-    "overflow": false,
-    "aboutParagraphs": 1,
-    "ratio": "40% Độc giả·60% Hội đồng",
-    "boxPadding": "32px"
-  },
-  {
-    "width": 390,
-    "overflow": false,
-    "aboutParagraphs": 1,
-    "ratio": "40% Độc giả·60% Hội đồng",
-    "boxPadding": "32px"
-  },
-  {
-    "width": 1440,
-    "overflow": false,
-    "aboutParagraphs": 1,
-    "ratio": "40% Độc giả·60% Hội đồng",
-    "boxPadding": "100.8px"
-  }
-]
+{
+  "checkedAt": "2026-10-09T04:12:21.940Z",
+  "scope": "Homepage Agenda labels and copy",
+  "checks": [
+    {
+      "width": 320,
+      "source": {
+        "height": 7580,
+        "overflow": false,
+        "labels": [
+          "Đề cử",
+          "Bình chọn",
+          "Vinh danh"
+        ],
+        "ratioCount": 0,
+        "agendaHeight": 930.015625,
+        "aboutParagraphs": 1,
+        "boxPadding": "32px"
+      },
+      "handoff": {
+        "height": 7580,
+        "overflow": false,
+        "labels": [
+          "Đề cử",
+          "Bình chọn",
+          "Vinh danh"
+        ],
+        "ratioCount": 0,
+        "agendaHeight": 930.015625,
+        "aboutParagraphs": 1,
+        "boxPadding": "32px"
+      }
+    },
+    {
+      "width": 390,
+      "source": {
+        "height": 7136,
+        "overflow": false,
+        "labels": [
+          "Đề cử",
+          "Bình chọn",
+          "Vinh danh"
+        ],
+        "ratioCount": 0,
+        "agendaHeight": 903.625,
+        "aboutParagraphs": 1,
+        "boxPadding": "32px"
+      },
+      "handoff": {
+        "height": 7136,
+        "overflow": false,
+        "labels": [
+          "Đề cử",
+          "Bình chọn",
+          "Vinh danh"
+        ],
+        "ratioCount": 0,
+        "agendaHeight": 903.625,
+        "aboutParagraphs": 1,
+        "boxPadding": "32px"
+      }
+    },
+    {
+      "width": 1440,
+      "source": {
+        "height": 6335,
+        "overflow": false,
+        "labels": [
+          "Đề cử",
+          "Bình chọn",
+          "Vinh danh"
+        ],
+        "ratioCount": 0,
+        "agendaHeight": 505.984375,
+        "aboutParagraphs": 1,
+        "boxPadding": "100.8px"
+      },
+      "handoff": {
+        "height": 6335,
+        "overflow": false,
+        "labels": [
+          "Đề cử",
+          "Bình chọn",
+          "Vinh danh"
+        ],
+        "ratioCount": 0,
+        "agendaHeight": 505.984375,
+        "aboutParagraphs": 1,
+        "boxPadding": "100.8px"
+      }
+    }
+  ],
+  "failures": []
+}
