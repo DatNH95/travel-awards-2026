@@ -49,3 +49,5 @@ Tech cần nối draft và review, validation số quốc tế, giới hạn t�
 - Công cụ export chỉ cập nhật `handoff-html/`; source và bản bàn giao được commit cùng nhau theo quy trình project.
 
 - Cập nhật nhãn Email 07.10.2026: 44 đối chiếu Homepage và các template đề cử/cập nhật ở 1440px/390px đạt; shell/link 110 file, 16 lượt responsive và 3 phase countdown đạt. Báo cáo mới nhất: qa/report.json và qa/shell-report.json.
+
+- Cập nhật countdown 13.10.2026: lịch nhận đề cử 12:00 ngày 23.10 đến 23:59 ngày 23.11.2026 (UTC+07:00); countdown luôn đếm đến hạn gửi. 44 lượt đối chiếu responsive và 8 trường hợp countdown source/HTML đạt, gồm sát hạn, đúng hạn và sau hạn. Báo cáo: qa/countdown-deadline-report.json.

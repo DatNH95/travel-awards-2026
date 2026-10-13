@@ -83,9 +83,9 @@ try {
   await page.getByRole('link',{name:/Điều lệ & quy định/}).click();
   await page.waitForFunction(()=>document.querySelector('.rules-nav a[href="#quy-dinh"]')?.getAttribute('aria-current')==='location');
   for(const [now,label,seconds] of [
-    ['2026-10-15T23:59:59+07:00','Thời gian mở nhận đề cử còn lại:','01'],
-    ['2026-10-16T00:00:00+07:00','Hãy tham gia ngay','00'],
-    ['2026-11-16T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
+    ['2026-10-23T11:59:59+07:00','Thời gian nhận đề cử còn lại:','01'],
+    ['2026-11-23T23:58:59+07:00','Thời gian nhận đề cử còn lại:','01'],
+    ['2026-11-23T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
   ]) {
     const phasePage=await browser.newPage();
     await phasePage.route(/^https?:/,route=>route.abort());

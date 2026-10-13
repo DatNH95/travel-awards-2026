@@ -1,0 +1,270 @@
+{
+  "checkedAt": "2026-10-13T07:28:53.513Z",
+  "checks": [
+    {
+      "now": "2026-10-23T11:59:59+07:00",
+      "file": "index.html",
+      "source": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "31",
+          "11",
+          "59",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "31",
+          "11",
+          "59",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "31",
+          "11",
+          "59",
+          "01"
+        ]
+      }
+    },
+    {
+      "now": "2026-10-23T11:59:59+07:00",
+      "file": "dang-ky-de-cu.html",
+      "source": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "31",
+          "11",
+          "59",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "31",
+          "11",
+          "59",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "31",
+          "11",
+          "59",
+          "01"
+        ]
+      }
+    },
+    {
+      "now": "2026-11-23T23:58:59+07:00",
+      "file": "index.html",
+      "source": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01"
+        ]
+      }
+    },
+    {
+      "now": "2026-11-23T23:58:59+07:00",
+      "file": "dang-ky-de-cu.html",
+      "source": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Thời gian nhận đề cử còn lại:",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "01"
+        ]
+      }
+    },
+    {
+      "now": "2026-11-23T23:59:00+07:00",
+      "file": "index.html",
+      "source": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ]
+      }
+    },
+    {
+      "now": "2026-11-23T23:59:00+07:00",
+      "file": "dang-ky-de-cu.html",
+      "source": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ]
+      }
+    },
+    {
+      "now": "2026-11-24T00:00:00+07:00",
+      "file": "index.html",
+      "source": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ]
+      }
+    },
+    {
+      "now": "2026-11-24T00:00:00+07:00",
+      "file": "dang-ky-de-cu.html",
+      "source": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "handoff": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ],
+        "noscript": "Nhận đề cử từ 12:00 ngày 23.10.2026 đến 23:59 ngày 23.11.2026 (giờ Việt Nam)."
+      },
+      "expected": {
+        "label": "Đã hết hạn gửi đề cử",
+        "values": [
+          "00",
+          "00",
+          "00",
+          "00"
+        ]
+      }
+    }
+  ],
+  "failures": []
+}

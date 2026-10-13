@@ -8,12 +8,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6374,
+        "height": 6335,
         "h1": 374.390625,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6374,
+        "height": 6335,
         "h1": 374.390625
       },
       "heightDifference": 0
@@ -360,12 +360,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 7178,
+        "height": 7136,
         "h1": 304,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7178,
+        "height": 7136,
         "h1": 304
       },
       "heightDifference": 0

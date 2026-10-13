@@ -15,7 +15,7 @@ import './home.css';
 
 export const metadata: Metadata = {
   title: 'Travel Awards 2026 — Dấu ấn tiên phong',
-  description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 16.11.2026.',
+  description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 23.11.2026.',
 };
 
 
@@ -89,7 +89,7 @@ export default function HomePage() {
           <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><div className="home-participate-ornament" aria-hidden="true"><BrandGraphic variant="signature" /></div></div><div id="nomination-guide" className="home-steps">
             <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></div></div>
             <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></div></div>
-            <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 16.11.2026.</p></div></div>
+            <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 23.11.2026.</p></div></div>
             <NominationCTA className="home-cta cta-mobile-dang-ky" />
           </div></div>
         </Container>
