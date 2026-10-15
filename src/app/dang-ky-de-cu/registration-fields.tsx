@@ -53,7 +53,7 @@ export function RegistrationFields({ selection, draft, onChange }: { selection: 
     </fieldset>
     <fieldset className="nomination-form-section"><legend className="type-heading-3">II. Thông tin đề cử</legend>{renderFields(nominationFields, 'nominee')}</fieldset>
     <fieldset className="nomination-form-section"><legend className="type-heading-3">III. Số liệu hoạt động & thông tin minh chứng</legend>
-      {professional && <><p className="nomination-muted">Kỳ xét giải: 01/10/2025–30/09/2026. Đối tượng: {professional.audience}</p></>}
+      {professional && <><p className="nomination-muted">Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: {professional.audience}</p></>}
       {professional ? renderFields(professional.fields, `professional-${selection}`) : <p className="nomination-muted">Các trường số liệu chuyên môn và minh chứng riêng cho hạng mục Tiên phong sẽ được bổ sung khi có hướng dẫn. Bạn có thể điền thông tin chung và chuẩn bị hồ sơ bên dưới.</p>}
       {professional && <><h3 className="type-body-large">Thuyết minh theo tiêu chí chấm giải</h3>{renderFields(professional.narratives, `narrative-${selection}`)}</>}
     </fieldset>

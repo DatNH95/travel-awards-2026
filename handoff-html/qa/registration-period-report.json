@@ -1,0 +1,63 @@
+{
+  "checkedAt": "2026-10-15T07:55:50.895Z",
+  "templates": 14,
+  "checks": [
+    {
+      "width": 390,
+      "id": "tru-cot-3",
+      "source": {
+        "height": 9243,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Khách sạn đã xếp hạng sao (4–5 sao) hoặc đạt chuẩn tương đương, đang hoạt động hợp pháp."
+      },
+      "handoff": {
+        "height": 9243,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Khách sạn đã xếp hạng sao (4–5 sao) hoặc đạt chuẩn tương đương, đang hoạt động hợp pháp."
+      }
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-7",
+      "source": {
+        "height": 8427,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Nhà hàng, thương hiệu ẩm thực hoặc điểm đến ẩm thực gắn liền với hoạt động du lịch."
+      },
+      "handoff": {
+        "height": 8427,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Nhà hàng, thương hiệu ẩm thực hoặc điểm đến ẩm thực gắn liền với hoạt động du lịch."
+      }
+    },
+    {
+      "width": 1440,
+      "id": "tru-cot-3",
+      "source": {
+        "height": 7552,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Khách sạn đã xếp hạng sao (4–5 sao) hoặc đạt chuẩn tương đương, đang hoạt động hợp pháp."
+      },
+      "handoff": {
+        "height": 7552,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Khách sạn đã xếp hạng sao (4–5 sao) hoặc đạt chuẩn tương đương, đang hoạt động hợp pháp."
+      }
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-7",
+      "source": {
+        "height": 6955,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Nhà hàng, thương hiệu ẩm thực hoặc điểm đến ẩm thực gắn liền với hoạt động du lịch."
+      },
+      "handoff": {
+        "height": 6955,
+        "overflow": false,
+        "copy": "Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Nhà hàng, thương hiệu ẩm thực hoặc điểm đến ẩm thực gắn liền với hoạt động du lịch."
+      }
+    }
+  ],
+  "failures": []
+}
