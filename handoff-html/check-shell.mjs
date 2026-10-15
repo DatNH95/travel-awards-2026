@@ -63,8 +63,8 @@ try {
   }
   await page.goto(pathToFileURL(path.join(root,'index.html')).href);await page.locator('#award-tab-1').click();
   if(!await page.locator('#award-panel-1').isVisible())failures.push('Homepage tab failed');
-  await page.goto(pathToFileURL(path.join(root,'dang-ky-de-cu.html')).href+'?category=tien-phong-1');
-  await page.locator('button[type=submit]').click();await page.waitForURL('**/dang-ky-tien-phong-1.html');
+  await page.goto(pathToFileURL(path.join(root,'dang-ky-de-cu.html')).href+'?category=tien-phong-2');
+  await page.locator('button[type=submit]').click();await page.waitForURL('**/dang-ky-tien-phong-2.html');
   await page.getByRole('button',{name:'Lưu lại hồ sơ',exact:true}).filter({visible:true}).first().click();
   if(!await page.locator('dialog[open]').count())failures.push('Dialog failed');
   await page.goto(pathToFileURL(path.join(root,'tin-tuc.html')).href);
@@ -83,9 +83,9 @@ try {
   await page.getByRole('link',{name:/Điều lệ & quy định/}).click();
   await page.waitForFunction(()=>document.querySelector('.rules-nav a[href="#quy-dinh"]')?.getAttribute('aria-current')==='location');
   for(const [now,label,seconds] of [
-    ['2026-10-23T11:59:59+07:00','Thời gian nhận đề cử còn lại:','01'],
-    ['2026-11-23T23:58:59+07:00','Thời gian nhận đề cử còn lại:','01'],
-    ['2026-11-23T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
+    ['2026-10-26T11:59:59+07:00','Thời gian nhận đề cử còn lại:','01'],
+    ['2026-11-20T23:58:59+07:00','Thời gian nhận đề cử còn lại:','01'],
+    ['2026-11-20T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
   ]) {
     const phasePage=await browser.newPage();
     await phasePage.route(/^https?:/,route=>route.abort());

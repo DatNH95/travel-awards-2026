@@ -2,7 +2,12 @@ export const megabyte = 1_000_000;
 export const introductionLimit = 20 * megabyte;
 const imageExtensions = /\.(png|jpe?g)$/i;
 
-export function dossierError(key: string, files: File[], legalLink = ''): string {
+export function dossierError(key: string, files: File[], legalLink = '', imagePolicy = { min: 3, max: 10 as number | null }): string {
+  if (key.startsWith('criterion-') && files.length > 3) return 'Mỗi tiêu chí được đính kèm tối đa 3 tài liệu.';
+  if (key === 'menu') {
+    if (!files.length) return 'Vui lòng chọn thực đơn hiện hành.';
+    if (files.some(file => !/\.pdf$/i.test(file.name))) return 'Thực đơn chỉ chấp nhận tệp PDF.';
+  }
   if (key === 'dossier-0') {
     if (!files.length) return 'Vui lòng chọn hồ sơ giới thiệu đề cử.';
     if (files.some(file => !/\.(pdf|ppt|pptx)$/i.test(file.name))) return 'Hồ sơ giới thiệu chỉ chấp nhận PDF, PPT hoặc PPTX.';
@@ -13,8 +18,8 @@ export function dossierError(key: string, files: File[], legalLink = ''): string
     if (files.some(file => !/\.(pdf|doc|docx)$/i.test(file.name))) return 'Tài liệu pháp lý/chứng nhận chấp nhận PDF, DOC hoặc DOCX.';
   }
   if (key === 'dossier-3') {
-    if (files.length < 3) return 'Vui lòng chọn tối thiểu 3 ảnh.';
-    if (files.length > 10) return 'Chỉ được chọn tối đa 10 ảnh.';
+    if (files.length < imagePolicy.min) return `Vui lòng chọn tối thiểu ${imagePolicy.min} ảnh.`;
+    if (imagePolicy.max !== null && files.length > imagePolicy.max) return `Chỉ được chọn tối đa ${imagePolicy.max} ảnh.`;
     if (files.some(file => !imageExtensions.test(file.name))) return 'Chỉ chấp nhận ảnh JPG, JPEG hoặc PNG.';
     if (files.some(file => file.size < megabyte || file.size > 10 * megabyte)) return 'Mỗi ảnh cần có dung lượng từ 1 MB đến 10 MB.';
   }

@@ -5,9 +5,9 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const categoryIds = ['tru-cot-1','tru-cot-2','tru-cot-3','tru-cot-4','tru-cot-5','tru-cot-6',
     'tien-phong-1','tien-phong-2','tien-phong-3','tien-phong-4','tien-phong-5','tien-phong-6','tien-phong-7','tien-phong-8','tien-phong-9'];
-  const category = new URLSearchParams(location.search).get('category');
+  const category = new URLSearchParams(location.search).get('category') || location.pathname.match(/dang-ky-((?:tru-cot|tien-phong)-\d+)\.html$/)?.[1];
   const radios = $$('.nomination-choices input[type=radio]');
-  let selectedCategory = categoryIds.includes(category) ? category : null;
+  let selectedCategory = categoryIds.includes(category) && !['tien-phong-1','tien-phong-8'].includes(category) ? category : null;
   for (const list of $$('[role=tablist]')) {
     const tabs = $$('[role=tab]', list);
     function activate(index, focus = false) {
@@ -27,11 +27,16 @@
         if (next !== null) { event.preventDefault(); activate(next, true); }
       });
     });
-    if (selectedCategory?.startsWith('tien-phong') && list.classList.contains('nomination-group-tabs')) activate(1);
+    if (category?.startsWith('tien-phong') && list.classList.contains('nomination-group-tabs')) activate(1);
   }
   function selectCategory(index) {
+    if (!radios[index] || radios[index].disabled) return;
     selectedCategory = categoryIds[index];
     radios.forEach((radio, i) => { radio.checked = i === index; radio.closest('label').dataset.selected = String(i === index); });
+    $$('.nomination-choice-mobile-status,.nomination-choice-desktop-status').forEach(status => {
+      const name = document.createElement('strong'); name.textContent = radios[index].value;
+      status.replaceChildren('Đã chọn: ', name);
+    });
     const next = $('.nomination-choices')?.closest('form').querySelector('button[type=submit]');
     if (next) next.disabled = false;
   }
@@ -85,6 +90,25 @@
     input.addEventListener('invalid', () => input.setAttribute('aria-invalid', 'true'));
     input.addEventListener('input', () => input.setAttribute('aria-invalid', String(!input.validity.valid)));
   });
+  $$('.nomination-counted-field').forEach(field => {
+    const input = $('textarea', field), counter = $('.nomination-word-count', field);
+    if (!input || !counter) return;
+    const limit = Number(counter.textContent.split('/')[1]);
+    if (!limit) return;
+    input.addEventListener('input', () => {
+      const words = [...input.value.matchAll(/\S+/gu)];
+      if (words.length > limit) input.value = input.value.slice(0, words[limit].index).trimEnd();
+      counter.textContent = `${Math.min(words.length, limit)}/${limit}`;
+    });
+  });
+  $$('.nomination-form-section').forEach(section => {
+    const boxes = $$('input[type=checkbox]', section);
+    const all = boxes.find(box => box.closest('label')?.textContent.trim() === 'Xác nhận tất cả');
+    if (!all) return;
+    const items = boxes.filter(box => box !== all);
+    all.addEventListener('change', () => items.forEach(box => { box.checked = all.checked; }));
+    items.forEach(box => box.addEventListener('change', () => { all.checked = items.every(item => item.checked); }));
+  });
   $$('input[type=file]').forEach(input => {
     input.addEventListener('change', () => {
       let list = input.parentElement.querySelector('.nomination-file-list');
@@ -106,7 +130,7 @@
       const now = Date.now();
 
 
-      const seconds = Math.max(0, Math.floor((Date.parse('2026-11-23T23:59:00+07:00') - now) / 1000));
+      const seconds = Math.max(0, Math.floor((Date.parse('2026-11-20T23:59:00+07:00') - now) / 1000));
       const values = [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
       countdowns.forEach(block => {
         $$('.home-countdown-value', block).forEach((el, i) => { el.textContent = String(values[i]).padStart(2,'0'); });

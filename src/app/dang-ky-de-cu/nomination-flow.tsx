@@ -6,7 +6,7 @@ import { ConfirmationStep } from './confirmation-step';
 import { useSearchParams } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { CTAArrow, Button } from '@/components/primitives';
-import { awardGroups, awardCategoryFromId } from '@/data/awards';
+import { awardGroups, awardCategoryFromId, isOrganizerNominated } from '@/data/awards';
 import { RegistrationFields, type RegistrationDraft } from './registration-fields';
 
 const steps = ['Chọn giải thưởng', 'Thông tin đăng ký', 'Xác nhận', 'Thành công'];
@@ -38,16 +38,18 @@ export function NominationFlow() {
   const preview = params.get('preview');
   const previewStep = preview === 'confirmation' ? 2 : ['1', '2', '3', '4'].includes(preview ?? '') ? Number(preview) - 1 : null;
   const requestedStep = params.get('step');
-  const initialStep = ['1', '2', '3', '4'].includes(requestedStep ?? '') ? Number(requestedStep) - 1 : previewStep ?? 0;
-  return <><MobileRegistrationNotice /><NominationForm key={`${categoryId}-${previewStep}-${initialStep}`} initialSelection={awardCategoryFromId(categoryId) || (previewStep !== null || initialStep > 0 ? awardGroups[0].categories[0] : '')} previewStep={previewStep} initialStep={initialStep} /></>;
+  const requestedCategory = awardCategoryFromId(categoryId);
+  const closed = isOrganizerNominated(requestedCategory);
+  const initialStep = closed ? 0 : ['1', '2', '3', '4'].includes(requestedStep ?? '') ? Number(requestedStep) - 1 : previewStep ?? 0;
+  return <><MobileRegistrationNotice /><NominationForm key={`${categoryId}-${previewStep}-${initialStep}`} initialSelection={closed ? '' : requestedCategory || (previewStep !== null || initialStep > 0 ? awardGroups[0].categories[0] : '')} previewStep={closed ? null : previewStep} initialStep={initialStep} initialGroup={closed ? 1 : undefined} /></>;
 }
 
-function NominationForm({ initialSelection, previewStep, initialStep }: { initialSelection: string; previewStep: number | null; initialStep: number }) {
+function NominationForm({ initialSelection, previewStep, initialStep, initialGroup }: { initialSelection: string; previewStep: number | null; initialStep: number; initialGroup?: number }) {
   const [step, setStep] = useState(initialStep);
   const [submitted, setSubmitted] = useState(initialStep === 3);
   const [updated, setUpdated] = useState(false);
   const [selection, setSelection] = useState(initialSelection);
-  const [activeGroup, setActiveGroup] = useState(Math.max(0, awardGroups.findIndex(group => group.categories.includes(initialSelection))));
+  const [activeGroup, setActiveGroup] = useState(initialGroup ?? Math.max(0, awardGroups.findIndex(group => group.categories.includes(initialSelection))));
   const groupTabs = useRef<(HTMLButtonElement | null)[]>([]);
   const [draft, setDraft] = useState<RegistrationDraft>({ values: {}, checks: {}, files: {} });
   const title = useRef<HTMLHeadingElement>(null);
@@ -55,6 +57,7 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
   const submitDialog = useRef<HTMLDialogElement>(null);
   const emailDialog = useRef<HTMLDialogElement>(null);
   function navigate(next: number) {
+    if (next > 0 && (!selection || isOrganizerNominated(selection))) return;
     setStep(next);
     requestAnimationFrame(() => title.current?.focus());
   }
@@ -88,9 +91,9 @@ function NominationForm({ initialSelection, previewStep, initialStep }: { initia
           <div className="nomination-group-tabs" role="tablist" aria-label="Nhóm giải thưởng">{awardGroups.map((group, index) => <button type="button" role="tab" key={group.name} id={`nomination-group-tab-${index}`} aria-controls={`nomination-group-panel-${index}`} aria-selected={activeGroup === index} tabIndex={activeGroup === index ? 0 : -1} ref={node => { groupTabs.current[index] = node; }} onClick={() => setActiveGroup(index)} onKeyDown={event => { let next: number; if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') next = 1 - activeGroup; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = 1; else return; event.preventDefault(); setActiveGroup(next); groupTabs.current[next]?.focus(); }}>{group.name} <span className="type-body-small">({group.categories.length})</span></button>)}</div>
           <div className="nomination-groups">{awardGroups.map((group, groupIndex) => <section key={group.name} hidden={activeGroup !== groupIndex} role="tabpanel" id={`nomination-group-panel-${groupIndex}`} aria-labelledby={`nomination-group-tab-${groupIndex}`}>
             <div className="nomination-category-list">{group.categories.map((category, index) => <label key={category} className="nomination-category" data-selected={selection === category}>
-              <input type="radio" name="award-category" value={category} checked={selection === category} onChange={() => setSelection(category)} />
+              <input type="radio" name="award-category" value={category} disabled={isOrganizerNominated(category)} checked={selection === category} onChange={() => setSelection(category)} />
               <span className="nomination-category-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <span>{category}</span>
+              <span>{category}{isOrganizerNominated(category) && <small className="nomination-category-closed">Ban tổ chức đề cử · Không mở đăng ký</small>}</span>
             </label>)}</div>
           </section>)}</div>
         </fieldset>

@@ -1,7 +1,5 @@
-import { getCountries, getCountryCallingCode, parsePhoneNumberFromString, type CountryCode } from 'libphonenumber-js/max';
-
-const countryNames = new Intl.DisplayNames(['vi'], { type: 'region' });
-export const phoneCountries = getCountries().map(code => ({ code, name: countryNames.of(code) ?? code, callingCode: getCountryCallingCode(code) })).sort((a, b) => a.name.localeCompare(b.name, 'vi'));
+import { getCountryCallingCode, parsePhoneNumberFromString, type CountryCode } from 'libphonenumber-js/max';
+export { phoneCountries } from './phone-countries';
 
 export function contactError(type: 'tel' | 'email', value: string, country: CountryCode = 'VN'): string {
   const text = value.trim();

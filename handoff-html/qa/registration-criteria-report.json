@@ -1,0 +1,158 @@
+{
+  "checkedAt": "2026-10-15T07:31:33.192Z",
+  "checks": [
+    {
+      "width": 390,
+      "id": "tru-cot-3",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 4
+    },
+    {
+      "width": 390,
+      "id": "tru-cot-3",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 4
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-7",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 2
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-7",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 2
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-1",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-1",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-8",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 390,
+      "id": "tien-phong-8",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 1440,
+      "id": "tru-cot-3",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 4
+    },
+    {
+      "width": 1440,
+      "id": "tru-cot-3",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 4
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-7",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 2
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-7",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 0,
+      "checked": 0,
+      "narratives": 2
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-1",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-1",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-8",
+      "kind": "source",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    },
+    {
+      "width": 1440,
+      "id": "tien-phong-8",
+      "kind": "handoff",
+      "overflow": false,
+      "disabled": 2,
+      "checked": 0,
+      "submitDisabled": true,
+      "narratives": 0
+    }
+  ],
+  "failures": []
+}

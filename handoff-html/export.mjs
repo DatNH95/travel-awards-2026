@@ -77,11 +77,12 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
   const tablist = page.locator('[role=tablist]').first();
   let secondPanel = null;
   if(await tablist.count()) {
-    await tablist.locator('[role=tab]').nth(1).click();
-    await page.waitForFunction(() => document.querySelector('[role=tablist] [role=tab]:nth-child(2)')?.getAttribute('aria-selected') === 'true');
+    const initialIndex = await tablist.locator('[role=tab]').evaluateAll(tabs=>tabs.findIndex(tab=>tab.getAttribute('aria-selected')==='true'));
+    await tablist.locator('[role=tab]').nth(1-initialIndex).click();
+    await page.waitForFunction(index => document.querySelectorAll('[role=tablist] [role=tab]')[index]?.getAttribute('aria-selected') === 'true',1-initialIndex);
     secondPanel = await page.locator('[role=tabpanel]').filter({visible:true}).first().evaluate(el=>el.outerHTML);
-    await tablist.locator('[role=tab]').nth(0).click();
-    await page.waitForFunction(() => document.querySelector('[role=tablist] [role=tab]:first-child')?.getAttribute('aria-selected') === 'true');
+    await tablist.locator('[role=tab]').nth(initialIndex).click();
+    await page.waitForFunction(index => document.querySelectorAll('[role=tablist] [role=tab]')[index]?.getAttribute('aria-selected') === 'true',initialIndex);
   }
   const html = await page.evaluate(({kind,secondPanel})=> {
     const doc = document.cloneNode(true);

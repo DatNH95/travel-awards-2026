@@ -36,7 +36,7 @@ Nạp theo thứ tự `tokens.css` → `base.css` → `home.css` → CSS trang (
 
 Form là template tích hợp, không có backend/upload/email hoặc lưu bền vững. Step 2/3 chặn submit và mở thông báo mô phỏng; không chuyển dữ liệu giữa các file HTML. Step 3 hiển thị trạng thái draft trống. Giữ riêng các view giúp Tech tích hợp state/server validation theo codebase của mình.
 
-Tech cần nối draft và review, validation số quốc tế, giới hạn từ/dung lượng/định dạng/minh chứng pháp lý, cộng dồn/bỏ tệp và API gửi/lưu hồ sơ. Native required/email/url vẫn hoạt động. Chưa thay thế libphonenumber bằng regex đơn giản. Bản này ưu tiên giao diện responsive; bỏ pointer/scroll parallax và count-up; heading Homepage reveal một lần theo implementation mới. CSS motion/sheens và reduced-motion giữ nguyên.
+Tech cần nối draft và review, validation số quốc tế, dung lượng/định dạng/minh chứng pháp lý, cộng dồn/bỏ tệp và API gửi/lưu hồ sơ. Native required/email/url vẫn hoạt động. Chưa thay thế libphonenumber bằng regex đơn giản. Bản này ưu tiên giao diện responsive; bỏ pointer/scroll parallax và count-up; heading Homepage reveal một lần theo implementation mới. CSS motion/sheens và reduced-motion giữ nguyên.
 
 `export.mjs` và `verify.mjs` chỉ là công cụ nội bộ tạo/kiểm tra artifact, không deploy cùng website. Export sử dụng server local đã build và Playwright có sẵn trong môi trường tạo artifact; website bàn giao không phụ thuộc các công cụ đó.
 
@@ -51,3 +51,6 @@ Tech cần nối draft và review, validation số quốc tế, giới hạn t�
 - Cập nhật nhãn Email 07.10.2026: 44 đối chiếu Homepage và các template đề cử/cập nhật ở 1440px/390px đạt; shell/link 110 file, 16 lượt responsive và 3 phase countdown đạt. Báo cáo mới nhất: qa/report.json và qa/shell-report.json.
 
 - Cập nhật countdown 13.10.2026: lịch nhận đề cử 12:00 ngày 23.10 đến 23:59 ngày 23.11.2026 (UTC+07:00); countdown luôn đếm đến hạn gửi. 44 lượt đối chiếu responsive và 8 trường hợp countdown source/HTML đạt, gồm sát hạn, đúng hạn và sau hạn. Báo cáo: qa/countdown-deadline-report.json.
+
+- Cập nhật 15.10.2026: đủ 13 bộ tiêu chí đăng ký; hai giải BTC ở tien-phong-1/8 chỉ mở bước chọn và khóa radio. Handoff giữ bộ đếm/cắt 300 từ, Xác nhận tất cả và trạng thái chọn hạng mục bằng JS thuần. Tech tích hợp validation ảnh theo hạng mục, tối đa 3 tệp mỗi tiêu chí, PDF thực đơn cùng backend/state theo cấu hình source mới. Báo cáo tương tác: qa/registration-criteria-report.json.
+- Lịch mới nhất: nhận đề cử 12:00 ngày 26.10 đến 23:59 ngày 20.11.2026 (UTC+07:00); countdown đếm đến hạn gửi. Báo cáo: qa/countdown-deadline-report.json.

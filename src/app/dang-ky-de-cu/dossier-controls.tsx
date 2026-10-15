@@ -14,12 +14,13 @@ export function UrlControl({ id, name, value, onChange, placeholder = 'https://'
   </div>;
 }
 
-export function DossierFileField({ id, fieldKey, label, help, accept, files, onChange, legalLink = '' }: {
+export function DossierFileField({ id, fieldKey, label, help, accept, files, onChange, legalLink = '', imagePolicy }: {
   id: string; fieldKey: string; label: string; help?: string; accept?: string; files: File[]; onChange: (files: File[]) => void; legalLink?: string;
+  imagePolicy?: { min: number; max: number | null };
 }) {
   const input = useRef<HTMLInputElement>(null);
   const [touched, setTouched] = useState(false);
-  const error = dossierError(fieldKey, files, legalLink);
+  const error = dossierError(fieldKey, files, legalLink, imagePolicy);
   const shownError = touched ? error : '';
   useEffect(() => { input.current?.setCustomValidity(error); }, [error]);
   return <div className="nomination-field nomination-field--wide">
