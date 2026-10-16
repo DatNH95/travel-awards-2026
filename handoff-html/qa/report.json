@@ -1,6 +1,6 @@
 {
   "pages": 110,
-  "skipArticleHeight": false,
+  "skipArticleHeight": true,
   "measurements": [
     {
       "file": "index.html",
@@ -15,6 +15,36 @@
       "reference": {
         "height": 6335,
         "h1": 374.390625
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "the-le.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 8625,
+        "h1": 134.734375,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 8625,
+        "h1": 134.734375
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 3916,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 3916
       },
       "heightDifference": 0
     },
@@ -40,12 +70,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 7479,
+        "height": 7631,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7479,
+        "height": 7631,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -56,12 +86,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 7593,
+        "height": 7776,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7593,
+        "height": 7776,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -72,12 +102,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 7552,
+        "height": 7735,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7552,
+        "height": 7735,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -88,12 +118,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 7571,
+        "height": 7754,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7571,
+        "height": 7754,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -104,12 +134,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 8170,
+        "height": 8383,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 8170,
+        "height": 8383,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -120,12 +150,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 7072,
+        "height": 7250,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7072,
+        "height": 7250,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -136,12 +166,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 1649,
+        "height": 1521,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 1649,
+        "height": 1521,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -152,12 +182,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6932,
+        "height": 7115,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6932,
+        "height": 7115,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -168,12 +198,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6425,
+        "height": 6577,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6425,
+        "height": 6577,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -184,12 +214,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6240,
+        "height": 6362,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6240,
+        "height": 6362,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -200,12 +230,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6573,
+        "height": 6725,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6573,
+        "height": 6725,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -216,12 +246,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6652,
+        "height": 6804,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6652,
+        "height": 6804,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -232,12 +262,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6955,
+        "height": 7076,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6955,
+        "height": 7076,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -248,12 +278,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 1649,
+        "height": 1521,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 1649,
+        "height": 1521,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -264,12 +294,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 6263,
+        "height": 6385,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6263,
+        "height": 6385,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -280,12 +310,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 4583,
+        "height": 4881,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 4583,
+        "height": 4881,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -312,12 +342,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 7479,
+        "height": 7631,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7479,
+        "height": 7631,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -328,12 +358,12 @@
       "actual": {
         "width": 1440,
         "scroll": 1440,
-        "height": 4583,
+        "height": 4881,
         "h1": 518.3125,
         "duplicateIds": []
       },
       "reference": {
-        "height": 4583,
+        "height": 4881,
         "h1": 518.3125
       },
       "heightDifference": 0
@@ -351,6 +381,22 @@
       "reference": {
         "height": 1265,
         "h1": 518.3125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-travel-awards-dau-an-tien-phong.html",
+      "width": 1440,
+      "actual": {
+        "width": 1440,
+        "scroll": 1440,
+        "height": 2501,
+        "h1": 670,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 2501,
+        "h1": 670
       },
       "heightDifference": 0
     },
@@ -371,6 +417,36 @@
       "heightDifference": 0
     },
     {
+      "file": "the-le.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 11029,
+        "h1": 79.78125,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 11029,
+        "h1": 79.78125
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-tuc.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 7992,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 7992
+      },
+      "heightDifference": 0
+    },
+    {
       "file": "dang-ky-de-cu.html",
       "width": 390,
       "actual": {
@@ -392,12 +468,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 9214,
+        "height": 9359,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 9214,
+        "height": 9359,
         "h1": 350
       },
       "heightDifference": 0
@@ -408,12 +484,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 9227,
+        "height": 9425,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 9227,
+        "height": 9425,
         "h1": 350
       },
       "heightDifference": 0
@@ -424,12 +500,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 9219,
+        "height": 9441,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 9219,
+        "height": 9441,
         "h1": 350
       },
       "heightDifference": 0
@@ -440,12 +516,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 9329,
+        "height": 9527,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 9329,
+        "height": 9527,
         "h1": 350
       },
       "heightDifference": 0
@@ -456,12 +532,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 9799,
+        "height": 10026,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 9799,
+        "height": 10026,
         "h1": 350
       },
       "heightDifference": 0
@@ -472,12 +548,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 8672,
+        "height": 8841,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 8672,
+        "height": 8841,
         "h1": 350
       },
       "heightDifference": 0
@@ -488,12 +564,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 2548,
+        "height": 2361,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 2548,
+        "height": 2361,
         "h1": 350
       },
       "heightDifference": 0
@@ -504,12 +580,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 8389,
+        "height": 8563,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 8389,
+        "height": 8563,
         "h1": 350
       },
       "heightDifference": 0
@@ -520,12 +596,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 7881,
+        "height": 8050,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7881,
+        "height": 8050,
         "h1": 350
       },
       "heightDifference": 0
@@ -536,12 +612,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 7614,
+        "height": 7754,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7614,
+        "height": 7754,
         "h1": 350
       },
       "heightDifference": 0
@@ -552,12 +628,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 8024,
+        "height": 8169,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 8024,
+        "height": 8169,
         "h1": 350
       },
       "heightDifference": 0
@@ -568,12 +644,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 8165,
+        "height": 8310,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 8165,
+        "height": 8310,
         "h1": 350
       },
       "heightDifference": 0
@@ -584,12 +660,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 8403,
+        "height": 8588,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 8403,
+        "height": 8588,
         "h1": 350
       },
       "heightDifference": 0
@@ -600,12 +676,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 2548,
+        "height": 2361,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 2548,
+        "height": 2361,
         "h1": 350
       },
       "heightDifference": 0
@@ -616,12 +692,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 7656,
+        "height": 7796,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 7656,
+        "height": 7796,
         "h1": 350
       },
       "heightDifference": 0
@@ -632,12 +708,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 6267,
+        "height": 6735,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6267,
+        "height": 6735,
         "h1": 350
       },
       "heightDifference": 0
@@ -664,12 +740,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 9214,
+        "height": 9359,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 9214,
+        "height": 9359,
         "h1": 350
       },
       "heightDifference": 0
@@ -680,12 +756,12 @@
       "actual": {
         "width": 390,
         "scroll": 390,
-        "height": 6267,
+        "height": 6735,
         "h1": 350,
         "duplicateIds": []
       },
       "reference": {
-        "height": 6267,
+        "height": 6735,
         "h1": 350
       },
       "heightDifference": 0
@@ -702,6 +778,22 @@
       },
       "reference": {
         "height": 1990,
+        "h1": 350
+      },
+      "heightDifference": 0
+    },
+    {
+      "file": "tin-travel-awards-dau-an-tien-phong.html",
+      "width": 390,
+      "actual": {
+        "width": 390,
+        "scroll": 390,
+        "height": 3159,
+        "h1": 350,
+        "duplicateIds": []
+      },
+      "reference": {
+        "height": 3159,
         "h1": 350
       },
       "heightDifference": 0

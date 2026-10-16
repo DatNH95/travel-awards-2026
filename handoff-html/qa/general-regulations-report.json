@@ -1,0 +1,98 @@
+{
+  "checkedAt": "2026-10-16T02:26:01.878Z",
+  "checks": [
+    {
+      "width": 390,
+      "kind": "source",
+      "groups": 3,
+      "items": 12,
+      "overflow": false,
+      "closedLinks": 0
+    },
+    {
+      "width": 390,
+      "kind": "handoff",
+      "groups": 3,
+      "items": 12,
+      "overflow": false,
+      "closedLinks": 0
+    },
+    {
+      "width": 1440,
+      "kind": "source",
+      "groups": 3,
+      "items": 12,
+      "overflow": false,
+      "closedLinks": 0
+    },
+    {
+      "width": 1440,
+      "kind": "handoff",
+      "groups": 3,
+      "items": 12,
+      "overflow": false,
+      "closedLinks": 0
+    },
+    {
+      "id": "tru-cot-1",
+      "closed": false
+    },
+    {
+      "id": "tru-cot-2",
+      "closed": false
+    },
+    {
+      "id": "tru-cot-3",
+      "closed": false
+    },
+    {
+      "id": "tru-cot-4",
+      "closed": false
+    },
+    {
+      "id": "tru-cot-5",
+      "closed": false
+    },
+    {
+      "id": "tru-cot-6",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-1",
+      "closed": true
+    },
+    {
+      "id": "tien-phong-2",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-3",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-4",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-5",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-6",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-7",
+      "closed": false
+    },
+    {
+      "id": "tien-phong-8",
+      "closed": true
+    },
+    {
+      "id": "tien-phong-9",
+      "closed": false
+    }
+  ],
+  "failures": []
+}

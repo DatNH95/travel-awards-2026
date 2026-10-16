@@ -10,6 +10,7 @@ import { awardGroups, awardCategoryFromId, isOrganizerNominated } from '@/data/a
 import { RegistrationFields, type RegistrationDraft } from './registration-fields';
 
 const steps = ['Chọn giải thưởng', 'Thông tin đăng ký', 'Xác nhận', 'Thành công'];
+const registrationGroups = awardGroups.map(group => ({ ...group, categories: group.categories.filter(category => !isOrganizerNominated(category)) }));
 
 function MobileRegistrationNotice() {
   const dialog = useRef<HTMLDialogElement>(null);
@@ -88,12 +89,12 @@ function NominationForm({ initialSelection, previewStep, initialStep, initialGro
         <fieldset className="nomination-choices" aria-describedby="nomination-choice-help">
           <legend className="type-body-large"><span className="nomination-choice-desktop-lead">Chọn một hạng mục bạn muốn đề cử.</span><span className="nomination-choice-mobile-status" role="status">{selection ? <>Đã chọn: <strong>{selection}</strong></> : 'Chưa chọn hạng mục.'}</span></legend>
           <p id="nomination-choice-help" className="nomination-muted type-body-small">Mỗi hồ sơ chỉ đăng ký cho một hạng mục. Trường hợp muốn tham gia nhiều hạng mục, vui lòng thực hiện bằng tài khoản MyVNE ID mới.</p>
-          <div className="nomination-group-tabs" role="tablist" aria-label="Nhóm giải thưởng">{awardGroups.map((group, index) => <button type="button" role="tab" key={group.name} id={`nomination-group-tab-${index}`} aria-controls={`nomination-group-panel-${index}`} aria-selected={activeGroup === index} tabIndex={activeGroup === index ? 0 : -1} ref={node => { groupTabs.current[index] = node; }} onClick={() => setActiveGroup(index)} onKeyDown={event => { let next: number; if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') next = 1 - activeGroup; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = 1; else return; event.preventDefault(); setActiveGroup(next); groupTabs.current[next]?.focus(); }}>{group.name} <span className="type-body-small">({group.categories.length})</span></button>)}</div>
-          <div className="nomination-groups">{awardGroups.map((group, groupIndex) => <section key={group.name} hidden={activeGroup !== groupIndex} role="tabpanel" id={`nomination-group-panel-${groupIndex}`} aria-labelledby={`nomination-group-tab-${groupIndex}`}>
+          <div className="nomination-group-tabs" role="tablist" aria-label="Nhóm giải thưởng">{registrationGroups.map((group, index) => <button type="button" role="tab" key={group.name} id={`nomination-group-tab-${index}`} aria-controls={`nomination-group-panel-${index}`} aria-selected={activeGroup === index} tabIndex={activeGroup === index ? 0 : -1} ref={node => { groupTabs.current[index] = node; }} onClick={() => setActiveGroup(index)} onKeyDown={event => { let next: number; if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') next = 1 - activeGroup; else if (event.key === 'Home') next = 0; else if (event.key === 'End') next = 1; else return; event.preventDefault(); setActiveGroup(next); groupTabs.current[next]?.focus(); }}>{group.name}</button>)}</div>
+          <div className="nomination-groups">{registrationGroups.map((group, groupIndex) => <section key={group.name} hidden={activeGroup !== groupIndex} role="tabpanel" id={`nomination-group-panel-${groupIndex}`} aria-labelledby={`nomination-group-tab-${groupIndex}`}>
             <div className="nomination-category-list">{group.categories.map((category, index) => <label key={category} className="nomination-category" data-selected={selection === category}>
-              <input type="radio" name="award-category" value={category} disabled={isOrganizerNominated(category)} checked={selection === category} onChange={() => setSelection(category)} />
+              <input type="radio" name="award-category" value={category} checked={selection === category} onChange={() => setSelection(category)} />
               <span className="nomination-category-number" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
-              <span>{category}{isOrganizerNominated(category) && <small className="nomination-category-closed">Ban tổ chức đề cử · Không mở đăng ký</small>}</span>
+              <span>{category}</span>
             </label>)}</div>
           </section>)}</div>
         </fieldset>

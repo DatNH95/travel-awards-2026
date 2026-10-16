@@ -62,7 +62,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       "Công văn đăng ký có chữ ký, con dấu của Sở Du lịch/Sở VHTTDL hoặc UBND tỉnh, thành phố",
       "Báo cáo thống kê khách du lịch chính thức gần nhất của Sở/Cục Thống kê",
       "Văn bản chính sách đã ban hành; hình ảnh sản phẩm/hạ tầng mới (tối đa 10 ảnh)",
-      "Bộ ảnh điểm đến (khuyến khích): 8–15 ảnh tối thiểu 1.600 px: sản phẩm/hạ tầng mới, cảnh quan, hoạt động bảo tồn",
+      "Bộ ảnh điểm đến (khuyến khích): 8–15 ảnh có kích thước tối thiểu 1.600 px: sản phẩm/hạ tầng mới, cảnh quan, hoạt động bảo tồn",
       "Video quảng bá điểm đến (khuyến khích): không quá 3 phút; link YouTube/Drive"
     ],
     "images": {
@@ -195,7 +195,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       "Quyết định/chứng nhận xếp hạng sao",
       "Ảnh chụp màn hình điểm đánh giá OTA (thấy rõ ngày chụp và số đánh giá)",
       "Các chứng nhận xanh, bền vững và liên quan (nếu có)",
-      "Bộ ảnh cơ sở theo danh mục (bắt buộc): Tối thiểu 12 ảnh tối thiểu 1.600 px: mặt tiền, sảnh, ≥ 3 hạng phòng, nhà hàng, tiện ích (hồ bơi/spa/gym), ≥ 1 ảnh thực hành bền vững",
+      "Bộ ảnh cơ sở theo danh mục (bắt buộc): Tối thiểu 12 ảnh có kích thước tối thiểu 1.600 px: mặt tiền, sảnh, ≥ 3 hạng phòng, nhà hàng, tiện ích (hồ bơi/spa/gym), ≥ 1 ảnh thực hành bền vững",
       "Video giới thiệu (khuyến khích): không quá 3 phút"
     ],
     "images": {
@@ -262,7 +262,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       "Ảnh chụp màn hình điểm đánh giá OTA (thấy rõ ngày chụp và số đánh giá)",
       "Hình ảnh, tài liệu minh họa không gian, kiến trúc, dịch vụ (tối đa 15 ảnh)",
       "Các chứng nhận xanh, bền vững và liên quan (nếu có)",
-      "Bộ ảnh resort theo danh mục (bắt buộc): Tối thiểu 15 ảnh tối thiểu 1.600 px: toàn cảnh/cảnh quan, kiến trúc, ≥ 3 hạng phòng/villa, spa, nhà hàng, hoạt động trải nghiệm địa phương",
+      "Bộ ảnh resort theo danh mục (bắt buộc): Tối thiểu 15 ảnh có kích thước tối thiểu 1.600 px: toàn cảnh/cảnh quan, kiến trúc, ≥ 3 hạng phòng/villa, spa, nhà hàng, hoạt động trải nghiệm địa phương",
       "Video giới thiệu (khuyến khích): không quá 3 phút"
     ],
     "images": {
@@ -399,7 +399,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       "Giấy phép tổ chức (nếu thuộc diện phải xin phép)",
       "Số liệu vé bán/lượt tham gia",
       "Báo cáo tổng hợp truyền thông (media coverage report)",
-      "Bộ ảnh và video trải nghiệm (bắt buộc): Tối thiểu 8 ảnh tối thiểu 1.600 px; video không quá 3 phút qua link (khuyến khích)"
+      "Bộ ảnh và video trải nghiệm (bắt buộc): Tối thiểu 8 ảnh có kích thước tối thiểu 1.600 px; video không quá 3 phút qua link (khuyến khích)"
     ],
     "images": {
       "min": 8,
@@ -695,7 +695,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
     ],
     "evidence": [
       "Tài liệu giải thưởng/xếp hạng đã đạt (nếu có)",
-      "Bộ ảnh món ăn và không gian (bắt buộc): Tối thiểu 8 ảnh tối thiểu 1.600 px: 5 món tiêu biểu, không gian phục vụ, bếp/đầu bếp",
+      "Bộ ảnh món ăn và không gian (bắt buộc): Tối thiểu 8 ảnh có kích thước tối thiểu 1.600 px: 5 món tiêu biểu, không gian phục vụ, bếp/đầu bếp",
       "Thực đơn hiện hành (bắt buộc): PDF; có giá; ghi rõ thực đơn tiếng Anh nếu có",
       "Video giới thiệu (khuyến khích): không quá 3 phút"
     ],

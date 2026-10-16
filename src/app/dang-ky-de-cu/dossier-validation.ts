@@ -1,8 +1,10 @@
 export const megabyte = 1_000_000;
-export const introductionLimit = 20 * megabyte;
+export const introductionLimit = 50 * megabyte;
+export const evidenceLimit = 20 * megabyte;
 const imageExtensions = /\.(png|jpe?g)$/i;
 
 export function dossierError(key: string, files: File[], legalLink = '', imagePolicy = { min: 3, max: 10 as number | null }): string {
+  if ((['dossier-1', 'dossier-2', 'dossier-4', 'menu'].includes(key) || key.startsWith('criterion-')) && files.some(file => file.size > evidenceLimit)) return 'Mỗi tệp tài liệu minh chứng không được vượt quá 20 MB.';
   if (key.startsWith('criterion-') && files.length > 3) return 'Mỗi tiêu chí được đính kèm tối đa 3 tài liệu.';
   if (key === 'menu') {
     if (!files.length) return 'Vui lòng chọn thực đơn hiện hành.';
@@ -11,7 +13,7 @@ export function dossierError(key: string, files: File[], legalLink = '', imagePo
   if (key === 'dossier-0') {
     if (!files.length) return 'Vui lòng chọn hồ sơ giới thiệu đề cử.';
     if (files.some(file => !/\.(pdf|ppt|pptx)$/i.test(file.name))) return 'Hồ sơ giới thiệu chỉ chấp nhận PDF, PPT hoặc PPTX.';
-    if (files.some(file => file.size > introductionLimit)) return 'Mỗi tệp hồ sơ giới thiệu không được vượt quá 20 MB.';
+    if (files.some(file => file.size > introductionLimit)) return 'Mỗi tệp hồ sơ giới thiệu không được vượt quá 50 MB.';
   }
   if (key === 'dossier-1') {
     if (!files.length && !legalLink.trim()) return 'Vui lòng chọn tài liệu pháp lý/chứng nhận hoặc dán link Google Docs bản scan.';

@@ -5,6 +5,7 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const categoryIds = ['tru-cot-1','tru-cot-2','tru-cot-3','tru-cot-4','tru-cot-5','tru-cot-6',
     'tien-phong-1','tien-phong-2','tien-phong-3','tien-phong-4','tien-phong-5','tien-phong-6','tien-phong-7','tien-phong-8','tien-phong-9'];
+  const radioCategoryIds = categoryIds.filter(id => !['tien-phong-1','tien-phong-8'].includes(id));
   const category = new URLSearchParams(location.search).get('category') || location.pathname.match(/dang-ky-((?:tru-cot|tien-phong)-\d+)\.html$/)?.[1];
   const radios = $$('.nomination-choices input[type=radio]');
   let selectedCategory = categoryIds.includes(category) && !['tien-phong-1','tien-phong-8'].includes(category) ? category : null;
@@ -31,7 +32,7 @@
   }
   function selectCategory(index) {
     if (!radios[index] || radios[index].disabled) return;
-    selectedCategory = categoryIds[index];
+    selectedCategory = radioCategoryIds[index];
     radios.forEach((radio, i) => { radio.checked = i === index; radio.closest('label').dataset.selected = String(i === index); });
     $$('.nomination-choice-mobile-status,.nomination-choice-desktop-status').forEach(status => {
       const name = document.createElement('strong'); name.textContent = radios[index].value;
@@ -40,7 +41,7 @@
     const next = $('.nomination-choices')?.closest('form').querySelector('button[type=submit]');
     if (next) next.disabled = false;
   }
-  if (selectedCategory && radios.length) selectCategory(categoryIds.indexOf(selectedCategory));
+  if (selectedCategory && radios.length) selectCategory(radioCategoryIds.indexOf(selectedCategory));
   radios.forEach((radio, index) => radio.addEventListener('change', () => selectCategory(index)));
   const choiceForm = $('.nomination-choices')?.closest('form');
   choiceForm?.addEventListener('submit', event => {

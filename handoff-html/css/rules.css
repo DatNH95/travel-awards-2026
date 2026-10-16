@@ -82,6 +82,23 @@
 .rules-site .rules-content>section,.rules-site .rules-criteria{scroll-margin-top:92px}
 }
 .rules-dossier{list-style:none;padding-left:0}
+.rules-regulation-groups{display:grid;gap:32px;margin-top:32px}
+.rules-regulation-group{min-width:0}
+.rules-regulation-group-heading{display:flex;align-items:center;gap:12px;padding-bottom:16px;border-bottom:1px solid var(--color-border-default)}
+.rules-regulation-icon{display:inline-flex;flex-shrink:0;color:var(--color-text-brand)}
+.rules-regulation-group-heading h3{margin:0;font-size:20px;font-weight:600;line-height:1.4}
+.rules-regulations{list-style:none;margin:0;padding:0}
+.rules-regulations>li{display:grid;grid-template-columns:minmax(0,10rem) minmax(0,1fr);gap:24px;padding-block:20px;border-bottom:1px solid var(--color-border-default);min-width:0}
+.rules-regulations>li:last-child{border-bottom:0;padding-bottom:0}
+.rules-regulations h4{margin:0;font-size:16px;font-weight:600;line-height:1.5}
+.rules-regulation-copy{min-width:0;font-size:16px;line-height:1.6}
+.rules-regulation-copy p+p{margin-top:8px}
+.rules-regulation-facts{display:grid;gap:12px;margin:0}
+.rules-regulation-copy p+.rules-regulation-facts{margin-top:16px}
+.rules-regulation-facts>div{display:grid;gap:4px}
+.rules-regulation-facts dt{font-size:14px;color:var(--color-text-secondary)}
+.rules-regulation-facts dd{margin:0;overflow-wrap:anywhere}
+@media(max-width:640px){.rules-regulation-groups{gap:24px;margin-top:24px}.rules-regulation-group-heading{gap:10px;padding-bottom:12px}.rules-regulation-group-heading h3{font-size:20px}.rules-regulations>li{grid-template-columns:minmax(0,1fr);gap:8px;padding-block:16px}.rules-regulation-facts{gap:12px}}
 .rules-dossier li{display:flex;align-items:flex-start;gap:16px;padding-left:0}
 .rules-dossier-step{display:grid;place-items:center;flex:0 0 40px;width:40px;height:40px;border:1px solid var(--color-border-strong);border-radius:50%;background:var(--color-surface-brand-soft);color:var(--color-text-brand);font-size:14px;font-weight:600;line-height:1}
 .rules-dossier li>div{min-width:0}

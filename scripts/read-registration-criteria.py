@@ -18,7 +18,7 @@ def bullets(value):
     return [clean(line.strip().lstrip('•').strip()) for line in (value or '').splitlines() if line.strip()]
 
 def clean(value):
-    for old, new in [('phân khúc) )', 'phân khúc)'), ('&', 'và'), ('TripAdvisor', 'Tripadvisor'), ('nhà hàng/ điểm đến', 'nhà hàng/điểm đến'), ('≥ 1600px', 'tối thiểu 1.600 px'), ('≤ 3 phút', 'không quá 3 phút'), ('MỘT', 'một'), (' + ', ', '), ('(baseline)', '(mốc ban đầu)'), ('nền tảng review', 'nền tảng đánh giá'), ('nguồn Cục Hàng không, OAG/Cirium hoặc nội bộ', 'nguồn: Cục Hàng không, OAG/Cirium hoặc báo cáo nội bộ')]:
+    for old, new in [('phân khúc) )', 'phân khúc)'), ('&', 'và'), ('TripAdvisor', 'Tripadvisor'), ('nhà hàng/ điểm đến', 'nhà hàng/điểm đến'), ('≥ 1600px', 'có kích thước tối thiểu 1.600 px'), ('≤ 3 phút', 'không quá 3 phút'), ('MỘT', 'một'), (' + ', ', '), ('(baseline)', '(mốc ban đầu)'), ('nền tảng review', 'nền tảng đánh giá'), ('nguồn Cục Hàng không, OAG/Cirium hoặc nội bộ', 'nguồn: Cục Hàng không, OAG/Cirium hoặc báo cáo nội bộ')]:
         value = value.replace(old, new)
     return value.strip()
 

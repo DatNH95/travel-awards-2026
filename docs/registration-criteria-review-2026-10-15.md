@@ -26,3 +26,10 @@ Nguồn: [Bộ tiêu chí hồ sơ ứng cử](https://docs.google.com/spreadshe
 - Browser trên production build: form ẩm thực đủ nội dung mới; xác nhận tất cả chọn cả điều kiện riêng/chung; bước 3 hiển thị kết quả đúng.
 - URL `category=tien-phong-1&step=3`: bị đưa về bước 1, cả hai radio giải BTC bị khóa và Tiếp tục bị khóa.
 - Mobile 390px: form khách sạn và thuyết minh không tràn ngang, console không có lỗi.
+
+## Rà soát bước 3
+
+- Đối chiếu lại đủ 13 giải mở đăng ký với hai tab: 50 nhóm thông tin kê khai, 42 nội dung thuyết minh, 29 điều kiện riêng và 45 yêu cầu minh chứng (chưa tính các cam kết/trường chung được giữ lại).
+- Bổ sung thời gian hoạt động, đối tượng và danh sách yêu cầu minh chứng vào bước 3 để khớp nội dung bước 2; áp dụng cùng component cho desktop/mobile.
+- Browser: nhập số liệu, thuyết minh, tick tất cả tại form khách sạn rồi sang bước 3: hiển thị đúng nội dung và trạng thái xác nhận.
+- Những khác biệt đã được người dùng duyệt được giữ: thuyết minh 300 từ thay 250 chữ trong file, cấu trúc I–V, copy, định dạng và dung lượng tệp hiện có. Đây không phải xác nhận hồ sơ đã đủ điều kiện gửi thật; flow hiện vẫn mô phỏng frontend.

@@ -34,4 +34,12 @@ assert.ok(dossierError('criterion-test-0', images(4)));
 assert.equal(dossierError('criterion-test-0', images(3)), '');
 assert.ok(dossierError('menu', [{ name: 'menu.docx', size: 2000 }]));
 assert.equal(dossierError('menu', [{ name: 'menu.pdf', size: 2000 }]), '');
+assert.equal(dossierError('dossier-0', [{ name: 'intro.pdf', size: 50_000_000 }]), '');
+assert.ok(dossierError('dossier-0', [{ name: 'intro.pdf', size: 50_000_001 }]));
+for (const key of ['dossier-1', 'dossier-2', 'dossier-4', 'menu', 'criterion-test-0']) {
+  assert.equal(dossierError(key, [{ name: 'evidence.pdf', size: 20_000_000 }]), '');
+  assert.ok(dossierError(key, [{ name: 'evidence.pdf', size: 20_000_001 }]));
+}
+assert.equal(dossierError('dossier-3', [{ name: 'image.jpg', size: 10_000_000 }], '', { min: 0, max: 10 }), '');
+assert.ok(dossierError('dossier-3', [{ name: 'image.jpg', size: 10_000_001 }], '', { min: 0, max: 10 }));
 console.log('PASS: 13 category configurations, 2 organizer nominations, image thresholds, criterion files and menu format.');

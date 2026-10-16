@@ -52,5 +52,7 @@ Tech cần nối draft và review, validation số quốc tế, dung lượng/đ
 
 - Cập nhật countdown 13.10.2026: lịch nhận đề cử 12:00 ngày 23.10 đến 23:59 ngày 23.11.2026 (UTC+07:00); countdown luôn đếm đến hạn gửi. 44 lượt đối chiếu responsive và 8 trường hợp countdown source/HTML đạt, gồm sát hạn, đúng hạn và sau hạn. Báo cáo: qa/countdown-deadline-report.json.
 
-- Cập nhật 15.10.2026: đủ 13 bộ tiêu chí đăng ký; hai giải BTC ở tien-phong-1/8 chỉ mở bước chọn và khóa radio. Handoff giữ bộ đếm/cắt 300 từ, Xác nhận tất cả và trạng thái chọn hạng mục bằng JS thuần. Tech tích hợp validation ảnh theo hạng mục, tối đa 3 tệp mỗi tiêu chí, PDF thực đơn cùng backend/state theo cấu hình source mới. Báo cáo tương tác: qa/registration-criteria-report.json.
+- Cập nhật 15.10.2026: đủ 13 bộ tiêu chí đăng ký; hai giải BTC ở tien-phong-1/8 chỉ mở bước chọn; form hiện chỉ hiển thị 13 giải cho phép đăng ký. Handoff giữ bộ đếm/cắt 300 từ, Xác nhận tất cả và trạng thái chọn hạng mục bằng JS thuần. Tech tích hợp validation ảnh theo hạng mục, tối đa 3 tệp mỗi tiêu chí, PDF thực đơn cùng backend/state theo cấu hình source mới. Báo cáo tương tác: qa/registration-criteria-report.json.
 - Lịch mới nhất: nhận đề cử 12:00 ngày 26.10 đến 23:59 ngày 20.11.2026 (UTC+07:00); countdown đếm đến hạn gửi. Báo cáo: qa/countdown-deadline-report.json.
+
+- Cập nhật 16.10.2026: Thể lệ có 3 nhóm/12 quy định, bỏ CTA hai giải BTC; form chọn 13 giải và giữ đúng category ID gốc. Bước xác nhận bổ sung kỳ hoạt động, đối tượng và minh chứng. Giới thiệu tối đa 50 MB/tệp, tài liệu minh chứng/pháp lý/thực đơn 20 MB/tệp; ảnh giữ 1–10 MB. Source kiểm tra bằng scripts/check-registration-criteria.cjs; Tech tích hợp cùng giới hạn vào validation handoff theo hướng dẫn trên. QA: qa/general-regulations-report.json.
