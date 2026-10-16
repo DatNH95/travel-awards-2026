@@ -16,11 +16,11 @@ fs.writeFileSync(path.join(target, 'campaign-lockup.svg'), crop(typo, '235 190 6
 const paths = [...typo.matchAll(/<path\b[\s\S]*?\/>/g)].map(match => match[0]);
 if (paths.length !== 41 || !paths[16].includes('M378.14') || !paths[26].includes('M470.92')) throw Error('Source typography changed: review extraction indices.');
 const extract = (name, viewBox, indices) => fs.writeFileSync(path.join(target, name), `<svg xmlns="http://www.w3.org/2000/svg" viewBox="${viewBox}"><style>.st0{fill:#019047}</style>${indices.map(i => paths[i]).join('')}</svg>`);
-extract('signature-ornament.svg', '420 486 305 72', [26, 27, 28, 29, 30]);
+fs.copyFileSync(path.join(source, 'signature-ornament.svg'), path.join(target, 'signature-ornament.svg'));
 extract('signature-marker.svg', '360 560 38 38', [16]);
-const files = ['travel-awards-kv-v2.png', 'logo.svg', 'typo.svg'];
+const files = ['travel-awards-kv-v2.png', 'logo.svg', 'typo.svg', 'signature-ornament.svg'];
 fs.writeFileSync(path.join(target, 'provenance.json'), JSON.stringify({
   visualReference: 'travel-awards-kv-v2.png',
   sources: files.map(name => ({ path: `${source}/${name}`, sha256: crypto.createHash('sha256').update(fs.readFileSync(path.join(source, name))).digest('hex') })),
-  derivatives: { 'travel-awards-kv-v2.png': 'Byte-for-byte official KV V2; color, effect and appearance authority', 'logo.svg': 'Whitespace crop only', 'campaign-lockup.svg': 'Whitespace crop only', 'signature-ornament.svg': 'typo.svg path indices 26–30', 'signature-marker.svg': 'typo.svg path index 16' }
+  derivatives: { 'travel-awards-kv-v2.png': 'Byte-for-byte official KV V2; color, effect and appearance authority', 'logo.svg': 'Whitespace crop only', 'campaign-lockup.svg': 'Whitespace crop only', 'signature-ornament.svg': 'Byte-for-byte updated official SVG; viewBox 0 0 800.7 126.6', 'signature-marker.svg': 'typo.svg path index 16' }
 }, null, 2));

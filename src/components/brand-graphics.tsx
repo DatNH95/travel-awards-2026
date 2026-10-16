@@ -3,7 +3,7 @@ import Image from 'next/image';
 const assets = {
   logo: { src: 'logo.svg', width: 1000, height: 350 },
   campaign: { src: 'campaign-lockup.svg', width: 690, height: 420 },
-  signature: { src: 'signature-ornament.svg', width: 305, height: 72 },
+  signature: { src: 'signature-ornament.svg', width: 8007, height: 1266 },
   marker: { src: 'signature-marker.svg', width: 38, height: 38 },
   landscape: { src: 'travel-awards-kv-v2.png', width: 1920, height: 1080 },
 } as const;

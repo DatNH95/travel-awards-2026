@@ -1,0 +1,146 @@
+{
+  "checkedAt": "2026-10-16T03:52:37.956Z",
+  "assetPaths": [
+    "publish/assets/key-visual/signature-ornament.svg",
+    "public/assets/key-visual/signature-ornament.svg",
+    "handoff-html/assets/key-visual/signature-ornament.svg"
+  ],
+  "hashes": [
+    "6f44c62a55ca004ce91f490c05674c6851ff0b2ff23aafcff6ea17e6c0ab3166",
+    "6f44c62a55ca004ce91f490c05674c6851ff0b2ff23aafcff6ea17e6c0ab3166",
+    "6f44c62a55ca004ce91f490c05674c6851ff0b2ff23aafcff6ea17e6c0ab3166"
+  ],
+  "checks": [
+    {
+      "width": 320,
+      "source": {
+        "overflow": false,
+        "height": 7560,
+        "images": [
+          {
+            "width": 144,
+            "height": 22.765625,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          },
+          {
+            "width": 120,
+            "height": 18.96875,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          }
+        ]
+      },
+      "handoff": {
+        "overflow": false,
+        "height": 7560,
+        "images": [
+          {
+            "width": 144,
+            "height": 22.765625,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          },
+          {
+            "width": 120,
+            "height": 18.96875,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          }
+        ]
+      }
+    },
+    {
+      "width": 390,
+      "source": {
+        "overflow": false,
+        "height": 7115,
+        "images": [
+          {
+            "width": 144,
+            "height": 22.765625,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          },
+          {
+            "width": 120,
+            "height": 18.96875,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          }
+        ]
+      },
+      "handoff": {
+        "overflow": false,
+        "height": 7115,
+        "images": [
+          {
+            "width": 144,
+            "height": 22.765625,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          },
+          {
+            "width": 120,
+            "height": 18.96875,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          }
+        ]
+      }
+    },
+    {
+      "width": 1440,
+      "source": {
+        "overflow": false,
+        "height": 6323,
+        "images": [
+          {
+            "width": 144,
+            "height": 22.765625,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          },
+          {
+            "width": 180,
+            "height": 28.453125,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          }
+        ]
+      },
+      "handoff": {
+        "overflow": false,
+        "height": 6323,
+        "images": [
+          {
+            "width": 144,
+            "height": 22.765625,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          },
+          {
+            "width": 180,
+            "height": 28.453125,
+            "loaded": true,
+            "attributeWidth": "8007",
+            "attributeHeight": "1266"
+          }
+        ]
+      }
+    }
+  ],
+  "designSystemImagesLoaded": true,
+  "failures": []
+}
