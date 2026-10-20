@@ -1,0 +1,57 @@
+{
+  "checkedAt": "2026-10-20T01:25:50.138Z",
+  "checks": [
+    {
+      "width": 320,
+      "source": {
+        "height": 7477,
+        "overflow": false,
+        "minitalkHeight": 334.84375,
+        "notice": 0,
+        "oldCopy": false
+      },
+      "handoff": {
+        "height": 7477,
+        "overflow": false,
+        "minitalkHeight": 334.84375,
+        "notice": 0,
+        "oldCopy": false
+      }
+    },
+    {
+      "width": 390,
+      "source": {
+        "height": 7033,
+        "overflow": false,
+        "minitalkHeight": 292.84375,
+        "notice": 0,
+        "oldCopy": false
+      },
+      "handoff": {
+        "height": 7033,
+        "overflow": false,
+        "minitalkHeight": 292.84375,
+        "notice": 0,
+        "oldCopy": false
+      }
+    },
+    {
+      "width": 1440,
+      "source": {
+        "height": 6264,
+        "overflow": false,
+        "minitalkHeight": 438.65625,
+        "notice": 0,
+        "oldCopy": false
+      },
+      "handoff": {
+        "height": 6264,
+        "overflow": false,
+        "minitalkHeight": 438.65625,
+        "notice": 0,
+        "oldCopy": false
+      }
+    }
+  ],
+  "failures": []
+}

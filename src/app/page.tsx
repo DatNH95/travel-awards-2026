@@ -96,7 +96,7 @@ export default function HomePage() {
       </Section>
       <Section id="minitalk" tone="brand-deep" className="home-minitalk">
         <Container>
-          <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chăm da khoa học và dưỡng da đa nhiệm trong mỗi hành trình du lịch.</p><div className="home-coming-soon"><span className="home-minitalk-reminder-icon" aria-hidden="true" /><p>Tập đầu tiên ngày 23/10.</p></div></div></div>
+          <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chăm da khoa học và dưỡng da đa nhiệm trong mỗi hành trình du lịch.</p></div></div>
         </Container>
       </Section>
       <Section id="news" className={`home-news ${newsFont.variable}`}>
