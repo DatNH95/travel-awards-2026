@@ -1,0 +1,64 @@
+{
+  "date": "2026-10-20",
+  "build": "pnpm build passed",
+  "typecheck": "pnpm typecheck passed",
+  "results": [
+    {
+      "target": "http://127.0.0.1:3001/binh-chon",
+      "width": 1440,
+      "title": "Bình chọn — Travel Awards 2026",
+      "header": 1,
+      "footer": 1,
+      "emptyContent": true,
+      "overflow": false,
+      "flatShell": false
+    },
+    {
+      "target": "file:///C:/Users/haidat/Desktop/Travel%20Awards%202026/Vibe%20code/travel-awards-2026/handoff-html/binh-chon.html",
+      "width": 1440,
+      "title": "Bình chọn — Travel Awards 2026",
+      "header": 1,
+      "footer": 1,
+      "emptyContent": true,
+      "overflow": false,
+      "flatShell": true
+    },
+    {
+      "target": "http://127.0.0.1:3001/binh-chon",
+      "width": 390,
+      "title": "Bình chọn — Travel Awards 2026",
+      "header": 1,
+      "footer": 1,
+      "emptyContent": true,
+      "overflow": false,
+      "flatShell": false
+    },
+    {
+      "target": "file:///C:/Users/haidat/Desktop/Travel%20Awards%202026/Vibe%20code/travel-awards-2026/handoff-html/binh-chon.html",
+      "width": 390,
+      "title": "Bình chọn — Travel Awards 2026",
+      "header": 1,
+      "footer": 1,
+      "emptyContent": true,
+      "overflow": false,
+      "flatShell": true
+    },
+    {
+      "route": "/",
+      "status": 200
+    },
+    {
+      "route": "/the-le",
+      "status": 200
+    },
+    {
+      "route": "/dang-ky-de-cu",
+      "status": 200
+    },
+    {
+      "route": "/tin-tuc",
+      "status": 200
+    }
+  ],
+  "failures": []
+}

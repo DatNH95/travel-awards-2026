@@ -49,6 +49,7 @@ const newsSource = await fs.readFile(path.join(root,'src/data/news.ts'),'utf8');
 const slugs = [...newsSource.matchAll(/(?:slug:|'slug':|"slug":)\s*['"]([^'"]+)['"]/g)].map(m=>m[1]).filter(s=>!s.includes('`'));
 slugs.push(...Array.from({length:71},(_,i)=>`cau-chuyen-du-lich-${i+1}`));
 const routes = [['/','index.html','home'],['/the-le','the-le.html','rules'],['/tin-tuc','tin-tuc.html','news'],['/dang-ky-de-cu','dang-ky-de-cu.html','nomination'],['/dang-ky-de-cu?preview=3','xac-nhan.html','nomination'],['/dang-ky-de-cu?preview=4','thanh-cong.html','nomination']];
+routes.push(['/binh-chon','binh-chon.html','home']);
 routes.push(...['chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html'].map((file,index)=>['/dang-ky-de-cu?preview=4',file,'nomination',index+1]));
 for(const id of categories) routes.push([`/dang-ky-de-cu?category=${id}&step=2`,`dang-ky-${id}.html`,'nomination']);
 for(let i=2;i<=7;i++) routes.push([`/tin-tuc?page=${i}`,`tin-tuc-${i}.html`,'news']);
@@ -111,6 +112,7 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
     const u=new URL(value.replaceAll('&amp;','&'),'http://local');let dest;
     if(u.pathname==='/') dest='index.html';
     else if(u.pathname==='/the-le')dest='the-le.html';
+    else if(u.pathname==='/binh-chon')dest='binh-chon.html';
     else if(u.pathname==='/tin-tuc')dest=u.searchParams.get('page')&&u.searchParams.get('page')!=='1'?`tin-tuc-${u.searchParams.get('page')}.html`:'tin-tuc.html';
     else if(u.pathname.startsWith('/tin-tuc/'))dest=`tin-${u.pathname.split('/').pop()}.html`;
     else if(u.pathname==='/dang-ky-de-cu')dest='dang-ky-de-cu.html'+(u.search?'?'+u.searchParams.toString():'');

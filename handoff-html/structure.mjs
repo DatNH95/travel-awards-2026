@@ -12,7 +12,7 @@ export function flattenDocument(doc) {
   });
   const main = body.querySelector(':scope > main');
   if (main) {
-    if (body.classList.contains('nomination') || !body.matches('.news-site, .rules-site')) {
+    if (body.classList.contains('nomination') || !body.matches('.news-site, .rules-site, .voting-site')) {
       const firstSection = main.querySelector(':scope > section');
       if (firstSection && main.id) firstSection.id = main.id;
       main.replaceWith(...main.childNodes);
@@ -28,7 +28,7 @@ export function flattenDocument(doc) {
     section.classList.replace('section', 'section-travel-awards-2026');
   });
   // Homepage handoff follows the Tech wrapper and section naming convention.
-  if (body.classList.contains('home') && !body.matches('.news-site, .rules-site, .nomination')) {
+  if (body.classList.contains('home') && !body.matches('.news-site, .rules-site, .nomination, .voting-site')) {
     let content = body.querySelector(':scope > .wrap-homepage');
     if (!content) {
       content = doc.createElement('div');
