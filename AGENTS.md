@@ -10,6 +10,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+- Sau mỗi lần cập nhật implementation và kiểm tra xong, tự reload tab localhost hiện tại để người dùng xem bản mới nhất. Nếu đang chạy production server, restart server sau build rồi reload; giữ nguyên route người dùng đang xem.
+
 ### Chi tiết hồ sơ — 20.10.2026
 
 - `/binh-chon/[slug]`: desktop hai cột, trái gallery → title → đơn vị/cá nhân và hạng mục → khảo sát + số lượt → Facebook/copy link → body; phải banner có sẵn 300×600. Mobile một cột, quảng cáo sau body.
@@ -26,6 +28,14 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 - Arrow slider hồ sơ khác dùng chung SVG arrow.svg, icon 20px và class voting-slider-arrow-icon với slider ảnh.
 - Detail: cụm share cùng hàng với Bình chọn + số người khảo sát, có border dọc ngăn cách; tự wrap khi màn hình hẹp, thông báo copy dạng tooltip không làm nhảy layout.
 - Thông tin đơn vị/cá nhân: Website dùng UiIcon globe; Fanpage dùng UiIcon facebook từ Flaticon UIcons Brands 4.0.0, self-host cùng bộ Regular Rounded, icon 16px.
+- Refinement mới: từng dòng thông tin đơn vị/cá nhân có line mảnh ngăn cách, gồm cả ranh giới Fanpage và đơn vị đại diện; không chỉ chia line giữa các nhóm.
+- Thông tin đơn vị/cá nhân dùng một dl chung (gồm đơn vị đại diện), không tách nhóm tạo gap dư; label/value cùng line-height 24px, padding mỗi dòng 14px trên/dưới, icon 16px căn giữa dòng đầu.
+- Detail không hiển thị dòng “Thời gian hoạt động được xét giải” bên dưới dải số liệu; form đăng ký giữ thông tin kỳ xét giải.
+- Gallery Đà Nẵng có 6 ảnh: Cầu Vàng, cầu Rồng, sông Hàn, hai góc Mỹ Khê và chùa Linh Ứng. Ảnh Commons có metadata tác giả/giấy phép, nguồn hiển thị trong popup phóng to; không khôi phục caption dưới slider.
+- Số liệu nổi bật detail count-up một lần khi vào viewport, threshold 40%, 1800ms tuyến tính như AwardCount Homepage. Giữ nguyên dấu +/−, định dạng số Việt, đơn vị/điểm đánh giá; reduced motion hiện số cuối ngay, đổi preference giữa chừng dừng animation. Screen reader chỉ đọc giá trị cuối; không đổi hiệu ứng Homepage.
+- Refinement hierarchy: heading body 30px/400, heading con 20px/400 màu semantic brand, chỉ dải số đầu bài giữ nhấn đậm. Số liệu hoạt động trình bày hai cột nhãn/nội dung (mobile một cột), label 16px/400; Dấu ấn nổi bật là section h2 riêng, nội dung giới hạn 68ch, không có line dư cuối cùng. Không dùng cùng một cấp h3 cho tiêu đề phần và tiêu chí con.
+- Banner detail 300×600 sticky trên desktop từ 1024px, cách đỉnh viewport 24px; dừng trong cột nội dung trước slider hồ sơ khác. Tablet/mobile giữ vị trí bình thường.
+- Refinement detail 21.10: intro một lần, bỏ tên/giới thiệu tổng quan lặp trong Thông tin; giữ thành tích và điểm khác biệt. 13 hạng mục có dải 3 chỉ số tóm tắt từ cùng fixture hiện có, không tạo số cho 2 hạng mục BTC. Heading 30px, subheading 20px, body 16–18px; bảng thông tin nhãn ngắn, bỏ line từng dòng, line nhẹ giữa phần lớn. Website/Fanpage hiển thị gọn, chỉ URL HTTP(S) thực mới thành link; URL example demo giữ text.
 
 ## Quy ước route và triển khai Phase 2
 
@@ -70,6 +80,13 @@ Không làm mất local changes; không tự stash, reset, xóa file hoặc gi�
 
 ## Quy trình đẩy lên GitHub
 
+### Phạm vi theo câu lệnh
+
+- Khi người dùng nói "Đẩy lên GitHub Phase 1" (hoặc cách nói tương đương), tự đồng bộ giao diện/source Phase 1 với `handoff-html/`, kiểm tra và sửa lỗi liên quan trước khi commit/push.
+- Khi người dùng nói "Đẩy lên Phase 2" / "Đẩy lên GitHub Phase 2" (hoặc cách nói tương đương), tự đồng bộ giao diện/source Phase 2 với `hand-off-phase 2/`, kiểm tra và sửa lỗi liên quan trước khi commit/push.
+- Câu lệnh chỉ định phase chỉ đưa thay đổi của phase đó và các phụ thuộc cần thiết vào commit; bảo toàn các thay đổi local của phase còn lại. Nếu thay đổi dùng chung ảnh hưởng cả hai phase, đồng bộ handoff bị ảnh hưởng và kiểm tra cả hai để tránh xung đột giao diện.
+- Khi không chỉ định phase, đồng bộ source và handoff của cả hai theo phạm vi thay đổi hiện có. Luôn giữ cấu trúc HTML bàn giao đã chốt, responsive desktop/mobile và quy trình Git bên dưới.
+
 Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
 
 1. Kiểm tra `git status`.
@@ -77,9 +94,9 @@ Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
 3. Nếu `origin/main` có commit mới, đồng bộ bằng `git rebase origin/main` trước khi push; bảo toàn thay đổi local chưa commit khi cần.
 4. Nếu có conflict, dừng và báo người dùng; không tự chọn phiên bản và không force push.
 5. Chỉ commit thay đổi thuộc project, không commit file phát sinh ngoài ý muốn; kiểm tra phạm vi thay đổi trước khi stage.
-6. Cập nhật bản HTML/CSS thuần trong `handoff-html/` theo các yêu cầu thay đổi mới của implementation, giữ giao diện responsive tương ứng; không thêm React/Next.js/Tailwind runtime. Không để bản bàn giao cũ khi đẩy source mới.
+6. Cập nhật bản HTML/CSS thuần đúng phạm vi phase: `handoff-html/` cho Phase 1, `hand-off-phase 2/` cho Phase 2; giữ giao diện responsive tương ứng với implementation mới nhất, không thêm React/Next.js/Tailwind runtime. Không để bản bàn giao cũ khi đẩy source mới.
 7. Chạy kiểm tra cần thiết cho phần vừa sửa, gồm source và phần handoff bị ảnh hưởng; giữ báo cáo QA, không commit ảnh chụp kiểm tra đã ignore.
-8. Stage các thay đổi thuộc phạm vi commit, gồm cả source và bản bàn giao `handoff-html/` tương ứng, tạo commit message ngắn mô tả thay đổi và commit.
+8. Stage các thay đổi thuộc phạm vi commit, gồm cả source và bản bàn giao tương ứng của phase được yêu cầu, tạo commit message ngắn mô tả thay đổi và commit.
 9. Chạy `git push origin main`.
 
 Mỗi lần đẩy lên GitHub, tự kiểm tra và sửa bug, lỗi chuyển đổi, cache hoặc artifact cũ liên quan trong phạm vi project; chạy lại kiểm tra phần bị ảnh hưởng để đảm bảo handoff đúng cấu trúc, code sạch và khớp implementation. Kiểm tra trên bản build hiện tại, restart server sau build khi cần; không xóa dữ liệu hoặc local changes để xử lý cache. Chỉ dừng và báo nếu có conflict, file bất thường chưa xác định được phạm vi, hoặc lỗi không thể tự xử lý an toàn. Không push khi kiểm tra cần thiết còn lỗi và không tự đưa file bất thường vào commit.

@@ -1,0 +1,26 @@
+{
+  "date": "2026-10-21",
+  "build": "passed",
+  "results": [
+    {
+      "width": 1440,
+      "position": "sticky",
+      "passed": true
+    },
+    {
+      "width": 1024,
+      "position": "sticky",
+      "passed": true
+    },
+    {
+      "width": 768,
+      "position": "static",
+      "passed": true
+    },
+    {
+      "width": 390,
+      "position": "static",
+      "passed": true
+    }
+  ]
+}

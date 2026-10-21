@@ -67,11 +67,27 @@ const categoryContent: Record<string, { metrics: string[]; narratives: string[] 
 const clean = (label: string) => label.replace(/\*$/, '');
 export type DossierEntry = { label: string; value: string };
 
+// Summaries of the same fixture figures used in the detailed activity text.
+const categoryHighlights: Record<string, { value: string; label: string }[]> = {
+  'tru-cot-1': [{ value: '4,8 triệu', label: 'Lượt khách' }, { value: '12.600 tỷ', label: 'Tổng thu du lịch' }, { value: '+18%', label: 'Tăng trưởng tổng thu' }],
+  'tru-cot-2': [{ value: '42.500', label: 'Lượt khách phục vụ' }, { value: '286 tỷ', label: 'Doanh thu' }, { value: '+21%', label: 'Tăng trưởng doanh thu' }],
+  'tru-cot-3': [{ value: '240', label: 'Phòng lưu trú' }, { value: '78%', label: 'Công suất phòng' }, { value: '9,1/10', label: 'Đánh giá Booking' }],
+  'tru-cot-4': [{ value: '42', label: 'Villa nghỉ dưỡng' }, { value: '76%', label: 'Công suất phòng' }, { value: '62%', label: 'Nhân sự địa phương' }],
+  'tru-cot-5': [{ value: '32', label: 'Đường bay' }, { value: '6,2 triệu', label: 'Hành khách' }, { value: '89,6%', label: 'Chuyến bay đúng giờ' }],
+  'tru-cot-6': [{ value: '86.000', label: 'Lượt khách tham gia' }, { value: '+24%', label: 'Tăng trưởng lượt khách' }, { value: '94%', label: 'Khách hài lòng' }],
+  'tien-phong-2': [{ value: '28', label: 'Cơ sở tham gia' }, { value: '18 tấn', label: 'Nhựa dùng một lần được giảm' }, { value: '240', label: 'Lao động được tập huấn' }],
+  'tien-phong-3': [{ value: '−26%', label: 'Rác thải chôn lấp' }, { value: '−19%', label: 'Nước tiêu thụ mỗi khách' }, { value: '70%', label: 'Nhà cung cấp phân loại rác' }],
+  'tien-phong-4': [{ value: '18.600', label: 'Lượt mua' }, { value: '5,2 tỷ', label: 'Doanh thu' }, { value: '92%', label: 'Hoàn thành hành trình' }],
+  'tien-phong-5': [{ value: '8', label: 'Cơ sở triển khai' }, { value: '3.600 giờ', label: 'Xử lý được tiết kiệm mỗi tháng' }, { value: '78%', label: 'Yêu cầu xử lý trên nền tảng' }],
+  'tien-phong-6': [{ value: '21.500', label: 'Lượt khách' }, { value: '68', label: 'Hộ dân tham gia' }, { value: '145', label: 'Việc làm tạo ra' }],
+  'tien-phong-7': [{ value: '38.000', label: 'Lượt khách phục vụ' }, { value: '24 tỷ', label: 'Doanh thu' }, { value: '4,7/5', label: 'Đánh giá Google' }],
+  'tien-phong-9': [{ value: '16,8 triệu', label: 'Lượt tiếp cận' }, { value: '1,2 triệu', label: 'Lượt tương tác' }, { value: '8.200', label: 'Lượt đặt qua chiến dịch' }],
+};
+
 export function getVotingDossier(profile: VotingProfile) {
   const criteria = categoryCriteria[profile.category];
   const content = categoryContent[profile.categoryId];
   const intro = `${profile.name} mở ra một hành trình kết nối cảnh quan, văn hóa và con người tại ${profile.location}. Từ những điểm dừng quen thuộc đến các hoạt động khám phá mới, mỗi trải nghiệm được xây dựng để du khách có thể chủ động lựa chọn nhịp điệu và cách tận hưởng của riêng mình.`;
-  const overview = `${intro}\n\nTrong năm xét giải, đơn vị tập trung cải thiện chất lượng phục vụ, phát triển sản phẩm theo mùa và mở rộng hợp tác cùng các đối tác địa phương. Những câu chuyện về ẩm thực, nghề truyền thống và đời sống cộng đồng được đưa vào hành trình, giúp mỗi chuyến đi có thêm chiều sâu và sự gắn kết.\n\nĐội ngũ vận hành chú trọng an toàn, sự thuận tiện và khả năng tiếp cận của nhiều nhóm khách. Phản hồi sau trải nghiệm được tổng hợp định kỳ để điều chỉnh dịch vụ; các hoạt động sử dụng tài nguyên và bảo vệ cảnh quan được lồng ghép vào quy trình hằng ngày.`;
   const commonValues = [profile.organization, 'Doanh nghiệp dịch vụ du lịch', `${profile.location}, Việt Nam`, 'https://travel-experience.example.com', 'https://social.example.com/travel-experience'];
   function entries(fields: { label: string }[], values: string[]): DossierEntry[] {
     return fields.map((field, index) => ({ label: clean(field.label), value: values[index] }));
@@ -79,9 +95,10 @@ export function getVotingDossier(profile: VotingProfile) {
   const achievement = content?.metrics[0] ?? 'Trong năm xét giải, hoàn thành chuỗi hoạt động kết nối cộng đồng và giới thiệu văn hóa địa phương; đồng hành cùng các chương trình truyền thông về du lịch có trách nhiệm.';
   return {
     intro,
+    highlights: categoryHighlights[profile.categoryId] ?? [],
     common: entries(registrationFields, commonValues),
     destination: profile.categoryId === 'tru-cot-1' ? { label: 'Cơ quan/đơn vị đại diện đề cử', value: `Trung tâm Xúc tiến Du lịch ${profile.location}` } : null,
-    nomination: entries(nominationFields, [profile.name, overview, `${achievement}\n\nBên cạnh kết quả hoạt động, hồ sơ chú trọng chất lượng phục vụ và sự tham gia của đối tác địa phương. Các chương trình đào tạo và đánh giá định kỳ giúp duy trì trải nghiệm nhất quán xuyên suốt hành trình.`, 'Điểm khác biệt nằm ở sự kết nối giữa trải nghiệm hiện đại và bản sắc địa phương. Du khách không chỉ tham quan mà còn có cơ hội lắng nghe câu chuyện, tương tác với người dân và tham gia hoạt động phù hợp với sở thích. Cách tổ chức linh hoạt cho phép gia đình, nhóm bạn và khách đi riêng cùng tìm thấy một hành trình đáng nhớ.']),
+    nomination: entries(nominationFields.slice(2), [ `${achievement}\n\nBên cạnh kết quả hoạt động, hồ sơ chú trọng chất lượng phục vụ và sự tham gia của đối tác địa phương. Các chương trình đào tạo và đánh giá định kỳ giúp duy trì trải nghiệm nhất quán xuyên suốt hành trình.`, 'Điểm khác biệt nằm ở sự kết nối giữa trải nghiệm hiện đại và bản sắc địa phương. Du khách không chỉ tham quan mà còn có cơ hội lắng nghe câu chuyện, tương tác với người dân và tham gia hoạt động phù hợp với sở thích. Cách tổ chức linh hoạt cho phép gia đình, nhóm bạn và khách đi riêng cùng tìm thấy một hành trình đáng nhớ.']),
     professional: criteria && content ? entries(criteria.fields, content.metrics) : [],
     narratives: criteria && content ? entries(criteria.narratives, content.narratives) : [],
   };

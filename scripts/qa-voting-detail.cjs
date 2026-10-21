@@ -97,8 +97,9 @@ const assert = require('node:assert/strict');
         assert.ok(await page.locator('.voting-gallery-arrow > span').first().evaluate(el => getComputedStyle(el).maskImage.includes('/assets/key-visual/arrow.svg')));
       }
       await page.goto(`${base}/binh-chon/tru-cot-1-ho-so-1`, { waitUntil: 'networkidle' });
-      assert.equal(await page.locator('.voting-gallery-arrow').count(), 0);
-      results.push({ width, ...layout, slider: 'arrows, keyboard, thumbnails passed', copyLink: 'passed', facebook: 'passed', surveyDialog: 'open/close passed', singleImage: 'passed' });
+      assert.equal(await page.locator('.voting-gallery-arrow').count(), 2);
+      assert.equal(await page.locator('.voting-gallery-slide').count(), 6);
+      results.push({ width, ...layout, slider: 'arrows, keyboard, thumbnails passed', copyLink: 'passed', facebook: 'passed', surveyDialog: 'open/close passed', daNangGallery: '6 images passed' });
       await context.close();
     }
     const criteriaSource = await fs.readFile('src/app/(phase-1)/dang-ky-de-cu/category-criteria.ts', 'utf8');
@@ -113,9 +114,10 @@ const assert = require('node:assert/strict');
         const labels = await page.locator('.voting-dossier-narratives h3').allTextContents();
         if (name) {
           for (const field of [...criteria[name].fields, ...criteria[name].narratives]) assert.ok(labels.includes(field.label), `${id}: ${field.label}`);
-          assert.equal(labels.length, 4 + criteria[name].fields.length + criteria[name].narratives.length);
-        } else assert.ok(await page.getByText('Hạng mục do Ban tổ chức đề cử, không có bộ trường đăng ký chuyên môn riêng.').count());
-        assert.equal(await page.locator('.voting-dossier-section').count(), 4);
+          assert.equal(labels.length, 2 + criteria[name].fields.length + criteria[name].narratives.length);
+          assert.equal(await page.locator('.voting-dossier-highlights dd').count(), 3);
+        } else assert.equal(await page.locator('.voting-dossier-highlights, #dossier-professional').count(), 0);
+        assert.equal(await page.locator('.voting-dossier-section').count(), name ? 5 : 3);
         assert.equal(await page.locator('#dossier-evidence, #dossier-compliance, .voting-dossier-document').count(), 0);
         assert.equal(await page.locator('.voting-detail-copy').getByText('Người đại diện hồ sơ', { exact: true }).count(), 0);
         assert.equal(await page.locator('.voting-dossier-section h2 > span').count(), 0);

@@ -1,0 +1,135 @@
+{
+  "date": "2026-10-21",
+  "build": "passed",
+  "reducedMotion": "passed including mid-animation change",
+  "results": [
+    {
+      "width": 1440,
+      "category": "tru-cot-1",
+      "expected": [
+        "4,8 triệu",
+        "12.600 tỷ",
+        "+18%"
+      ],
+      "running": [
+        "0,5 triệu",
+        "1.456 tỷ",
+        "+2%"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "category": "tru-cot-3",
+      "expected": [
+        "240",
+        "78%",
+        "9,1/10"
+      ],
+      "running": [
+        "28",
+        "9%",
+        "1,0/10"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-3",
+      "expected": [
+        "−26%",
+        "−19%",
+        "70%"
+      ],
+      "running": [
+        "−3%",
+        "−2%",
+        "8%"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-5",
+      "expected": [
+        "8",
+        "3.600 giờ",
+        "78%"
+      ],
+      "running": [
+        "0",
+        "424 giờ",
+        "9%"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "category": "tru-cot-1",
+      "expected": [
+        "4,8 triệu",
+        "12.600 tỷ",
+        "+18%"
+      ],
+      "running": [
+        "0,5 triệu",
+        "1.427 tỷ",
+        "+2%"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "category": "tru-cot-3",
+      "expected": [
+        "240",
+        "78%",
+        "9,1/10"
+      ],
+      "running": [
+        "28",
+        "9%",
+        "1,0/10"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "category": "tien-phong-3",
+      "expected": [
+        "−26%",
+        "−19%",
+        "70%"
+      ],
+      "running": [
+        "−3%",
+        "−2%",
+        "8%"
+      ],
+      "once": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "category": "tien-phong-5",
+      "expected": [
+        "8",
+        "3.600 giờ",
+        "78%"
+      ],
+      "running": [
+        "0",
+        "428 giờ",
+        "9%"
+      ],
+      "once": true,
+      "overflow": false
+    }
+  ]
+}

@@ -47,6 +47,7 @@ export function VotingDetailGallery({ images }: { images: VotingProfile['gallery
       <h2 id={zoomTitle} className="sr-only">Xem ảnh phóng to: {image.alt}</h2>
       <button type="button" className="voting-lightbox-close" aria-label="Đóng ảnh phóng to" onClick={() => zoomDialog.current?.close()}><UiIcon name="cross" /></button>
       {zoomOpen && <Image src={image.src} alt={image.alt} width={1920} height={1280} unoptimized />}
+      {zoomOpen && <p className="voting-gallery-credit">{image.caption} <a href={image.source} target="_blank" rel="noopener noreferrer">Nguồn ảnh</a><span> · Hiển thị theo khung cắt 5:3 trong slider.</span></p>}
     </dialog>
   </div>;
 }

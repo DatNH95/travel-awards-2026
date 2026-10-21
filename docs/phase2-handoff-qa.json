@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-21T07:41:59.206Z",
+  "date": "2026-10-21T10:15:57.682Z",
   "checks": [
     {
       "staticPages": 152,
@@ -18,8 +18,12 @@
       "reload": "resets"
     },
     {
-      "gallery": "one and six images; zoom/Escape passed",
+      "gallery": "Da Nang and Phu Quoc: six images, source credits, zoom/Escape passed",
       "relatedProfiles": 9
+    },
+    {
+      "countup": "source/static final value, stable width, no replay and reduced motion passed",
+      "ad": "sticky desktop; normal tablet/mobile"
     }
   ],
   "measurements": [

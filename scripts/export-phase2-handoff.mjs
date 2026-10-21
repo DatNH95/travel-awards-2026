@@ -59,6 +59,7 @@ try {
     groups[index<6?0:1].push({id:category,name:await page.locator('.voting-results-heading h3').innerText()});
     cards[category]=await page.locator('.voting-grid').innerHTML();
   }
+  const galleryCredits=new Map();
   const routes=[['/phase-2','index.html'],['/binh-chon','binh-chon.html'],...profiles.map(slug=>[`/binh-chon/${slug}`,`ho-so-${slug}.html`])];
   for(const [index,[route,file]] of routes.entries()) {
     await page.goto(base+route,{waitUntil:'networkidle'});
@@ -73,8 +74,22 @@ try {
     }
     // Enrich survey triggers with semantic public identifiers for vanilla handlers.
     const detail=route.startsWith('/binh-chon/')?route.split('/').pop():null;
-    let html=await page.evaluate(({extraPanel,detail})=>{
+    if(detail) {
+      const images=await page.locator('.voting-gallery-slide').evaluateAll(nodes=>nodes.map(node=>node.getAttribute('src')));
+      for(const [imageIndex,src] of images.entries()) {
+        if(galleryCredits.has(src))continue;
+        const thumbnails=page.locator('.voting-gallery-thumbnails button');
+        if(await thumbnails.count())await thumbnails.nth(imageIndex).click();
+        await page.getByRole('button',{name:'Phóng to ảnh',exact:true}).click();
+        galleryCredits.set(src,await page.locator('.voting-gallery-credit').innerHTML());
+        await page.getByRole('button',{name:'Đóng ảnh phóng to',exact:true}).click();
+      }
+      const firstThumbnail=page.locator('.voting-gallery-thumbnails button').first();
+      if(await firstThumbnail.count())await firstThumbnail.click();
+    }
+    let html=await page.evaluate(({extraPanel,detail,credits})=>{
       const doc=document.cloneNode(true);
+      doc.querySelectorAll('.voting-gallery-slide').forEach(node=>{node.dataset.credit=credits[node.getAttribute('src')]||'';});
       if(extraPanel) {const holder=doc.createElement('div');holder.innerHTML=extraPanel;holder.firstChild.hidden=true;doc.querySelector('[role=tabpanel]').after(holder.firstChild);}
       doc.querySelectorAll('script,link,style,meta[name=next-size-adjust],next-route-announcer,nextjs-portal').forEach(node=>node.remove());
       const walker=doc.createTreeWalker(doc,NodeFilter.SHOW_COMMENT),comments=[];
@@ -96,7 +111,7 @@ try {
       doc.querySelectorAll('[id]').forEach(node=>{if(/^_R_|^:R/.test(node.id))ids.set(node.id,`phase2-control-${++n}`);});
       doc.querySelectorAll('*').forEach(node=>{for(const attr of ['id','for','aria-controls','aria-labelledby','aria-describedby'])if(node.hasAttribute(attr))node.setAttribute(attr,node.getAttribute(attr).split(' ').map(value=>ids.get(value)||value).join(' '));});
       return '<!doctype html>\n'+doc.documentElement.outerHTML;
-    },{extraPanel,detail});
+    },{extraPanel,detail,credits:Object.fromEntries(galleryCredits)});
     html=portable(html).replace(/><(?=\/?(?:html|head|body|header|footer|nav|section|article|aside|div|form|fieldset|ul|ol|li|h[1-6]|p|dialog|link|meta|script)\b)/g,'>\n<');
     await fs.writeFile(path.join(out,file),html);
     if(index%25===0)console.log(`Phase 2: ${index+1}/${routes.length}`);

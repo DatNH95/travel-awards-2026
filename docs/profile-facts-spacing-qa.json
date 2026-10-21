@@ -1,0 +1,219 @@
+{
+  "date": "2026-10-21",
+  "build": "passed",
+  "results": [
+    {
+      "width": 1440,
+      "rows": [
+        {
+          "label": "Đơn vị / cá nhân",
+          "top": 1516.78125,
+          "bottom": 1569.78125,
+          "height": 53,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Loại hình",
+          "top": 1569.78125,
+          "bottom": 1622.78125,
+          "height": 53,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Địa điểm",
+          "top": 1622.78125,
+          "bottom": 1675.78125,
+          "height": 53,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Website",
+          "top": 1675.78125,
+          "bottom": 1728.78125,
+          "height": 53,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Fanpage",
+          "top": 1728.78125,
+          "bottom": 1781.78125,
+          "height": 53,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Đơn vị đại diện",
+          "top": 1781.78125,
+          "bottom": 1833.78125,
+          "height": 52,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "0px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        }
+      ]
+    },
+    {
+      "width": 390,
+      "rows": [
+        {
+          "label": "Đơn vị / cá nhân",
+          "top": 1571.859375,
+          "bottom": 1652.859375,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Loại hình",
+          "top": 1652.859375,
+          "bottom": 1733.859375,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Địa điểm",
+          "top": 1733.859375,
+          "bottom": 1814.859375,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Website",
+          "top": 1814.859375,
+          "bottom": 1895.859375,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Fanpage",
+          "top": 1895.859375,
+          "bottom": 1976.859375,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Đơn vị đại diện",
+          "top": 1976.859375,
+          "bottom": 2056.859375,
+          "height": 80,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "0px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        }
+      ]
+    },
+    {
+      "width": 320,
+      "rows": [
+        {
+          "label": "Đơn vị / cá nhân",
+          "top": 1657.015625,
+          "bottom": 1738.015625,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Loại hình",
+          "top": 1738.015625,
+          "bottom": 1819.015625,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Địa điểm",
+          "top": 1819.015625,
+          "bottom": 1900.015625,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Website",
+          "top": 1900.015625,
+          "bottom": 1981.015625,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Fanpage",
+          "top": 1981.015625,
+          "bottom": 2062.015625,
+          "height": 81,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "1px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        },
+        {
+          "label": "Đơn vị đại diện",
+          "top": 2062.015625,
+          "bottom": 2142.015625,
+          "height": 80,
+          "paddingTop": "14px",
+          "paddingBottom": "14px",
+          "border": "0px",
+          "labelLine": "24px",
+          "valueLine": "24px"
+        }
+      ]
+    }
+  ]
+}

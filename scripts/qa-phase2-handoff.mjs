@@ -66,11 +66,27 @@ try {
   checks.push({search:'passed',tabs:'passed',categories:15,incompleteSurvey:'not recorded',completedSurvey:'locks whole category',community:'completed events only',fixture245:'unchanged',reload:'resets'});
   for(const count of [1,2]){
     await page.goto(pathToFileURL(path.join(root,`ho-so-tru-cot-1-ho-so-${count}.html`)).href,{waitUntil:'networkidle'});
-    if(count===2){await page.getByRole('button',{name:'Ảnh tiếp theo',exact:true}).click();assert.equal(await page.locator('.voting-gallery-slide[data-active=true]').count(),1);assert.equal(await page.locator('.voting-gallery-count').innerText(),'2 / 6');}
-    await page.getByRole('button',{name:'Phóng to ảnh',exact:true}).click();assert.equal(await page.locator('.voting-gallery-lightbox[open] img').count(),1);await page.keyboard.press('Escape');assert.equal(await page.locator('dialog[open]').count(),0);
+    assert.equal(await page.locator('.voting-gallery-slide').count(),6);
+    await page.locator('.voting-gallery-slide').evaluateAll(images=>Promise.all(images.map(image=>image.decode())));
+    await page.getByRole('button',{name:'Ảnh tiếp theo',exact:true}).click();assert.equal(await page.locator('.voting-gallery-slide[data-active=true]').count(),1);assert.equal(await page.locator('.voting-gallery-count').innerText(),'2 / 6');
+    await page.getByRole('button',{name:'Phóng to ảnh',exact:true}).click();assert.equal(await page.locator('.voting-gallery-lightbox[open] img').count(),1);assert.equal(await page.locator('.voting-gallery-credit a').getAttribute('href'),count===1?'https://commons.wikimedia.org/wiki/File:Da_Nang_Dragon_Bridge_(I).jpg':'https://vinwonders.com/en/vinwonders-phu-quoc/');await page.keyboard.press('Escape');assert.equal(await page.locator('dialog[open]').count(),0);
     assert.equal(await page.locator('.voting-related-track .voting-card').count(),9);
   }
-  checks.push({gallery:'one and six images; zoom/Escape passed',relatedProfiles:9});
+  checks.push({gallery:'Da Nang and Phu Quoc: six images, source credits, zoom/Escape passed',relatedProfiles:9});
+  for(const url of [base+'/binh-chon/tru-cot-1-ho-so-1',pathToFileURL(path.join(root,'ho-so-tru-cot-1-ho-so-1.html')).href]) {
+    await page.emulateMedia({reducedMotion:'no-preference'});await page.goto(url,{waitUntil:'networkidle'});
+    const statistic=page.locator('.voting-statistic-count').first();
+    await statistic.scrollIntoViewIfNeeded();const startWidth=await statistic.evaluate(node=>node.getBoundingClientRect().width);
+    // Wait for the observer to start before accepting the server-rendered final value.
+    await page.waitForFunction(()=>{const node=document.querySelector('.voting-statistic-count');return node.querySelector('.voting-statistic-value').textContent!==node.getAttribute('aria-label');},{},{timeout:1500});
+    await page.waitForFunction(()=>[...document.querySelectorAll('.voting-statistic-count')].every(node=>node.querySelector('.voting-statistic-value').textContent===node.getAttribute('aria-label')),{},{timeout:4000});
+    assert(Math.abs(await statistic.evaluate(node=>node.getBoundingClientRect().width)-startWidth)<1);
+    await page.evaluate(()=>scrollTo(0,0));await statistic.scrollIntoViewIfNeeded();assert.equal(await statistic.locator('.voting-statistic-value').innerText(),await statistic.getAttribute('aria-label'));
+    await page.emulateMedia({reducedMotion:'reduce'});await page.reload({waitUntil:'networkidle'});assert.equal(await statistic.locator('.voting-statistic-value').innerText(),await statistic.getAttribute('aria-label'));
+    for(const width of [1440,1024,768,390]) {await page.setViewportSize({width,height:1000});const position=await page.locator('.voting-detail-ad').evaluate(node=>getComputedStyle(node).position);assert.equal(position,width>=1024?'sticky':'static');}
+  }
+  checks.push({countup:'source/static final value, stable width, no replay and reduced motion passed',ad:'sticky desktop; normal tablet/mobile'});
+  await page.setViewportSize({width:1440,height:1000});
   await page.goto(pathToFileURL(path.join(root,'index.html')).href,{waitUntil:'networkidle'});await page.screenshot({path:path.join(root,'qa-desktop.png'),fullPage:true});await page.setViewportSize({width:390,height:844});await page.reload({waitUntil:'networkidle'});await page.screenshot({path:path.join(root,'qa-mobile.png'),fullPage:true});
   assert.deepEqual(errors,[]);
   const differences=measurements.filter(item=>item.differences.length);

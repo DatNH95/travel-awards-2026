@@ -26,6 +26,14 @@ const phuQuocGallery = [demoImages[1], demoImages[2], ...[
   { src: 'https://static.vinwonders.com/production/2025/08/Anh-chup-man-hinh-2025-08-05-152810-1.png', alt: 'Đoàn diễu hành Carnival tại VinWonders Phú Quốc' },
 ].map(image => ({ ...image, caption: 'Ảnh: VinWonders.', source: 'https://vinwonders.com/en/vinwonders-phu-quoc/' }))];
 
+const daNangGallery = [demoImages[0], ...[
+  { src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/b/bd/Da_Nang_Dragon_Bridge_%28I%29.jpg/1280px-Da_Nang_Dragon_Bridge_%28I%29.jpg', alt: 'Toàn cảnh cầu Rồng bắc qua sông Hàn', caption: 'Ảnh: Supanut Arunoprayote / Wikimedia Commons, CC BY 4.0.', source: 'https://commons.wikimedia.org/wiki/File:Da_Nang_Dragon_Bridge_(I).jpg' },
+  { src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/3/3c/Han_River_in_Da_Nang_1.jpg/1280px-Han_River_in_Da_Nang_1.jpg', alt: 'Cảnh quan hai bên sông Hàn tại Đà Nẵng', caption: 'Ảnh: Christophe95 / Wikimedia Commons, CC BY-SA 4.0.', source: 'https://commons.wikimedia.org/wiki/File:Han_River_in_Da_Nang_1.jpg' },
+  { src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/e/e5/My_Khe_Beach_Danang_Coastline.jpg/1280px-My_Khe_Beach_Danang_Coastline.jpg', alt: 'Đường bờ biển Mỹ Khê nhìn từ trên cao', caption: 'Ảnh: Jpatokal / Wikimedia Commons, CC BY-SA 4.0.', source: 'https://commons.wikimedia.org/wiki/File:My_Khe_Beach_Danang_Coastline.jpg' },
+  { src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/5/55/My_Khe_Beach_1.jpg/1280px-My_Khe_Beach_1.jpg', alt: 'Bãi cát và sóng biển tại Mỹ Khê, Đà Nẵng', caption: 'Ảnh: Christophe95 / Wikimedia Commons, CC BY-SA 4.0.', source: 'https://commons.wikimedia.org/wiki/File:My_Khe_Beach_1.jpg' },
+  { src: 'https://thumb.wikimedia.org/wikipedia/commons/thumb/0/08/Lady_Buddha_Statue_at_Linh_Ung_Pagoda.jpg/1280px-Lady_Buddha_Statue_at_Linh_Ung_Pagoda.jpg', alt: 'Tượng Quan Âm tại chùa Linh Ứng, Đà Nẵng', caption: 'Ảnh: SerChevalerie / Wikimedia Commons, CC0.', source: 'https://commons.wikimedia.org/wiki/File:Lady_Buddha_Statue_at_Linh_Ung_Pagoda.jpg' },
+]];
+
 // Front-end fixtures only. These are not official nominees or survey questions.
 export const votingProfiles = awardGroups.flatMap((group, groupIndex) => group.categories.flatMap((category, categoryIndex) =>
   Array.from({length: 10}, (_, index) => {
@@ -39,7 +47,7 @@ export const votingProfiles = awardGroups.flatMap((group, groupIndex) => group.c
       organization: 'Vingroup', // User-supplied demo label; not an ownership/nomination assertion.
       location: index % 3 === 0 ? 'Đà Nẵng' : 'Phú Quốc',
       image,
-      gallery: index % 3 === 0 ? [image] : [image, ...phuQuocGallery.filter(item => item.src !== image.src)],
+      gallery: index % 3 === 0 ? daNangGallery : [image, ...phuQuocGallery.filter(item => item.src !== image.src)],
       surveyCount: 245, // Layout fixture only; never incremented by the demo survey.
       summary: 'Khám phá những giá trị địa phương qua hành trình gắn kết cảnh quan, văn hóa và con người.',
       description: 'Hồ sơ minh họa cho trải nghiệm bình chọn Travel Awards 2026. Nội dung giới thiệu cách một hành trình kết nối du khách với thiên nhiên, văn hóa và cộng đồng tại điểm đến. Thông tin này sẽ được thay thế bằng hồ sơ được duyệt khi có dữ liệu chính thức.',

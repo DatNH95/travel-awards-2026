@@ -1,0 +1,196 @@
+{
+  "date": "2026-10-21",
+  "build": "passed",
+  "typecheck": "passed",
+  "results": [
+    {
+      "width": 1440,
+      "category": "tru-cot-1",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tru-cot-2",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tru-cot-3",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tru-cot-4",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tru-cot-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tru-cot-6",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-1",
+      "stats": 0,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-2",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-3",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-4",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-6",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-7",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-8",
+      "stats": 0,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1440,
+      "category": "tien-phong-9",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1024,
+      "category": "tru-cot-1",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1024,
+      "category": "tru-cot-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 1024,
+      "category": "tien-phong-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 768,
+      "category": "tru-cot-1",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 768,
+      "category": "tru-cot-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 768,
+      "category": "tien-phong-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 390,
+      "category": "tru-cot-1",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 390,
+      "category": "tru-cot-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 390,
+      "category": "tien-phong-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 320,
+      "category": "tru-cot-1",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 320,
+      "category": "tru-cot-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    },
+    {
+      "width": 320,
+      "category": "tien-phong-5",
+      "stats": 3,
+      "overflow": false,
+      "publicFields": "passed"
+    }
+  ]
+}

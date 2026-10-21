@@ -123,7 +123,7 @@
     function choose(index){active=(index+slides.length)%slides.length;slides.forEach((slide,i)=>{slide.dataset.active=String(active===i);slide.setAttribute('aria-hidden',String(active!==i));});thumbs.forEach((thumb,i)=>thumb.setAttribute('aria-pressed',String(active===i)));const count=$('.voting-gallery-count',gallery);if(count)count.textContent=`${active+1} / ${slides.length}`;const live=$('figure > .sr-only',gallery);if(live)live.textContent=`Ảnh ${active+1} / ${slides.length}: ${slides[active].alt}`;}
     $('.voting-gallery-prev',gallery)?.addEventListener('click',()=>choose(active-1));$('.voting-gallery-next',gallery)?.addEventListener('click',()=>choose(active+1));thumbs.forEach((thumb,index)=>thumb.addEventListener('click',()=>choose(index)));
     gallery.addEventListener('keydown',event=>{if(['ArrowLeft','ArrowRight'].includes(event.key)){event.preventDefault();choose(active+(event.key==='ArrowLeft'?-1:1));}});
-    $('.voting-gallery-zoom',gallery).addEventListener('click',()=>{ $('img',dialog)?.remove();const image=slides[active].cloneNode();image.removeAttribute('class');image.removeAttribute('aria-hidden');image.removeAttribute('data-active');dialog.append(image);$('h2',dialog).textContent=`Xem ảnh phóng to: ${image.alt}`;showDialog(dialog);});
+    $('.voting-gallery-zoom',gallery).addEventListener('click',()=>{ $('img',dialog)?.remove();$('.voting-gallery-credit',dialog)?.remove();const image=slides[active].cloneNode();image.removeAttribute('class');image.removeAttribute('aria-hidden');image.removeAttribute('data-active');image.removeAttribute('data-credit');dialog.append(image);if(slides[active].dataset.credit){const credit=document.createElement('p');credit.className='voting-gallery-credit';credit.innerHTML=slides[active].dataset.credit;dialog.append(credit);}$('h2',dialog).textContent=`Xem ảnh phóng to: ${image.alt}`;showDialog(dialog);});
     $('.voting-lightbox-close',gallery).addEventListener('click',()=>dialog.close());dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
   }
   // Native horizontal tracks retain touch swiping, buttons and responsive widths.
@@ -148,6 +148,17 @@
   bindTrack(recent,$$('.voting-recent-controls button'),$('.voting-recent-position'),$$('.voting-recent-thumbnails button'));
   bindTrack($('.voting-related-track'),$$('.voting-related-controls button'));
   applyCompleted();
+  // Match the source's one-time 1800 ms count-up; screen readers read final values.
+  $$('.voting-statistic-count').forEach(element=>{
+    const value=element.getAttribute('aria-label'),display=$('.voting-statistic-value',element),parts=value?.match(/^([+−-]?)(\d[\d.]*)(,\d+)?(.*)$/);
+    if(!display||!parts||reduced()||!('IntersectionObserver' in window))return;
+    const [,sign,integer,fraction='',suffix]=parts,decimals=fraction?fraction.length-1:0,target=Number(integer.replaceAll('.','')+fraction.replace(',','.')),factor=10**decimals;
+    if(!Number.isFinite(target))return;
+    const formatter=new Intl.NumberFormat('vi-VN',{minimumFractionDigits:decimals,maximumFractionDigits:decimals});let frame=0;
+    const preference=matchMedia('(prefers-reduced-motion: reduce)');
+    const observer=new IntersectionObserver(entries=>{if(!entries.some(entry=>entry.isIntersecting))return;observer.disconnect();const started=performance.now();display.textContent=sign+formatter.format(0)+suffix;function tick(now){const progress=Math.min((now-started)/1800,1);display.textContent=progress===1?value:sign+formatter.format(Math.floor(progress*target*factor)/factor)+suffix;if(progress<1)frame=requestAnimationFrame(tick);}frame=requestAnimationFrame(tick);},{threshold:.4});observer.observe(element);
+    preference.addEventListener('change',()=>{if(preference.matches){observer.disconnect();cancelAnimationFrame(frame);display.textContent=value;}});
+  });
   const countdowns=$$('.home-countdown');
   function tick(){const seconds=Math.max(0,Math.floor((Date.parse('2026-11-20T23:59:00+07:00')-Date.now())/1000)),values=[Math.floor(seconds/86400),Math.floor(seconds/3600)%24,Math.floor(seconds/60)%60,seconds%60];countdowns.forEach(block=>{$$('.home-countdown-value',block).forEach((node,i)=>node.textContent=String(values[i]).padStart(2,'0'));if(!seconds)$('.home-countdown-deadline',block).textContent='Đã hết thời gian khảo sát';});if(seconds&&countdowns.length)setTimeout(tick,1000);}tick();
 })();

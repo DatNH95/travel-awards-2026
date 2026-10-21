@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-21",
+  "build": "passed",
+  "results": [
+    {
+      "width": 1440,
+      "images": 6,
+      "allImagesLoaded": true,
+      "thumbnail": true,
+      "zoom": true,
+      "wraparound": true,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "images": 6,
+      "allImagesLoaded": true,
+      "thumbnail": true,
+      "zoom": true,
+      "wraparound": true,
+      "overflow": false
+    }
+  ]
+}

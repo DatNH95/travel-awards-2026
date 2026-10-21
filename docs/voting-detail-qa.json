@@ -158,8 +158,8 @@
         "top": 1044.84375,
         "left": 170,
         "width": 760,
-        "height": 2789.765625,
-        "bottom": 3834.609375
+        "height": 2697.609375,
+        "bottom": 3742.453125
       },
       "ad": {
         "top": 168.390625,
@@ -172,7 +172,7 @@
       "copyLink": "passed",
       "facebook": "passed",
       "surveyDialog": "open/close passed",
-      "singleImage": "passed"
+      "daNangGallery": "6 images passed"
     },
     {
       "width": 768,
@@ -209,21 +209,21 @@
         "top": 990.359375,
         "left": 30.71875,
         "width": 706.546875,
-        "height": 2895.328125,
-        "bottom": 3885.6875
+        "height": 2803.171875,
+        "bottom": 3793.53125
       },
       "ad": {
-        "top": 3925.6875,
+        "top": 3833.53125,
         "left": 233.984375,
         "width": 300,
         "height": 600,
-        "bottom": 4525.6875
+        "bottom": 4433.53125
       },
       "slider": "arrows, keyboard, thumbnails passed",
       "copyLink": "passed",
       "facebook": "passed",
       "surveyDialog": "open/close passed",
-      "singleImage": "passed"
+      "daNangGallery": "6 images passed"
     },
     {
       "width": 390,
@@ -260,21 +260,21 @@
         "top": 971.765625,
         "left": 20,
         "width": 350,
-        "height": 4379.390625,
-        "bottom": 5351.15625
+        "height": 3880.28125,
+        "bottom": 4852.046875
       },
       "ad": {
-        "top": 5391.15625,
+        "top": 4892.046875,
         "left": 45,
         "width": 300,
         "height": 600,
-        "bottom": 5991.15625
+        "bottom": 5492.046875
       },
       "slider": "arrows, keyboard, thumbnails passed",
       "copyLink": "passed",
       "facebook": "passed",
       "surveyDialog": "open/close passed",
-      "singleImage": "passed"
+      "daNangGallery": "6 images passed"
     },
     {
       "width": 320,
@@ -311,21 +311,21 @@
         "top": 968.953125,
         "left": 20,
         "width": 280,
-        "height": 5020.546875,
-        "bottom": 5989.5
+        "height": 4381.328125,
+        "bottom": 5350.28125
       },
       "ad": {
-        "top": 6029.5,
+        "top": 5390.28125,
         "left": 20,
         "width": 280,
         "height": 560,
-        "bottom": 6589.5
+        "bottom": 5950.28125
       },
       "slider": "arrows, keyboard, thumbnails passed",
       "copyLink": "passed",
       "facebook": "passed",
       "surveyDialog": "open/close passed",
-      "singleImage": "passed"
+      "daNangGallery": "6 images passed"
     }
   ]
 }
