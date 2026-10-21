@@ -1,0 +1,331 @@
+{
+  "date": "2026-10-20",
+  "build": "passed",
+  "typecheck": "passed",
+  "categoryCoverage": [
+    {
+      "id": "tru-cot-1",
+      "name": "Điểm đến du lịch của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tru-cot-2",
+      "name": "Doanh nghiệp lữ hành của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tru-cot-3",
+      "name": "Khách sạn của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tru-cot-4",
+      "name": "Khu nghỉ dưỡng của năm (Resort)",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tru-cot-5",
+      "name": "Hãng hàng không du lịch của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tru-cot-6",
+      "name": "Trải nghiệm du lịch của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-1",
+      "name": null,
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-2",
+      "name": "Sáng kiến du lịch bền vững của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-3",
+      "name": "Điểm đến du lịch xanh của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-4",
+      "name": "Sản phẩm du lịch sáng tạo của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-5",
+      "name": "Chuyển đổi số xuất sắc trong du lịch",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-6",
+      "name": "Làng du lịch cộng đồng tiêu biểu của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-7",
+      "name": "Trải nghiệm ẩm thực du lịch của năm",
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-8",
+      "name": null,
+      "fieldCoverage": "passed"
+    },
+    {
+      "id": "tien-phong-9",
+      "name": "Chiến dịch quảng bá du lịch của năm",
+      "fieldCoverage": "passed"
+    }
+  ],
+  "sharedUi": [
+    {
+      "route": "/",
+      "mobileOverflow": false,
+      "icons": "Phase 1 SVG retained",
+      "cta": "passed"
+    },
+    {
+      "route": "/phase-2",
+      "mobileOverflow": false,
+      "icons": "local font loaded",
+      "cta": "passed"
+    },
+    {
+      "route": "/binh-chon",
+      "mobileOverflow": false,
+      "icons": "local font loaded",
+      "cta": "passed"
+    },
+    {
+      "route": "/dang-ky-de-cu",
+      "mobileOverflow": false,
+      "icons": "Phase 1 SVG retained",
+      "cta": "passed"
+    },
+    {
+      "route": "/the-le",
+      "mobileOverflow": false,
+      "icons": "Phase 1 SVG retained",
+      "cta": "passed"
+    },
+    {
+      "route": "/phase-2/design-system#icons",
+      "mobileOverflow": false,
+      "icons": "local font loaded",
+      "cta": "passed"
+    }
+  ],
+  "errors": [],
+  "warnings": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found) http://127.0.0.1:3001/favicon.ico"
+  ],
+  "warningNote": "Existing site has no favicon.ico; unrelated to the profile layout.",
+  "results": [
+    {
+      "width": 1440,
+      "overflow": false,
+      "gallery": {
+        "top": 168.390625,
+        "left": 170,
+        "width": 760,
+        "height": 532.796875,
+        "bottom": 701.1875
+      },
+      "title": {
+        "top": 725.1875,
+        "left": 170,
+        "width": 760,
+        "height": 100.78125,
+        "bottom": 825.96875
+      },
+      "survey": {
+        "top": 967.75,
+        "left": 170,
+        "width": 374.359375,
+        "height": 53.09375,
+        "bottom": 1020.84375
+      },
+      "share": {
+        "top": 972.296875,
+        "left": 568.359375,
+        "width": 176.46875,
+        "height": 44,
+        "bottom": 1016.296875
+      },
+      "body": {
+        "top": 1044.84375,
+        "left": 170,
+        "width": 760,
+        "height": 2789.765625,
+        "bottom": 3834.609375
+      },
+      "ad": {
+        "top": 168.390625,
+        "left": 970,
+        "width": 300,
+        "height": 600,
+        "bottom": 768.390625
+      },
+      "slider": "arrows, keyboard, thumbnails passed",
+      "copyLink": "passed",
+      "facebook": "passed",
+      "surveyDialog": "open/close passed",
+      "singleImage": "passed"
+    },
+    {
+      "width": 768,
+      "overflow": false,
+      "gallery": {
+        "top": 168.390625,
+        "left": 30.71875,
+        "width": 706.546875,
+        "height": 500.71875,
+        "bottom": 669.109375
+      },
+      "title": {
+        "top": 693.109375,
+        "left": 30.71875,
+        "width": 706.546875,
+        "height": 78.375,
+        "bottom": 771.484375
+      },
+      "survey": {
+        "top": 913.265625,
+        "left": 30.71875,
+        "width": 374.359375,
+        "height": 53.09375,
+        "bottom": 966.359375
+      },
+      "share": {
+        "top": 917.8125,
+        "left": 429.078125,
+        "width": 176.46875,
+        "height": 44,
+        "bottom": 961.8125
+      },
+      "body": {
+        "top": 990.359375,
+        "left": 30.71875,
+        "width": 706.546875,
+        "height": 2895.328125,
+        "bottom": 3885.6875
+      },
+      "ad": {
+        "top": 3925.6875,
+        "left": 233.984375,
+        "width": 300,
+        "height": 600,
+        "bottom": 4525.6875
+      },
+      "slider": "arrows, keyboard, thumbnails passed",
+      "copyLink": "passed",
+      "facebook": "passed",
+      "surveyDialog": "open/close passed",
+      "singleImage": "passed"
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "gallery": {
+        "top": 218.140625,
+        "left": 20,
+        "width": 350,
+        "height": 286.796875,
+        "bottom": 504.9375
+      },
+      "title": {
+        "top": 528.9375,
+        "left": 20,
+        "width": 350,
+        "height": 117.5625,
+        "bottom": 646.5
+      },
+      "survey": {
+        "top": 788.28125,
+        "left": 20,
+        "width": 350,
+        "height": 91.484375,
+        "bottom": 879.765625
+      },
+      "share": {
+        "top": 903.765625,
+        "left": 20,
+        "width": 176.46875,
+        "height": 44,
+        "bottom": 947.765625
+      },
+      "body": {
+        "top": 971.765625,
+        "left": 20,
+        "width": 350,
+        "height": 4379.390625,
+        "bottom": 5351.15625
+      },
+      "ad": {
+        "top": 5391.15625,
+        "left": 45,
+        "width": 300,
+        "height": 600,
+        "bottom": 5991.15625
+      },
+      "slider": "arrows, keyboard, thumbnails passed",
+      "copyLink": "passed",
+      "facebook": "passed",
+      "surveyDialog": "open/close passed",
+      "singleImage": "passed"
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "gallery": {
+        "top": 218.140625,
+        "left": 20,
+        "width": 280,
+        "height": 244.796875,
+        "bottom": 462.9375
+      },
+      "title": {
+        "top": 486.9375,
+        "left": 20,
+        "width": 280,
+        "height": 156.75,
+        "bottom": 643.6875
+      },
+      "survey": {
+        "top": 785.46875,
+        "left": 20,
+        "width": 280,
+        "height": 91.484375,
+        "bottom": 876.953125
+      },
+      "share": {
+        "top": 900.953125,
+        "left": 20,
+        "width": 176.46875,
+        "height": 44,
+        "bottom": 944.953125
+      },
+      "body": {
+        "top": 968.953125,
+        "left": 20,
+        "width": 280,
+        "height": 5020.546875,
+        "bottom": 5989.5
+      },
+      "ad": {
+        "top": 6029.5,
+        "left": 20,
+        "width": 280,
+        "height": 560,
+        "bottom": 6589.5
+      },
+      "slider": "arrows, keyboard, thumbnails passed",
+      "copyLink": "passed",
+      "facebook": "passed",
+      "surveyDialog": "open/close passed",
+      "singleImage": "passed"
+    }
+  ]
+}

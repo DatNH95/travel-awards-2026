@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-20",
+  "results": [
+    {
+      "width": 1440,
+      "phase1": {
+        "heroHeight": 810,
+        "headingTop": 971,
+        "gapAfterHero": 96,
+        "ctaToCue": 121.6875,
+        "heroContainsCue": true,
+        "ctaBottomPadding": 209.078125,
+        "overflow": false
+      },
+      "phase2": {
+        "heroHeight": 546.953125,
+        "headingTop": 655.140625,
+        "gapAfterHero": 43.1875,
+        "ctaToCue": null,
+        "heroContainsCue": null,
+        "ctaBottomPadding": 40,
+        "overflow": false
+      }
+    },
+    {
+      "width": 768,
+      "phase1": {
+        "heroHeight": 688,
+        "headingTop": 849,
+        "gapAfterHero": 96,
+        "ctaToCue": 55.453125,
+        "heroContainsCue": true,
+        "ctaBottomPadding": 142.84375,
+        "overflow": true
+      },
+      "phase2": {
+        "heroHeight": 482.375,
+        "headingTop": 579.375,
+        "gapAfterHero": 32,
+        "ctaToCue": null,
+        "heroContainsCue": null,
+        "ctaBottomPadding": 40,
+        "overflow": false
+      }
+    },
+    {
+      "width": 390,
+      "phase1": {
+        "heroHeight": 768,
+        "headingTop": 914.75,
+        "gapAfterHero": 32,
+        "ctaToCue": 136.125,
+        "heroContainsCue": true,
+        "ctaBottomPadding": 223.515625,
+        "overflow": false
+      },
+      "phase2": {
+        "heroHeight": 502.5,
+        "headingTop": 649.25,
+        "gapAfterHero": 32,
+        "ctaToCue": null,
+        "heroContainsCue": null,
+        "ctaBottomPadding": 40,
+        "overflow": false
+      }
+    }
+  ]
+}

@@ -1,0 +1,352 @@
+{
+  "date": "2026-10-20",
+  "baselineTag": "phase-1-final",
+  "baselineCommit": "98c6dbb8d87db9f81e044798b320253e79617b28",
+  "comparisons": [
+    {
+      "route": "/",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?preview=3",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?preview=4",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/the-le",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/tin-tuc",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/tin-tuc?page=2",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/tin-tuc/travel-awards-dau-an-tien-phong",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/design-system",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/design-system/landing-preview",
+      "width": 1440,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?preview=3",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/dang-ky-de-cu?preview=4",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/the-le",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/tin-tuc",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/tin-tuc?page=2",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/tin-tuc/travel-awards-dau-an-tien-phong",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    },
+    {
+      "route": "/design-system",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": true,
+      "currentOverflow": true
+    },
+    {
+      "route": "/design-system/landing-preview",
+      "width": 390,
+      "status": 200,
+      "mainTextEqual": true,
+      "mainHeightDifference": 0,
+      "totalHeightDifference": 0,
+      "headerLinksEqual": true,
+      "baselineOverflow": false,
+      "currentOverflow": false
+    }
+  ],
+  "flows": [
+    {
+      "width": 1440,
+      "kind": "baseline",
+      "blockedPersonalCategories": true,
+      "selected": "Khách sạn của năm",
+      "saveDialog": true,
+      "confirmation": true,
+      "reviewPreservesInput": true,
+      "submitDisabled": true,
+      "consentEnablesSubmit": true,
+      "organizerCategoryBlocked": true,
+      "criteriaDeepLink": true
+    },
+    {
+      "width": 1440,
+      "kind": "current",
+      "blockedPersonalCategories": true,
+      "selected": "Khách sạn của năm",
+      "saveDialog": true,
+      "confirmation": true,
+      "reviewPreservesInput": true,
+      "submitDisabled": true,
+      "consentEnablesSubmit": true,
+      "organizerCategoryBlocked": true,
+      "criteriaDeepLink": true
+    },
+    {
+      "width": 390,
+      "kind": "baseline",
+      "blockedPersonalCategories": true,
+      "selected": "Khách sạn của năm",
+      "saveDialog": true,
+      "confirmation": true,
+      "reviewPreservesInput": true,
+      "submitDisabled": true,
+      "consentEnablesSubmit": true,
+      "organizerCategoryBlocked": true,
+      "criteriaDeepLink": true
+    },
+    {
+      "width": 390,
+      "kind": "current",
+      "blockedPersonalCategories": true,
+      "selected": "Khách sạn của năm",
+      "saveDialog": true,
+      "confirmation": true,
+      "reviewPreservesInput": true,
+      "submitDisabled": true,
+      "consentEnablesSubmit": true,
+      "organizerCategoryBlocked": true,
+      "criteriaDeepLink": true
+    }
+  ],
+  "errors": [],
+  "pagination": [
+    {
+      "kind": "baseline",
+      "width": 1440,
+      "pagination": true,
+      "url": "http://127.0.0.1:3101/tin-tuc?page=2#news-latest"
+    },
+    {
+      "kind": "current",
+      "width": 1440,
+      "pagination": true,
+      "url": "http://127.0.0.1:3102/tin-tuc?page=2#news-latest"
+    },
+    {
+      "kind": "baseline",
+      "width": 390,
+      "pagination": true,
+      "url": "http://127.0.0.1:3101/tin-tuc?page=2#news-latest"
+    },
+    {
+      "kind": "current",
+      "width": 390,
+      "pagination": true,
+      "url": "http://127.0.0.1:3102/tin-tuc?page=2#news-latest"
+    }
+  ]
+}

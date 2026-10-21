@@ -10,6 +10,51 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+### Chi tiết hồ sơ — 20.10.2026
+
+- `/binh-chon/[slug]`: desktop hai cột, trái gallery → title → đơn vị/cá nhân và hạng mục → khảo sát + số lượt → Facebook/copy link → body; phải banner có sẵn 300×600. Mobile một cột, quảng cáo sau body.
+- Gallery Phú Quốc có 6 ảnh từ trang VinWonders chính thức, crossfade 550ms, arrow/zoom dùng SVG assets theo yêu cầu; reduced motion tắt transition. Một ảnh ẩn điều khiển, zoom vẫn dùng được. Nút zoom 24×24, nền đen 55%, icon trắng; popup hỗ trợ đóng/Esc.
+- Breadcrumb chi tiết chỉ Trang chủ / Bình chọn. Bỏ caption slider, dòng ghi chú hồ sơ/số liệu demo và nhãn trên banner theo yêu cầu; số 245 vẫn là fixture, không tăng khi khảo sát mẫu. Chưa tích hợp đăng nhập/backend.
+- Body công khai dùng trường chung, giới thiệu, số liệu hoạt động và dấu ấn theo 13 hạng mục; 2 hạng mục do BTC đề cử không tự thêm trường chuyên môn. Bỏ hồ sơ/tệp/link/danh mục minh chứng, cam kết pháp lý và liên hệ người đại diện khỏi trang chi tiết; các thông tin này chỉ dành cho BTC/giám khảo, không đưa vào HTML. Dữ liệu tự điền chỉ phục vụ preview.
+- Giới thiệu hồ sơ 30px; label hạng mục có trophy; dùng line/màu/spacing semantic. Share ở detail tròn 44×44. CTA Khảo sát đổi Bình chọn toàn site, giữ nguyên luồng demo và copy số người khảo sát.
+- Bộ icon UI chung: Flaticon UIcons 4.0.0 Regular Rounded, component UiIcon và specimen /design-system#icons; CSS/WOFF2 self-host trong public/assets/icons/flaticon. Giữ credit Uicons by Flaticon ở footer theo giấy phép miễn phí. Logo/artwork, Facebook và SVG gallery đã chọn giữ nguyên.
+- QA layout/tương tác: `scripts/qa-voting-detail.cjs`, báo cáo `docs/voting-detail-qa.json`; không đưa screenshot QA vào commit.
+- UI share Facebook/copy link ở detail là chuẩn dùng chung: nút tròn 44×44px, gap 8px, icon 18px; áp dụng cả card Homepage Phase 2 và danh sách qua `.voting-card-share`.
+- Các heading nội dung hồ sơ không dùng số thứ tự 01–05; giữ tiêu đề và line phân chia.
+- Cuối detail là “Hồ sơ đề cử khác”: slider ngang dùng VotingCard giống Homepage, 3 card desktop / 2 tablet / 1 mobile, nút trước/sau và vuốt ngang; cùng hạng mục, loại hồ sơ hiện tại.
+- Tiêu đề “Hồ sơ đề cử khác” dùng font-size 30px trên desktop và mobile.
+- Arrow slider hồ sơ khác dùng chung SVG arrow.svg, icon 20px và class voting-slider-arrow-icon với slider ảnh.
+- Detail: cụm share cùng hàng với Bình chọn + số người khảo sát, có border dọc ngăn cách; tự wrap khi màn hình hẹp, thông báo copy dạng tooltip không làm nhảy layout.
+- Thông tin đơn vị/cá nhân: Website dùng UiIcon globe; Fanpage dùng UiIcon facebook từ Flaticon UIcons Brands 4.0.0, self-host cùng bộ Regular Rounded, icon 16px.
+
+## Quy ước route và triển khai Phase 2
+
+- Refinement 20.10.2026: Phase 2 không có CTA/link đăng ký đề cử; AwardTabs dùng prop `phase="voting"`, link hạng mục và “Xem tất cả” dẫn `/binh-chon?category=...`. Phase 1 giữ mặc định đề cử. “Xem tất cả” dùng CTAArrow giống “Xem thể lệ” ở Agenda.
+- Hai box đề cử trên Homepage Phase 2 đổi thành hướng dẫn tham gia bình chọn và lời mời chia sẻ trải nghiệm; không tự công bố thêm hoạt động/sự kiện. Header Phase 2 cuộn khỏi viewport, thanh search/filter sticky trong section Bình chọn.
+- Card có dòng “Đã có 245 người tham gia bình chọn” dưới action, font 14px, line mảnh phía trên; phần chữ màu text-primary, riêng số màu action-primary. 245 vẫn là fixture. Hover/active CTA sáng hơn, disabled dùng màu DS và chặn click.
+- `VotingSessionProvider` mô phỏng một người tham gia trong bộ nhớ component: hoàn tất một hồ sơ thì khóa cả hạng mục, giữ khi điều hướng client giữa các route, reload reset; không tích hợp MyVNEID/API/storage. Hoàn tất hiện “Bạn đã bình chọn cho hồ sơ này”. Không coi demo là dữ liệu thật.
+- Glow yellow/aqua/mint trên `/phase-2` trải toàn chiều ngang section Bình chọn, tỏa từ mép trái ngang title và tan mềm; không đặt trong container, không chạy theo scroll. Lớp nền không tạo overflow hoặc ảnh hưởng sticky search. QA: `scripts/qa-voting-community.cjs`, `docs/voting-community-qa.json`.
+- Box Bình chọn mới nhất dùng slider ảnh 5:3, arrow chung và thumbnail; dữ liệu chỉ gồm khảo sát hoàn tất (fixture + sự kiện hoàn tất trong phiên demo), không thêm lượt mở hoặc trả lời dở dang. Box vinh danh top 10 xếp theo số hạng mục hoàn tất, ưu tiên lượt mới khi bằng nhau; top 1–3 dùng trophy/medal từ Flaticon UIcons sẵn có, avatar ảnh demo 32px. Đây là dữ liệu minh họa, không phải bảng xếp hạng thật; reload reset.
+
+### Quy tắc ghi nhận khảo sát Phase 2
+
+- Phạm vi hiện tại chỉ dựng front-end theo yêu cầu người dùng; chỉ mô phỏng các trạng thái đăng nhập MyVNEID, quyền khảo sát và hoàn tất. Không xây backend/API/database hoặc tích hợp đăng nhập thật. Quy tắc server bên dưới chỉ là ghi chú cho giai đoạn tích hợp sau, không phải yêu cầu triển khai hiện tại.
+
+- Người tham gia phải đăng nhập tài khoản MyVNEID trước khi thực hiện khảo sát.
+- Một khảo sát thành công chỉ được ghi nhận khi người dùng hoàn tất toàn bộ câu hỏi bắt buộc của luồng khảo sát cho bài thi và gửi thành công. Không tính lượt mở popup, bắt đầu làm hoặc trả lời dở dang.
+- Mỗi tài khoản được hoàn tất khảo sát cho tối đa một bài thi trong mỗi hạng mục. Sau khi ghi nhận thành công, tài khoản không được khảo sát lại bài thi đó hoặc chuyển sang khảo sát bài thi khác trong cùng hạng mục.
+- Có 15 hạng mục (6 Trụ cột, 9 Tiên phong), nên mỗi tài khoản có tối đa 15 khảo sát thành công trên toàn bộ chương trình, tương ứng 15 bài thi ở 15 hạng mục khác nhau. Đây không phải hạn mức một lần cho từng bài thi trong cùng hạng mục; không tự thêm cơ chế reset theo ngày.
+- Bộ đếm trên từng bài thi thể hiện số tài khoản hoàn tất khảo sát thành công cho bài thi đó; không phải điểm đánh giá hoặc số người trả lời từng câu hỏi. Copy hiển thị: “245 người đã tham gia khảo sát” (số lấy từ dữ liệu thực khi tích hợp).
+- Khi tích hợp backend, kiểm tra đăng nhập và quyền khảo sát theo tài khoản + hạng mục ở server; việc ghi nhận hoàn tất và tăng bộ đếm phải chống gửi lặp/đồng thời. Front-end hoặc localStorage không phải nguồn xác thực hạn mức.
+- Hiện dự án mới mô phỏng front-end, chưa tích hợp MyVNEID/backend; không mô tả trạng thái demo hoặc số mẫu là khảo sát đã được ghi nhận thật.
+
+- `/` giữ Homepage Phase 1 (đăng ký đề cử); `/dang-ky-de-cu` giữ luồng đăng ký đề cử hiện có.
+- `/phase-2` là Homepage Phase 2 riêng; `/binh-chon` chứa danh sách bài thi và `/binh-chon/[slug]` là trang chi tiết hồ sơ.
+- Không tự ghép giao diện Phase 2 vào Homepage `/`, thay thế Phase 1 hoặc redirect `/` sang `/phase-2` khi chưa có yêu cầu mới.
+- Khi sửa component/CSS dùng chung cho Phase 2, giới hạn thay đổi bằng prop hoặc scope riêng và kiểm tra Phase 1 không bị ảnh hưởng.
+- Dùng chung repo và project Vercel hiện có; sau deploy, các route dùng cùng tên miền với đường dẫn tương ứng. Không tạo repo hoặc project Vercel mới.
+- Nếu Vercel đã liên kết repo, bật auto deploy và đặt `main` làm Production Branch, push lên `origin/main` sẽ kích hoạt deploy; các route Phase 1 và Phase 2 cùng có trong bản deploy, không tự gộp giao diện. Không mặc định cấu hình này đã bật nếu chưa kiểm tra.
+
 - Hero typo Dấu ấn tiên phong có ánh sáng lướt theo mask artwork gốc, chu kỳ 7 giây có khoảng nghỉ; không đổi SVG/màu nền chữ. Reduced motion tắt sheen. Build/TypeScript đạt.
 
 ## Quy trình đồng bộ project
@@ -42,6 +87,8 @@ Mỗi lần đẩy lên GitHub, tự kiểm tra và sửa bug, lỗi chuyển đ
 Không force push.
 
 ### Cấu trúc handoff HTML đã chốt
+
+- Bàn giao theo phase: `handoff-html/` dành cho Phase 1 (bao gồm trang đăng ký mới nhất); `hand-off-phase 2/` dành cho Phase 2. Khi đẩy GitHub, đồng bộ cả hai theo phạm vi source thay đổi. Không xuất giao diện Phase 2 đè vào bộ Phase 1. Giữ hai folder cạnh nhau và link chéo HTML tương đối.
 
 Áp dụng ở mọi lần cập nhật `handoff-html/` và khi người dùng nói "Đẩy lên GitHub":
 

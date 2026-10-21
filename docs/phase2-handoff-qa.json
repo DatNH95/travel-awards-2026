@@ -1,0 +1,128 @@
+{
+  "date": "2026-10-21T07:41:59.206Z",
+  "checks": [
+    {
+      "staticPages": 152,
+      "shell": "passed",
+      "links": "passed",
+      "runtimeResidue": false
+    },
+    {
+      "search": "passed",
+      "tabs": "passed",
+      "categories": 15,
+      "incompleteSurvey": "not recorded",
+      "completedSurvey": "locks whole category",
+      "community": "completed events only",
+      "fixture245": "unchanged",
+      "reload": "resets"
+    },
+    {
+      "gallery": "one and six images; zoom/Escape passed",
+      "relatedProfiles": 9
+    }
+  ],
+  "measurements": [
+    {
+      "file": "index.html",
+      "width": 1440,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "binh-chon.html",
+      "width": 1440,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-1.html",
+      "width": 1440,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-2.html",
+      "width": 1440,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "index.html",
+      "width": 768,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "binh-chon.html",
+      "width": 768,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-1.html",
+      "width": 768,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-2.html",
+      "width": 768,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "index.html",
+      "width": 390,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "binh-chon.html",
+      "width": 390,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-1.html",
+      "width": 390,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-2.html",
+      "width": 390,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "index.html",
+      "width": 320,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "binh-chon.html",
+      "width": 320,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-1.html",
+      "width": 320,
+      "heightDelta": 0,
+      "differences": []
+    },
+    {
+      "file": "ho-so-tru-cot-1-ho-so-2.html",
+      "width": 320,
+      "heightDelta": 0,
+      "differences": []
+    }
+  ],
+  "errors": [],
+  "limitations": [
+    "Demo state resets on full HTML navigation; Tech integrates cross-route state."
+  ],
+  "passed": true
+}

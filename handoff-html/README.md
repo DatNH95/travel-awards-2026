@@ -6,7 +6,7 @@ Bản bàn giao từ implementation hiện tại. Source Next.js không thay đ�
 
 - Mở `index.html` trực tiếp hoặc phục vụ thư mục này bằng static server.
 - Trang chính: `index.html`, `the-le.html`, `tin-tuc.html`, `dang-ky-de-cu.html`.
-- `binh-chon.html`: khởi tạo Phase 2, dùng header/footer chung; phần nội dung trống chờ thiết kế bình chọn.
+- Phase 2 được bàn giao riêng tại `../hand-off-phase 2/`, gồm Homepage, danh sách 15 hạng mục và 150 trang hồ sơ; không dùng shell Phase 1.
 - `dang-ky-tru-cot-1.html` … `dang-ky-tru-cot-6.html` và `dang-ky-tien-phong-1.html` … `dang-ky-tien-phong-9.html`: các cấu hình Step 2.
 - `xac-nhan.html`, `thanh-cong.html`: mẫu trạng thái Step 3/4, không phải kết quả gửi hồ sơ.
 - `chinh-sua-ho-so.html`, `xac-nhan-cap-nhat.html`, `cap-nhat-thanh-cong.html`: trạng thái chỉnh sửa/xác nhận cập nhật/cập nhật thành công sau bước 4; chỉ mô phỏng, không gửi hoặc lưu dữ liệu. Các file HTML không chia sẻ draft.

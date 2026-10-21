@@ -1,0 +1,29 @@
+{
+  "date": "2026-10-20",
+  "results": [
+    {
+      "width": 1440,
+      "stickySearch": true,
+      "noNominationLinks": true,
+      "completedState": true,
+      "categoryLock": true,
+      "otherCategoryAvailable": true,
+      "clientNavigationPreservesState": true,
+      "reloadResetsDemo": true,
+      "counterFont": 14,
+      "consoleErrors": []
+    },
+    {
+      "width": 390,
+      "stickySearch": true,
+      "noNominationLinks": true,
+      "completedState": true,
+      "categoryLock": true,
+      "otherCategoryAvailable": true,
+      "clientNavigationPreservesState": true,
+      "reloadResetsDemo": true,
+      "counterFont": 14,
+      "consoleErrors": []
+    }
+  ]
+}

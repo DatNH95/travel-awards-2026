@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-21",
+  "results": [
+    {
+      "width": 1440,
+      "hero": {
+        "position": "50% 60%",
+        "origin": "720px 261.684px",
+        "fit": "cover"
+      },
+      "glow": {
+        "left": "0px",
+        "right": "0px",
+        "top": "0px",
+        "bottom": "0px",
+        "background": "radial-gradient(748.8px 400px at 0px 78.6562px, color(srgb 0.976471 0.878431 0.529412 / 0.38) 0%, color(srgb 0.568627 0.835294 0.847059 / 0.34) 28%, color(srgb 0.686275 0.866667 0.839216 / 0.24) 48%, rgba(0, 0, 0, 0) 100%)",
+        "overflow": "visible",
+        "y": "78.65625px"
+      },
+      "avatarsLoaded": true,
+      "top10Sorted": true,
+      "top3Flaticon": true,
+      "sliderControls": true,
+      "completedOnly": true,
+      "sessionReset": true,
+      "stickySearch": true,
+      "noHorizontalOverflow": true,
+      "phase1Unaffected": true,
+      "errors": []
+    },
+    {
+      "width": 768,
+      "hero": {
+        "position": "50% 60%",
+        "origin": "384px 231.694px",
+        "fit": "cover"
+      },
+      "glow": {
+        "left": "0px",
+        "right": "0px",
+        "top": "0px",
+        "bottom": "0px",
+        "background": "radial-gradient(399.36px 240px at 0px 67.4688px, color(srgb 0.976471 0.878431 0.529412 / 0.38) 0%, color(srgb 0.568627 0.835294 0.847059 / 0.34) 28%, color(srgb 0.686275 0.866667 0.839216 / 0.24) 48%, rgba(0, 0, 0, 0) 100%)",
+        "overflow": "visible",
+        "y": "67.46875px"
+      },
+      "avatarsLoaded": true,
+      "top10Sorted": true,
+      "top3Flaticon": true,
+      "sliderControls": true,
+      "completedOnly": true,
+      "sessionReset": true,
+      "stickySearch": true,
+      "noHorizontalOverflow": true,
+      "phase1Unaffected": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "hero": {
+        "position": "50% 60%",
+        "origin": "195px 222.572px",
+        "fit": "cover"
+      },
+      "glow": {
+        "left": "0px",
+        "right": "0px",
+        "top": "0px",
+        "bottom": "0px",
+        "background": "radial-gradient(360px 240px at 0px 67.4688px, color(srgb 0.976471 0.878431 0.529412 / 0.38) 0%, color(srgb 0.568627 0.835294 0.847059 / 0.34) 28%, color(srgb 0.686275 0.866667 0.839216 / 0.24) 48%, rgba(0, 0, 0, 0) 100%)",
+        "overflow": "visible",
+        "y": "67.46875px"
+      },
+      "avatarsLoaded": true,
+      "top10Sorted": true,
+      "top3Flaticon": true,
+      "sliderControls": true,
+      "completedOnly": true,
+      "sessionReset": true,
+      "stickySearch": true,
+      "noHorizontalOverflow": true,
+      "phase1Unaffected": true,
+      "errors": []
+    }
+  ]
+}

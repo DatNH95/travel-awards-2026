@@ -1,4 +1,18 @@
 // Development-only helpers shared by the exporter and handoff migration.
+import fs from 'node:fs/promises';
+import path from 'node:path';
+
+// SVG masks loaded through file:// can be blocked by browser origin rules.
+// Embed the original bytes in CSS while keeping the editable source asset.
+export async function embedSvgAssets(css, cssDirectory) {
+  for(const match of [...css.matchAll(/url\((['"]?)([^'"()]+\.svg)\1\)/g)]) {
+    const value=match[2];if(!value.startsWith('../assets/'))continue;
+    const svg=await fs.readFile(path.resolve(cssDirectory,decodeURIComponent(value)));
+    css=css.replaceAll(match[0],`url("data:image/svg+xml;base64,${svg.toString('base64')}")`);
+  }
+  return css;
+}
+
 export function flattenDocument(doc) {
   doc.querySelectorAll('next-route-announcer, nextjs-portal').forEach(node=>node.remove());
   const body = doc.body;

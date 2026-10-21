@@ -185,7 +185,7 @@
 .nomination-hotline img { flex-shrink: 0; }
 .nomination-success-heading { display: flex; align-items: center; gap: 1rem; } .nomination-success-heading img { flex-shrink: 0; }
 .nomination-hotline, .nomination-hotline:hover:not(:disabled), .nomination-hotline:active:not(:disabled) { background: #eefefd; color: var(--color-brand-primary); }
-.nomination-hotline-icon { width: 22px; height: 22px; flex-shrink: 0; background: var(--color-brand-primary); mask: url('../assets/key-visual/hotline.svg') center / contain no-repeat; }
+.nomination-hotline-icon { width: 22px; height: 22px; flex-shrink: 0; background: var(--color-brand-primary); mask: url("data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgNTEyIDUxMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBpZD0iUGhvbmVfaGFuZHNldCI+PHBhdGggZD0ibTI5OS4yNzE4IDMxMS44MDA5IDI0Ljc0MzYtMjQuNzQzNmExMS42OSAxMS42OSAwIDAgMSAxNi41MzI3IDBsNjYuMDI3OSA2Ni4wMjc4YTExLjY5MDYgMTEuNjkwNiAwIDAgMSAwIDE2LjUzMjhsLTI0Ljc1NzkgMjQuNzU3OGMtMzYuNDc3NiAzNi40Nzc2LTEyNS4xOSA2LjkwNjctMTk4LjE0NTQtNjYuMDQ4NHMtMTAyLjUyNi0xNjEuNjY3My02Ni4wNDg0LTE5OC4xNDU0bDI0Ljc1NzgtMjQuNzU3OWExMS42OTA2IDExLjY5MDYgMCAwIDEgMTYuNTMyOCAwbDY2LjAyNzggNjYuMDI3OWExMS42OSAxMS42OSAwIDAgMSAwIDE2LjUzMjdsLTI0Ljc0MzYgMjQuNzQzNmEyMy4zNzE4IDIzLjM3MTggMCAwIDAgMCAzMy4wNTI4bDY2LjAyIDY2LjAyYTIzLjM3MTggMjMuMzcxOCAwIDAgMCAzMy4wNTI3LS4wMDAxeiIvPjwvZz48L3N2Zz4=") center / contain no-repeat; }
 
 .nomination-step-mobile-number { display: none; }
 @media (max-width: 39.99rem) {

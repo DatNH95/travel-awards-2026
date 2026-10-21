@@ -1,6 +1,6 @@
 # Travel Awards 2026
 
-Travel Awards foundation and Homepage Phase 1: Next.js App Router + TypeScript + Tailwind CSS v4. Nomination form, backend and later event phases are deferred.
+Travel Awards: Next.js App Router + TypeScript + Tailwind CSS v4. Phase 1 includes the nomination form; Phase 2 includes voting list/detail and demo surveys. Backend and MyVNEID integration are deferred.
 
 Requires Node.js 20.9+ and pnpm 11.19.0. Runtime dependencies are pinned in `package.json` and `pnpm-lock.yaml`.
 
@@ -9,7 +9,9 @@ pnpm install --frozen-lockfile
 pnpm dev
 ```
 
-Open http://127.0.0.1:3000 for the Homepage. The foundation preview remains at `/design-system`; `/dang-ky-de-cu` is a coming-soon destination without a form.
+On Windows, start a hidden background local server with `powershell -File scripts/start-local.ps1`. This checks port 3000, reuses a healthy server belonging to this project, and keeps logs under `.local-runtime/` (outside build output). Run the command again after restarting Windows or closing the server; refreshing the browser alone cannot start it.
+
+Open http://127.0.0.1:3000 for Homepage Phase 1 and `/dang-ky-de-cu` for registration. Phase 2 lives at `/phase-2`, `/binh-chon` and `/binh-chon/[slug]`. Separate root layouts isolate phase-specific CSS/providers. Foundation preview: `/design-system`; Phase 2 icons: `/phase-2/design-system#icons`.
 
 ```sh
 pnpm build
@@ -26,8 +28,8 @@ Main files:
 - `src/app/globals.css`: base styles, primitives, responsive and reduced-motion rules.
 - `src/components/primitives.tsx`: layout, buttons, links, headings and responsive images.
 - `src/components/brand-graphics.tsx`: reusable official graphics.
-- `src/app/design-system/page.tsx`: foundation review page.
-- `src/app/page.tsx` and `src/app/home.css`: Homepage composition.
+- `src/app/(phase-1)/design-system/page.tsx`: foundation review page.
+- `src/app/(phase-1)/page.tsx`, `src/app/(phase-2)/phase-2/page.tsx` and `src/app/home.css`: Homepage composition.
 - `src/components/award-tabs.tsx`: accessible 6/9-category tabs.
 - `scripts/prepare-assets.cjs`: reproducible extraction and provenance.
 
@@ -38,3 +40,5 @@ Setup follows [Next.js installation](https://nextjs.org/docs/app/getting-started
 Refinement: [current visual system rules and KV V2 policy](docs/visual-refinement.md).
 
 Homepage scope, pending official content and validation: [Phase 1 notes](docs/homepage-phase-1.md).
+
+Tech handoff: `handoff-html/` for Phase 1 and `hand-off-phase 2/` for Phase 2. Both contain plain HTML/CSS and optional vanilla browser interactions; keep the folders adjacent for cross-phase links. See each folder's README for export commands and demo limits. QA reports are retained; screenshots and local server logs are ignored.

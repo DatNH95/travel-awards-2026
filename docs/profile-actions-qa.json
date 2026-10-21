@@ -1,0 +1,110 @@
+{
+  "date": "2026-10-20",
+  "build": "passed",
+  "results": [
+    {
+      "width": 1440,
+      "survey": {
+        "top": 967.75,
+        "bottom": 1020.84375,
+        "left": 170,
+        "height": 53.09375
+      },
+      "share": {
+        "top": 972.296875,
+        "bottom": 1016.296875,
+        "left": 568.359375,
+        "height": 44
+      },
+      "actions": {
+        "top": 942.75,
+        "bottom": 1020.84375,
+        "left": 170,
+        "height": 78.09375
+      },
+      "border": "1px",
+      "overflow": false,
+      "arrowMatches": true,
+      "copyLink": "passed",
+      "copyLayoutShift": false
+    },
+    {
+      "width": 768,
+      "survey": {
+        "top": 913.265625,
+        "bottom": 966.359375,
+        "left": 30.71875,
+        "height": 53.09375
+      },
+      "share": {
+        "top": 917.8125,
+        "bottom": 961.8125,
+        "left": 429.078125,
+        "height": 44
+      },
+      "actions": {
+        "top": 888.265625,
+        "bottom": 966.359375,
+        "left": 30.71875,
+        "height": 78.09375
+      },
+      "border": "1px",
+      "overflow": false,
+      "arrowMatches": true,
+      "copyLink": "passed",
+      "copyLayoutShift": false
+    },
+    {
+      "width": 390,
+      "survey": {
+        "top": 788.28125,
+        "bottom": 879.765625,
+        "left": 20,
+        "height": 91.484375
+      },
+      "share": {
+        "top": 903.765625,
+        "bottom": 947.765625,
+        "left": 20,
+        "height": 44
+      },
+      "actions": {
+        "top": 763.28125,
+        "bottom": 947.765625,
+        "left": 20,
+        "height": 184.484375
+      },
+      "border": "1px",
+      "overflow": false,
+      "arrowMatches": true,
+      "copyLink": "passed",
+      "copyLayoutShift": false
+    },
+    {
+      "width": 320,
+      "survey": {
+        "top": 785.46875,
+        "bottom": 876.953125,
+        "left": 20,
+        "height": 91.484375
+      },
+      "share": {
+        "top": 900.953125,
+        "bottom": 944.953125,
+        "left": 20,
+        "height": 44
+      },
+      "actions": {
+        "top": 760.46875,
+        "bottom": 944.953125,
+        "left": 20,
+        "height": 184.484375
+      },
+      "border": "1px",
+      "overflow": false,
+      "arrowMatches": true,
+      "copyLink": "passed",
+      "copyLayoutShift": false
+    }
+  ]
+}

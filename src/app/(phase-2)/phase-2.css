@@ -1,0 +1,5 @@
+.phase-2-scope .ui-icon { display:inline-grid; place-items:center; flex-shrink:0; width:var(--ui-icon-size,20px); height:var(--ui-icon-size,20px); font-size:var(--ui-icon-size,20px); line-height:1; vertical-align:middle; color:inherit; }
+.phase-2-scope .ui-icon::before { display:block; }
+.phase-2-scope .ui-icon-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(8rem,1fr)); gap:1rem; }
+.phase-2-scope .ui-icon-grid>div { display:grid; justify-items:center; gap:.75rem; padding:1rem; border:var(--border-width) solid var(--color-border-default); color:var(--color-text-brand); }
+.phase-2-scope .home-footer-icon--facebook { --footer-icon:url('/assets/phase-2/facebook.svg'); }

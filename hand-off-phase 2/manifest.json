@@ -1,0 +1,630 @@
+{
+  "phase": 2,
+  "pages": [
+    {
+      "source": "/phase-2",
+      "file": "index.html"
+    },
+    {
+      "source": "/binh-chon",
+      "file": "binh-chon.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-1",
+      "file": "ho-so-tru-cot-1-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-2",
+      "file": "ho-so-tru-cot-1-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-3",
+      "file": "ho-so-tru-cot-1-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-4",
+      "file": "ho-so-tru-cot-1-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-5",
+      "file": "ho-so-tru-cot-1-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-6",
+      "file": "ho-so-tru-cot-1-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-7",
+      "file": "ho-so-tru-cot-1-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-8",
+      "file": "ho-so-tru-cot-1-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-9",
+      "file": "ho-so-tru-cot-1-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-1-ho-so-10",
+      "file": "ho-so-tru-cot-1-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-1",
+      "file": "ho-so-tru-cot-2-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-2",
+      "file": "ho-so-tru-cot-2-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-3",
+      "file": "ho-so-tru-cot-2-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-4",
+      "file": "ho-so-tru-cot-2-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-5",
+      "file": "ho-so-tru-cot-2-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-6",
+      "file": "ho-so-tru-cot-2-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-7",
+      "file": "ho-so-tru-cot-2-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-8",
+      "file": "ho-so-tru-cot-2-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-9",
+      "file": "ho-so-tru-cot-2-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-2-ho-so-10",
+      "file": "ho-so-tru-cot-2-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-1",
+      "file": "ho-so-tru-cot-3-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-2",
+      "file": "ho-so-tru-cot-3-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-3",
+      "file": "ho-so-tru-cot-3-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-4",
+      "file": "ho-so-tru-cot-3-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-5",
+      "file": "ho-so-tru-cot-3-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-6",
+      "file": "ho-so-tru-cot-3-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-7",
+      "file": "ho-so-tru-cot-3-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-8",
+      "file": "ho-so-tru-cot-3-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-9",
+      "file": "ho-so-tru-cot-3-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-3-ho-so-10",
+      "file": "ho-so-tru-cot-3-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-1",
+      "file": "ho-so-tru-cot-4-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-2",
+      "file": "ho-so-tru-cot-4-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-3",
+      "file": "ho-so-tru-cot-4-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-4",
+      "file": "ho-so-tru-cot-4-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-5",
+      "file": "ho-so-tru-cot-4-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-6",
+      "file": "ho-so-tru-cot-4-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-7",
+      "file": "ho-so-tru-cot-4-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-8",
+      "file": "ho-so-tru-cot-4-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-9",
+      "file": "ho-so-tru-cot-4-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-4-ho-so-10",
+      "file": "ho-so-tru-cot-4-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-1",
+      "file": "ho-so-tru-cot-5-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-2",
+      "file": "ho-so-tru-cot-5-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-3",
+      "file": "ho-so-tru-cot-5-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-4",
+      "file": "ho-so-tru-cot-5-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-5",
+      "file": "ho-so-tru-cot-5-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-6",
+      "file": "ho-so-tru-cot-5-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-7",
+      "file": "ho-so-tru-cot-5-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-8",
+      "file": "ho-so-tru-cot-5-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-9",
+      "file": "ho-so-tru-cot-5-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-5-ho-so-10",
+      "file": "ho-so-tru-cot-5-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-1",
+      "file": "ho-so-tru-cot-6-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-2",
+      "file": "ho-so-tru-cot-6-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-3",
+      "file": "ho-so-tru-cot-6-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-4",
+      "file": "ho-so-tru-cot-6-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-5",
+      "file": "ho-so-tru-cot-6-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-6",
+      "file": "ho-so-tru-cot-6-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-7",
+      "file": "ho-so-tru-cot-6-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-8",
+      "file": "ho-so-tru-cot-6-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-9",
+      "file": "ho-so-tru-cot-6-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tru-cot-6-ho-so-10",
+      "file": "ho-so-tru-cot-6-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-1",
+      "file": "ho-so-tien-phong-1-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-2",
+      "file": "ho-so-tien-phong-1-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-3",
+      "file": "ho-so-tien-phong-1-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-4",
+      "file": "ho-so-tien-phong-1-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-5",
+      "file": "ho-so-tien-phong-1-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-6",
+      "file": "ho-so-tien-phong-1-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-7",
+      "file": "ho-so-tien-phong-1-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-8",
+      "file": "ho-so-tien-phong-1-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-9",
+      "file": "ho-so-tien-phong-1-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-1-ho-so-10",
+      "file": "ho-so-tien-phong-1-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-1",
+      "file": "ho-so-tien-phong-2-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-2",
+      "file": "ho-so-tien-phong-2-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-3",
+      "file": "ho-so-tien-phong-2-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-4",
+      "file": "ho-so-tien-phong-2-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-5",
+      "file": "ho-so-tien-phong-2-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-6",
+      "file": "ho-so-tien-phong-2-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-7",
+      "file": "ho-so-tien-phong-2-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-8",
+      "file": "ho-so-tien-phong-2-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-9",
+      "file": "ho-so-tien-phong-2-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-2-ho-so-10",
+      "file": "ho-so-tien-phong-2-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-1",
+      "file": "ho-so-tien-phong-3-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-2",
+      "file": "ho-so-tien-phong-3-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-3",
+      "file": "ho-so-tien-phong-3-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-4",
+      "file": "ho-so-tien-phong-3-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-5",
+      "file": "ho-so-tien-phong-3-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-6",
+      "file": "ho-so-tien-phong-3-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-7",
+      "file": "ho-so-tien-phong-3-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-8",
+      "file": "ho-so-tien-phong-3-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-9",
+      "file": "ho-so-tien-phong-3-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-3-ho-so-10",
+      "file": "ho-so-tien-phong-3-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-1",
+      "file": "ho-so-tien-phong-4-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-2",
+      "file": "ho-so-tien-phong-4-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-3",
+      "file": "ho-so-tien-phong-4-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-4",
+      "file": "ho-so-tien-phong-4-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-5",
+      "file": "ho-so-tien-phong-4-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-6",
+      "file": "ho-so-tien-phong-4-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-7",
+      "file": "ho-so-tien-phong-4-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-8",
+      "file": "ho-so-tien-phong-4-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-9",
+      "file": "ho-so-tien-phong-4-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-4-ho-so-10",
+      "file": "ho-so-tien-phong-4-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-1",
+      "file": "ho-so-tien-phong-5-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-2",
+      "file": "ho-so-tien-phong-5-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-3",
+      "file": "ho-so-tien-phong-5-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-4",
+      "file": "ho-so-tien-phong-5-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-5",
+      "file": "ho-so-tien-phong-5-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-6",
+      "file": "ho-so-tien-phong-5-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-7",
+      "file": "ho-so-tien-phong-5-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-8",
+      "file": "ho-so-tien-phong-5-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-9",
+      "file": "ho-so-tien-phong-5-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-5-ho-so-10",
+      "file": "ho-so-tien-phong-5-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-1",
+      "file": "ho-so-tien-phong-6-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-2",
+      "file": "ho-so-tien-phong-6-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-3",
+      "file": "ho-so-tien-phong-6-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-4",
+      "file": "ho-so-tien-phong-6-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-5",
+      "file": "ho-so-tien-phong-6-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-6",
+      "file": "ho-so-tien-phong-6-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-7",
+      "file": "ho-so-tien-phong-6-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-8",
+      "file": "ho-so-tien-phong-6-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-9",
+      "file": "ho-so-tien-phong-6-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-6-ho-so-10",
+      "file": "ho-so-tien-phong-6-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-1",
+      "file": "ho-so-tien-phong-7-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-2",
+      "file": "ho-so-tien-phong-7-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-3",
+      "file": "ho-so-tien-phong-7-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-4",
+      "file": "ho-so-tien-phong-7-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-5",
+      "file": "ho-so-tien-phong-7-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-6",
+      "file": "ho-so-tien-phong-7-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-7",
+      "file": "ho-so-tien-phong-7-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-8",
+      "file": "ho-so-tien-phong-7-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-9",
+      "file": "ho-so-tien-phong-7-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-7-ho-so-10",
+      "file": "ho-so-tien-phong-7-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-1",
+      "file": "ho-so-tien-phong-8-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-2",
+      "file": "ho-so-tien-phong-8-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-3",
+      "file": "ho-so-tien-phong-8-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-4",
+      "file": "ho-so-tien-phong-8-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-5",
+      "file": "ho-so-tien-phong-8-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-6",
+      "file": "ho-so-tien-phong-8-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-7",
+      "file": "ho-so-tien-phong-8-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-8",
+      "file": "ho-so-tien-phong-8-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-9",
+      "file": "ho-so-tien-phong-8-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-8-ho-so-10",
+      "file": "ho-so-tien-phong-8-ho-so-10.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-1",
+      "file": "ho-so-tien-phong-9-ho-so-1.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-2",
+      "file": "ho-so-tien-phong-9-ho-so-2.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-3",
+      "file": "ho-so-tien-phong-9-ho-so-3.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-4",
+      "file": "ho-so-tien-phong-9-ho-so-4.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-5",
+      "file": "ho-so-tien-phong-9-ho-so-5.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-6",
+      "file": "ho-so-tien-phong-9-ho-so-6.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-7",
+      "file": "ho-so-tien-phong-9-ho-so-7.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-8",
+      "file": "ho-so-tien-phong-9-ho-so-8.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-9",
+      "file": "ho-so-tien-phong-9-ho-so-9.html"
+    },
+    {
+      "source": "/binh-chon/tien-phong-9-ho-so-10",
+      "file": "ho-so-tien-phong-9-ho-so-10.html"
+    }
+  ],
+  "categories": [
+    "tru-cot-1",
+    "tru-cot-2",
+    "tru-cot-3",
+    "tru-cot-4",
+    "tru-cot-5",
+    "tru-cot-6",
+    "tien-phong-1",
+    "tien-phong-2",
+    "tien-phong-3",
+    "tien-phong-4",
+    "tien-phong-5",
+    "tien-phong-6",
+    "tien-phong-7",
+    "tien-phong-8",
+    "tien-phong-9"
+  ]
+}

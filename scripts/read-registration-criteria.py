@@ -53,12 +53,12 @@ for key, row in zip(keys, rows, strict=True):
         'narratives': [{'label': label, 'type': 'textarea', 'maxWords': 300} for label in narrative_labels],
         'evidence': bullets(evidence),
     }
-    # Explicit image requirements from column E; otherwise retain existing upload limits.
-    minimum = {'Khách sạn của năm': 12, 'Khu nghỉ dưỡng của năm (Resort)': 15, 'Trải nghiệm du lịch của năm': 8, 'Làng du lịch cộng đồng tiêu biểu của năm': 8, 'Trải nghiệm ẩm thực du lịch của năm': 8}.get(key, 0)
-    records[key]['images'] = {'min': minimum, 'max': None if minimum else (15 if key == keys[0] else 10)}
+    # User override: all categories require 3–10 images, regardless of sheet counts.
+    records[key]['images'] = {'min': 3, 'max': 10}
+    records[key]['evidence'] = [re.sub(r'Tối thiểu (?:12|15|8) ảnh', '3–10 ảnh', item).replace('Bộ ảnh điểm đến (khuyến khích): 8–15 ảnh', 'Bộ ảnh điểm đến (bắt buộc): 3–10 ảnh').replace('tối đa 15 ảnh', 'tối đa 10 ảnh') for item in records[key]['evidence']]
     records[key]['menuRequired'] = key == 'Trải nghiệm ẩm thực du lịch của năm'
 
-out = Path('src/app/dang-ky-de-cu/category-criteria.ts')
+out = Path('src/app/(phase-1)/dang-ky-de-cu/category-criteria.ts')
 out.write_text('''// Source: Bo tieu chi ho so ung cu.xlsx, Giải trụ cột!A4:E9 / Giải tiên phong!A4:E12.
 // Verified 2026-10-15; regenerate with scripts/read-registration-criteria.py <workbook>.
 import type { RegistrationField } from './registration-data';

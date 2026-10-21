@@ -1,0 +1,68 @@
+const {chromium}=require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const assert=require('node:assert/strict');
+const fs=require('node:fs/promises');
+const path=require('node:path');
+(async()=>{
+ const browser=await chromium.launch({channel:'msedge',headless:true});
+ const results=[];
+ try{
+  for(const width of [1440,390]){
+   const page=await browser.newPage({viewport:{width,height:1000},reducedMotion:'reduce'});
+   const errors=[];
+   page.on('pageerror',e=>errors.push(e.message));
+   await page.goto((process.env.QA_BASE_URL || 'http://127.0.0.1:3000')+'/phase-2',{waitUntil:'networkidle'});
+   assert.equal(await page.locator('a[href*="dang-ky-de-cu"]').count(),0);
+   assert.equal(await page.getByRole('heading',{name:/Đăng ký.*tham gia đề cử/}).count(),0);
+   assert(await page.getByRole('heading',{name:/Cách tham gia/}).isVisible());
+   const toolbar=page.locator('.voting-filter-toolbar');
+   await toolbar.evaluate(el=>window.scrollTo(0,el.getBoundingClientRect().top+scrollY+120));
+   assert(Math.abs((await toolbar.boundingBox()).y)<1);
+   assert(await page.locator('.home-header').evaluate(el=>el.getBoundingClientRect().bottom<0));
+   const card=page.locator('.voting-card').first();
+   assert.equal(await card.locator('.voting-card-count').innerText(),'Đã có 245 người tham gia bình chọn');
+   assert.equal(await card.locator('.voting-card-count').evaluate(el=>getComputedStyle(el).fontSize),'14px');
+   assert.equal(await card.locator('.voting-card-count strong').evaluate(el=>getComputedStyle(el).color),'rgb(0, 118, 190)');
+   const button=card.locator('.voting-survey-trigger');
+   const normal=await button.evaluate(el=>getComputedStyle(el).backgroundColor);
+   await button.hover();
+   await page.waitForFunction(()=>getComputedStyle(document.querySelector('.voting-card .voting-survey-trigger')).backgroundColor!=='rgb(0, 118, 190)');
+   assert.notEqual(await button.evaluate(el=>getComputedStyle(el).backgroundColor),normal);
+   await button.click();
+   const dialog=page.getByRole('dialog');
+   await dialog.getByRole('radio',{name:'Đã trải nghiệm',exact:true}).check();
+   await dialog.getByRole('button',{name:'Hoàn tất bình chọn mẫu'}).click();
+   assert.equal(await dialog.getByRole('status').count(),0);
+   await dialog.getByRole('radio',{name:'Rất hài lòng',exact:true}).check();
+   await dialog.getByRole('button',{name:'Hoàn tất bình chọn mẫu'}).click();
+   assert((await dialog.getByRole('status').innerText()).includes('Bạn đã bình chọn cho hồ sơ này'));
+   await dialog.getByRole('button',{name:'Đóng',exact:true}).click();
+   assert(await button.isDisabled());
+   assert.equal(await page.locator('.voting-card .voting-survey-trigger:disabled').count(),10);
+   assert(await card.locator('.voting-card-confirmation').isVisible());
+   await card.screenshot({path:path.join(process.env.TEMP,`phase2-voted-card-${width}.png`)});
+   const filters=page.getByRole('group',{name:'Hạng mục bình chọn'}).getByRole('button');
+   await filters.nth(1).click();
+   assert.equal(await page.locator('.voting-card .voting-survey-trigger:disabled').count(),0);
+   await card.locator('.voting-survey-trigger').click();
+   await page.getByRole('dialog').getByRole('radio',{name:'Chưa trải nghiệm',exact:true}).check();
+   await page.getByRole('dialog').getByRole('radio',{name:'Rất muốn',exact:true}).check();
+   await page.getByRole('dialog').getByRole('button',{name:'Hoàn tất bình chọn mẫu'}).click();
+   await page.getByRole('dialog').getByRole('button',{name:'Đóng',exact:true}).click();
+   await page.locator('.voting-view-all').click();
+   await page.waitForURL('**/binh-chon?category=tru-cot-2');
+   await page.waitForFunction(()=>document.querySelector('.voting-category-filters button:nth-child(2)')?.getAttribute('aria-pressed')==='true');
+   assert.equal(await page.locator('.voting-card .voting-survey-trigger:disabled').count(),10);
+   await card.locator('.voting-card-link').click();
+   await page.waitForURL('**/binh-chon/tru-cot-2-ho-so-1');
+   assert(await page.locator('.voting-detail-survey .voting-survey-trigger').isDisabled());
+   await page.reload({waitUntil:'networkidle'});
+   assert(await page.locator('.voting-detail-survey .voting-survey-trigger').isEnabled());
+   assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));
+   assert.deepEqual(errors,[]);
+   results.push({width,stickySearch:true,noNominationLinks:true,completedState:true,categoryLock:true,otherCategoryAvailable:true,clientNavigationPreservesState:true,reloadResetsDemo:true,counterFont:14,consoleErrors:errors});
+   await page.close();
+  }
+ }finally{await browser.close();}
+ await fs.writeFile('docs/phase2-vote-state-qa.json',JSON.stringify({date:'2026-10-20',results},null,2)+'\n');
+ console.log('Phase 2 vote state, sticky search, category links and responsive QA passed.');
+})().catch(e=>{console.error(e);process.exitCode=1;});

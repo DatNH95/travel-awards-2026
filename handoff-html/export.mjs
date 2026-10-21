@@ -2,7 +2,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
-import { flattenDocument, flattenStyles } from './structure.mjs';
+import { flattenDocument, flattenStyles, embedSvgAssets } from './structure.mjs';
 const require = createRequire(import.meta.url);
 const { chromium } = require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root = process.cwd();
@@ -36,20 +36,28 @@ const baseStyles = postcss.parse(reset+'\n'+global);
 baseStyles.walkRules(rule=>{if(/\.(preview-|landing-demo-)/.test(rule.selector))rule.remove();});
 baseStyles.walkAtRules(rule=>{if(rule.nodes&&!rule.nodes.length)rule.remove();});
 await fs.writeFile(path.join(out,'css/base.css'),flattenStyles(baseStyles.toString())+'\n.section-layout { padding-block: 0; }\n');
-for (const [source,name] of [['src/app/home.css','home'],['src/app/the-le/rules.css','rules'],['src/app/tin-tuc/news.css','news'],['src/app/dang-ky-de-cu/nomination.css','nomination']]) {
+for (const [source,name] of [['src/app/home.css','home'],['src/app/(phase-1)/the-le/rules.css','rules'],['src/app/(phase-1)/tin-tuc/news.css','news'],['src/app/(phase-1)/dang-ky-de-cu/nomination.css','nomination']]) {
   const css = (await fs.readFile(path.join(root,source),'utf8')).replaceAll('/assets/','../assets/');
   await fs.writeFile(path.join(out,`css/${name}.css`),flattenStyles(css));
 }
 await fs.cp(path.join(root,'public/assets'),path.join(out,'assets'),{recursive:true});
+for(const name of ['regular-rounded','brands']) {
+  const file=path.join(out,`assets/icons/flaticon/uicons-${name}.css`);
+  await fs.writeFile(file,(await fs.readFile(file,'utf8')).replaceAll('/assets/icons/flaticon/','./'));
+}
 await fs.cp(path.join(root,'public/fonts'),path.join(out,'fonts'),{recursive:true});
 const fontLicense=path.join(out,'fonts/merriweather/OFL.txt');
 await fs.writeFile(fontLicense,(await fs.readFile(fontLicense,'utf8')).replace(/[ \t]+$/gm,''));
+for(const file of (await fs.readdir(path.join(out,'css'))).filter(file=>file.endsWith('.css'))) {
+  const target=path.join(out,'css',file);
+  await fs.writeFile(target,await embedSvgAssets(await fs.readFile(target,'utf8'),path.dirname(target)));
+}
+if(process.argv.includes('--styles-only')) { console.log('Phase 1 styles refreshed.'); process.exit(0); }
 const categories = [...Array.from({length:6},(_,i)=>`tru-cot-${i+1}`),...Array.from({length:9},(_,i)=>`tien-phong-${i+1}`)];
 const newsSource = await fs.readFile(path.join(root,'src/data/news.ts'),'utf8');
 const slugs = [...newsSource.matchAll(/(?:slug:|'slug':|"slug":)\s*['"]([^'"]+)['"]/g)].map(m=>m[1]).filter(s=>!s.includes('`'));
 slugs.push(...Array.from({length:71},(_,i)=>`cau-chuyen-du-lich-${i+1}`));
 const routes = [['/','index.html','home'],['/the-le','the-le.html','rules'],['/tin-tuc','tin-tuc.html','news'],['/dang-ky-de-cu','dang-ky-de-cu.html','nomination'],['/dang-ky-de-cu?preview=3','xac-nhan.html','nomination'],['/dang-ky-de-cu?preview=4','thanh-cong.html','nomination']];
-routes.push(['/binh-chon','binh-chon.html','home']);
 routes.push(...['chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html'].map((file,index)=>['/dang-ky-de-cu?preview=4',file,'nomination',index+1]));
 for(const id of categories) routes.push([`/dang-ky-de-cu?category=${id}&step=2`,`dang-ky-${id}.html`,'nomination']);
 for(let i=2;i<=7;i++) routes.push([`/tin-tuc?page=${i}`,`tin-tuc-${i}.html`,'news']);
@@ -112,7 +120,7 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
     const u=new URL(value.replaceAll('&amp;','&'),'http://local');let dest;
     if(u.pathname==='/') dest='index.html';
     else if(u.pathname==='/the-le')dest='the-le.html';
-    else if(u.pathname==='/binh-chon')dest='binh-chon.html';
+    else if(u.pathname==='/binh-chon')dest='../hand-off-phase%202/binh-chon.html';
     else if(u.pathname==='/tin-tuc')dest=u.searchParams.get('page')&&u.searchParams.get('page')!=='1'?`tin-tuc-${u.searchParams.get('page')}.html`:'tin-tuc.html';
     else if(u.pathname.startsWith('/tin-tuc/'))dest=`tin-${u.pathname.split('/').pop()}.html`;
     else if(u.pathname==='/dang-ky-de-cu')dest='dang-ky-de-cu.html'+(u.search?'?'+u.searchParams.toString():'');

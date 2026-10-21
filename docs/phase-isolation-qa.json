@@ -1,0 +1,221 @@
+{
+  "date": "2026-10-20",
+  "baselineTag": "phase-1-final",
+  "checks": [
+    {
+      "width": 1440,
+      "route": "/",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 5665.265625,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/dang-ky-de-cu",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 862.75,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 6995.046875,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/dang-ky-de-cu?preview=3",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 4282.296875,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/dang-ky-de-cu?preview=4",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 665.96875,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/the-le",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 8090.578125,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/tin-tuc",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 3317.453125,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/tin-tuc/travel-awards-dau-an-tien-phong",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 1901.828125,
+      "footerHeight": 533.6875,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "route": "/phase-2",
+      "phase": 2,
+      "icons": true,
+      "credit": true,
+      "crossPhaseReload": true,
+      "phase1StylesRestored": true
+    },
+    {
+      "width": 1440,
+      "route": "/binh-chon",
+      "phase": 2,
+      "icons": true,
+      "credit": true,
+      "crossPhaseReload": true,
+      "phase1StylesRestored": true
+    },
+    {
+      "width": 1440,
+      "route": "/binh-chon/tru-cot-1-ho-so-1",
+      "phase": 2,
+      "icons": true,
+      "credit": true,
+      "crossPhaseReload": true,
+      "phase1StylesRestored": true
+    },
+    {
+      "width": 390,
+      "route": "/",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 5981.671875,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/dang-ky-de-cu",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 1132.53125,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 8217.46875,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/dang-ky-de-cu?preview=3",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 5587.703125,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/dang-ky-de-cu?preview=4",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 832.15625,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/the-le",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 10068.0625,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/tin-tuc",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 6941.296875,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/tin-tuc/travel-awards-dau-an-tien-phong",
+      "phase": 1,
+      "iconRequests": 0,
+      "baselineMatches": null,
+      "mainHeight": 2107.5625,
+      "footerHeight": 936.203125,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "route": "/phase-2",
+      "phase": 2,
+      "icons": true,
+      "credit": true,
+      "crossPhaseReload": true,
+      "phase1StylesRestored": true
+    },
+    {
+      "width": 390,
+      "route": "/binh-chon",
+      "phase": 2,
+      "icons": true,
+      "credit": true,
+      "crossPhaseReload": true,
+      "phase1StylesRestored": true
+    },
+    {
+      "width": 390,
+      "route": "/binh-chon/tru-cot-1-ho-so-1",
+      "phase": 2,
+      "icons": true,
+      "credit": true,
+      "crossPhaseReload": true,
+      "phase1StylesRestored": true
+    }
+  ],
+  "errors": []
+}

@@ -1,0 +1,194 @@
+{
+  "date": "2026-10-20",
+  "measurements": [
+    {
+      "width": 1440,
+      "variant": "actual",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 50.375,
+      "headingHeight": 50.375,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "variant": "short",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 25.1875,
+      "headingHeight": 25.1875,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 41.1875,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "variant": "long",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 50.375,
+      "headingHeight": 50.375,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": false
+    },
+    {
+      "width": 768,
+      "variant": "actual",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 50.375,
+      "headingHeight": 50.375,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16.015625,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": true
+    },
+    {
+      "width": 768,
+      "variant": "short",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 25.1875,
+      "headingHeight": 25.1875,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 41.203125,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": true
+    },
+    {
+      "width": 768,
+      "variant": "long",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 50.375,
+      "headingHeight": 50.375,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16.015625,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": true
+    },
+    {
+      "width": 390,
+      "variant": "actual",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 50.375,
+      "headingHeight": 50.375,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "variant": "short",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 25.1875,
+      "headingHeight": 25.1875,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": false
+    },
+    {
+      "width": 390,
+      "variant": "long",
+      "padding": [
+        "15px",
+        "15px",
+        "15px",
+        "15px"
+      ],
+      "titleLineHeight": "25.2px",
+      "orgLineHeight": "19.6px",
+      "titleHeight": 50.375,
+      "headingHeight": 50.375,
+      "titleToOrg": 6,
+      "headingToOrg": 6,
+      "orgToButton": 16,
+      "titleInset": 15,
+      "orgInset": 15,
+      "buttonHeight": 48,
+      "overflow": false
+    }
+  ]
+}

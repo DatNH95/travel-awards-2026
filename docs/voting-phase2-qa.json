@@ -1,0 +1,30 @@
+{
+  "date": "2026-10-20",
+  "build": "passed",
+  "checks": [
+    {
+      "width": 1440,
+      "filters": 15,
+      "profilesPerCategory": 10,
+      "surveyBranches": 2,
+      "keyboard": true,
+      "validation": true,
+      "reset": true,
+      "noOverflow": true
+    },
+    {
+      "width": 390,
+      "filters": 15,
+      "profilesPerCategory": 10,
+      "surveyBranches": 2,
+      "keyboard": true,
+      "validation": true,
+      "reset": true,
+      "noOverflow": true
+    }
+  ],
+  "invalidSlug": 404,
+  "phase1Routes": "HTTP 200",
+  "pageErrors": [],
+  "screenshots": "Temporary directory, not committed"
+}
