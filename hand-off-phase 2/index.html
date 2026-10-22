@@ -6,11 +6,11 @@
 <meta name="description" content="Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 20.11.2026.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/font.css">
 <link rel="stylesheet" href="css/base.css">
 <link rel="stylesheet" href="css/voting.css">
 <link rel="stylesheet" href="css/home.css">
-<link rel="stylesheet" href="assets/icons/flaticon/uicons-regular-rounded.css">
-<link rel="stylesheet" href="assets/icons/flaticon/uicons-brands.css">
+<link rel="stylesheet" href="css/icons.css">
 <script src="js/data.js" defer="">
 </script>
 <script src="js/handoff.js" defer="">
@@ -21,7 +21,7 @@
 <div class="layout-container home-header-inner">
 <div class="home-header-brand-row"><a aria-label="Travel Awards — Trang chủ" href="index.html#main"><img alt="" aria-hidden="true" loading="lazy" width="1000" height="350" decoding="async" class="brand-graphic brand-graphic--logo " style="color:transparent" src="assets/key-visual/logo.svg"></a><a class="button button--primary button--nomination voting-primary-cta home-header-cta" href="index.html#about">Bình chọn<svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
 </div>
-<nav aria-label="Điều hướng chính" data-scrolled="true">
+<nav aria-label="Điều hướng chính">
 <div class="home-header-links"><a href="index.html#main" class="home-nav-home" aria-label="Trang chủ" aria-current="location"><img alt="" aria-hidden="true" loading="lazy" width="20" height="20" decoding="async" style="color:transparent" src="assets/key-visual/home.svg"></a><a href="../handoff-html/the-le.html">Thể lệ</a><a href="binh-chon.html">Bình chọn</a><a href="../handoff-html/tin-tuc.html">Tin tức</a>
 </div>
 </nav>
@@ -37,13 +37,13 @@
 <div class="home-countdown">
 <p class="home-countdown-deadline">Thời gian còn lại:</p><time class="home-sr-only" datetime="2026-11-20T23:59:00+07:00">Hạn khảo sát: 23:59 ngày 20.11.2026</time>
 <div class="home-countdown-units" role="timer" aria-live="off" aria-label="Thời gian khảo sát còn lại">
-<div class="home-countdown-circle"><span class="home-countdown-value">30</span><span class="home-countdown-label">Ngày</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">29</span><span class="home-countdown-label">Ngày</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">06</span><span class="home-countdown-label">Giờ</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">07</span><span class="home-countdown-label">Giờ</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">47</span><span class="home-countdown-label">Phút</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">54</span><span class="home-countdown-label">Phút</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">30</span><span class="home-countdown-label">Giây</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">05</span><span class="home-countdown-label">Giây</span>
 </div>
 </div><noscript>Khảo sát đến 23:59 ngày 20.11.2026 (giờ Việt Nam).</noscript>
 </div>
@@ -52,11 +52,15 @@
 </section>
 <section class="section home-voting surface surface--primary section--primary" id="about" style="--voting-glow-y: 78.65625px;">
 <div class="layout-container">
+<div>
 <header class="voting-intro">
 <h2 class="type-display-l">Bình chọn</h2>
 <p class="type-body">Cho các hạng mục và hồ sơ đề cử tương ứng. Mỗi bình chọn tương đương 1 phiếu khảo sát.</p>
 </header>
-<div class="voting-filter-toolbar">
+</div>
+<div class="voting-sticky-marker" aria-hidden="true">
+</div>
+<div class="voting-filter-toolbar" data-sticky="false">
 <div class="voting-search"><span class="ui-icon fi-rr-search " style="--ui-icon-size:20px" aria-hidden="true"></span><input type="search" role="combobox" autocomplete="off" aria-autocomplete="list" aria-expanded="false" aria-controls="_R_2dbsnqivb_-suggestions" aria-label="Tìm tên bài thi, đơn vị hoặc cá nhân" placeholder="Tìm tên bài thi, đơn vị hoặc cá nhân…" value="">
 </div>
 <div class="voting-filter-groups">

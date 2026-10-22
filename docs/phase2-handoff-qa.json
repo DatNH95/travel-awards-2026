@@ -1,11 +1,15 @@
 {
-  "date": "2026-10-21T10:15:57.682Z",
+  "date": "2026-10-22T09:05:47.280Z",
   "checks": [
     {
       "staticPages": 152,
       "shell": "passed",
       "links": "passed",
       "runtimeResidue": false
+    },
+    {
+      "directory": "breadcrumb/countdown/gold wave; 1440/390/320px passed",
+      "stickyShadow": "source/static enables on scroll and clears at top"
     },
     {
       "search": "passed",

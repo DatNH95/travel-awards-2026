@@ -7,10 +7,11 @@ import { votingProfiles } from '@/data/voting';
 import { CTAArrow, Container, Section } from './phase-2/primitives';
 import { VotingCard } from './voting-card';
 import Link from 'next/link';
+import { NominationCountdown } from './phase-2/countdown';
 
 const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase().trim();
 
-export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategoryId }: { id?: string; headingLevel?: 1 | 2; initialCategoryId?: string }) {
+export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategoryId, directory = false }: { id?: string; headingLevel?: 1 | 2; initialCategoryId?: string; directory?: boolean }) {
   const [groupIndex, setGroupIndex] = useState(0);
   const [categoryIndex, setCategoryIndex] = useState(0);
   const [openGroup, setOpenGroup] = useState<number | null>(null);
@@ -22,9 +23,20 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
   const [scrollable, setScrollable] = useState({left: false, right: false});
   const categoryList = useRef<HTMLDivElement>(null);
   const toolbar = useRef<HTMLDivElement>(null);
+  const stickyMarker = useRef<HTMLDivElement>(null);
+  const [isSticky, setIsSticky] = useState(false);
   const triggers = useRef<(HTMLButtonElement | null)[]>([]);
   const uid = useId();
   const Heading = headingLevel === 1 ? 'h1' : 'h2';
+  useEffect(() => {
+    const marker = stickyMarker.current;
+    if (!marker) return;
+    const observer = new IntersectionObserver(([entry]) => {
+      setIsSticky(!entry.isIntersecting && entry.boundingClientRect.top < 0);
+    });
+    observer.observe(marker);
+    return () => observer.disconnect();
+  }, []);
   const categoryId = awardCategoryId(groupIndex, categoryIndex);
   const profiles = votingProfiles.filter(profile => profile.categoryId === categoryId && normalize(`${profile.name} ${profile.organization}`).includes(normalize(query)));
   useEffect(() => {
@@ -98,9 +110,14 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
     return () => { document.removeEventListener('pointerdown', closeOutside); document.removeEventListener('keydown', escape); };
   }, [openGroup]);
 
-  return <Section id={id} className="home-voting"><Container>
+  return <Section id={id} className={`home-voting${directory ? ' voting-folder' : ''}`}><Container>
+    {directory && <nav className="voting-breadcrumb type-body-small" aria-label="Breadcrumb"><Link href="/phase-2">Trang chủ</Link><span aria-hidden="true">/</span><span aria-current="page">Bình chọn</span></nav>}
+    <div className={directory ? 'voting-folder-intro' : undefined}>
     <header className="voting-intro"><Heading className="type-display-l">Bình chọn</Heading><p className="type-body">Cho các hạng mục và hồ sơ đề cử tương ứng. Mỗi bình chọn tương đương 1 phiếu khảo sát.</p></header>
-    <div className="voting-filter-toolbar" ref={toolbar} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenGroup(null); }}>
+    {directory && <NominationCountdown label="Thời gian bình chọn còn lại:" kind="survey" />}
+    </div>
+    <div className="voting-sticky-marker" ref={stickyMarker} aria-hidden="true" />
+    <div className="voting-filter-toolbar" data-sticky={isSticky} ref={toolbar} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenGroup(null); }}>
       <div className="voting-search" ref={searchBox} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setSearchOpen(false); }}>
         <UiIcon name="search" />
         <input ref={searchInput} type="search" role="combobox" autoComplete="off" aria-autocomplete="list" aria-expanded={showSuggestions} aria-controls={`${uid}-suggestions`} aria-activedescendant={showSuggestions && suggestionIndex >= 0 && suggestionIndex < suggestions.length ? `${uid}-suggestion-${suggestionIndex}` : undefined} aria-label="Tìm tên bài thi, đơn vị hoặc cá nhân" placeholder="Tìm tên bài thi, đơn vị hoặc cá nhân…" value={query} onFocus={() => { setSearchOpen(true); setOpenGroup(null); }} onChange={event => { setQuery(event.target.value); setSearchOpen(true); setSuggestionIndex(-1); }} onKeyDown={event => {

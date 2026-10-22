@@ -12,7 +12,7 @@ const browser=await chromium.launch({channel:'msedge',headless:true});
 try {
   const context=await browser.newContext({reducedMotion:'reduce'});
   const page=await context.newPage();page.on('pageerror',error=>errors.push(error.message));
-  for(const relative of ['css/tokens.css','css/base.css','css/home.css','css/voting.css','assets/icons/flaticon/uicons-regular-rounded.css','assets/icons/flaticon/uicons-brands.css']) {
+  for(const relative of ['css/tokens.css','css/font.css','css/icons.css','css/base.css','css/home.css','css/voting.css']) {
     const file=path.join(root,relative),css=await fs.readFile(file,'utf8');
     for(const match of css.matchAll(/url\(['"]?([^)'"\s]+)['"]?\)/g)) {
       const value=match[1];if(/^(https?:|data:|#)/.test(value))continue;
@@ -46,6 +46,18 @@ try {
       measurements.push({file,width,heightDelta:handoff.height-source.height,differences});
     }
   }
+  for(const url of [base+'/binh-chon',pathToFileURL(path.join(root,'binh-chon.html')).href])for(const width of [1440,390,320]) {
+    await page.setViewportSize({width,height:1000});await page.goto(url,{waitUntil:'networkidle'});
+    assert.equal(await page.locator('.voting-folder-intro .home-countdown-deadline').innerText(),'Thời gian bình chọn còn lại:');
+    assert.equal(await page.locator('.voting-breadcrumb [aria-current=page]').innerText(),'Bình chọn');
+    assert(await page.locator('.home-voting').evaluate(node=>getComputedStyle(node,'::after').backgroundImage.includes('gold-wave.webp')));
+    assert(!await page.evaluate(()=>document.documentElement.scrollWidth>innerWidth+1));
+    const marker=page.locator('.voting-sticky-marker');await marker.evaluate(node=>scrollTo(0,node.getBoundingClientRect().top+scrollY+60));
+    await page.waitForFunction(()=>document.querySelector('.voting-filter-toolbar').dataset.sticky==='true');
+    assert.notEqual(await page.locator('.voting-filter-toolbar').evaluate(node=>getComputedStyle(node).boxShadow),'none');
+    await page.evaluate(()=>scrollTo(0,0));await page.waitForFunction(()=>document.querySelector('.voting-filter-toolbar').dataset.sticky==='false');
+  }
+  checks.push({directory:'breadcrumb/countdown/gold wave; 1440/390/320px passed',stickyShadow:'source/static enables on scroll and clears at top'});
   await page.setViewportSize({width:1440,height:1000});
   await page.goto(pathToFileURL(path.join(root,'index.html')).href,{waitUntil:'networkidle'});
   assert.equal(await page.locator('.voting-card:visible').count(),10);

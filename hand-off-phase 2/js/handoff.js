@@ -37,6 +37,8 @@
   });
   const voting=$('.home-voting');
   if(voting) {
+    const marker=$('.voting-sticky-marker',voting),toolbar=$('.voting-filter-toolbar',voting);
+    if(marker)new IntersectionObserver(([entry])=>{toolbar.dataset.sticky=String(!entry.isIntersecting&&entry.boundingClientRect.top<0);}).observe(marker);
     let category=data.groups[0][0].id,query='',suggestionIndex=-1;
     const search=$('.voting-search input',voting),grid=$('.voting-grid',voting),filters=$('.voting-category-filters',voting),triggers=$$('.voting-group-trigger',voting);
     function closeMenus(){ $$('.voting-group-menu',voting).forEach(menu=>menu.remove());triggers.forEach(trigger=>trigger.setAttribute('aria-expanded','false')); }

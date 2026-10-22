@@ -16,7 +16,7 @@ export default async function VotingPage({searchParams}: {searchParams: Promise<
     <div className="home voting-site surface surface--primary">
       <SiteHeader homePrefix="/" phase="voting" />
       <ScrollReveal />
-      <main id="main"><VotingBrowser headingLevel={1} initialCategoryId={typeof category === 'string' ? category : undefined} /></main>
+      <main id="main"><VotingBrowser directory headingLevel={1} initialCategoryId={typeof category === 'string' ? category : undefined} /></main>
       <SiteFooter homePrefix="/" />
     </div>
   );

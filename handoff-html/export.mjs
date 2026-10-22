@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import { createRequire } from 'node:module';
 import { flattenDocument, flattenStyles, embedSvgAssets } from './structure.mjs';
+import {packageHandoffStyles,updateHandoffStyleLinks} from './styles.mjs';
 const require = createRequire(import.meta.url);
 const { chromium } = require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root = process.cwd();
@@ -52,7 +53,8 @@ for(const file of (await fs.readdir(path.join(out,'css'))).filter(file=>file.end
   const target=path.join(out,'css',file);
   await fs.writeFile(target,await embedSvgAssets(await fs.readFile(target,'utf8'),path.dirname(target)));
 }
-if(process.argv.includes('--styles-only')) { console.log('Phase 1 styles refreshed.'); process.exit(0); }
+await packageHandoffStyles(out);
+if(process.argv.includes('--styles-only')) { await updateHandoffStyleLinks(out); console.log('Phase 1 styles refreshed.'); process.exit(0); }
 const categories = [...Array.from({length:6},(_,i)=>`tru-cot-${i+1}`),...Array.from({length:9},(_,i)=>`tien-phong-${i+1}`)];
 const newsSource = await fs.readFile(path.join(root,'src/data/news.ts'),'utf8');
 const slugs = [...newsSource.matchAll(/(?:slug:|'slug':|"slug":)\s*['"]([^'"]+)['"]/g)].map(m=>m[1]).filter(s=>!s.includes('`'));
@@ -107,7 +109,7 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
     if(secondPanel) {const panel=doc.querySelector('[role=tabpanel]');const holder=doc.createElement('div');holder.innerHTML=secondPanel;if(!doc.getElementById(holder.firstChild.id)){holder.firstChild.hidden=true;panel.after(holder.firstChild);}}
     doc.querySelectorAll('.home-award-count').forEach(el=>{if(el.textContent.trim()==='0')el.textContent='15';});
     const head=doc.querySelector('head');
-    for(const name of ['tokens','base','home',...(kind==='home'?[]:[kind])]) {const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;head.append(link);}
+    for(const name of ['tokens','font','base','home',...(kind==='home'?[]:[kind]),'icons']) {const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;head.append(link);}
     const script=doc.createElement('script');script.src='js/handoff.js';script.defer=true;head.append(script);
     window.flattenHandoffDocument(doc);
     doc.documentElement.setAttribute('lang','vi');

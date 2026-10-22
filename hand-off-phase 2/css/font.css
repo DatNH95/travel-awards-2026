@@ -1,0 +1,13 @@
+/* Local fonts. Preserve the licenses in fonts/ and assets/icons/flaticon/NOTICE.md. */
+@font-face { font-family:HandoffNews; src:url('../fonts/merriweather/merriweather-bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+.news-site, .home-tin-tuc { --font-news-title:HandoffNews; }
+@font-face {
+    font-family: "uicons-regular-rounded";
+    src: url('../assets/icons/flaticon/uicons-regular-rounded.woff2') format('woff2');
+    font-display: swap;
+}
+@font-face {
+    font-family: "uicons-brands";
+    src: url('../assets/icons/flaticon/uicons-brands.woff2') format('woff2');
+    font-display: swap;
+}

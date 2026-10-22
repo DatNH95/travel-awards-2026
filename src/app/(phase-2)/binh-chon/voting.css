@@ -1,4 +1,28 @@
 .home-voting { padding-block: var(--spacing-section); }
+:is(.voting-site,.home-phase-2) section.home-voting::after { content: ''; position: absolute; z-index: -1; pointer-events: none; top: 0; right: 0; width: min(54vw,840px); height: 220px; background: url('/assets/decor/gold-wave-animated.svg') right top / cover no-repeat; opacity: .2; mix-blend-mode: multiply; mask-image: linear-gradient(to right,transparent,#000 40%), linear-gradient(to bottom,#000 40%,transparent); mask-composite: intersect; }
+@media (prefers-reduced-motion: reduce) { :is(.voting-site,.home-phase-2) section.home-voting::after { background-image: url('/assets/decor/gold-wave.webp'); } }
+@media (max-width: 900px) { :is(.voting-site,.home-phase-2) section.home-voting::after { width: 70vw; height: 150px; opacity: .14; } }
+.voting-folder > .layout-container > .voting-breadcrumb { margin-bottom: 1.25rem; font-size: 13px; line-height: 1.5; }
+.voting-folder-intro { display: grid; grid-template-columns: minmax(0,1fr) auto; align-items: center; gap: 3rem; margin-bottom: 2.5rem; }
+.voting-folder-intro .voting-intro { gap: .75rem; margin-bottom: 0; }
+.voting-folder-intro .voting-intro > h1 { font-size: var(--text-display-l); font-weight: 400; line-height: 1.2; }
+.voting-folder-intro .voting-intro > p { max-width: 58ch; font-size: 16px; line-height: 1.6; color: var(--color-text-secondary); }
+.voting-folder-intro .home-countdown-deadline { margin-bottom: .75rem; font-size: 14px; font-weight: 400; line-height: 1.5; }
+.voting-folder-intro .home-countdown-circle { width: 4rem; }
+.voting-folder .voting-category-navigation { margin-top: 1rem; }
+.voting-folder .voting-results-heading { margin-block: 2.5rem 1.5rem; gap: 1rem; }
+.voting-folder .voting-results-heading > h3 { font-size: 28px; font-weight: 400; line-height: 1.4; }
+.voting-folder .voting-view-all { font-size: 14px; }
+.voting-folder .voting-grid { row-gap: 2rem; }
+@media (max-width: 900px) { .voting-folder-intro { grid-template-columns: 1fr; gap: 1.5rem; } .voting-folder-intro .home-countdown { justify-self: start; text-align: left; } }
+@media (max-width: 380px) { .voting-folder .home-countdown-circle { width: 3.5rem; } }
+@media (max-width: 767px) {
+  .voting-folder-intro { margin-bottom: 1.75rem; }
+  .voting-folder-intro .voting-intro > h1 { font-size: 36px; }
+  .voting-folder .voting-results-heading { margin-block: 2rem 1.25rem; }
+  .voting-folder .voting-results-heading > h3 { font-size: 24px; }
+  .voting-folder .voting-grid { row-gap: 1.5rem; }
+}
 .phase-2-scope .voting-primary-cta { --spacing-cta-nomination-height: 45px; }
 .home-phase-2 .home-steps .voting-guide-cta { justify-self: start; }
 .home-phase-2 .home-journey > .layout-container::before { content: none; border: 0; }
@@ -59,14 +83,17 @@
   .phase-2-scope .home-header:has(nav[data-scrolled='true']) .home-header-inner { padding-top: 0; }
   .phase-2-scope .home-header:has(nav[data-scrolled='true']) .home-header-brand-row { position: static; inset: auto; padding-inline: 0; box-shadow: none; }
 }
-.home-phase-2 .voting-filter-toolbar, .voting-site .voting-filter-toolbar { position: sticky; top: 0; z-index: 60; box-shadow: 0 4px 16px color-mix(in srgb,var(--color-text-primary) 5%,transparent); }
+.voting-sticky-marker { height: 1px; margin-bottom: -1px; pointer-events: none; }
+.home-phase-2 .voting-filter-toolbar, .voting-site .voting-filter-toolbar { position: sticky; top: 0; z-index: 60; transition: box-shadow 200ms ease; }
+:is(.home-phase-2,.voting-site) .voting-filter-toolbar[data-sticky=true] { box-shadow: 0 8px 24px color-mix(in srgb,var(--color-text-primary) 14%,transparent), 0 2px 6px color-mix(in srgb,var(--color-text-primary) 6%,transparent); }
+@media (prefers-reduced-motion: reduce) { :is(.home-phase-2,.voting-site) .voting-filter-toolbar { transition: none; } }
 .voting-card-count { border-top: var(--home-rule); padding-top: 10px; margin-top: 12px; font-size: 14px; line-height: 1.4; color: var(--color-text-primary); }
 .voting-card-count strong { color: var(--color-action-primary); font-weight: 700; }
 .voting-card-confirmation { margin-top: 8px; font-size: 14px; line-height: 1.4; color: var(--color-action-secondary); }
 .voting-survey-trigger:hover:not(:disabled), .voting-survey-trigger:active:not(:disabled) { background: color-mix(in srgb,var(--color-action-primary) 80%,var(--color-surface-primary)); }
 .voting-survey-trigger:disabled { background: var(--color-disabled-surface); color: var(--color-disabled-text); border-color: var(--color-border-default); cursor: not-allowed; }
-.home-phase-2 .home-voting { position: relative; isolation: isolate; }
-.home-phase-2 .home-voting::before {
+:is(.home-phase-2,.voting-site) .home-voting { position: relative; isolation: isolate; }
+:is(.home-phase-2,.voting-site) .home-voting::before {
   content: '';
   position: absolute;
   inset: 0;
@@ -77,9 +104,9 @@
   mask-image: linear-gradient(to bottom,transparent,#000 64px);
   transition: opacity 600ms var(--ease-signature);
 }
-.home-phase-2 .home-voting::after { content: none; }
-.home-phase-2 .home-voting:hover::before, .home-phase-2 .home-voting:focus-within::before { opacity: .55; }
-@media (prefers-reduced-motion: reduce) { .home-phase-2 .home-voting::before { transition: none; opacity: .45; } }
+:is(.home-phase-2,.voting-site) .home-voting::after { content: none; }
+:is(.home-phase-2,.voting-site) .home-voting:hover::before, :is(.home-phase-2,.voting-site) .home-voting:focus-within::before { opacity: .55; }
+@media (prefers-reduced-motion: reduce) { :is(.home-phase-2,.voting-site) .home-voting::before { transition: none; opacity: .45; } }
 .home-phase-2 .home-hero { aspect-ratio: auto; height: auto; min-height: 0; max-height: none; }
 .home-phase-2 .home-hero-landscape { object-position: 50% 60%; transform-origin: 50% 60%; }
 .home-phase-2 .home-hero-content { padding: clamp(1.5rem,2.5vw,2.5rem) 1.25rem 2.5rem; }
@@ -87,7 +114,7 @@
 .home-phase-2 .home-hero .brand-graphic--campaign { width: clamp(15rem,21vw,22rem); max-width: 76vw; }
 .home-phase-2 .home-hero-statement { font-weight: 700; }
 .home-phase-2 .home-hero-actions { gap: .75rem; margin-top: 1rem; }
-.home-phase-2 .home-voting { padding-top: clamp(2rem,3vw,3rem); }
+:is(.home-phase-2,.voting-site) .home-voting { padding-top: clamp(2rem,3vw,3rem); }
 .home-phase-2 .voting-intro { gap: .5rem; margin-bottom: 2rem; }
 .voting-intro { display: grid; gap: 1rem; max-width: 48rem; margin-bottom: 3rem; }
 .voting-intro > :is(h1,h2) { font-size: 36px; line-height: 1.4; }

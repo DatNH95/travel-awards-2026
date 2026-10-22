@@ -99,6 +99,8 @@ Khi người dùng nói "Đẩy lên GitHub", thực hiện theo thứ tự:
 8. Stage các thay đổi thuộc phạm vi commit, gồm cả source và bản bàn giao tương ứng của phase được yêu cầu, tạo commit message ngắn mô tả thay đổi và commit.
 9. Chạy `git push origin main`.
 
+Sau mỗi lần commit và push thành công, báo commit hash và URL GitHub diff trực tiếp của commit (`https://github.com/<owner>/<repo>/commit/<full-hash>.diff`) để người dùng gửi Tech. Không tạo `CHANGELOG.md`.
+
 Mỗi lần đẩy lên GitHub, tự kiểm tra và sửa bug, lỗi chuyển đổi, cache hoặc artifact cũ liên quan trong phạm vi project; chạy lại kiểm tra phần bị ảnh hưởng để đảm bảo handoff đúng cấu trúc, code sạch và khớp implementation. Kiểm tra trên bản build hiện tại, restart server sau build khi cần; không xóa dữ liệu hoặc local changes để xử lý cache. Chỉ dừng và báo nếu có conflict, file bất thường chưa xác định được phạm vi, hoặc lỗi không thể tự xử lý an toàn. Không push khi kiểm tra cần thiết còn lỗi và không tự đưa file bất thường vào commit.
 
 Không force push.
@@ -114,6 +116,7 @@ Không force push.
 - Class section Homepage theo thứ tự: `section home-hero`, `section home-about`, `section home-agenda`, `section home-awards`, `section home-participate`, `section home-minitalk`, `section home-tin-tuc`, `section home-final-cta`, `section home-organizer`. Có thể giữ thêm class surface/theme; giữ ID và class thành phần con phục vụ CSS/link/handler.
 - Các trang con giữ cấu trúc handoff đã chốt, header/footer trực tiếp trong body và không có `div.home`/`main` bọc nội dung. Không đưa wrapper hoặc runtime Next.js trở lại khi export từ source.
 - HTML/CSS thuần; chỉ giữ JS thuần cần thiết. Xóa node Next dư/ẩn, hydration scripts, `next-route-announcer` và class tự sinh không dùng. Chuyển toàn bộ link nội bộ sang file HTML tương đối, kể cả link có query/anchor và phân trang.
+- CSS handoff không dùng `@layer`; xuất các rule CSS trực tiếp. Tách `css/font.css` cho toàn bộ `@font-face` và cấu hình font, `css/icons.css` cho glyph và định nghĩa icon dùng chung; CSS component chỉ giữ phần bố cục/trạng thái theo ngữ cảnh. Áp dụng cho cả hai phase và giữ trong công cụ export.
 - Duy trì quy chuẩn trong công cụ export/migration để lần xuất sau không làm mất cấu trúc. Kiểm tra shell, link, ID, console/JS, các thao tác liên quan và responsive desktop/mobile; sửa lỗi chuyển đổi trước khi push. Giữ báo cáo QA trong repo, không commit screenshot đã ignore.
 - Chuyển đổi handoff không tự sửa source Next.js; cập nhật source và handoff tương ứng theo yêu cầu mới của người dùng.
 

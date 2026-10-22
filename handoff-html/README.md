@@ -27,7 +27,7 @@ Toàn bộ trang handoff đặt `header.home-header` và `footer.home-footer` tr
 
 `qa/home-structure-report.json` đối chiếu trước/sau cập nhật wrapper và tên class Homepage; `update-home-structure.mjs` chỉ dùng để migration/QA, không deploy lên production.
 
-Nạp theo thứ tự `tokens.css` → `base.css` → `home.css` → CSS trang (`rules.css`, `news.css`, `nomination.css`). CSS tiêu chuẩn, không cần Tailwind compiler hoặc runtime. Giữ class semantic hiện tại để Tech có thể chia thành template/partial. Các breakpoint và reduced-motion giữ từ source.
+Nạp theo thứ tự `tokens.css` → `font.css` → `base.css` → `home.css` → CSS trang (`rules.css`, `news.css`, `nomination.css`) → `icons.css`. `font.css` chứa khai báo font; `icons.css` chứa định nghĩa icon dùng chung. Không dùng `@layer`, Tailwind compiler hoặc runtime. Giữ class semantic hiện tại để Tech có thể chia thành template/partial. Các breakpoint và reduced-motion giữ từ source. Công cụ `styles.mjs` duy trì cách đóng gói này khi export; `--styles-only` cập nhật CSS và link trong HTML mà không xuất lại nội dung trang.
 
 `assets/` và `fonts/` được copy từ public, artwork không chỉnh sửa. Đường dẫn tương đối hoạt động trong thư mục con. Ảnh CDN VnExpress giữ URL nguồn và cần mạng; không tải lại các ảnh ngoài. Merriweather news dùng font local.
 

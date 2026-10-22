@@ -1,0 +1,3 @@
+/* Local fonts. Preserve the licenses in fonts/ and assets/icons/flaticon/NOTICE.md. */
+@font-face { font-family:HandoffNews; src:url('../fonts/merriweather/merriweather-bold.ttf') format('truetype'); font-weight:700; font-style:normal; font-display:swap; }
+.news-site, .home-tin-tuc { --font-news-title:HandoffNews; }

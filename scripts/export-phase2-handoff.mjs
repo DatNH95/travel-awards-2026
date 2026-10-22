@@ -3,6 +3,7 @@ import fs from 'node:fs/promises';
 import path from 'node:path';
 import {createRequire} from 'node:module';
 import {flattenDocument, flattenStyles, embedSvgAssets} from '../handoff-html/structure.mjs';
+import {packageHandoffStyles,updateHandoffStyleLinks} from '../handoff-html/styles.mjs';
 const require = createRequire(import.meta.url);
 const {chromium} = require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const out = path.resolve('hand-off-phase 2');
@@ -20,13 +21,15 @@ for(const name of ['regular-rounded','brands']) {
 let css = await fs.readFile('src/app/(phase-2)/binh-chon/voting.css','utf8');
 css += '\n'+await fs.readFile('src/app/(phase-2)/phase-2.css','utf8');
 await fs.writeFile(path.join(out,'css/voting.css'),await embedSvgAssets(flattenStyles(css.replaceAll('/assets/','../assets/')),path.join(out,'css')));
+await packageHandoffStyles(out,{phase:2});
 // Match production cascade: homepage spacing refinements follow voting styles.
 if(process.argv.includes('--styles-only')) {
   for(const file of (await fs.readdir(out)).filter(file=>file.endsWith('.html'))) {
     const target=path.join(out,file),html=await fs.readFile(target,'utf8');
-    await fs.writeFile(target,html.replace(/<link rel="stylesheet" href="css\/home.css">\s*<link rel="stylesheet" href="css\/voting.css">/,'<link rel="stylesheet" href="css/voting.css">\n<link rel="stylesheet" href="css/home.css">'));
+    const ordered=html.replace(/<link rel="stylesheet" href="css\/home.css">\s*<link rel="stylesheet" href="css\/voting.css">/,'<link rel="stylesheet" href="css/voting.css">\n<link rel="stylesheet" href="css/home.css">');
+    if(ordered!==html)await fs.writeFile(target,ordered);
   }
-  console.log('Phase 2 styles refreshed.');process.exit(0);
+  await updateHandoffStyleLinks(out);console.log('Phase 2 styles refreshed.');process.exit(0);
 }
 const categories = [...Array.from({length:6},(_,i)=>`tru-cot-${i+1}`),...Array.from({length:9},(_,i)=>`tien-phong-${i+1}`)];
 const profiles = categories.flatMap(category=>Array.from({length:10},(_,i)=>`${category}-ho-so-${i+1}`));
@@ -61,7 +64,10 @@ try {
   }
   const galleryCredits=new Map();
   const routes=[['/phase-2','index.html'],['/binh-chon','binh-chon.html'],...profiles.map(slug=>[`/binh-chon/${slug}`,`ho-so-${slug}.html`])];
-  for(const [index,[route,file]] of routes.entries()) {
+  const requestedFiles=process.argv.slice(2).filter(value=>!value.startsWith('--'));
+  const selectedRoutes=requestedFiles.length?routes.filter(([,file])=>requestedFiles.includes(file)):routes;
+  for(const file of requestedFiles)if(!routes.some(([,target])=>target===file))throw new Error(`Unknown handoff page: ${file}`);
+  for(const [index,[route,file]] of selectedRoutes.entries()) {
     await page.goto(base+route,{waitUntil:'networkidle'});
     let extraPanel=null;
     if(file==='index.html') {
@@ -87,6 +93,7 @@ try {
       const firstThumbnail=page.locator('.voting-gallery-thumbnails button').first();
       if(await firstThumbnail.count())await firstThumbnail.click();
     }
+    await page.evaluate(()=>new Promise(resolve=>{scrollTo(0,0);requestAnimationFrame(()=>requestAnimationFrame(resolve));}));
     let html=await page.evaluate(({extraPanel,detail,credits})=>{
       const doc=document.cloneNode(true);
       doc.querySelectorAll('.voting-gallery-slide').forEach(node=>{node.dataset.credit=credits[node.getAttribute('src')]||'';});
@@ -102,8 +109,7 @@ try {
       });
       doc.querySelectorAll('.home-award-count').forEach(node=>node.textContent='15');
       window.flattenHandoffDocument(doc);
-      for(const name of ['tokens','base','voting','home']){const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;doc.head.append(link);}
-      for(const font of ['regular-rounded','brands']){const link=doc.createElement('link');link.rel='stylesheet';link.href=`assets/icons/flaticon/uicons-${font}.css`;doc.head.append(link);}
+      for(const name of ['tokens','font','base','voting','home','icons']){const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;doc.head.append(link);}
       for(const name of ['data','handoff']){const script=doc.createElement('script');script.src=`js/${name}.js`;script.defer=true;doc.head.append(script);}
       if(detail)doc.body.dataset.profile=detail;
       // React useId values become stable, readable HTML identifiers with matching references.
@@ -113,8 +119,11 @@ try {
       return '<!doctype html>\n'+doc.documentElement.outerHTML;
     },{extraPanel,detail,credits:Object.fromEntries(galleryCredits)});
     html=portable(html).replace(/><(?=\/?(?:html|head|body|header|footer|nav|section|article|aside|div|form|fieldset|ul|ol|li|h[1-6]|p|dialog|link|meta|script)\b)/g,'>\n<');
-    await fs.writeFile(path.join(out,file),html);
-    if(index%25===0)console.log(`Phase 2: ${index+1}/${routes.length}`);
+    for(let attempt=0;;attempt++) {
+      try {await fs.writeFile(path.join(out,file),html);break;}
+      catch(error){if(!['UNKNOWN','EBUSY','EPERM'].includes(error.code)||attempt>=7)throw error;await new Promise(resolve=>setTimeout(resolve,200));}
+    }
+    if(index%25===0)console.log(`Phase 2: ${index+1}/${selectedRoutes.length}`);
   }
   // Clean exported card fragments with the same DOM rules, independently of hydration.
   for(const category of categories)cards[category]=portable(await page.evaluate(html=>{

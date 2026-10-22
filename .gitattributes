@@ -1,0 +1,2 @@
+# Preserve supplied EPS artwork byte-for-byte; do not normalize or diff it as source code.
+*.eps binary
