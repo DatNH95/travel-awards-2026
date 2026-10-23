@@ -545,3 +545,19 @@
 
 .wrap-homepage.width_common { width: 100%; }
 .wrap-homepage > .home-hero { padding-block: 0; }
+
+.nomination-guide-navigation { display: none; }
+@media (max-width: 47.99rem) {
+  .nomination-guide-slider { min-width: 0; }
+  .nomination-guide-slider .nomination-guide-frames--four {
+    display: grid; grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 100%;
+    gap: 16px; overflow-x: auto; overscroll-behavior-x: contain; scroll-snap-type: x mandatory;
+    scrollbar-width: none; padding: 0; scroll-padding-inline: 0;
+  }
+  .nomination-guide-slider .nomination-guide-frames--four::-webkit-scrollbar { display: none; }
+  .nomination-guide-slider .nomination-guide-frame { padding: 20px; scroll-snap-align: start; scroll-snap-stop: always; }
+  .nomination-guide-navigation { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 16px; font-size: 14px; color: var(--color-text-secondary); }
+  .nomination-guide-navigation button { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border: var(--home-rule); border-radius: 50%; background: var(--color-surface-primary); color: var(--color-text-brand); font-size: 22px; cursor: pointer; }
+  .nomination-guide-navigation button:disabled { opacity: .35; cursor: default; }
+  .nomination-guide-navigation button:focus-visible { outline: 2px solid var(--color-text-brand); outline-offset: 2px; }
+}

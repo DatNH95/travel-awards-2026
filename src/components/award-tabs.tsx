@@ -29,7 +29,7 @@ export function AwardTabs() {
     </div>
     <div role="tabpanel" id={`award-panel-${active}`} aria-labelledby={`award-tab-${active}`} tabIndex={0} className="home-award-panel">
       <div className="home-award-group-copy"><h3 className="type-heading-1">{group.title}</h3><TextLink className="home-award-desktop-cta" href="/dang-ky-de-cu">Đăng ký đề cử</TextLink></div>
-      <div><ol className="home-award-list home-award-list--named">{categories.map((category, index) => <li key={category}><span className={active === 0 ? 'home-award-category-index' : undefined}>{String(index + 1).padStart(2, '0')}</span>{isOrganizerNominated(category) ? <span>{category}</span> : <Link className="home-award-category-link" href={`/dang-ky-de-cu?category=${awardCategoryId(active, index)}`}>{category}<span aria-hidden="true"><CTAArrow /></span></Link>}</li>)}</ol><NominationCTA className="home-award-mobile-cta cta-mobile-dang-ky" /></div>
+      <div><ol className="home-award-list home-award-list--named">{categories.map((category, index) => <li key={category}><span className="home-award-category-index">{String(index + 1).padStart(2, '0')}</span>{isOrganizerNominated(category) ? <span>{category}</span> : <Link className="home-award-category-link" href={`/dang-ky-de-cu?category=${awardCategoryId(active, index)}`}>{category}<span aria-hidden="true"><CTAArrow /></span></Link>}</li>)}</ol><NominationCTA className="home-award-mobile-cta cta-mobile-dang-ky" /></div>
     </div>
   </div>;
 }

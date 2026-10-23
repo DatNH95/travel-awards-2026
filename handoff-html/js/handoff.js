@@ -190,3 +190,32 @@
     titles.forEach(title => title.classList.remove('home-heading-enter'));
   });
 })();
+
+// Mobile nomination steps: native swipe and accessible previous/next controls.
+(() => {
+  document.querySelectorAll('.nomination-guide-slider').forEach(root => {
+    const track = root.querySelector('ol');
+    const nav = root.querySelector('.nomination-guide-navigation');
+    if (!track || !nav) return;
+    const buttons = nav.querySelectorAll('button');
+    let active = 0;
+    function update() {
+      const start = track.getBoundingClientRect().left;
+      let distance = Infinity;
+      [...track.children].forEach((item, index) => {
+        const delta = Math.abs(item.getBoundingClientRect().left - start);
+        if (delta < distance) { active = index; distance = delta; }
+      });
+      nav.querySelector('span').textContent = `Bước ${active + 1} / 4`;
+      buttons[0].disabled = active === 0;
+      buttons[1].disabled = active === 3;
+    }
+    buttons.forEach((button, index) => button.addEventListener('click', () => {
+      const item = track.children[active + (index ? 1 : -1)];
+      if (item) track.scrollBy({left:item.getBoundingClientRect().left-track.getBoundingClientRect().left, behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});
+    }));
+    track.addEventListener('scroll', update, {passive:true});
+    new ResizeObserver(update).observe(track);
+    update();
+  });
+})();

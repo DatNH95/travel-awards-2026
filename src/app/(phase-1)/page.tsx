@@ -6,6 +6,7 @@ import Link from 'next/link';
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { CTAArrow, Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
+import { NominationGuideSlider } from '@/components/nomination-guide-slider';
 import { DestinationGallery } from '@/components/destination-gallery';
 import { UiIcon } from '@/components/ui-icon';
 import { ScrollReveal } from '@/components/scroll-reveal';
@@ -102,12 +103,12 @@ export default function HomePage() {
       <Section id="participate" className="home-participate">
         <Container>
           <div className="nomination-guide-heading"><h2 className="type-display-l">Đăng ký tham gia đề cử</h2></div>
-          <ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn và đăng ký đề cử">
+          <NominationGuideSlider><ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn và đăng ký đề cử">
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="trophy" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">01</span></div><h3>Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></li>
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="document" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">02</span></div><h3>Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></li>
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="check" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">03</span></div><h3>Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 20.11.2026.</p></li>
             <li className="nomination-guide-frame nomination-guide-frame--cta"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="arrow-up-right" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">04</span></div><h3>Đăng ký đề cử ngay hôm nay</h3><NominationCTA className="nomination-guide-cta cta-mobile-dang-ky" /></li>
-          </ol>
+          </ol></NominationGuideSlider>
         </Container>
       </Section>
 
