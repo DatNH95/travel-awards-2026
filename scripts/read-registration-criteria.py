@@ -15,7 +15,16 @@ keys = [
     'Gương mặt truyền thông du lịch của năm (Đại sứ)', 'Chiến dịch quảng bá du lịch của năm',
 ]
 def bullets(value):
-    return [clean(line.strip().lstrip('•').strip()) for line in (value or '').splitlines() if line.strip()]
+    items = []
+    for line in (value or '').splitlines():
+        line = line.strip()
+        if not line:
+            continue
+        if line.startswith('•') or not items:
+            items.append(line.lstrip('•').strip())
+        else:
+            items[-1] += ' ' + line
+    return [clean(item) for item in items]
 
 def clean(value):
     for old, new in [('phân khúc) )', 'phân khúc)'), ('&', 'và'), ('TripAdvisor', 'Tripadvisor'), ('nhà hàng/ điểm đến', 'nhà hàng/điểm đến'), ('≥ 1600px', 'có kích thước tối thiểu 1.600 px'), ('≤ 3 phút', 'không quá 3 phút'), ('MỘT', 'một'), (' + ', ', '), ('(baseline)', '(mốc ban đầu)'), ('nền tảng review', 'nền tảng đánh giá'), ('nguồn Cục Hàng không, OAG/Cirium hoặc nội bộ', 'nguồn: Cục Hàng không, OAG/Cirium hoặc báo cáo nội bộ')]:
@@ -53,14 +62,26 @@ for key, row in zip(keys, rows, strict=True):
         'narratives': [{'label': label, 'type': 'textarea', 'maxWords': 300} for label in narrative_labels],
         'evidence': bullets(evidence),
     }
+    # Editorial copy for the 22.10 changes; keep declarations in their existing fields.
+    for field in records[key]['fields']:
+        if 'số lượng follow' in field['help']:
+            subject = 'điểm đến' if key == keys[0] else 'đơn vị'
+            field['help'] = f'Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của {subject}; ghi rõ số người theo dõi của từng tài khoản mạng xã hội.'
+    if key == keys[0]:
+        records[key]['conditions'][2] = 'Không có sự cố an ninh, an toàn du khách đặc biệt nghiêm trọng trong kỳ xét giải (01/10/2025–30/09/2026). Sự cố nghiêm trọng được hiểu là có thương vong hoặc có văn bản chỉ đạo xử lý của cơ quan Trung ương (Bộ VHTTDL, Bộ Công an, Cục Du lịch Quốc gia Việt Nam).'
+        records[key]['fields'][3]['help'] = 'Nêu tối đa 5 hoạt động, chương trình bảo tồn di sản, môi trường và phát triển cộng đồng tiêu biểu. Cung cấp báo cáo kết quả hoặc số liệu minh chứng tại mục Hồ sơ & minh chứng.'
+    if key == keys[4]:
+        records[key]['fields'][4]['help'] = 'Nêu các hoạt động hợp tác quảng bá điểm đến với địa phương, doanh nghiệp. Cung cấp báo cáo giới thiệu thỏa thuận hợp tác với các điểm đến tại mục Hồ sơ & minh chứng.'
+    if key == keys[5]:
+        records[key]['fields'][1]['help'] = 'Cung cấp số liệu lan tỏa trên truyền thông, mạng xã hội trong kỳ xét giải. Nếu có báo cáo truyền thông, dán link tại mục Hồ sơ & minh chứng.'
     # User override: all categories require 3–10 images, regardless of sheet counts.
     records[key]['images'] = {'min': 3, 'max': 10}
     records[key]['evidence'] = [re.sub(r'Tối thiểu (?:12|15|8) ảnh', '3–10 ảnh', item).replace('Bộ ảnh điểm đến (khuyến khích): 8–15 ảnh', 'Bộ ảnh điểm đến (bắt buộc): 3–10 ảnh').replace('tối đa 15 ảnh', 'tối đa 10 ảnh') for item in records[key]['evidence']]
     records[key]['menuRequired'] = key == 'Trải nghiệm ẩm thực du lịch của năm'
 
 out = Path('src/app/(phase-1)/dang-ky-de-cu/category-criteria.ts')
-out.write_text('''// Source: Bo tieu chi ho so ung cu.xlsx, Giải trụ cột!A4:E9 / Giải tiên phong!A4:E12.
-// Verified 2026-10-15; regenerate with scripts/read-registration-criteria.py <workbook>.
+out.write_text('''// Source: Travel Awards - Bộ tiêu chí update 22.10.xlsx, Giải trụ cột!A4:E9 / Giải tiên phong!A4:E12.
+// Verified 2026-10-23, including red text; regenerate with scripts/read-registration-criteria.py <workbook>.
 import type { RegistrationField } from './registration-data';
 export type CategoryCriteria = {
   audience: string; conditions: string[]; fields: RegistrationField[];

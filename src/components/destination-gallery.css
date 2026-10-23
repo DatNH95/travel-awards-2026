@@ -1,0 +1,39 @@
+/* Editorial photo wall inspired by the Tech Awards panorama gallery. */
+.destination-gallery { background: var(--color-text-primary); }
+.destination-gallery-grid { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); grid-auto-rows: clamp(190px, 20vw, 360px); gap: 0; }
+.destination-gallery-frame { position: relative; display: block; min-width: 0; overflow: hidden; isolation: isolate; color: var(--color-text-on-deep-primary); }
+.destination-gallery-frame--wide { grid-column: span 2; }
+.destination-gallery-frame img { object-fit: cover; opacity: .78; transform: scale(1); transition: transform 650ms var(--ease-signature), opacity 450ms ease; }
+.destination-gallery-frame::after { content: ''; position: absolute; z-index: 0; inset: 0; pointer-events: none; background: linear-gradient(180deg, transparent 35%, color-mix(in srgb, var(--color-text-primary) 82%, transparent)); opacity: .45; transition: opacity 450ms ease; }
+.destination-gallery-caption, .destination-gallery-feature-copy { position: absolute; z-index: 1; inset: auto 0 0; padding: clamp(16px, 2vw, 32px); pointer-events: none; }
+.destination-gallery-caption { display: grid; gap: 6px; opacity: 0; transform: translateY(10px); transition: opacity 350ms ease, transform 450ms var(--ease-signature); }
+.destination-gallery-location { font-size: 12px; letter-spacing: .04em; }
+.destination-gallery-name { font-size: clamp(16px, 1.4vw, 22px); line-height: 1.4; }
+.destination-gallery-feature-copy h2 { font-family: var(--font-display); font-size: clamp(26px, 2.5vw, 40px); font-weight: 400; line-height: 1.4; margin: 0 0 16px; }
+.destination-gallery-explore { display: inline-flex; align-items: center; gap: 12px; font-size: 14px; font-weight: 600; }
+.destination-gallery-frame--feature::after { opacity: 1; }
+.destination-gallery-frame:focus-visible { outline: 3px solid var(--color-brand-accent); outline-offset: -4px; }
+.destination-gallery-frame:focus-visible img { opacity: 1; transform: scale(1.07); }
+.destination-gallery-frame:focus-visible .destination-gallery-caption { opacity: 1; transform: none; }
+.destination-gallery-frame:focus-visible::after { opacity: 1; }
+@media (hover: hover) and (pointer: fine) {
+  .destination-gallery-frame:hover img { opacity: 1; transform: scale(1.07); }
+  .destination-gallery-frame:hover::after { opacity: 1; }
+  .destination-gallery-frame:hover .destination-gallery-caption { opacity: 1; transform: none; }
+}
+@media (max-width: 47.99rem) {
+  .destination-gallery-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: clamp(180px, 52vw, 280px); }
+  .destination-gallery-frame--wide { grid-column: span 2; }
+  .destination-gallery-frame:nth-child(2) { grid-column: auto; }
+  .destination-gallery-frame:nth-child(7) { grid-column: span 2; }
+  .destination-gallery-caption { padding: 12px; opacity: 1; transform: none; }
+  .destination-gallery-frame::after { opacity: .8; }
+  .destination-gallery-name { font-size: 16px; }
+  .destination-gallery-feature-copy h2 { font-size: 30px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .destination-gallery-frame img, .destination-gallery-caption, .destination-gallery-frame::after { transition: none; }
+  .destination-gallery-frame:is(:hover, :focus-visible) img { transform: none; }
+}
+.home .destination-gallery + :is(.home-news, .home-tin-tuc) { padding-top: 48px; }
+@media (max-width: 47.99rem) { .home .destination-gallery + :is(.home-news, .home-tin-tuc) { padding-top: 20px; } }

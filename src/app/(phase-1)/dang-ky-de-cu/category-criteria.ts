@@ -1,5 +1,5 @@
-// Source: Bo tieu chi ho so ung cu.xlsx, Giải trụ cột!A4:E9 / Giải tiên phong!A4:E12.
-// Verified 2026-10-15; regenerate with scripts/read-registration-criteria.py <workbook>.
+// Source: Travel Awards - Bộ tiêu chí update 22.10.xlsx, Giải trụ cột!A4:E9 / Giải tiên phong!A4:E12.
+// Verified 2026-10-23, including red text; regenerate with scripts/read-registration-criteria.py <workbook>.
 import type { RegistrationField } from './registration-data';
 export type CategoryCriteria = {
   audience: string; conditions: string[]; fields: RegistrationField[];
@@ -12,7 +12,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
     "conditions": [
       "Hồ sơ do Sở Du lịch/Sở VHTTDL hoặc UBND tỉnh, thành phố chính thức lập và nộp (không nhận hồ sơ do cá nhân/doanh nghiệp tự đề cử một tỉnh, thành)",
       "Mỗi tỉnh, thành phố chỉ nộp 01 hồ sơ cho hạng mục này",
-      "Không có sự cố an ninh, an toàn du khách nghiêm trọng trong kỳ xét giải (01/10/2025–30/09/2026). \"Nghiêm trọng\" = có thương vong, hoặc có văn bản chỉ đạo xử lý của cơ quan Trung ương (Bộ VHTTDL, Bộ Công an, Cục Du lịch Quốc gia Việt Nam)"
+      "Không có sự cố an ninh, an toàn du khách đặc biệt nghiêm trọng trong kỳ xét giải (01/10/2025–30/09/2026). Sự cố nghiêm trọng được hiểu là có thương vong hoặc có văn bản chỉ đạo xử lý của cơ quan Trung ương (Bộ VHTTDL, Bộ Công an, Cục Du lịch Quốc gia Việt Nam)."
     ],
     "fields": [
       {
@@ -33,12 +33,12 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Hoạt động bảo tồn và phát triển cộng đồng",
         "type": "textarea",
-        "help": "Hoạt động và chương trình bảo tồn di sản, môi trường, cộng đồng (tối đa 5 hoạt động tiêu biểu, kèm số liệu)"
+        "help": "Nêu tối đa 5 hoạt động, chương trình bảo tồn di sản, môi trường và phát triển cộng đồng tiêu biểu. Cung cấp báo cáo kết quả hoặc số liệu minh chứng tại mục Hồ sơ & minh chứng."
       },
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của điểm đến (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của điểm đến; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       }
     ],
     "narratives": [
@@ -101,7 +101,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của doanh nghiệp (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       }
     ],
     "narratives": [
@@ -166,7 +166,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của doanh nghiệp (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       }
     ],
     "narratives": [
@@ -209,7 +209,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
     "conditions": [
       "Cơ sở lưu trú nghỉ dưỡng (khách sạn nghỉ dưỡng, biệt thự du lịch theo TCVN 4391:2015) đã xếp hạng 4–5 sao hoặc chứng nhận tương đương, còn hiệu lực",
       "Đạt yêu cầu PCCC; có Giấy chứng nhận cơ sở đủ điều kiện an toàn thực phẩm còn hiệu lực",
-      "Không có sự cố nghiêm trọng trong kỳ xét giải (01/10/2025–30/09/2026)",
+      "Không có sự cố đặc biệt nghiêm trọng trong kỳ xét giải (01/10/2025–30/09/2026)",
       "Đã hoạt động tối thiểu 12 tháng tính đến 30/09/2026",
       "Không đồng thời nộp hạng mục Khách sạn của năm"
     ],
@@ -232,7 +232,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của doanh nghiệp (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       }
     ],
     "narratives": [
@@ -301,12 +301,12 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Hợp tác quảng bá điểm đến",
         "type": "textarea",
-        "help": "Hợp tác quảng bá điểm đến với địa phương/doanh nghiệp"
+        "help": "Nêu các hoạt động hợp tác quảng bá điểm đến với địa phương, doanh nghiệp. Cung cấp báo cáo giới thiệu thỏa thuận hợp tác với các điểm đến tại mục Hồ sơ & minh chứng."
       },
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của doanh nghiệp (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       }
     ],
     "narratives": [
@@ -365,7 +365,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Hiệu quả truyền thông",
         "type": "textarea",
-        "help": "Số liệu lan tỏa truyền thông/mạng xã hội trong kỳ xét giải"
+        "help": "Cung cấp số liệu lan tỏa trên truyền thông, mạng xã hội trong kỳ xét giải. Nếu có báo cáo truyền thông, dán link tại mục Hồ sơ & minh chứng."
       },
       {
         "label": "Đánh giá trên các nền tảng",
@@ -375,7 +375,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của doanh nghiệp (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       }
     ],
     "narratives": [
@@ -673,7 +673,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Kênh truyền thông chính thức",
         "type": "textarea",
-        "help": "Kênh truyền thông chính thức của doanh nghiệp (website, fanpage, tài khoản mạng xã hội)"
+        "help": "Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội."
       },
       {
         "label": "Đánh giá trên các nền tảng",

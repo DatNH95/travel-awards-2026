@@ -33,7 +33,19 @@ export function NominationCountdown({ label = 'Thời gian nhận đề cử cò
   </div>;
 }
 
-export function HeroStage({ children }: { children: ReactNode }) {
+// Desktop points come from BG1 SVG; mobile points match its supplied portrait artwork.
+export function HeroRouteGlow() {
+  const renderPoints = (points: number[][]) => points.map(([x, y], index) => <g key={x} style={{ animationDelay: `${index * 1.4}s` }}><circle className="hero-route-halo" cx={x} cy={y} r="10" /><circle className="hero-route-light" cx={x} cy={y} r="4" /></g>);
+  return <>
+    <svg className="hero-route-glow hero-route-glow--desktop" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">{renderPoints([[255.2, 783.1], [730.8, 744.4], [1184.3, 736.4], [1664, 736.9]])}</svg>
+    <svg className="hero-route-glow hero-route-glow--mobile" viewBox="0 0 1080 1920" preserveAspectRatio="xMidYMax slice" aria-hidden="true" focusable="false">{renderPoints([[164, 1482], [540, 1450], [917, 1429]])}</svg>
+  </>;
+}
+
+function BG1HeroStage({ children }: { children: ReactNode }) {
+  return <section className="home-hero home-hero--bg1" aria-labelledby="hero-title">{children}<HeroRouteGlow /></section>;
+}
+function LegacyHeroStage({ children }: { children: ReactNode }) {
   const hero = useRef<HTMLElement>(null);
   useEffect(() => {
     const element = hero.current;
@@ -90,3 +102,5 @@ export function HeroStage({ children }: { children: ReactNode }) {
   }, []);
   return <section ref={hero} className="home-hero" aria-labelledby="hero-title">{children}</section>;
 }
+
+export function HeroStage({children,bg1=false}: {children:ReactNode;bg1?:boolean}) { return bg1 ? <BG1HeroStage>{children}</BG1HeroStage> : <LegacyHeroStage>{children}</LegacyHeroStage>; }

@@ -1,0 +1,20 @@
+/* Flaticon UIcons 4.0.0 Regular Rounded. Credit: footer; license: public/assets/icons/flaticon/NOTICE.md. */
+@font-face {
+    font-family: "uicons-regular-rounded";
+    src: url("/assets/icons/flaticon/uicons-regular-rounded.woff2") format("woff2");
+    font-display: swap;
+}
+.nomination-guide-icon .ui-icon { display: inline-flex; width: var(--ui-icon-size, 20px); height: var(--ui-icon-size, 20px); align-items: center; justify-content: center; font-size: var(--ui-icon-size, 20px); line-height: 1; }
+.nomination-guide-icon .ui-icon::before { font-family: uicons-regular-rounded; font-weight: 400; font-style: normal; line-height: 1; }
+.nomination-guide-icon .fi-rr-trophy:before {
+    content: "\f48f";
+    }
+.nomination-guide-icon .fi-rr-document:before {
+    content: "\e6de";
+    }
+.nomination-guide-icon .fi-rr-check:before {
+    content: "\e430";
+    }
+.nomination-guide-icon .fi-rr-arrow-up-right:before {
+    content: "\e11b";
+    }

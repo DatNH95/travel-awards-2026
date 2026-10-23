@@ -1,0 +1,126 @@
+{
+  "results": [
+    {
+      "target": "http:",
+      "width": 1440,
+      "order": [
+        "",
+        "about",
+        "journey",
+        "awards",
+        "news",
+        "destinations",
+        "participate",
+        "nominate",
+        "organizer"
+      ],
+      "overflow": false,
+      "credits": 0,
+      "signupEffect": "none",
+      "spacing": 30,
+      "frames": 8
+    },
+    {
+      "target": "http:",
+      "width": 390,
+      "order": [
+        "",
+        "about",
+        "journey",
+        "awards",
+        "news",
+        "destinations",
+        "participate",
+        "nominate",
+        "organizer"
+      ],
+      "overflow": false,
+      "credits": 0,
+      "signupEffect": "none",
+      "spacing": 30,
+      "frames": 8
+    },
+    {
+      "target": "http:",
+      "width": 320,
+      "order": [
+        "",
+        "about",
+        "journey",
+        "awards",
+        "news",
+        "destinations",
+        "participate",
+        "nominate",
+        "organizer"
+      ],
+      "overflow": false,
+      "credits": 0,
+      "signupEffect": "none",
+      "spacing": 30,
+      "frames": 8
+    },
+    {
+      "target": "file:",
+      "width": 1440,
+      "order": [
+        "main",
+        "about",
+        "journey",
+        "awards",
+        "news",
+        "destinations",
+        "participate",
+        "nominate",
+        "organizer"
+      ],
+      "overflow": false,
+      "credits": 0,
+      "signupEffect": "none",
+      "spacing": 30,
+      "frames": 8
+    },
+    {
+      "target": "file:",
+      "width": 390,
+      "order": [
+        "main",
+        "about",
+        "journey",
+        "awards",
+        "news",
+        "destinations",
+        "participate",
+        "nominate",
+        "organizer"
+      ],
+      "overflow": false,
+      "credits": 0,
+      "signupEffect": "none",
+      "spacing": 30,
+      "frames": 8
+    },
+    {
+      "target": "file:",
+      "width": 320,
+      "order": [
+        "main",
+        "about",
+        "journey",
+        "awards",
+        "news",
+        "destinations",
+        "participate",
+        "nominate",
+        "organizer"
+      ],
+      "overflow": false,
+      "credits": 0,
+      "signupEffect": "none",
+      "spacing": 30,
+      "frames": 8
+    }
+  ],
+  "errors": [],
+  "hydration": []
+}

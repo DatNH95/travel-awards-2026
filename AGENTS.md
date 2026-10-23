@@ -10,7 +10,7 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
-- Sau mỗi lần cập nhật implementation và kiểm tra xong, tự reload tab localhost hiện tại để người dùng xem bản mới nhất. Nếu đang chạy production server, restart server sau build rồi reload; giữ nguyên route người dùng đang xem.
+- Ưu tiên review tại `http://localhost:8080` bằng `pnpm dev` với Fast Refresh, giữ server chạy nền để CSS/component tự cập nhật; không dùng `pnpm start` cho refinement thường ngày, không reload thủ công sau mỗi chỉnh sửa. Giữ route và trạng thái người dùng đang xem; chỉ reload khi Fast Refresh không thể cập nhật hoặc khi chuyển/restart server. Build production dùng để kiểm tra, không thay dev server đang review.
 
 ### Chi tiết hồ sơ — 20.10.2026
 
@@ -79,6 +79,14 @@ Khi người dùng nói "Đồng bộ project", thực hiện theo thứ tự:
 Không làm mất local changes; không tự stash, reset, xóa file hoặc giải quyết conflict để tiếp tục đồng bộ.
 
 ## Quy trình đẩy lên GitHub
+
+### Ưu tiên đẩy nhanh và tiết kiệm token
+
+- Mặc định xử lý gọn: đọc diff và file cần thiết, chỉ đồng bộ các trang/CSS/asset handoff bị ảnh hưởng; dùng export chọn file hoặc `--styles-only`, không xuất lại toàn bộ khi không cần.
+- Tận dụng kết quả build/TypeScript/QA đã đạt nếu code liên quan không đổi; không chạy lại bộ QA toàn site hoặc kiểm tra phần không bị ảnh hưởng. Chỉ build khi thay đổi source cần kiểm tra build; thay đổi tài liệu hoặc đóng gói handoff không yêu cầu build Next.js lại.
+- Fetch một lần đầu quy trình; chỉ kiểm tra remote lại nếu có lý do cụ thể. Giữ kiểm tra phạm vi stage, conflict và kết quả push; không force push hoặc push khi kiểm tra cần thiết còn lỗi.
+- Gộp các kiểm tra độc lập, tránh đọc/output dài, chụp ảnh hoặc tạo báo cáo/tài liệu mới không cần thiết. Chỉ mở rộng QA khi có lỗi hoặc rủi ro chưa được giải quyết.
+- Trao đổi ngắn; sau push ưu tiên báo commit hash và URL diff trực tiếp. Không biến yêu cầu đẩy code thành một đợt audit/refactor ngoài phạm vi.
 
 ### Phạm vi theo câu lệnh
 

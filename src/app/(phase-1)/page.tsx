@@ -6,12 +6,15 @@ import Link from 'next/link';
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { CTAArrow, Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
+import { DestinationGallery } from '@/components/destination-gallery';
+import { UiIcon } from '@/components/ui-icon';
 import { ScrollReveal } from '@/components/scroll-reveal';
-import { HeroStage, NominationCountdown } from '@/components/hero-stage';
+import { HeroStage, HeroRouteGlow, NominationCountdown } from '@/components/hero-stage';
 import { SiteHeader } from '@/components/site-header';
 import { AwardCount } from '@/components/award-count';
 import { SiteFooter } from '@/components/site-footer';
 import '@/app/home.css';
+import '@/styles/nomination-guide-icons.css';
 
 export const metadata: Metadata = {
   title: 'Travel Awards 2026 — Dấu ấn tiên phong',
@@ -49,8 +52,8 @@ export default function HomePage() {
   return <div className="home">
     <SiteHeader /><ScrollReveal />
     <main id="main">
-      <HeroStage>
-        <Image className="home-hero-landscape" src="/assets/key-visual/travel-awards-kv-v2.png" alt="" aria-hidden="true" width={1920} height={1080} unoptimized preload />
+      <HeroStage bg1>
+        <picture><source media="(max-width: 767px)" srcSet="/assets/key-visual/BG1%20Mobile.png" /><Image className="home-hero-landscape" src="/assets/key-visual/BG1%20SVG.svg" alt="" aria-hidden="true" width={1920} height={1080} unoptimized loading="eager" /></picture>
         <div className="home-hero-content">
           <Eyebrow>Travel Awards 2026</Eyebrow>
           <h1 id="hero-title"><span className="home-sr-only">THE FIRST SIGNATURE — DẤU ẤN TIÊN PHONG</span><BrandGraphic variant="campaign" /></h1>
@@ -69,7 +72,7 @@ export default function HomePage() {
       </Section>
       <Section id="journey" className="home-journey">
         <Container>
-          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
+          <div className="home-section-title"><h2 className="type-display-l">Agenda<span className="home-agenda-title-line"> sự kiện</span></h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
           <ol className="home-timeline">
             <li><span className="home-timeline-index">Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 10 - 11</p></div><p>Gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục trên chuyên trang Travel Awards.</p></li>
             <li><span className="home-timeline-index">Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Độc giả bình chọn song song với Hội đồng chuyên môn chấm điểm.</p></li>
@@ -84,21 +87,7 @@ export default function HomePage() {
           <AwardTabs />
         </Container>
       </Section>
-      <Section id="participate" className="home-participate">
-        <Container>
-          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Đăng ký<br />tham gia đề cử</h2><div className="home-participate-ornament" aria-hidden="true"><BrandGraphic variant="signature" /></div></div><div id="nomination-guide" className="home-steps">
-            <div><span>01</span><div><h3 className="type-heading-3">Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></div></div>
-            <div><span>02</span><div><h3 className="type-heading-3">Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></div></div>
-            <div><span>03</span><div><h3 className="type-heading-3">Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 20.11.2026.</p></div></div>
-            <NominationCTA className="home-cta cta-mobile-dang-ky" />
-          </div></div>
-        </Container>
-      </Section>
-      <Section id="minitalk" tone="brand-deep" className="home-minitalk">
-        <Container>
-          <div className="home-minitalk-grid"><div><h2>Glow On<br /><em>The Go.</em></h2></div><div className="home-minitalk-copy"><h3 className="type-heading-2">Đẹp không dịch chuyển</h3><p>Chăm da khoa học và dưỡng da đa nhiệm trong mỗi hành trình du lịch.</p></div></div>
-        </Container>
-      </Section>
+
       <Section id="news" className={`home-news ${newsFont.variable}`}>
         <Container>
           <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true"><CTAArrow /></span></Link></div>
@@ -109,8 +98,21 @@ export default function HomePage() {
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
-      <Section id="nominate" tone="brand-deep" className="home-final-cta">
-        <Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta cta-mobile-dang-ky" /></Container>
+      <DestinationGallery />
+      <Section id="participate" className="home-participate">
+        <Container>
+          <div className="nomination-guide-heading"><h2 className="type-display-l">Đăng ký tham gia đề cử</h2></div>
+          <ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn và đăng ký đề cử">
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="trophy" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">01</span></div><h3>Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></li>
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="document" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">02</span></div><h3>Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></li>
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="check" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">03</span></div><h3>Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 20.11.2026.</p></li>
+            <li className="nomination-guide-frame nomination-guide-frame--cta"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="arrow-up-right" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">04</span></div><h3>Đăng ký đề cử ngay hôm nay</h3><NominationCTA className="nomination-guide-cta cta-mobile-dang-ky" /></li>
+          </ol>
+        </Container>
+      </Section>
+
+      <Section id="nominate" tone="brand-deep" className="home-final-cta home-final-cta--bg1">
+        <HeroRouteGlow /><Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta cta-mobile-dang-ky" /></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
         <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>

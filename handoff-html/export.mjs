@@ -31,17 +31,18 @@ tokens = tokens.replace('@theme static', ':root').replace(/\s*--[\w-]+-\*:\s*ini
 await fs.writeFile(path.join(out,'css/tokens.css'),tokens);
 let global = await fs.readFile(path.join(root,'src/app/globals.css'),'utf8');
 global = global.replace(/^@import[^\n]*\n/gm,'');
+global += '\n' + (await fs.readFile(path.join(root,'src/styles/nomination-guide-icons.css'),'utf8')).replaceAll('/assets/','../assets/');
 const postcssFolder = (await fs.readdir(path.join(root,'node_modules/.pnpm'))).find(name=>name.startsWith('postcss@'));
 const postcss = require(path.join(root,'node_modules/.pnpm',postcssFolder,'node_modules/postcss'));
 const baseStyles = postcss.parse(reset+'\n'+global);
 baseStyles.walkRules(rule=>{if(/\.(preview-|landing-demo-)/.test(rule.selector))rule.remove();});
 baseStyles.walkAtRules(rule=>{if(rule.nodes&&!rule.nodes.length)rule.remove();});
 await fs.writeFile(path.join(out,'css/base.css'),flattenStyles(baseStyles.toString())+'\n.section-layout { padding-block: 0; }\n');
-for (const [source,name] of [['src/app/home.css','home'],['src/app/(phase-1)/the-le/rules.css','rules'],['src/app/(phase-1)/tin-tuc/news.css','news'],['src/app/(phase-1)/dang-ky-de-cu/nomination.css','nomination']]) {
+for (const [source,name] of [['src/app/home.css','home'],['src/components/destination-gallery.css','destination-gallery'],['src/app/(phase-1)/the-le/rules.css','rules'],['src/app/(phase-1)/tin-tuc/news.css','news'],['src/app/(phase-1)/dang-ky-de-cu/nomination.css','nomination']]) {
   const css = (await fs.readFile(path.join(root,source),'utf8')).replaceAll('/assets/','../assets/');
-  await fs.writeFile(path.join(out,`css/${name}.css`),flattenStyles(css));
+  await fs.writeFile(path.join(out,`css/${name}.css`),flattenStyles(css)+(name==='destination-gallery'?'\n.wrap-homepage > .destination-gallery { padding-block: 0; }\n':''));
 }
-await fs.cp(path.join(root,'public/assets'),path.join(out,'assets'),{recursive:true});
+await fs.cp(path.join(root,'public/assets'),path.join(out,'assets'),{recursive:true,filter:source=>path.relative(path.join(root,'public/assets'),source).split(path.sep)[0]!=='decor'});
 for(const name of ['regular-rounded','brands']) {
   const file=path.join(out,`assets/icons/flaticon/uicons-${name}.css`);
   await fs.writeFile(file,(await fs.readFile(file,'utf8')).replaceAll('/assets/icons/flaticon/','./'));
@@ -107,9 +108,10 @@ for(const [route,file,kind,editStage] of routes.filter(([,file]) => process.argv
       if(el.tagName==='IMG') {const src=el.getAttribute('src')||''; if(src.startsWith('/_next/image')) el.setAttribute('src',new URL(src,location.origin).searchParams.get('url')); el.removeAttribute('srcset'); el.removeAttribute('sizes');}
     });
     if(secondPanel) {const panel=doc.querySelector('[role=tabpanel]');const holder=doc.createElement('div');holder.innerHTML=secondPanel;if(!doc.getElementById(holder.firstChild.id)){holder.firstChild.hidden=true;panel.after(holder.firstChild);}}
+    doc.querySelectorAll('source[srcset]').forEach(node=>node.setAttribute('srcset',node.getAttribute('srcset').replace(/(^|,\s*)\/(assets|fonts)\//g,'$1$2/')));
     doc.querySelectorAll('.home-award-count').forEach(el=>{if(el.textContent.trim()==='0')el.textContent='15';});
     const head=doc.querySelector('head');
-    for(const name of ['tokens','font','base','home',...(kind==='home'?[]:[kind]),'icons']) {const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;head.append(link);}
+    for(const name of ['tokens','font','base','home',...(kind==='home'?['destination-gallery']:[kind]),'icons']) {const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;head.append(link);}
     const script=doc.createElement('script');script.src='js/handoff.js';script.defer=true;head.append(script);
     window.flattenHandoffDocument(doc);
     doc.documentElement.setAttribute('lang','vi');

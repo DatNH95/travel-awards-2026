@@ -1,0 +1,38 @@
+[
+  {
+    "width": 1440,
+    "overflow": false,
+    "frames": 4,
+    "ctaCount": 1,
+    "iconContent": "\"\"",
+    "iconFont": "uicons-regular-rounded",
+    "sponsor": false
+  },
+  {
+    "width": 390,
+    "overflow": false,
+    "frames": 4,
+    "ctaCount": 1,
+    "iconContent": "\"\"",
+    "iconFont": "uicons-regular-rounded",
+    "sponsor": false
+  },
+  {
+    "width": 320,
+    "overflow": false,
+    "frames": 4,
+    "ctaCount": 1,
+    "iconContent": "\"\"",
+    "iconFont": "uicons-regular-rounded",
+    "sponsor": false
+  },
+  {
+    "handoff": true,
+    "icon": "\"\"",
+    "sponsor": false
+  },
+  {
+    "phase2": true,
+    "sponsor": false
+  }
+]

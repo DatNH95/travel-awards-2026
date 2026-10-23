@@ -17,6 +17,7 @@ function moveRule(rule,target) {
   target.append(copy);rule.remove();
 }
 function iconDefinition(selector) {
+  if (selector.includes('.nomination-guide-icon')) return true;
   return selector.split(',').every(part=>/^(?:\.home-footer-icon(?:--[\w-]+)?|\.home-minitalk-reminder-icon|\.cta-arrow|\.voting-(?:facebook|copylink|slider-arrow)-icon(?:--[\w-]+)?|\.voting-gallery-zoom\s*>\s*span|\.phase-2-scope \.ui-icon(?:::before)?|\.phase-2-scope \.ui-icon-grid(?:\s*>\s*div)?|\.phase-2-scope \.home-footer-icon--facebook)$/.test(part.trim()));
 }
 export async function packageHandoffStyles(out,{phase=1,foundation=path.resolve('handoff-html')}={}) {
