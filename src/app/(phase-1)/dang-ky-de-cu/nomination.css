@@ -101,8 +101,8 @@
 .nomination-field input, .nomination-field textarea { width: 100%; min-width: 0; box-sizing: border-box; min-height: 3rem; padding: 0.75rem; border: var(--border-width) solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); color: var(--color-text-primary); font: inherit; }
 .nomination-field textarea { resize: vertical; }
 .nomination-counted-field { position: relative; min-width: 0; }
-.nomination-field .nomination-counted-field textarea { display: block; padding-bottom: 36px; }
-.nomination-word-count { position: absolute; bottom: 10px; right: 20px; font-size: 12px; line-height: 1.4; color: var(--color-text-secondary); pointer-events: none; }
+.nomination-field .nomination-counted-field textarea { display: block; padding-bottom: 12px; }
+.nomination-word-count { display: block; position: static; margin-top: 10px; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); text-align: right; }
 .nomination-counted-field textarea:focus { border-color: var(--nomination-input-focus); outline: none; }
 .nomination-field input[type='file'] { font-size: var(--text-body-small); }
 .nomination-field input::file-selector-button { border: var(--border-width) solid var(--color-border-strong); background: var(--color-surface-brand-soft); color: var(--color-text-brand); padding: 0.5rem 0.75rem; margin-right: 0.75rem; font: inherit; cursor: pointer; }

@@ -37,6 +37,7 @@
 .nomination .nomination-chip[aria-pressed='true'], .nomination .nomination-chip[data-selected='true'] { background: var(--color-surface-brand-soft); color: var(--color-text-brand); border-color: var(--color-action-primary); }
 .nomination-chip input { accent-color: var(--color-action-primary); width: 16px; height: 16px; flex-shrink: 0; }
 .nomination-finder-groups { display: flex; gap: 8px; border-bottom: 1px solid var(--color-border-default); }
+.nomination-finder-groups { scroll-margin-top: 150px; }
 .nomination-finder-groups button { flex: 1; min-height: 44px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--color-text-secondary); padding: 8px; font: inherit; font-size: 14px; cursor: pointer; }
 .nomination-finder-groups button[aria-pressed='true'] { border-bottom-color: var(--color-action-primary); color: var(--color-text-brand); font-weight: 600; }
 .nomination-award-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; border: 0; padding: 0; margin: 0; }
@@ -89,9 +90,18 @@
 .nomination .nomination-field :is(input, textarea, select) { font-size: 16px; line-height: 1.5; }
 .nomination-field select { width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); color: var(--color-text-primary); font: inherit; }
 .nomination-field select:focus-visible { outline: 2px solid var(--nomination-input-focus); outline-offset: 2px; }
-.nomination .nomination-word-count { font-size: 12px; right: 12px; bottom: 12px; }
+.nomination .nomination-word-count { position: static; font-size: 14px; }
 .nomination .nomination-word-count[data-invalid='true'] { color: var(--nomination-error); }
-.nomination .nomination-counted-field textarea { padding-bottom: 44px; min-height: 168px; }
+.nomination .nomination-counted-field textarea { padding-bottom: 12px; min-height: 168px; }
+.nomination-word-feedback { display: grid; gap: 8px; margin-top: 10px; color: var(--color-text-secondary); font-size: 14px; line-height: 1.5; }
+.nomination-word-feedback[data-state='invalid'] { color: var(--nomination-error); }
+.nomination-word-feedback[data-state='valid'] { color: var(--color-brand-secondary); }
+.nomination-word-feedback > div { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.nomination-word-feedback strong { flex-shrink: 0; font-weight: 500; }
+.nomination-word-feedback progress { appearance: none; width: 100%; height: 4px; border: 0; border-radius: 4px; overflow: hidden; background: var(--color-border-default); }
+.nomination-word-feedback progress::-webkit-progress-bar { background: var(--color-border-default); }
+.nomination-word-feedback progress::-webkit-progress-value { background: currentColor; }
+.nomination-word-feedback progress::-moz-progress-bar { background: currentColor; }
 .nomination .nomination-field textarea[aria-invalid='true'], .nomination .nomination-url-control[data-invalid='true'] { border-color: var(--nomination-error); }
 .nomination-explainer { display: flex; gap: 12px; align-items: flex-start; background: var(--color-surface-brand-soft); border-radius: var(--radius-control); padding: 16px; font-size: 14px; line-height: 1.6; }
 .nomination-explainer > .ui-icon { flex-shrink: 0; color: var(--color-text-brand); margin-top: 2px; }
@@ -168,6 +178,7 @@
   .nomination[data-filter-at-top='true'] .home-header { visibility: hidden; pointer-events: none; }
   .nomination .nomination-profile-chips .nomination-chip { font-size: 16px; padding-inline: 12px; min-height: 46px; }
   .nomination-finder-groups button { font-size: 16px; min-height: 48px; }
+  .nomination-finder-groups { scroll-margin-top: 84px; }
   .nomination-finder-intro > p, .nomination-group-help, .nomination-award-card label .nomination-muted, .nomination-award-card details { font-size: 16px; line-height: 1.5; }
   .nomination-award-card small { font-size: 14px; }
   .nomination .nomination-category-action-status { font-size: 14px; }
