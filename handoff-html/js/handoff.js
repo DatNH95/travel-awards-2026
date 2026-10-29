@@ -7,7 +7,7 @@
     'tien-phong-1','tien-phong-2','tien-phong-3','tien-phong-4','tien-phong-5','tien-phong-6','tien-phong-7','tien-phong-8','tien-phong-9'];
   const radioCategoryIds = categoryIds.filter(id => !['tien-phong-1','tien-phong-8'].includes(id));
   const category = new URLSearchParams(location.search).get('category') || location.pathname.match(/dang-ky-((?:tru-cot|tien-phong)-\d+)\.html$/)?.[1];
-  const radios = $$('.nomination-choices input[type=radio]');
+  const radios = $$('input[name="award-category"]');
   let selectedCategory = categoryIds.includes(category) && !['tien-phong-1','tien-phong-8'].includes(category) ? category : null;
   for (const list of $$('[role=tablist]')) {
     const tabs = $$('[role=tab]', list);
@@ -38,18 +38,18 @@
       const name = document.createElement('strong'); name.textContent = radios[index].value;
       status.replaceChildren('Đã chọn: ', name);
     });
-    const next = $('.nomination-choices')?.closest('form').querySelector('button[type=submit]');
+    const next = radios[0]?.closest('form').querySelector('button[type=submit]');
     if (next) next.disabled = false;
   }
   if (selectedCategory && radios.length) selectCategory(radioCategoryIds.indexOf(selectedCategory));
   radios.forEach((radio, index) => radio.addEventListener('change', () => selectCategory(index)));
-  const choiceForm = $('.nomination-choices')?.closest('form');
+  const choiceForm = radios[0]?.closest('form');
   choiceForm?.addEventListener('submit', event => {
     event.preventDefault();
     if (selectedCategory) location.href = `dang-ky-${selectedCategory}.html`;
   });
   const dialogByLabel = {
-    'Lưu lại hồ sơ': 'nomination-save-title', 'Kiểm tra email': 'nomination-email-title'
+    'Lưu lại hồ sơ': 'nomination-save-title', 'Lưu hồ sơ': 'nomination-save-title', 'Kiểm tra email': 'nomination-email-title'
   };
   $$('button').forEach(button => {
     const label = button.textContent.trim();
@@ -218,4 +218,33 @@
     new ResizeObserver(update).observe(track);
     update();
   });
+})();
+// In-memory form panels: preserve entered values and File objects while switching parts.
+(() => {
+ const templates=[...document.querySelectorAll('template[data-registration-part]')];
+ if(!templates.length)return;
+ const cache=new Map(); let active=Number(document.querySelector('#nomination-jump-part')?.value||0);
+ let form=document.querySelector('.nomination-registration-form'); cache.set(active,form);
+ function show(index){
+  if(index<0){location.href='dang-ky-de-cu.html';return;}
+  if(!cache.has(index))cache.set(index,templates[index].content.firstElementChild.cloneNode(true));
+  const next=cache.get(index);form.replaceWith(next);form=next;active=index;
+  document.querySelectorAll('.nomination-desktop-parts button').forEach((b,i)=>{if(i===active)b.setAttribute('aria-current','step');else b.removeAttribute('aria-current');});
+  document.querySelector('#nomination-part-title')?.focus();
+ }
+ document.addEventListener('change',event=>{if(event.target.id==='nomination-jump-part'){event.stopImmediatePropagation();show(Number(event.target.value));}},true);
+ document.addEventListener('click',event=>{
+  const button=event.target.closest('button');if(!button)return;
+  const parts=[...document.querySelectorAll('.nomination-desktop-parts button')];
+  if(parts.includes(button)){event.preventDefault();event.stopImmediatePropagation();show(parts.indexOf(button));}
+  else if(button.matches('.nomination-part-actions button[type=button]')){event.preventDefault();event.stopImmediatePropagation();show(active-1);}
+  else if(button.textContent.trim()==='Lưu hồ sơ'){event.preventDefault();event.stopImmediatePropagation();document.querySelector('#nomination-save-title')?.closest('dialog').showModal();}
+ },true);
+ document.addEventListener('submit',event=>{
+  if(!event.target.matches('.nomination-registration-form'))return;
+  event.preventDefault();event.stopImmediatePropagation();
+  if(!form.reportValidity())return;
+  if(active<5)show(active+1);
+  else {for(let i=0;i<6;i++){if(!cache.has(i)){show(i);return;}if(!cache.get(i).checkValidity()){show(i);form.reportValidity();return;}}location.href='xac-nhan.html';}
+ },true);
 })();

@@ -44,22 +44,18 @@
 <div class="home-countdown">
 <p class="home-countdown-deadline">Thời gian nhận đề cử còn lại:</p><time class="home-sr-only" datetime="2026-10-26T12:00:00+07:00">Mở nhận đề cử: 12:00 ngày 26.10.2026</time><time class="home-sr-only" datetime="2026-11-20T23:59:00+07:00">Hạn gửi đề cử: 23:59 ngày 20.11.2026</time>
 <div class="home-countdown-units" role="timer" aria-live="off" aria-label="Thời gian còn lại để gửi đề cử">
-<div class="home-countdown-circle"><span class="home-countdown-value">28</span><span class="home-countdown-label">Ngày</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">22</span><span class="home-countdown-label">Ngày</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">08</span><span class="home-countdown-label">Giờ</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">09</span><span class="home-countdown-label">Giờ</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">32</span><span class="home-countdown-label">Phút</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">36</span><span class="home-countdown-label">Phút</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">15</span><span class="home-countdown-label">Giây</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">52</span><span class="home-countdown-label">Giây</span>
 </div>
 </div><noscript>Nhận đề cử từ 12:00 ngày 26.10.2026 đến 23:59 ngày 20.11.2026 (giờ Việt Nam).</noscript>
 </div>
 </div>
 </header>
-<dialog class="nomination-save-dialog nomination-mobile-notice" aria-labelledby="nomination-mobile-notice-title" aria-describedby="nomination-mobile-notice-copy">
-<h2 id="nomination-mobile-notice-title" class="type-heading-3">Đăng ký đề cử</h2>
-<p id="nomination-mobile-notice-copy">Vui lòng truy cập bằng thiết bị desktop/laptop để trải nghiệm đăng ký được tốt nhất.</p><button type="button" class="button button--primary">Đã hiểu</button>
-</dialog>
 <div class="nomination-layout">
 <nav class="nomination-progress" aria-label="Tiến trình đề cử">
 <p class="type-label">Các bước tham gia</p>
@@ -73,6 +69,9 @@
 <li data-state="upcoming"><button type="button" aria-label="Thành công" disabled=""><span class="nomination-step-number" aria-hidden="true"><span class="nomination-step-desktop-number">04</span><span class="nomination-step-mobile-number">04</span></span><span class="nomination-step-label">Thành công</span><span class="sr-only"> — Chưa mở</span></button>
 </li>
 </ol>
+<div class="nomination-desktop-parts">
+<p class="nomination-kicker">Các phần trong hồ sơ</p><button type="button" data-complete="false" aria-current="step"><span>1</span>Đơn vị &amp; liên hệ</button><button type="button" data-complete="false"><span>2</span>Giới thiệu đề cử</button><button type="button" data-complete="false"><span>3</span>Số liệu hoạt động</button><button type="button" data-complete="false"><span>4</span>Dấu ấn theo tiêu chí</button><button type="button" data-complete="false"><span>5</span>Hồ sơ &amp; minh chứng</button><button type="button" data-complete="false"><span>6</span>Điều kiện tham gia</button>
+</div>
 </nav>
 <div class="nomination-content">
 <header class="nomination-step-heading">
@@ -83,167 +82,88 @@
 </div>
 </header>
 <form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 1 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="0" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0" selected>1. Đơn vị &amp; liên hệ</option><option value="1">2. Giới thiệu đề cử</option><option value="2">3. Số liệu hoạt động</option><option value="3">4. Dấu ấn theo tiêu chí</option><option value="4">5. Hồ sơ &amp; minh chứng</option><option value="5">6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
 <div class="nomination-registration">
-<p class="nomination-selection">Hạng mục đã chọn: <strong>Doanh nghiệp lữ hành của năm</strong>
-</p>
-<p class="type-body-large nomination-muted">Các trường có dấu <span class="nomination-required">*</span> là thông tin bắt buộc theo hồ sơ đăng ký. Bấm lưu hồ sơ để chỉnh sửa lại thông tin nếu cần thay đổi.</p>
-<fieldset class="nomination-form-section"><legend class="type-heading-3">I. Thông tin</legend>
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 1 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Đơn vị &amp; liên hệ</h3>
+<p class="nomination-muted">Cho biết ai đứng tên hồ sơ và ai là người Ban tổ chức có thể liên hệ.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<div class="nomination-explainer"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 20px;"></span>
+<div><strong>Đơn vị đứng tên khác người liên hệ thế nào?</strong>
+<p>Đơn vị đứng tên là bên nộp hồ sơ. Người liên hệ là người phụ trách trao đổi với Ban tổ chức. Tên đề cử là đối tượng bạn muốn giới thiệu ở phần tiếp theo.</p>
+</div>
+</div>
 <div class="nomination-field-grid">
-<div class="nomination-field"><label for="_r_0_-registration-0">Tên đơn vị/tổ chức/cá nhân<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-registration-0" required="" type="text" value="" name="registration-0">
-</div>
-<div class="nomination-field"><label for="_r_0_-registration-1">Loại hình đơn vị<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-registration-1" required="" type="text" value="" name="registration-1">
-</div>
-<div class="nomination-field"><label for="_r_0_-registration-2">Địa chỉ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-registration-2" required="" type="text" value="" name="registration-2">
-</div>
-<div class="nomination-field"><label for="_r_0_-registration-3">Website</label><input id="_r_0_-registration-3" type="url" value="" name="registration-3">
-</div>
-<div class="nomination-field"><label for="_r_0_-registration-4">Fanpage/Kênh truyền thông chính thức</label><input id="_r_0_-registration-4" type="url" value="" name="registration-4">
+<div class="nomination-field nomination-field--wide"><label for="_r_0_-registration-0">Tên đơn vị/tổ chức/cá nhân đứng tên hồ sơ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_0_-registration-0-help" class="type-body-small nomination-muted">Ghi đúng tên pháp lý của đơn vị nộp hồ sơ. Nếu nộp với tư cách cá nhân, điền họ tên của bạn.</p><input id="_r_0_-registration-0" required="" aria-invalid="false" aria-describedby="_r_0_-registration-0-help" autocomplete="organization" type="text" value="" name="registration-0">
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
 </div>
-<h3 class="type-body-large">Người đại diện hồ sơ</h3>
+<div class="nomination-field"><label for="_r_0_-registration-1">Loại hình đơn vị<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><select id="_r_0_-registration-1" name="registration-1" required="" aria-invalid="false"><option value="">Chọn loại hình</option><option>Cơ quan quản lý / địa phương</option><option>Doanh nghiệp</option><option>Tổ chức / hợp tác xã</option><option>Hộ kinh doanh</option><option>Cá nhân</option><option>Khác</option></select>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field"><label for="_r_0_-registration-2">Địa chỉ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-registration-2" required="" aria-invalid="false" autocomplete="street-address" type="text" value="" name="registration-2">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+<h4 class="nomination-subtitle">Người liên hệ hồ sơ</h4>
 <div class="nomination-field-grid">
-<div class="nomination-field"><label for="_r_0_-representative-0">Họ và tên<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-representative-0" required="" type="text" value="" name="representative-0">
+<div class="nomination-field"><label for="_r_0_-representative-0">Họ và tên người liên hệ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_0_-representative-0-help" class="type-body-small nomination-muted">Người phụ trách hồ sơ để Ban tổ chức trao đổi, yêu cầu bổ sung. Nếu bạn tự nộp, điền họ tên của bạn.</p><input id="_r_0_-representative-0" required="" aria-invalid="false" aria-describedby="_r_0_-representative-0-help" autocomplete="name" type="text" value="" name="representative-0">
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
-<div class="nomination-field"><label for="_r_0_-representative-1">Chức vụ</label><input id="_r_0_-representative-1" type="text" value="" name="representative-1">
 </div>
+</div>
+<div class="nomination-field-grid">
 <div class="nomination-field"><label for="_r_0_-representative-2">Số điện thoại<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
-<div class="nomination-phone-control" data-invalid="false"><select name="representative-2-country" aria-label="Quốc gia và mã gọi điện thoại"><option value="SA">Ả Rập Xê-út (+966)</option><option value="AF">Afghanistan (+93)</option><option value="EG">Ai Cập (+20)</option><option value="AL">Albania (+355)</option><option value="DZ">Algeria (+213)</option><option value="AD">Andorra (+376)</option><option value="AO">Angola (+244)</option><option value="AI">Anguilla (+1)</option><option value="AG">Antigua và Barbuda (+1)</option><option value="AT">Áo (+43)</option><option value="AR">Argentina (+54)</option><option value="AM">Armenia (+374)</option><option value="AW">Aruba (+297)</option><option value="AU">Australia (+61)</option><option value="AZ">Azerbaijan (+994)</option><option value="IN">Ấn Độ (+91)</option><option value="PL">Ba Lan (+48)</option><option value="BS">Bahamas (+1)</option><option value="BH">Bahrain (+973)</option><option value="BD">Bangladesh (+880)</option><option value="BB">Barbados (+1)</option><option value="MK">Bắc Macedonia (+389)</option><option value="BY">Belarus (+375)</option><option value="BZ">Belize (+501)</option><option value="BJ">Benin (+229)</option><option value="BM">Bermuda (+1)</option><option value="BT">Bhutan (+975)</option><option value="BE">Bỉ (+32)</option><option value="BO">Bolivia (+591)</option><option value="BA">Bosnia và Herzegovina (+387)</option><option value="BW">Botswana (+267)</option><option value="PT">Bồ Đào Nha (+351)</option><option value="BR">Brazil (+55)</option><option value="BN">Brunei (+673)</option><option value="BG">Bulgaria (+359)</option><option value="BF">Burkina Faso (+226)</option><option value="BI">Burundi (+257)</option><option value="BQ">Ca-ri-bê Hà Lan (+599)</option><option value="AE">Các Tiểu Vương quốc Ả Rập Thống nhất (+971)</option><option value="CM">Cameroon (+237)</option><option value="KH">Campuchia (+855)</option><option value="CA">Canada (+1)</option><option value="CV">Cape Verde (+238)</option><option value="TD">Chad (+235)</option><option value="CL">Chile (+56)</option><option value="CO">Colombia (+57)</option><option value="KM">Comoros (+269)</option><option value="CG">Congo - Brazzaville (+242)</option><option value="CD">Congo - Kinshasa (+243)</option><option value="CR">Costa Rica (+506)</option><option value="DO">Cộng hòa Dominica (+1)</option><option value="CF">Cộng hòa Trung Phi (+236)</option><option value="CI">Côte d’Ivoire (+225)</option><option value="HR">Croatia (+385)</option><option value="CU">Cuba (+53)</option><option value="CW">Curaçao (+599)</option><option value="DJ">Djibouti (+253)</option><option value="DM">Dominica (+1)</option><option value="TW">Đài Loan (+886)</option><option value="DK">Đan Mạch (+45)</option><option value="AC">Đảo Ascension (+247)</option><option value="CX">Đảo Giáng Sinh (+61)</option><option value="IM">Đảo Man (+44)</option><option value="NF">Đảo Norfolk (+672)</option><option value="HK">Đặc khu Hành chính Hồng Kông, Trung Quốc (+852)</option><option value="MO">Đặc khu Hành chính Macao, Trung Quốc (+853)</option><option value="DE">Đức (+49)</option><option value="EC">Ecuador (+593)</option><option value="SV">El Salvador (+503)</option><option value="ER">Eritrea (+291)</option><option value="EE">Estonia (+372)</option><option value="SZ">Eswatini (+268)</option><option value="ET">Ethiopia (+251)</option><option value="FJ">Fiji (+679)</option><option value="GA">Gabon (+241)</option><option value="GM">Gambia (+220)</option><option value="GE">Georgia (+995)</option><option value="GH">Ghana (+233)</option><option value="GI">Gibraltar (+350)</option><option value="GL">Greenland (+299)</option><option value="GD">Grenada (+1)</option><option value="GP">Guadeloupe (+590)</option><option value="GU">Guam (+1)</option><option value="GT">Guatemala (+502)</option><option value="GG">Guernsey (+44)</option><option value="GF">Guiana thuộc Pháp (+594)</option><option value="GN">Guinea (+224)</option><option value="GQ">Guinea Xích Đạo (+240)</option><option value="GW">Guinea-Bissau (+245)</option><option value="GY">Guyana (+592)</option><option value="NL">Hà Lan (+31)</option><option value="HT">Haiti (+509)</option><option value="KR">Hàn Quốc (+82)</option><option value="US">Hoa Kỳ (+1)</option><option value="HN">Honduras (+504)</option><option value="HU">Hungary (+36)</option><option value="GR">Hy Lạp (+30)</option><option value="IS">Iceland (+354)</option><option value="ID">Indonesia (+62)</option><option value="IR">Iran (+98)</option><option value="IQ">Iraq (+964)</option><option value="IE">Ireland (+353)</option><option value="IL">Israel (+972)</option><option value="IT">Italy (+39)</option><option value="JM">Jamaica (+1)</option><option value="JE">Jersey (+44)</option><option value="JO">Jordan (+962)</option><option value="KZ">Kazakhstan (+7)</option><option value="KE">Kenya (+254)</option><option value="KI">Kiribati (+686)</option><option value="XK">Kosovo (+383)</option><option value="KW">Kuwait (+965)</option><option value="KG">Kyrgyzstan (+996)</option><option value="IO">Lãnh thổ Ấn Độ Dương thuộc Anh (+246)</option><option value="PS">Lãnh thổ Palestine (+970)</option><option value="LA">Lào (+856)</option><option value="LV">Latvia (+371)</option><option value="LS">Lesotho (+266)</option><option value="LB">Li-băng (+961)</option><option value="LR">Liberia (+231)</option><option value="LY">Libya (+218)</option><option value="LI">Liechtenstein (+423)</option><option value="LT">Litva (+370)</option><option value="LU">Luxembourg (+352)</option><option value="MA">Ma-rốc (+212)</option><option value="MG">Madagascar (+261)</option><option value="MW">Malawi (+265)</option><option value="MY">Malaysia (+60)</option><option value="MV">Maldives (+960)</option><option value="ML">Mali (+223)</option><option value="MT">Malta (+356)</option><option value="MQ">Martinique (+596)</option><option value="MR">Mauritania (+222)</option><option value="MU">Mauritius (+230)</option><option value="YT">Mayotte (+262)</option><option value="MX">Mexico (+52)</option><option value="FM">Micronesia (+691)</option><option value="MD">Moldova (+373)</option><option value="MC">Monaco (+377)</option><option value="ME">Montenegro (+382)</option><option value="MS">Montserrat (+1)</option><option value="MZ">Mozambique (+258)</option><option value="MN">Mông Cổ (+976)</option><option value="MM">Myanmar (Miến Điện) (+95)</option><option value="NO">Na Uy (+47)</option><option value="ZA">Nam Phi (+27)</option><option value="SS">Nam Sudan (+211)</option><option value="NA">Namibia (+264)</option><option value="NR">Nauru (+674)</option><option value="NP">Nepal (+977)</option><option value="NC">New Caledonia (+687)</option><option value="NZ">New Zealand (+64)</option><option value="RU">Nga (+7)</option><option value="JP">Nhật Bản (+81)</option><option value="NI">Nicaragua (+505)</option><option value="NE">Niger (+227)</option><option value="NG">Nigeria (+234)</option><option value="NU">Niue (+683)</option><option value="OM">Oman (+968)</option><option value="PK">Pakistan (+92)</option><option value="PW">Palau (+680)</option><option value="PA">Panama (+507)</option><option value="PG">Papua New Guinea (+675)</option><option value="PY">Paraguay (+595)</option><option value="PE">Peru (+51)</option><option value="FR">Pháp (+33)</option><option value="FI">Phần Lan (+358)</option><option value="PH">Philippines (+63)</option><option value="PF">Polynesia thuộc Pháp (+689)</option><option value="PR">Puerto Rico (+1)</option><option value="QA">Qatar (+974)</option><option value="AX">Quần đảo Åland (+358)</option><option value="MP">Quần đảo Bắc Mariana (+1)</option><option value="KY">Quần đảo Cayman (+1)</option><option value="CC">Quần đảo Cocos (Keeling) (+61)</option><option value="CK">Quần đảo Cook (+682)</option><option value="FK">Quần đảo Falkland (+500)</option><option value="FO">Quần đảo Faroe (+298)</option><option value="MH">Quần đảo Marshall (+692)</option><option value="SB">Quần đảo Solomon (+677)</option><option value="TC">Quần đảo Turks và Caicos (+1)</option><option value="VG">Quần đảo Virgin thuộc Anh (+1)</option><option value="VI">Quần đảo Virgin thuộc Hoa Kỳ (+1)</option><option value="RE">Réunion (+262)</option><option value="RO">Romania (+40)</option><option value="RW">Rwanda (+250)</option><option value="PM">Saint Pierre và Miquelon (+508)</option><option value="WS">Samoa (+685)</option><option value="AS">Samoa thuộc Mỹ (+1)</option><option value="SM">San Marino (+378)</option><option value="ST">São Tomé và Príncipe (+239)</option><option value="CZ">Séc (+420)</option><option value="SN">Senegal (+221)</option><option value="RS">Serbia (+381)</option><option value="SC">Seychelles (+248)</option><option value="SL">Sierra Leone (+232)</option><option value="SG">Singapore (+65)</option><option value="SX">Sint Maarten (+1)</option><option value="CY">Síp (+357)</option><option value="SK">Slovakia (+421)</option><option value="SI">Slovenia (+386)</option><option value="SO">Somalia (+252)</option><option value="LK">Sri Lanka (+94)</option><option value="BL">St. Barthélemy (+590)</option><option value="SH">St. Helena (+290)</option><option value="KN">St. Kitts và Nevis (+1)</option><option value="LC">St. Lucia (+1)</option><option value="MF">St. Martin (+590)</option><option value="VC">St. Vincent và Grenadines (+1)</option><option value="SD">Sudan (+249)</option><option value="SR">Suriname (+597)</option><option value="SJ">Svalbard và Jan Mayen (+47)</option><option value="SY">Syria (+963)</option><option value="TJ">Tajikistan (+992)</option><option value="TZ">Tanzania (+255)</option><option value="ES">Tây Ban Nha (+34)</option><option value="EH">Tây Sahara (+212)</option><option value="TH">Thái Lan (+66)</option><option value="VA">Thành Vatican (+39)</option><option value="TR">Thổ Nhĩ Kỳ (+90)</option><option value="SE">Thụy Điển (+46)</option><option value="CH">Thụy Sĩ (+41)</option><option value="TL">Timor-Leste (+670)</option><option value="TG">Togo (+228)</option><option value="TK">Tokelau (+690)</option><option value="TO">Tonga (+676)</option><option value="KP">Triều Tiên (+850)</option><option value="TT">Trinidad và Tobago (+1)</option><option value="TA">Tristan da Cunha (+290)</option><option value="CN">Trung Quốc (+86)</option><option value="TN">Tunisia (+216)</option><option value="TM">Turkmenistan (+993)</option><option value="TV">Tuvalu (+688)</option><option value="UG">Uganda (+256)</option><option value="UA">Ukraina (+380)</option><option value="UY">Uruguay (+598)</option><option value="UZ">Uzbekistan (+998)</option><option value="VU">Vanuatu (+678)</option><option value="VE">Venezuela (+58)</option><option value="VN">Việt Nam (+84)</option><option value="GB">Vương quốc Anh (+44)</option><option value="WF">Wallis và Futuna (+681)</option><option value="YE">Yemen (+967)</option><option value="ZM">Zambia (+260)</option><option value="ZW">Zimbabwe (+263)</option></select><input id="_r_0_-representative-2" required="" autocomplete="tel-national" inputmode="tel" placeholder="Nhập số điện thoại" type="tel" value="" name="representative-2">
+<div class="nomination-phone-control" data-invalid="false"><select name="representative-2-country" aria-label="Quốc gia và mã gọi điện thoại"><option value="SA">Ả Rập Xê-út (+966)</option><option value="AF">Afghanistan (+93)</option><option value="EG">Ai Cập (+20)</option><option value="AL">Albania (+355)</option><option value="DZ">Algeria (+213)</option><option value="AD">Andorra (+376)</option><option value="AO">Angola (+244)</option><option value="AI">Anguilla (+1)</option><option value="AG">Antigua và Barbuda (+1)</option><option value="AT">Áo (+43)</option><option value="AR">Argentina (+54)</option><option value="AM">Armenia (+374)</option><option value="AW">Aruba (+297)</option><option value="AU">Australia (+61)</option><option value="AZ">Azerbaijan (+994)</option><option value="IN">Ấn Độ (+91)</option><option value="PL">Ba Lan (+48)</option><option value="BS">Bahamas (+1)</option><option value="BH">Bahrain (+973)</option><option value="BD">Bangladesh (+880)</option><option value="BB">Barbados (+1)</option><option value="MK">Bắc Macedonia (+389)</option><option value="BY">Belarus (+375)</option><option value="BZ">Belize (+501)</option><option value="BJ">Benin (+229)</option><option value="BM">Bermuda (+1)</option><option value="BT">Bhutan (+975)</option><option value="BE">Bỉ (+32)</option><option value="BO">Bolivia (+591)</option><option value="BA">Bosnia và Herzegovina (+387)</option><option value="BW">Botswana (+267)</option><option value="PT">Bồ Đào Nha (+351)</option><option value="BR">Brazil (+55)</option><option value="BN">Brunei (+673)</option><option value="BG">Bulgaria (+359)</option><option value="BF">Burkina Faso (+226)</option><option value="BI">Burundi (+257)</option><option value="BQ">Ca-ri-bê Hà Lan (+599)</option><option value="AE">Các Tiểu Vương quốc Ả Rập Thống nhất (+971)</option><option value="CM">Cameroon (+237)</option><option value="KH">Campuchia (+855)</option><option value="CA">Canada (+1)</option><option value="CV">Cape Verde (+238)</option><option value="TD">Chad (+235)</option><option value="CL">Chile (+56)</option><option value="CO">Colombia (+57)</option><option value="KM">Comoros (+269)</option><option value="CG">Congo - Brazzaville (+242)</option><option value="CD">Congo - Kinshasa (+243)</option><option value="CR">Costa Rica (+506)</option><option value="DO">Cộng hòa Dominica (+1)</option><option value="CF">Cộng hòa Trung Phi (+236)</option><option value="CI">Côte d’Ivoire (+225)</option><option value="HR">Croatia (+385)</option><option value="CU">Cuba (+53)</option><option value="CW">Curaçao (+599)</option><option value="DJ">Djibouti (+253)</option><option value="DM">Dominica (+1)</option><option value="TW">Đài Loan (+886)</option><option value="DK">Đan Mạch (+45)</option><option value="AC">Đảo Ascension (+247)</option><option value="CX">Đảo Giáng Sinh (+61)</option><option value="IM">Đảo Man (+44)</option><option value="NF">Đảo Norfolk (+672)</option><option value="HK">Đặc khu Hành chính Hồng Kông, Trung Quốc (+852)</option><option value="MO">Đặc khu Hành chính Macao, Trung Quốc (+853)</option><option value="DE">Đức (+49)</option><option value="EC">Ecuador (+593)</option><option value="SV">El Salvador (+503)</option><option value="ER">Eritrea (+291)</option><option value="EE">Estonia (+372)</option><option value="SZ">Eswatini (+268)</option><option value="ET">Ethiopia (+251)</option><option value="FJ">Fiji (+679)</option><option value="GA">Gabon (+241)</option><option value="GM">Gambia (+220)</option><option value="GE">Georgia (+995)</option><option value="GH">Ghana (+233)</option><option value="GI">Gibraltar (+350)</option><option value="GL">Greenland (+299)</option><option value="GD">Grenada (+1)</option><option value="GP">Guadeloupe (+590)</option><option value="GU">Guam (+1)</option><option value="GT">Guatemala (+502)</option><option value="GG">Guernsey (+44)</option><option value="GF">Guiana thuộc Pháp (+594)</option><option value="GN">Guinea (+224)</option><option value="GQ">Guinea Xích Đạo (+240)</option><option value="GW">Guinea-Bissau (+245)</option><option value="GY">Guyana (+592)</option><option value="NL">Hà Lan (+31)</option><option value="HT">Haiti (+509)</option><option value="KR">Hàn Quốc (+82)</option><option value="US">Hoa Kỳ (+1)</option><option value="HN">Honduras (+504)</option><option value="HU">Hungary (+36)</option><option value="GR">Hy Lạp (+30)</option><option value="IS">Iceland (+354)</option><option value="ID">Indonesia (+62)</option><option value="IR">Iran (+98)</option><option value="IQ">Iraq (+964)</option><option value="IE">Ireland (+353)</option><option value="IL">Israel (+972)</option><option value="IT">Italy (+39)</option><option value="JM">Jamaica (+1)</option><option value="JE">Jersey (+44)</option><option value="JO">Jordan (+962)</option><option value="KZ">Kazakhstan (+7)</option><option value="KE">Kenya (+254)</option><option value="KI">Kiribati (+686)</option><option value="XK">Kosovo (+383)</option><option value="KW">Kuwait (+965)</option><option value="KG">Kyrgyzstan (+996)</option><option value="IO">Lãnh thổ Ấn Độ Dương thuộc Anh (+246)</option><option value="PS">Lãnh thổ Palestine (+970)</option><option value="LA">Lào (+856)</option><option value="LV">Latvia (+371)</option><option value="LS">Lesotho (+266)</option><option value="LB">Li-băng (+961)</option><option value="LR">Liberia (+231)</option><option value="LY">Libya (+218)</option><option value="LI">Liechtenstein (+423)</option><option value="LT">Litva (+370)</option><option value="LU">Luxembourg (+352)</option><option value="MA">Ma-rốc (+212)</option><option value="MG">Madagascar (+261)</option><option value="MW">Malawi (+265)</option><option value="MY">Malaysia (+60)</option><option value="MV">Maldives (+960)</option><option value="ML">Mali (+223)</option><option value="MT">Malta (+356)</option><option value="MQ">Martinique (+596)</option><option value="MR">Mauritania (+222)</option><option value="MU">Mauritius (+230)</option><option value="YT">Mayotte (+262)</option><option value="MX">Mexico (+52)</option><option value="FM">Micronesia (+691)</option><option value="MD">Moldova (+373)</option><option value="MC">Monaco (+377)</option><option value="ME">Montenegro (+382)</option><option value="MS">Montserrat (+1)</option><option value="MZ">Mozambique (+258)</option><option value="MN">Mông Cổ (+976)</option><option value="MM">Myanmar (Miến Điện) (+95)</option><option value="NO">Na Uy (+47)</option><option value="ZA">Nam Phi (+27)</option><option value="SS">Nam Sudan (+211)</option><option value="NA">Namibia (+264)</option><option value="NR">Nauru (+674)</option><option value="NP">Nepal (+977)</option><option value="NC">New Caledonia (+687)</option><option value="NZ">New Zealand (+64)</option><option value="RU">Nga (+7)</option><option value="JP">Nhật Bản (+81)</option><option value="NI">Nicaragua (+505)</option><option value="NE">Niger (+227)</option><option value="NG">Nigeria (+234)</option><option value="NU">Niue (+683)</option><option value="OM">Oman (+968)</option><option value="PK">Pakistan (+92)</option><option value="PW">Palau (+680)</option><option value="PA">Panama (+507)</option><option value="PG">Papua New Guinea (+675)</option><option value="PY">Paraguay (+595)</option><option value="PE">Peru (+51)</option><option value="FR">Pháp (+33)</option><option value="FI">Phần Lan (+358)</option><option value="PH">Philippines (+63)</option><option value="PF">Polynesia thuộc Pháp (+689)</option><option value="PR">Puerto Rico (+1)</option><option value="QA">Qatar (+974)</option><option value="AX">Quần đảo Åland (+358)</option><option value="MP">Quần đảo Bắc Mariana (+1)</option><option value="KY">Quần đảo Cayman (+1)</option><option value="CC">Quần đảo Cocos (Keeling) (+61)</option><option value="CK">Quần đảo Cook (+682)</option><option value="FK">Quần đảo Falkland (+500)</option><option value="FO">Quần đảo Faroe (+298)</option><option value="MH">Quần đảo Marshall (+692)</option><option value="SB">Quần đảo Solomon (+677)</option><option value="TC">Quần đảo Turks và Caicos (+1)</option><option value="VG">Quần đảo Virgin thuộc Anh (+1)</option><option value="VI">Quần đảo Virgin thuộc Hoa Kỳ (+1)</option><option value="RE">Réunion (+262)</option><option value="RO">Romania (+40)</option><option value="RW">Rwanda (+250)</option><option value="PM">Saint Pierre và Miquelon (+508)</option><option value="WS">Samoa (+685)</option><option value="AS">Samoa thuộc Mỹ (+1)</option><option value="SM">San Marino (+378)</option><option value="ST">São Tomé và Príncipe (+239)</option><option value="CZ">Séc (+420)</option><option value="SN">Senegal (+221)</option><option value="RS">Serbia (+381)</option><option value="SC">Seychelles (+248)</option><option value="SL">Sierra Leone (+232)</option><option value="SG">Singapore (+65)</option><option value="SX">Sint Maarten (+1)</option><option value="CY">Síp (+357)</option><option value="SK">Slovakia (+421)</option><option value="SI">Slovenia (+386)</option><option value="SO">Somalia (+252)</option><option value="LK">Sri Lanka (+94)</option><option value="BL">St. Barthélemy (+590)</option><option value="SH">St. Helena (+290)</option><option value="KN">St. Kitts và Nevis (+1)</option><option value="LC">St. Lucia (+1)</option><option value="MF">St. Martin (+590)</option><option value="VC">St. Vincent và Grenadines (+1)</option><option value="SD">Sudan (+249)</option><option value="SR">Suriname (+597)</option><option value="SJ">Svalbard và Jan Mayen (+47)</option><option value="SY">Syria (+963)</option><option value="TJ">Tajikistan (+992)</option><option value="TZ">Tanzania (+255)</option><option value="ES">Tây Ban Nha (+34)</option><option value="EH">Tây Sahara (+212)</option><option value="TH">Thái Lan (+66)</option><option value="VA">Thành Vatican (+39)</option><option value="TR">Thổ Nhĩ Kỳ (+90)</option><option value="SE">Thụy Điển (+46)</option><option value="CH">Thụy Sĩ (+41)</option><option value="TL">Timor-Leste (+670)</option><option value="TG">Togo (+228)</option><option value="TK">Tokelau (+690)</option><option value="TO">Tonga (+676)</option><option value="KP">Triều Tiên (+850)</option><option value="TT">Trinidad và Tobago (+1)</option><option value="TA">Tristan da Cunha (+290)</option><option value="CN">Trung Quốc (+86)</option><option value="TN">Tunisia (+216)</option><option value="TM">Turkmenistan (+993)</option><option value="TV">Tuvalu (+688)</option><option value="UG">Uganda (+256)</option><option value="UA">Ukraina (+380)</option><option value="UY">Uruguay (+598)</option><option value="UZ">Uzbekistan (+998)</option><option value="VU">Vanuatu (+678)</option><option value="VE">Venezuela (+58)</option><option value="VN">Việt Nam (+84)</option><option value="GB">Vương quốc Anh (+44)</option><option value="WF">Wallis và Futuna (+681)</option><option value="YE">Yemen (+967)</option><option value="ZM">Zambia (+260)</option><option value="ZW">Zimbabwe (+263)</option></select><input id="_r_0_-representative-2" enterkeyhint="next" required="" autocomplete="tel-national" inputmode="tel" placeholder="Ví dụ: 0912 345 678" type="tel" value="" name="representative-2">
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
 </div>
-<div class="nomination-field"><label for="_r_0_-representative-3">Email<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-representative-3" required="" autocomplete="email" inputmode="email" placeholder="ten@example.com" type="email" value="" name="representative-3">
+<div class="nomination-field"><label for="_r_0_-representative-3">Email<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-representative-3" enterkeyhint="next" required="" autocomplete="email" inputmode="email" placeholder="ten@example.com" type="email" value="" name="representative-3">
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
 </div>
-</fieldset>
-<fieldset class="nomination-form-section"><legend class="type-heading-3">II. Thông tin đề cử</legend>
+</div>
+<details class="nomination-help-details">
+<summary>Liên kết &amp; chức vụ (tùy chọn)</summary>
+<div class="nomination-optional-fields">
 <div class="nomination-field-grid">
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-nominee-0">Tên đơn vị/điểm đến/thương hiệu/trải nghiệm được đề cử<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-nominee-0" required="" type="text" value="" name="nominee-0">
+<div class="nomination-field"><label for="_r_0_-registration-3">Website</label>
+<div class="nomination-url-control" data-invalid="false"><span class="ui-icon fi-rr-globe" aria-hidden="true" style="--ui-icon-size: 20px;"></span><input id="_r_0_-registration-3" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="vnexpress.net" aria-invalid="false" type="text" value="" name="registration-3">
 </div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-nominee-1">Giới thiệu tổng quan<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
-<p id="_r_0_-nominee-1-help" class="type-body-small nomination-muted">Vui lòng giới thiệu ngắn gọn về đơn vị/điểm đến/thương hiệu/trải nghiệm và những dấu ấn nổi bật trong năm xét giải. (300 - 500 từ)</p><textarea id="_r_0_-nominee-1" name="nominee-1" required="" aria-describedby="_r_0_-nominee-1-help" rows="5"></textarea>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-nominee-2">Thành tích nổi bật trong năm xét giải<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
-<p id="_r_0_-nominee-2-help" class="type-body-small nomination-muted">Vui lòng nêu những kết quả, thành tựu hoặc dấu ấn nổi bật làm cơ sở cho hồ sơ đề cử. (300 - 500 từ)</p><textarea id="_r_0_-nominee-2" name="nominee-2" required="" aria-describedby="_r_0_-nominee-2-help" rows="5"></textarea>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-nominee-3">Điểm khác biệt/nổi bật của đề cử<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
-<p id="_r_0_-nominee-3-help" class="type-body-small nomination-muted">Điều gì tạo nên giá trị hoặc dấu ấn riêng của đơn vị/điểm đến/thương hiệu/trải nghiệm.</p><textarea id="_r_0_-nominee-3" name="nominee-3" required="" aria-describedby="_r_0_-nominee-3-help" rows="5"></textarea>
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
 </div>
-</fieldset>
-<fieldset class="nomination-form-section"><legend class="type-heading-3">III. Số liệu hoạt động &amp; thông tin minh chứng</legend>
-<p class="nomination-muted">Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Doanh nghiệp lữ hành nội địa và quốc tế (tour operator, đại lý lữ hành) có giấy phép hợp lệ, đang hoạt động tại Việt Nam.</p>
-<div class="nomination-field-grid">
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-professional-Doanh nghiệp lữ hành của năm-0">Doanh thu và lượt khách</label>
-<p id="_r_0_-professional-Doanh nghiệp lữ hành của năm-0-help" class="type-body-small nomination-muted">Doanh thu và số lượt khách phục vụ (kỳ xét giải và cùng kỳ năm trước)</p><textarea id="_r_0_-professional-Doanh nghiệp lữ hành của năm-0" name="professional-Doanh nghiệp lữ hành của năm-0" aria-describedby="_r_0_-professional-Doanh nghiệp lữ hành của năm-0-help" rows="5"></textarea>
+<div class="nomination-field"><label for="_r_0_-registration-4">Fanpage/Kênh truyền thông chính thức</label>
+<div class="nomination-url-control" data-invalid="false"><span class="ui-icon fi-rr-globe" aria-hidden="true" style="--ui-icon-size: 20px;"></span><input id="_r_0_-registration-4" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="https://" aria-invalid="false" type="text" value="" name="registration-4">
 </div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-professional-Doanh nghiệp lữ hành của năm-1">Kết quả theo phân khúc</label>
-<p id="_r_0_-professional-Doanh nghiệp lữ hành của năm-1-help" class="type-body-small nomination-muted">Phân khúc chính: inbound / outbound / nội địa (cung cấp kết quả kinh doanh về doanh thu và lượt khách ở mỗi phân khúc)</p><textarea id="_r_0_-professional-Doanh nghiệp lữ hành của năm-1" name="professional-Doanh nghiệp lữ hành của năm-1" aria-describedby="_r_0_-professional-Doanh nghiệp lữ hành của năm-1-help" rows="5"></textarea>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-professional-Doanh nghiệp lữ hành của năm-2">Sản phẩm tour tiêu biểu</label>
-<p id="_r_0_-professional-Doanh nghiệp lữ hành của năm-2-help" class="type-body-small nomination-muted">Danh mục sản phẩm tour tiêu biểu (tối đa 5)</p><textarea id="_r_0_-professional-Doanh nghiệp lữ hành của năm-2" name="professional-Doanh nghiệp lữ hành của năm-2" aria-describedby="_r_0_-professional-Doanh nghiệp lữ hành của năm-2-help" rows="5"></textarea>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-professional-Doanh nghiệp lữ hành của năm-3">Quy mô nhân sự</label>
-<p id="_r_0_-professional-Doanh nghiệp lữ hành của năm-3-help" class="type-body-small nomination-muted">Quy mô đội ngũ: Số lượng nhân sự chính thức và cộng tác, cơ cấu phòng ban.</p><textarea id="_r_0_-professional-Doanh nghiệp lữ hành của năm-3" name="professional-Doanh nghiệp lữ hành của năm-3" aria-describedby="_r_0_-professional-Doanh nghiệp lữ hành của năm-3-help" rows="5"></textarea>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-professional-Doanh nghiệp lữ hành của năm-4">Kênh truyền thông chính thức</label>
-<p id="_r_0_-professional-Doanh nghiệp lữ hành của năm-4-help" class="type-body-small nomination-muted">Cung cấp link website, fanpage và tài khoản mạng xã hội chính thức của đơn vị; ghi rõ số người theo dõi của từng tài khoản mạng xã hội.</p><textarea id="_r_0_-professional-Doanh nghiệp lữ hành của năm-4" name="professional-Doanh nghiệp lữ hành của năm-4" aria-describedby="_r_0_-professional-Doanh nghiệp lữ hành của năm-4-help" rows="5"></textarea>
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
 </div>
-<h3 class="type-body-large">Thuyết minh theo tiêu chí chấm giải</h3>
-<div class="nomination-field-grid">
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-narrative-Doanh nghiệp lữ hành của năm-0">Trách nhiệm bền vững: du lịch có trách nhiệm với điểm đến và đối tác địa phương</label>
-<div class="nomination-counted-field"><textarea id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-0" name="narrative-Doanh nghiệp lữ hành của năm-0" aria-describedby="_r_0_-narrative-Doanh nghiệp lữ hành của năm-0-count" rows="5"></textarea><span id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-0-count" class="nomination-word-count">0/300</span>
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-narrative-Doanh nghiệp lữ hành của năm-1">Đa dạng và chất lượng sản phẩm tour</label>
-<div class="nomination-counted-field"><textarea id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-1" name="narrative-Doanh nghiệp lữ hành của năm-1" aria-describedby="_r_0_-narrative-Doanh nghiệp lữ hành của năm-1-count" rows="5"></textarea><span id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-1-count" class="nomination-word-count">0/300</span>
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-narrative-Doanh nghiệp lữ hành của năm-2">Năng lực vận hành, chất lượng đội ngũ nhân sự và hướng dẫn viên</label>
-<div class="nomination-counted-field"><textarea id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-2" name="narrative-Doanh nghiệp lữ hành của năm-2" aria-describedby="_r_0_-narrative-Doanh nghiệp lữ hành của năm-2-count" rows="5"></textarea><span id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-2-count" class="nomination-word-count">0/300</span>
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-narrative-Doanh nghiệp lữ hành của năm-3">Ứng dụng công nghệ, đổi mới sản phẩm</label>
-<div class="nomination-counted-field"><textarea id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-3" name="narrative-Doanh nghiệp lữ hành của năm-3" aria-describedby="_r_0_-narrative-Doanh nghiệp lữ hành của năm-3-count" rows="5"></textarea><span id="_r_0_-narrative-Doanh nghiệp lữ hành của năm-3-count" class="nomination-word-count">0/300</span>
-</div>
-</div>
-</div>
-</fieldset>
-<fieldset class="nomination-form-section"><legend class="type-heading-3">IV. Điều kiện tuân thủ</legend>
-<p>Tôi xác nhận rằng:</p>
-<div class="nomination-checks"><label><input type="checkbox"><span>Giấy phép kinh doanh dịch vụ lữ hành (quốc tế hoặc nội địa) còn hiệu lực; đã hoạt động tối thiểu 24 tháng tính đến 30/09/2026</span></label><label><input type="checkbox"><span>Không bị xử phạt vi phạm hành chính trong lĩnh vực du lịch, không có sự cố/khủng hoảng nghiêm trọng ảnh hưởng khách hàng được cơ quan chức năng hoặc báo chí xác nhận trong kỳ xét giải (01/10/2025–30/09/2026)</span></label><label><input type="checkbox"><span>Đơn vị/đề cử đáp ứng các điều kiện pháp lý cần thiết để tham gia hạng mục đăng ký.</span></label><label><input type="checkbox"><span>Các giấy phép/chứng nhận liên quan còn hiệu lực tại thời điểm đăng ký.</span></label><label><input type="checkbox"><span>Thông tin và số liệu cung cấp trong hồ sơ là chính xác và có thể được Ban tổ chức yêu cầu đối chiếu khi cần thiết.</span></label><label><input type="checkbox"><span>Đơn vị/đề cử không có sự cố nghiêm trọng liên quan đến an toàn du khách/khách hàng trong năm xét giải mà chưa được giải trình hoặc xử lý theo quy định.</span></label><label><input type="checkbox"><span>Tôi đồng ý để Ban tổ chức Travel Awards xác minh thông tin và sử dụng các tư liệu được cung cấp cho mục đích đánh giá, truyền thông và giới thiệu giải thưởng.</span></label>
-</div>
-<div class="nomination-checks"><label><input type="checkbox"><span>Xác nhận tất cả</span></label>
-</div>
-</fieldset>
-<fieldset class="nomination-form-section"><legend class="type-heading-3">V. Hồ sơ &amp; minh chứng</legend>
-<div class="nomination-evidence">
-<p class="type-body-large">Minh chứng cần chuẩn bị:</p>
-<ul>
-<li>Bản sao Giấy phép kinh doanh dịch vụ lữ hành</li>
-<li>Báo cáo tài chính năm 2025 (hoặc tờ khai thuế), báo cáo doanh thu nội bộ 9 tháng 2026</li>
-<li>Tài liệu, hình ảnh sản phẩm tour tiêu biểu</li>
-<li>Các chứng nhận xanh, bền vững và liên quan (nếu có)</li>
-</ul>
 </div>
 <div class="nomination-field-grid">
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-dossier-0">Hồ sơ giới thiệu đề cử<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
-<p id="_r_0_-dossier-0-help" class="type-body-small nomination-muted">Chấp nhận PDF, PPT, PPTX. Tối đa 50 MB/tệp.</p><input id="_r_0_-dossier-0" multiple="" accept=".pdf,.ppt,.pptx" aria-describedby="_r_0_-dossier-0-help" type="file" name="dossier-0">
-</div>
-<fieldset class="nomination-legal-fields nomination-field--wide"><legend>Tài liệu pháp lý/minh chứng<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></legend>
-<p class="type-body-small nomination-muted">Chọn tệp tài liệu hoặc dán link Google Docs bản scan. Đảm bảo đường dẫn cho phép Ban tổ chức xem tài liệu.</p>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-dossier-1">Chọn tệp tài liệu</label>
-<p id="_r_0_-dossier-1-help" class="type-body-small nomination-muted">Chấp nhận PDF, DOC, DOCX. Tối đa 10 MB/tệp.</p><input id="_r_0_-dossier-1" multiple="" accept=".pdf,.doc,.docx" aria-describedby="_r_0_-dossier-1-help" type="file" name="dossier-1">
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-legal-link">Link Google Docs bản scan</label>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-legal-link" inputmode="url" placeholder="https://docs.google.com/..." type="url" value="" name="legal-scan-link">
-</div>
-</div>
-</fieldset>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-activity-link">Tài liệu chứng minh số liệu hoạt động</label>
-<p class="type-body-small nomination-muted">Dán link Drive hoặc nền tảng tương ứng. Đảm bảo đường dẫn cho phép Ban tổ chức xem tài liệu.</p>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-activity-link" inputmode="url" placeholder="https://" type="url" value="" name="activity-evidence-link">
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-dossier-3">Hình ảnh<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
-<p id="_r_0_-dossier-3-help" class="type-body-small nomination-muted">Bắt buộc 3–10 ảnh; chấp nhận định dạng JPG/JPEG/PNG; 1–10 MB/ảnh.</p><input id="_r_0_-dossier-3" multiple="" accept=".jpg,.jpeg,.png" aria-describedby="_r_0_-dossier-3-help" type="file" name="dossier-3">
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-criterion-0">Minh chứng tiêu chí 1: Trách nhiệm bền vững: du lịch có trách nhiệm với điểm đến và đối tác địa phương</label>
-<p class="type-body-small nomination-muted">Dán link Google Drive, đảm bảo đã chia sẻ cho phép Ban tổ chức xem tài liệu.</p>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-criterion-0" inputmode="url" placeholder="https://" type="url" value="" name="criterion-Doanh nghiệp lữ hành của năm-0">
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-criterion-1">Minh chứng tiêu chí 2: Đa dạng và chất lượng sản phẩm tour</label>
-<p class="type-body-small nomination-muted">Dán link Google Drive, đảm bảo đã chia sẻ cho phép Ban tổ chức xem tài liệu.</p>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-criterion-1" inputmode="url" placeholder="https://" type="url" value="" name="criterion-Doanh nghiệp lữ hành của năm-1">
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-criterion-2">Minh chứng tiêu chí 3: Năng lực vận hành, chất lượng đội ngũ nhân sự và hướng dẫn viên</label>
-<p class="type-body-small nomination-muted">Dán link Google Drive, đảm bảo đã chia sẻ cho phép Ban tổ chức xem tài liệu.</p>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-criterion-2" inputmode="url" placeholder="https://" type="url" value="" name="criterion-Doanh nghiệp lữ hành của năm-2">
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-criterion-3">Minh chứng tiêu chí 4: Ứng dụng công nghệ, đổi mới sản phẩm</label>
-<p class="type-body-small nomination-muted">Dán link Google Drive, đảm bảo đã chia sẻ cho phép Ban tổ chức xem tài liệu.</p>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-criterion-3" inputmode="url" placeholder="https://" type="url" value="" name="criterion-Doanh nghiệp lữ hành của năm-3">
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-video-link">Video giới thiệu</label>
-<p class="type-body-small nomination-muted">Dán link YouTube, Drive hoặc nền tảng tương ứng.</p>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-video-link" inputmode="url" placeholder="https://" type="url" value="" name="video-0">
-</div>
-</div>
-<div class="nomination-field nomination-field--wide"><label for="_r_0_-other-documents-link">Các tài liệu khác</label>
-<div class="nomination-url-control"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><ellipse cx="12" cy="12" rx="4" ry="9"></ellipse><path d="M3 12h18M5 7h14M5 17h14"></path></svg><input id="_r_0_-other-documents-link" inputmode="url" placeholder="https://" type="url" value="" name="other-documents-link">
+<div class="nomination-field"><label for="_r_0_-representative-1">Chức vụ</label><input id="_r_0_-representative-1" aria-invalid="false" type="text" value="" name="representative-1">
+<div role="status" aria-live="polite" aria-atomic="true">
 </div>
 </div>
 </div>
-</fieldset>
 </div>
-<div class="nomination-mobile-inline-actions"><button type="button" class="button button--secondary">Lưu lại hồ sơ</button>
+</details>
+</section>
 </div>
-<div class="nomination-actions nomination-mobile-bar"><button type="button" class="button button--secondary"><span aria-hidden="true">←</span><span class="nomination-button-desktop-label">Quay lại</span><span class="nomination-button-mobile-label">Chọn giải thưởng</span></button>
-<div class="nomination-action-next"><button type="button" class="button button--secondary nomination-save-action">Lưu lại hồ sơ</button><button type="submit" class="button button--primary">Tiếp tục <span aria-hidden="true">→</span></button>
-</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Hạng mục</button><button type="submit" class="button button--primary">Tiếp tục<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
 </div>
 </form>
 </div>
@@ -253,13 +173,9 @@
 <div class="nomination-success-actions"><a class="button button--secondary" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail <svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><a class="button button--secondary" href="https://outlook.live.com/mail/" target="_blank" rel="noopener noreferrer">Outlook <svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><button type="button" class="button button--primary">Đóng</button>
 </div>
 </dialog>
-<dialog class="nomination-save-dialog" aria-labelledby="nomination-submit-title">
-<h2 id="nomination-submit-title" class="type-heading-3">Xác nhận hồ sơ</h2>
-<p>Bạn đã hoàn tất bước xác nhận trong bản xem trước. Hồ sơ chưa được gửi đến Ban tổ chức.</p><button type="button" class="button button--primary">Đóng</button>
-</dialog>
 <dialog class="nomination-save-dialog" aria-labelledby="nomination-save-title">
 <h2 id="nomination-save-title" class="type-heading-3">Lưu hồ sơ</h2>
-<p>Hồ sơ của bạn đã được lưu lại trên hệ thống.</p><button type="button" class="button button--primary">Đóng</button>
+<p>Thông tin và tệp đang được giữ trong phiên đăng ký này. Bạn có thể chuyển phần để tiếp tục chỉnh sửa. Vui lòng không đóng hoặc tải lại trang.</p><button type="button" class="button button--primary">Đóng</button>
 </dialog>
 </div>
 </div>
@@ -292,11 +208,351 @@
 <p class="home-footer-label">Thông tin liên hệ</p><dl>
 <div><dt>Email:</dt><dd><a href="mailto:sukien@vnexpress.net">sukien@vnexpress.net</a></dd>
 </div></dl>
+<p class="home-footer-label">Tài trợ sự kiện</p><dl>
+<div><dt>Đại diện:</dt><dd>Lương Thị Thanh Tú</dd>
+</div>
+<div><dt>Điện thoại:</dt><dd><a href="tel:+842473009999;ext=4567">+84 (24) 73009999/ Ext: 4567</a></dd>
+</div>
+<div><dt>Email:</dt><dd><a href="mailto:tultt@fpt.com">tultt@fpt.com</a></dd>
+</div></dl>
 </div>
 </div>
 <div class="home-footer-bottom"><span>© 1997–2026. Toàn bộ bản quyền thuộc VnExpress.</span>
 </div>
 </div>
 </footer>
+
+
+
+
+
+
+<template data-registration-part="0"><form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 1 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="0" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0" selected>1. Đơn vị &amp; liên hệ</option><option value="1">2. Giới thiệu đề cử</option><option value="2">3. Số liệu hoạt động</option><option value="3">4. Dấu ấn theo tiêu chí</option><option value="4">5. Hồ sơ &amp; minh chứng</option><option value="5">6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
+<div class="nomination-registration">
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 1 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Đơn vị &amp; liên hệ</h3>
+<p class="nomination-muted">Cho biết ai đứng tên hồ sơ và ai là người Ban tổ chức có thể liên hệ.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<div class="nomination-explainer"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 20px;"></span>
+<div><strong>Đơn vị đứng tên khác người liên hệ thế nào?</strong>
+<p>Đơn vị đứng tên là bên nộp hồ sơ. Người liên hệ là người phụ trách trao đổi với Ban tổ chức. Tên đề cử là đối tượng bạn muốn giới thiệu ở phần tiếp theo.</p>
+</div>
+</div>
+<div class="nomination-field-grid">
+<div class="nomination-field nomination-field--wide"><label for="_r_0_-registration-0">Tên đơn vị/tổ chức/cá nhân đứng tên hồ sơ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_0_-registration-0-help" class="type-body-small nomination-muted">Ghi đúng tên pháp lý của đơn vị nộp hồ sơ. Nếu nộp với tư cách cá nhân, điền họ tên của bạn.</p><input id="_r_0_-registration-0" required="" aria-invalid="false" aria-describedby="_r_0_-registration-0-help" autocomplete="organization" type="text" value="" name="registration-0">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field"><label for="_r_0_-registration-1">Loại hình đơn vị<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><select id="_r_0_-registration-1" name="registration-1" required="" aria-invalid="false"><option value="">Chọn loại hình</option><option>Cơ quan quản lý / địa phương</option><option>Doanh nghiệp</option><option>Tổ chức / hợp tác xã</option><option>Hộ kinh doanh</option><option>Cá nhân</option><option>Khác</option></select>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field"><label for="_r_0_-registration-2">Địa chỉ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-registration-2" required="" aria-invalid="false" autocomplete="street-address" type="text" value="" name="registration-2">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+<h4 class="nomination-subtitle">Người liên hệ hồ sơ</h4>
+<div class="nomination-field-grid">
+<div class="nomination-field"><label for="_r_0_-representative-0">Họ và tên người liên hệ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_0_-representative-0-help" class="type-body-small nomination-muted">Người phụ trách hồ sơ để Ban tổ chức trao đổi, yêu cầu bổ sung. Nếu bạn tự nộp, điền họ tên của bạn.</p><input id="_r_0_-representative-0" required="" aria-invalid="false" aria-describedby="_r_0_-representative-0-help" autocomplete="name" type="text" value="" name="representative-0">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+<div class="nomination-field-grid">
+<div class="nomination-field"><label for="_r_0_-representative-2">Số điện thoại<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<div class="nomination-phone-control" data-invalid="false"><select name="representative-2-country" aria-label="Quốc gia và mã gọi điện thoại"><option value="SA">Ả Rập Xê-út (+966)</option><option value="AF">Afghanistan (+93)</option><option value="EG">Ai Cập (+20)</option><option value="AL">Albania (+355)</option><option value="DZ">Algeria (+213)</option><option value="AD">Andorra (+376)</option><option value="AO">Angola (+244)</option><option value="AI">Anguilla (+1)</option><option value="AG">Antigua và Barbuda (+1)</option><option value="AT">Áo (+43)</option><option value="AR">Argentina (+54)</option><option value="AM">Armenia (+374)</option><option value="AW">Aruba (+297)</option><option value="AU">Australia (+61)</option><option value="AZ">Azerbaijan (+994)</option><option value="IN">Ấn Độ (+91)</option><option value="PL">Ba Lan (+48)</option><option value="BS">Bahamas (+1)</option><option value="BH">Bahrain (+973)</option><option value="BD">Bangladesh (+880)</option><option value="BB">Barbados (+1)</option><option value="MK">Bắc Macedonia (+389)</option><option value="BY">Belarus (+375)</option><option value="BZ">Belize (+501)</option><option value="BJ">Benin (+229)</option><option value="BM">Bermuda (+1)</option><option value="BT">Bhutan (+975)</option><option value="BE">Bỉ (+32)</option><option value="BO">Bolivia (+591)</option><option value="BA">Bosnia và Herzegovina (+387)</option><option value="BW">Botswana (+267)</option><option value="PT">Bồ Đào Nha (+351)</option><option value="BR">Brazil (+55)</option><option value="BN">Brunei (+673)</option><option value="BG">Bulgaria (+359)</option><option value="BF">Burkina Faso (+226)</option><option value="BI">Burundi (+257)</option><option value="BQ">Ca-ri-bê Hà Lan (+599)</option><option value="AE">Các Tiểu Vương quốc Ả Rập Thống nhất (+971)</option><option value="CM">Cameroon (+237)</option><option value="KH">Campuchia (+855)</option><option value="CA">Canada (+1)</option><option value="CV">Cape Verde (+238)</option><option value="TD">Chad (+235)</option><option value="CL">Chile (+56)</option><option value="CO">Colombia (+57)</option><option value="KM">Comoros (+269)</option><option value="CG">Congo - Brazzaville (+242)</option><option value="CD">Congo - Kinshasa (+243)</option><option value="CR">Costa Rica (+506)</option><option value="DO">Cộng hòa Dominica (+1)</option><option value="CF">Cộng hòa Trung Phi (+236)</option><option value="CI">Côte d’Ivoire (+225)</option><option value="HR">Croatia (+385)</option><option value="CU">Cuba (+53)</option><option value="CW">Curaçao (+599)</option><option value="DJ">Djibouti (+253)</option><option value="DM">Dominica (+1)</option><option value="TW">Đài Loan (+886)</option><option value="DK">Đan Mạch (+45)</option><option value="AC">Đảo Ascension (+247)</option><option value="CX">Đảo Giáng Sinh (+61)</option><option value="IM">Đảo Man (+44)</option><option value="NF">Đảo Norfolk (+672)</option><option value="HK">Đặc khu Hành chính Hồng Kông, Trung Quốc (+852)</option><option value="MO">Đặc khu Hành chính Macao, Trung Quốc (+853)</option><option value="DE">Đức (+49)</option><option value="EC">Ecuador (+593)</option><option value="SV">El Salvador (+503)</option><option value="ER">Eritrea (+291)</option><option value="EE">Estonia (+372)</option><option value="SZ">Eswatini (+268)</option><option value="ET">Ethiopia (+251)</option><option value="FJ">Fiji (+679)</option><option value="GA">Gabon (+241)</option><option value="GM">Gambia (+220)</option><option value="GE">Georgia (+995)</option><option value="GH">Ghana (+233)</option><option value="GI">Gibraltar (+350)</option><option value="GL">Greenland (+299)</option><option value="GD">Grenada (+1)</option><option value="GP">Guadeloupe (+590)</option><option value="GU">Guam (+1)</option><option value="GT">Guatemala (+502)</option><option value="GG">Guernsey (+44)</option><option value="GF">Guiana thuộc Pháp (+594)</option><option value="GN">Guinea (+224)</option><option value="GQ">Guinea Xích Đạo (+240)</option><option value="GW">Guinea-Bissau (+245)</option><option value="GY">Guyana (+592)</option><option value="NL">Hà Lan (+31)</option><option value="HT">Haiti (+509)</option><option value="KR">Hàn Quốc (+82)</option><option value="US">Hoa Kỳ (+1)</option><option value="HN">Honduras (+504)</option><option value="HU">Hungary (+36)</option><option value="GR">Hy Lạp (+30)</option><option value="IS">Iceland (+354)</option><option value="ID">Indonesia (+62)</option><option value="IR">Iran (+98)</option><option value="IQ">Iraq (+964)</option><option value="IE">Ireland (+353)</option><option value="IL">Israel (+972)</option><option value="IT">Italy (+39)</option><option value="JM">Jamaica (+1)</option><option value="JE">Jersey (+44)</option><option value="JO">Jordan (+962)</option><option value="KZ">Kazakhstan (+7)</option><option value="KE">Kenya (+254)</option><option value="KI">Kiribati (+686)</option><option value="XK">Kosovo (+383)</option><option value="KW">Kuwait (+965)</option><option value="KG">Kyrgyzstan (+996)</option><option value="IO">Lãnh thổ Ấn Độ Dương thuộc Anh (+246)</option><option value="PS">Lãnh thổ Palestine (+970)</option><option value="LA">Lào (+856)</option><option value="LV">Latvia (+371)</option><option value="LS">Lesotho (+266)</option><option value="LB">Li-băng (+961)</option><option value="LR">Liberia (+231)</option><option value="LY">Libya (+218)</option><option value="LI">Liechtenstein (+423)</option><option value="LT">Litva (+370)</option><option value="LU">Luxembourg (+352)</option><option value="MA">Ma-rốc (+212)</option><option value="MG">Madagascar (+261)</option><option value="MW">Malawi (+265)</option><option value="MY">Malaysia (+60)</option><option value="MV">Maldives (+960)</option><option value="ML">Mali (+223)</option><option value="MT">Malta (+356)</option><option value="MQ">Martinique (+596)</option><option value="MR">Mauritania (+222)</option><option value="MU">Mauritius (+230)</option><option value="YT">Mayotte (+262)</option><option value="MX">Mexico (+52)</option><option value="FM">Micronesia (+691)</option><option value="MD">Moldova (+373)</option><option value="MC">Monaco (+377)</option><option value="ME">Montenegro (+382)</option><option value="MS">Montserrat (+1)</option><option value="MZ">Mozambique (+258)</option><option value="MN">Mông Cổ (+976)</option><option value="MM">Myanmar (Miến Điện) (+95)</option><option value="NO">Na Uy (+47)</option><option value="ZA">Nam Phi (+27)</option><option value="SS">Nam Sudan (+211)</option><option value="NA">Namibia (+264)</option><option value="NR">Nauru (+674)</option><option value="NP">Nepal (+977)</option><option value="NC">New Caledonia (+687)</option><option value="NZ">New Zealand (+64)</option><option value="RU">Nga (+7)</option><option value="JP">Nhật Bản (+81)</option><option value="NI">Nicaragua (+505)</option><option value="NE">Niger (+227)</option><option value="NG">Nigeria (+234)</option><option value="NU">Niue (+683)</option><option value="OM">Oman (+968)</option><option value="PK">Pakistan (+92)</option><option value="PW">Palau (+680)</option><option value="PA">Panama (+507)</option><option value="PG">Papua New Guinea (+675)</option><option value="PY">Paraguay (+595)</option><option value="PE">Peru (+51)</option><option value="FR">Pháp (+33)</option><option value="FI">Phần Lan (+358)</option><option value="PH">Philippines (+63)</option><option value="PF">Polynesia thuộc Pháp (+689)</option><option value="PR">Puerto Rico (+1)</option><option value="QA">Qatar (+974)</option><option value="AX">Quần đảo Åland (+358)</option><option value="MP">Quần đảo Bắc Mariana (+1)</option><option value="KY">Quần đảo Cayman (+1)</option><option value="CC">Quần đảo Cocos (Keeling) (+61)</option><option value="CK">Quần đảo Cook (+682)</option><option value="FK">Quần đảo Falkland (+500)</option><option value="FO">Quần đảo Faroe (+298)</option><option value="MH">Quần đảo Marshall (+692)</option><option value="SB">Quần đảo Solomon (+677)</option><option value="TC">Quần đảo Turks và Caicos (+1)</option><option value="VG">Quần đảo Virgin thuộc Anh (+1)</option><option value="VI">Quần đảo Virgin thuộc Hoa Kỳ (+1)</option><option value="RE">Réunion (+262)</option><option value="RO">Romania (+40)</option><option value="RW">Rwanda (+250)</option><option value="PM">Saint Pierre và Miquelon (+508)</option><option value="WS">Samoa (+685)</option><option value="AS">Samoa thuộc Mỹ (+1)</option><option value="SM">San Marino (+378)</option><option value="ST">São Tomé và Príncipe (+239)</option><option value="CZ">Séc (+420)</option><option value="SN">Senegal (+221)</option><option value="RS">Serbia (+381)</option><option value="SC">Seychelles (+248)</option><option value="SL">Sierra Leone (+232)</option><option value="SG">Singapore (+65)</option><option value="SX">Sint Maarten (+1)</option><option value="CY">Síp (+357)</option><option value="SK">Slovakia (+421)</option><option value="SI">Slovenia (+386)</option><option value="SO">Somalia (+252)</option><option value="LK">Sri Lanka (+94)</option><option value="BL">St. Barthélemy (+590)</option><option value="SH">St. Helena (+290)</option><option value="KN">St. Kitts và Nevis (+1)</option><option value="LC">St. Lucia (+1)</option><option value="MF">St. Martin (+590)</option><option value="VC">St. Vincent và Grenadines (+1)</option><option value="SD">Sudan (+249)</option><option value="SR">Suriname (+597)</option><option value="SJ">Svalbard và Jan Mayen (+47)</option><option value="SY">Syria (+963)</option><option value="TJ">Tajikistan (+992)</option><option value="TZ">Tanzania (+255)</option><option value="ES">Tây Ban Nha (+34)</option><option value="EH">Tây Sahara (+212)</option><option value="TH">Thái Lan (+66)</option><option value="VA">Thành Vatican (+39)</option><option value="TR">Thổ Nhĩ Kỳ (+90)</option><option value="SE">Thụy Điển (+46)</option><option value="CH">Thụy Sĩ (+41)</option><option value="TL">Timor-Leste (+670)</option><option value="TG">Togo (+228)</option><option value="TK">Tokelau (+690)</option><option value="TO">Tonga (+676)</option><option value="KP">Triều Tiên (+850)</option><option value="TT">Trinidad và Tobago (+1)</option><option value="TA">Tristan da Cunha (+290)</option><option value="CN">Trung Quốc (+86)</option><option value="TN">Tunisia (+216)</option><option value="TM">Turkmenistan (+993)</option><option value="TV">Tuvalu (+688)</option><option value="UG">Uganda (+256)</option><option value="UA">Ukraina (+380)</option><option value="UY">Uruguay (+598)</option><option value="UZ">Uzbekistan (+998)</option><option value="VU">Vanuatu (+678)</option><option value="VE">Venezuela (+58)</option><option value="VN">Việt Nam (+84)</option><option value="GB">Vương quốc Anh (+44)</option><option value="WF">Wallis và Futuna (+681)</option><option value="YE">Yemen (+967)</option><option value="ZM">Zambia (+260)</option><option value="ZW">Zimbabwe (+263)</option></select><input id="_r_0_-representative-2" enterkeyhint="next" required="" autocomplete="tel-national" inputmode="tel" placeholder="Ví dụ: 0912 345 678" type="tel" value="" name="representative-2">
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field"><label for="_r_0_-representative-3">Email<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_0_-representative-3" enterkeyhint="next" required="" autocomplete="email" inputmode="email" placeholder="ten@example.com" type="email" value="" name="representative-3">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+<details class="nomination-help-details">
+<summary>Liên kết &amp; chức vụ (tùy chọn)</summary>
+<div class="nomination-optional-fields">
+<div class="nomination-field-grid">
+<div class="nomination-field"><label for="_r_0_-registration-3">Website</label>
+<div class="nomination-url-control" data-invalid="false"><span class="ui-icon fi-rr-globe" aria-hidden="true" style="--ui-icon-size: 20px;"></span><input id="_r_0_-registration-3" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="vnexpress.net" aria-invalid="false" type="text" value="" name="registration-3">
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field"><label for="_r_0_-registration-4">Fanpage/Kênh truyền thông chính thức</label>
+<div class="nomination-url-control" data-invalid="false"><span class="ui-icon fi-rr-globe" aria-hidden="true" style="--ui-icon-size: 20px;"></span><input id="_r_0_-registration-4" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" placeholder="https://" aria-invalid="false" type="text" value="" name="registration-4">
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+<div class="nomination-field-grid">
+<div class="nomination-field"><label for="_r_0_-representative-1">Chức vụ</label><input id="_r_0_-representative-1" aria-invalid="false" type="text" value="" name="representative-1">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+</div>
+</details>
+</section>
+</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Hạng mục</button><button type="submit" class="button button--primary">Tiếp tục<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+</div>
+</form></template>
+<template data-registration-part="1"><form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 2 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="0" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0">1. Đơn vị &amp; liên hệ</option><option value="1" selected>2. Giới thiệu đề cử</option><option value="2">3. Số liệu hoạt động</option><option value="3">4. Dấu ấn theo tiêu chí</option><option value="4">5. Hồ sơ &amp; minh chứng</option><option value="5">6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
+<div class="nomination-registration">
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 2 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Giới thiệu đề cử</h3>
+<p class="nomination-muted">Giới thiệu đề cử bằng câu chuyện, thành tích và điểm khác biệt của bạn.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<p class="nomination-explainer">Tên đề cử có thể là điểm đến, khách sạn, thương hiệu hoặc trải nghiệm; có thể khác tên pháp lý của đơn vị nộp hồ sơ.</p>
+<div class="nomination-field-grid">
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-nominee-0">Tên đơn vị/điểm đến/thương hiệu/trải nghiệm được đề cử<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label><input id="_r_1_-nominee-0" required="" aria-invalid="false" type="text" value="" name="nominee-0">
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-nominee-1">Giới thiệu tổng quan<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_1_-nominee-1-help" class="type-body-small nomination-muted">Bạn là ai, hoạt động ở đâu, phục vụ ai và có dấu ấn gì trong năm xét giải? Viết từ 300 đến 500 từ.</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-nominee-1" name="nominee-1" required="" aria-invalid="false" aria-describedby="_r_1_-nominee-1-help _r_1_-nominee-1-count" inputmode="text" enterkeyhint="enter" rows="8"></textarea><span id="_r_1_-nominee-1-count" class="nomination-word-count" data-invalid="false">0/500 từ · tối thiểu 300</span>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-nominee-2">Thành tích nổi bật trong năm xét giải<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_1_-nominee-2-help" class="type-body-small nomination-muted">Nêu kết quả, thành tựu nổi bật và số liệu làm cơ sở đề cử. Viết từ 300 đến 500 từ.</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-nominee-2" name="nominee-2" required="" aria-invalid="false" aria-describedby="_r_1_-nominee-2-help _r_1_-nominee-2-count" inputmode="text" enterkeyhint="enter" rows="8"></textarea><span id="_r_1_-nominee-2-count" class="nomination-word-count" data-invalid="false">0/500 từ · tối thiểu 300</span>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-nominee-3">Điểm khác biệt/nổi bật của đề cử<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p id="_r_1_-nominee-3-help" class="type-body-small nomination-muted">Điều gì tạo nên giá trị hoặc dấu ấn riêng của đơn vị/điểm đến/thương hiệu/trải nghiệm.</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-nominee-3" name="nominee-3" required="" aria-invalid="false" aria-describedby="_r_1_-nominee-3-help" inputmode="text" enterkeyhint="enter" rows="5"></textarea>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+</section>
+</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Phần trước</button><button type="submit" class="button button--primary">Tiếp tục<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+</div>
+</form></template>
+<template data-registration-part="2"><form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 3 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="1" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0">1. Đơn vị &amp; liên hệ</option><option value="1">2. Giới thiệu đề cử</option><option value="2" selected>3. Số liệu hoạt động ✓</option><option value="3">4. Dấu ấn theo tiêu chí</option><option value="4">5. Hồ sơ &amp; minh chứng</option><option value="5">6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
+<div class="nomination-registration">
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 3 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Số liệu hoạt động</h3>
+<p class="nomination-muted">Kê khai số liệu theo hạng mục đã chọn. Có thể bổ sung giải thích ngay trong từng ô.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<p class="nomination-explainer"><span class="ui-icon fi-rr-calendar" aria-hidden="true" style="--ui-icon-size: 20px;"></span>Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026.</p>
+<details class="nomination-help-details">
+<summary>Cách kê khai số liệu và thuật ngữ</summary>
+<p>Ghi rõ đơn vị tính và kỳ số liệu. Nếu chưa có số liệu, ghi “Chưa có số liệu” cùng lý do thay vì nhập 0.</p>
+<p>ADR: giá phòng bình quân. OTA: nền tảng đặt dịch vụ trực tuyến như Booking, Agoda. OTP: tỷ lệ chuyến bay đúng giờ. KPI: chỉ tiêu mục tiêu và kết quả đạt được.</p>
+</details>
+<div class="nomination-field-grid">
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-professional-Doanh nghiệp lữ hành của năm-0">Doanh thu và lượt khách</label>
+<p id="_r_1_-professional-Doanh nghiệp lữ hành của năm-0-help" class="type-body-small nomination-muted">Doanh thu và số lượt khách phục vụ (kỳ xét giải và cùng kỳ năm trước)</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-professional-Doanh nghiệp lữ hành của năm-0" name="professional-Doanh nghiệp lữ hành của năm-0" aria-invalid="false" aria-describedby="_r_1_-professional-Doanh nghiệp lữ hành của năm-0-help" inputmode="text" enterkeyhint="enter" rows="5"></textarea>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-professional-Doanh nghiệp lữ hành của năm-1">Kết quả theo phân khúc</label>
+<p id="_r_1_-professional-Doanh nghiệp lữ hành của năm-1-help" class="type-body-small nomination-muted">Phân khúc chính: inbound / outbound / nội địa (cung cấp kết quả kinh doanh về doanh thu và lượt khách ở mỗi phân khúc)</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-professional-Doanh nghiệp lữ hành của năm-1" name="professional-Doanh nghiệp lữ hành của năm-1" aria-invalid="false" aria-describedby="_r_1_-professional-Doanh nghiệp lữ hành của năm-1-help" inputmode="text" enterkeyhint="enter" rows="5"></textarea>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-professional-Doanh nghiệp lữ hành của năm-2">Sản phẩm tour tiêu biểu</label>
+<p id="_r_1_-professional-Doanh nghiệp lữ hành của năm-2-help" class="type-body-small nomination-muted">Danh mục sản phẩm tour tiêu biểu (tối đa 5)</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-professional-Doanh nghiệp lữ hành của năm-2" name="professional-Doanh nghiệp lữ hành của năm-2" aria-invalid="false" aria-describedby="_r_1_-professional-Doanh nghiệp lữ hành của năm-2-help" inputmode="text" enterkeyhint="enter" rows="5"></textarea>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-professional-Doanh nghiệp lữ hành của năm-3">Quy mô nhân sự</label>
+<p id="_r_1_-professional-Doanh nghiệp lữ hành của năm-3-help" class="type-body-small nomination-muted">Quy mô đội ngũ: Số lượng nhân sự chính thức và cộng tác, cơ cấu phòng ban.</p>
+<div class="nomination-counted-field"><textarea id="_r_1_-professional-Doanh nghiệp lữ hành của năm-3" name="professional-Doanh nghiệp lữ hành của năm-3" aria-invalid="false" aria-describedby="_r_1_-professional-Doanh nghiệp lữ hành của năm-3-help" inputmode="text" enterkeyhint="enter" rows="5"></textarea>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+<fieldset class="nomination-channel-picker nomination-field--wide"><legend>Kênh truyền thông chính thức</legend>
+<p class="nomination-muted">Chọn các kênh bạn có, rồi điền link và số người theo dõi. Không cần gõ lại tên nền tảng.</p>
+<div class="nomination-chip-list"><label class="nomination-chip" data-selected="false"><input type="checkbox"><span class="ui-icon fi-rr-globe" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Website</label><label class="nomination-chip" data-selected="false"><input type="checkbox"><span class="ui-icon fi-brands-facebook" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Facebook</label><label class="nomination-chip" data-selected="false"><input type="checkbox"><span class="ui-icon fi-brands-instagram" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Instagram</label><label class="nomination-chip" data-selected="false"><input type="checkbox"><span class="ui-icon fi-brands-tik-tok" aria-hidden="true" style="--ui-icon-size: 16px;"></span>TikTok</label><label class="nomination-chip" data-selected="false"><input type="checkbox"><span class="ui-icon fi-brands-youtube" aria-hidden="true" style="--ui-icon-size: 16px;"></span>YouTube</label><label class="nomination-chip" data-selected="false"><input type="checkbox"><span class="ui-icon fi-rr-link" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Khác</label>
+</div>
+</fieldset>
+</div>
+</section>
+</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Phần trước</button><button type="submit" class="button button--primary">Tiếp tục<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+</div>
+</form></template>
+<template data-registration-part="3"><form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 4 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="1" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0">1. Đơn vị &amp; liên hệ</option><option value="1">2. Giới thiệu đề cử</option><option value="2">3. Số liệu hoạt động</option><option value="3" selected>4. Dấu ấn theo tiêu chí ✓</option><option value="4">5. Hồ sơ &amp; minh chứng</option><option value="5">6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
+<div class="nomination-registration">
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 4 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Dấu ấn theo tiêu chí</h3>
+<p class="nomination-muted">Mỗi tiêu chí là một nội dung riêng, tối đa 300 từ. Mở từng tiêu chí để viết.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<details class="nomination-criterion" open="">
+<summary><span class="nomination-criterion-index">1</span><span>Trách nhiệm bền vững: du lịch có trách nhiệm với điểm đến và đối tác địa phương<small>0/300 từ</small></span><span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 20px;"></span>
+</summary>
+<div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-narrative-Doanh nghiệp lữ hành của năm-0">Trách nhiệm bền vững: du lịch có trách nhiệm với điểm đến và đối tác địa phương</label>
+<div class="nomination-counted-field"><textarea id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-0" name="narrative-Doanh nghiệp lữ hành của năm-0" aria-invalid="false" aria-describedby="_r_1_-narrative-Doanh nghiệp lữ hành của năm-0-count" inputmode="text" enterkeyhint="enter" rows="5"></textarea><span id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-0-count" class="nomination-word-count" data-invalid="false">0/300 từ</span>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+</details>
+<details class="nomination-criterion">
+<summary><span class="nomination-criterion-index">2</span><span>Đa dạng và chất lượng sản phẩm tour<small>0/300 từ</small></span><span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 20px;"></span>
+</summary>
+<div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-narrative-Doanh nghiệp lữ hành của năm-1">Đa dạng và chất lượng sản phẩm tour</label>
+<div class="nomination-counted-field"><textarea id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-1" name="narrative-Doanh nghiệp lữ hành của năm-1" aria-invalid="false" aria-describedby="_r_1_-narrative-Doanh nghiệp lữ hành của năm-1-count" inputmode="text" enterkeyhint="enter" rows="5"></textarea><span id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-1-count" class="nomination-word-count" data-invalid="false">0/300 từ</span>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+</details>
+<details class="nomination-criterion">
+<summary><span class="nomination-criterion-index">3</span><span>Năng lực vận hành, chất lượng đội ngũ nhân sự và hướng dẫn viên<small>0/300 từ</small></span><span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 20px;"></span>
+</summary>
+<div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-narrative-Doanh nghiệp lữ hành của năm-2">Năng lực vận hành, chất lượng đội ngũ nhân sự và hướng dẫn viên</label>
+<div class="nomination-counted-field"><textarea id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-2" name="narrative-Doanh nghiệp lữ hành của năm-2" aria-invalid="false" aria-describedby="_r_1_-narrative-Doanh nghiệp lữ hành của năm-2-count" inputmode="text" enterkeyhint="enter" rows="5"></textarea><span id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-2-count" class="nomination-word-count" data-invalid="false">0/300 từ</span>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+</details>
+<details class="nomination-criterion">
+<summary><span class="nomination-criterion-index">4</span><span>Ứng dụng công nghệ, đổi mới sản phẩm<small>0/300 từ</small></span><span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 20px;"></span>
+</summary>
+<div>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-narrative-Doanh nghiệp lữ hành của năm-3">Ứng dụng công nghệ, đổi mới sản phẩm</label>
+<div class="nomination-counted-field"><textarea id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-3" name="narrative-Doanh nghiệp lữ hành của năm-3" aria-invalid="false" aria-describedby="_r_1_-narrative-Doanh nghiệp lữ hành của năm-3-count" inputmode="text" enterkeyhint="enter" rows="5"></textarea><span id="_r_1_-narrative-Doanh nghiệp lữ hành của năm-3-count" class="nomination-word-count" data-invalid="false">0/300 từ</span>
+</div>
+<div role="status" aria-live="polite" aria-atomic="true">
+</div>
+</div>
+</div>
+</details>
+</section>
+</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Phần trước</button><button type="submit" class="button button--primary">Tiếp tục<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+</div>
+</form></template>
+<template data-registration-part="4"><form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 5 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="0" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0">1. Đơn vị &amp; liên hệ</option><option value="1">2. Giới thiệu đề cử</option><option value="2">3. Số liệu hoạt động</option><option value="3">4. Dấu ấn theo tiêu chí</option><option value="4" selected>5. Hồ sơ &amp; minh chứng</option><option value="5">6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
+<div class="nomination-registration">
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 5 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Hồ sơ &amp; minh chứng</h3>
+<p class="nomination-muted">Dùng một thư mục tài liệu để thao tác nhanh trên điện thoại, hoặc bổ sung từng tệp.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<fieldset class="nomination-evidence-modes"><legend class="sr-only">Cách cung cấp hồ sơ</legend><label class="nomination-mode-card" data-selected="true"><input type="radio" value="folder" checked="" name="evidence-mode"><span class="ui-icon fi-rr-link" aria-hidden="true" style="--ui-icon-size: 20px;"></span><span><strong>Một link cho toàn bộ hồ sơ</strong><small>Gọn nhất trên điện thoại · chuẩn bị tài liệu trong một thư mục</small></span></label><label class="nomination-mode-card" data-selected="false"><input type="radio" value="files" name="evidence-mode"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 20px;"></span><span><strong>Tải tệp &amp; bổ sung từng link</strong><small>Phù hợp khi tài liệu đang nằm trên thiết bị</small></span></label>
+</fieldset>
+<details class="nomination-help-details">
+<summary><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 20px;"></span> Cần chuẩn bị những gì?</summary>
+<ul>
+<li>Bản sao Giấy phép kinh doanh dịch vụ lữ hành</li>
+<li>Báo cáo tài chính năm 2025 (hoặc tờ khai thuế), báo cáo doanh thu nội bộ 9 tháng 2026</li>
+<li>Tài liệu, hình ảnh sản phẩm tour tiêu biểu</li>
+<li>Các chứng nhận xanh, bền vững và liên quan (nếu có)</li>
+</ul>
+</details>
+<div class="nomination-field nomination-field--wide"><label for="_r_1_-full-dossier-link">Link thư mục hồ sơ đầy đủ<span class="nomination-required" aria-hidden="true"> *</span><span class="sr-only"> (bắt buộc)</span></label>
+<p class="type-body-small nomination-muted">Dán link Google Drive, OneDrive hoặc nền tảng tương ứng. Ban tổ chức cần quyền xem, không cần quyền chỉnh sửa.</p>
+<div class="nomination-url-control" data-invalid="false"><span class="ui-icon fi-rr-globe" aria-hidden="true" style="--ui-icon-size: 20px;"></span><input id="_r_1_-full-dossier-link" inputmode="url" autocapitalize="none" autocorrect="off" spellcheck="false" required="" placeholder="vnexpress.net hoặc link tài liệu" aria-invalid="false" type="text" value="" name="full-dossier-link">
+</div>
+</div>
+<fieldset class="nomination-folder-checklist"><legend>Thư mục của bạn đã có:</legend>
+<div class="nomination-checks"><label><input type="checkbox" name="folder-introduction"><span>Hồ sơ giới thiệu đề cử (PDF/PPT/PPTX, tối đa 50 MB/tệp)</span></label><label><input type="checkbox" name="folder-legal"><span>Tài liệu pháp lý/minh chứng (PDF/DOC/DOCX, tối đa 10 MB/tệp hoặc bản scan)</span></label><label><input type="checkbox" name="folder-images"><span>Từ 3 đến 10 ảnh JPG/JPEG/PNG, tối đa 10 MB/ảnh</span></label><label><input type="checkbox" name="folder-evidence"><span>Số liệu hoạt động và minh chứng các tiêu chí của hạng mục</span></label><label><input type="checkbox" name="folder-access"><span>Tôi đã cấp quyền để Ban tổ chức xem được thư mục và các tài liệu bên trong</span></label><label class="nomination-select-all"><input type="checkbox" name="folder-all"><span>Tất cả</span></label>
+</div>
+</fieldset>
+<p class="nomination-muted type-body-small">Các xác nhận trên là do bạn cung cấp. Hệ thống chưa tự kiểm tra nội dung hoặc quyền truy cập thư mục.</p>
+</section>
+</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Phần trước</button><button type="submit" class="button button--primary">Tiếp tục<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+</div>
+</form></template>
+<template data-registration-part="5"><form class="nomination-registration-form" novalidate="">
+<div class="nomination-inner-progress">
+<div><span class="nomination-kicker">Bước 2 / 4 · Phần 6 / 6</span><button class="nomination-text-action" type="button"><span class="ui-icon fi-rr-document" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Lưu hồ sơ</button>
+</div><progress value="0" max="6" aria-label="Số phần đáp ứng yêu cầu"></progress><label class="sr-only" for="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part"><option value="0">1. Đơn vị &amp; liên hệ</option><option value="1">2. Giới thiệu đề cử</option><option value="2">3. Số liệu hoạt động</option><option value="3">4. Dấu ấn theo tiêu chí</option><option value="4">5. Hồ sơ &amp; minh chứng</option><option value="5" selected>6. Điều kiện tham gia</option></select>
+</div>
+<div class="nomination-selected-strip"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 18px;"></span><span>Doanh nghiệp lữ hành của năm</span><a href="?step=1" class="button button--secondary nomination-change-category"><span class="ui-icon fi-rr-exchange" aria-hidden="true" style="--ui-icon-size: 16px;"></span>Đổi hạng mục</a>
+</div>
+<div class="nomination-registration">
+<header class="nomination-part-heading"><span class="nomination-kicker">Phần 6 / 6</span>
+<h3 tabindex="-1" class="type-heading-3" id="nomination-part-title">Điều kiện tham gia</h3>
+<p class="nomination-muted">Đọc và xác nhận các điều kiện trước khi kiểm tra lại toàn bộ hồ sơ.</p>
+<p class="nomination-required-note"><span class="nomination-required">*</span> Thông tin bắt buộc</p>
+</header>
+<section class="nomination-part-body">
+<p class="nomination-explainer"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 20px;"></span><span>Đây là điều kiện tham gia của hạng mục <strong>Doanh nghiệp lữ hành của năm</strong>. Xác nhận khi bạn đã đọc và đáp ứng các nội dung dưới đây.</span>
+</p>
+<div class="nomination-checks"><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-0"><span>Giấy phép kinh doanh dịch vụ lữ hành (quốc tế hoặc nội địa) còn hiệu lực; đã hoạt động tối thiểu 24 tháng tính đến 30/09/2026</span></label><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-1"><span>Không bị xử phạt vi phạm hành chính trong lĩnh vực du lịch, không có sự cố/khủng hoảng nghiêm trọng ảnh hưởng khách hàng được cơ quan chức năng hoặc báo chí xác nhận trong kỳ xét giải (01/10/2025–30/09/2026)</span></label><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-2"><span>Đơn vị/đề cử đáp ứng các điều kiện pháp lý cần thiết để tham gia hạng mục đăng ký.</span></label><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-3"><span>Các giấy phép/chứng nhận liên quan còn hiệu lực tại thời điểm đăng ký.</span></label><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-4"><span>Thông tin và số liệu cung cấp trong hồ sơ là chính xác và có thể được Ban tổ chức yêu cầu đối chiếu khi cần thiết.</span></label><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-5"><span>Đơn vị/đề cử không có sự cố nghiêm trọng liên quan đến an toàn du khách/khách hàng trong năm xét giải mà chưa được giải trình hoặc xử lý theo quy định.</span></label><label><input type="checkbox" name="compliance-Doanh nghiệp lữ hành của năm-6"><span>Tôi đồng ý để Ban tổ chức Travel Awards xác minh thông tin và sử dụng các tư liệu được cung cấp cho mục đích đánh giá, truyền thông và giới thiệu giải thưởng.</span></label><label class="nomination-select-all"><input type="checkbox" name="confirm-all"><span>Tôi đã đọc và xác nhận tất cả điều kiện</span></label>
+</div>
+</section>
+</div>
+<p class="nomination-session-note"><span class="ui-icon fi-rr-shield-check" aria-hidden="true" style="--ui-icon-size: 16px;"></span> Thông tin được giữ khi chuyển phần trong phiên này. Chưa gửi đến Ban tổ chức.</p>
+<div class="nomination-actions nomination-mobile-bar nomination-part-actions"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Phần trước</button><button type="submit" class="button button--primary">Kiểm tra hồ sơ<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+</div>
+</form></template>
 </body>
 </html>

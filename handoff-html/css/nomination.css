@@ -270,3 +270,240 @@
   .nomination-confirm-submit p { order: -1; flex: 0 0 100%; font-size: 0.75rem; }
   .nomination-mobile-bar .nomination-confirm-submit > .button { flex: 1; width: auto; }
 }
+
+/* Nomination-only refinement. Foundation tokens and other routes are unchanged. */
+.nomination-kicker { display: block; color: var(--color-text-brand); font-size: 13px; line-height: 1.5; font-weight: 600; letter-spacing: .02em; }
+.nomination-step-heading { flex-wrap: wrap; gap: 8px 16px; }
+.nomination-step-heading > .nomination-kicker { flex-basis: 100%; }
+.nomination-step-heading > .nomination-step-timeline { margin-left: auto; }
+.nomination .nomination-step-heading h2 { line-height: 1.3; }
+.nomination .nomination-progress button:focus-visible, .nomination-text-action:focus-visible, .nomination summary:focus-visible, .nomination-chip:focus-visible, .nomination-award-card:has(input:focus-visible) { outline: 2px solid var(--nomination-input-focus); outline-offset: 3px; }
+.nomination-text-action { display: inline-flex; align-items: center; justify-content: flex-start; gap: 6px; min-height: 44px; padding: 4px 0; border: 0; background: transparent; color: var(--color-text-brand); font: inherit; font-size: 14px; text-decoration: underline; text-underline-offset: 3px; cursor: pointer; text-align: left; }
+.nomination-category-finder, .nomination-finder-intro { display: grid; gap: 16px; min-width: 0; }
+.nomination-filter-toolbar { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px 44px; align-items: center; gap: 8px; min-width: 0; padding: 8px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); }
+.nomination .nomination-profile-chips { display: flex; min-width: 0; flex-wrap: nowrap; overflow-x: auto; overscroll-behavior-x: contain; scrollbar-width: none; padding: 4px; }
+.nomination-profile-chips::-webkit-scrollbar { display: none; }
+.nomination-filter-toolbar { position: sticky; top: 65px; z-index: 25; align-self: start; box-shadow: 0 3px 12px rgb(38 60 83 / 5%); }
+.nomination-award-card { scroll-margin-top: 150px; }
+.nomination .nomination-profile-chips .nomination-chip { flex: 0 0 auto; white-space: nowrap; min-height: 44px; padding: 10px 16px; background: transparent; color: var(--color-text-secondary); font-size: var(--text-body-small); line-height: 1.4; }
+.nomination .nomination-profile-chips .nomination-chip[aria-pressed='true'] { background: var(--color-surface-brand-soft); border-color: var(--color-brand-primary); color: var(--color-brand-primary); }
+.nomination .nomination-profile-chips .nomination-chip:hover { border-color: var(--color-border-strong); color: var(--color-brand-primary); }
+.nomination-profile-arrow { display: grid; place-items: center; width: 44px; height: 44px; border: 1px solid var(--color-border-default); border-radius: var(--radius-pill); color: var(--color-text-brand); background: transparent; cursor: pointer; }
+.nomination-profile-arrow:hover:not(:disabled) { background: var(--color-surface-brand-soft); border-color: var(--color-border-strong); }
+.nomination-profile-arrow:disabled { color: var(--color-disabled-text); opacity: .35; cursor: default; }
+.nomination-profile-arrow-icon { display: block; width: 20px; height: 20px; background: currentColor; mask: url("data:image/svg+xml;base64,PHN2ZyBpZD0iTGF5ZXJfMSIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTI4IDEyOCIgaGVpZ2h0PSI1MTIiIHZpZXdCb3g9IjAgMCAxMjggMTI4IiB3aWR0aD0iNTEyIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxwYXRoIGlkPSJEb3duX0Fycm93XzNfIiBkPSJtNjQgODhjLTEuMDIzIDAtMi4wNDctLjM5MS0yLjgyOC0xLjE3MmwtNDAtNDBjLTEuNTYzLTEuNTYzLTEuNTYzLTQuMDk0IDAtNS42NTZzNC4wOTQtMS41NjMgNS42NTYgMGwzNy4xNzIgMzcuMTcyIDM3LjE3Mi0zNy4xNzJjMS41NjMtMS41NjMgNC4wOTQtMS41NjMgNS42NTYgMHMxLjU2MyA0LjA5NCAwIDUuNjU2bC00MCA0MGMtLjc4MS43ODEtMS44MDUgMS4xNzItMi44MjggMS4xNzJ6Ii8+PC9zdmc+") center / contain no-repeat; }
+.nomination-profile-arrow-icon--prev { transform: rotate(90deg); }
+.nomination-profile-arrow-icon--next { transform: rotate(-90deg); }
+.nomination-search-toggle { display: inline-grid; place-items: center; flex: 0 0 44px; width: 44px; height: 44px; padding: 0; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); color: var(--color-text-brand); cursor: pointer; }
+.nomination-search-toggle[aria-expanded='true'] { border-color: var(--color-action-primary); background: var(--color-surface-brand-soft); }
+.nomination-search-toggle:focus-visible { outline: 2px solid var(--nomination-input-focus); outline-offset: 2px; }
+.nomination-finder-intro { gap: 8px; }
+.nomination-finder-intro h3 { font-size: 22px; line-height: 1.4; font-weight: 400; }
+.nomination-group-help { font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+.nomination-group-help summary { min-height: 32px; cursor: pointer; color: var(--color-text-brand); }
+.nomination-group-help p { padding-top: 8px; }
+.nomination-filter-selection-note { padding: 12px; border: 1px solid var(--color-border-default); font-size: 14px; line-height: 1.5; }
+.nomination-category-action-status { display: block; flex: 0 0 100%; font-size: 14px; line-height: 1.5; color: var(--color-text-secondary); }
+.nomination-category-action-status strong { color: var(--color-text-brand); }
+.nomination-chip-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.nomination .nomination-chip { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 9px 14px; border: 1px solid var(--color-border-default); border-radius: var(--radius-pill); background: var(--color-surface-primary); color: var(--color-text-primary); font: inherit; font-size: 14px; cursor: pointer; }
+.nomination .nomination-chip[aria-pressed='true'], .nomination .nomination-chip[data-selected='true'] { background: var(--color-surface-brand-soft); color: var(--color-text-brand); border-color: var(--color-action-primary); }
+.nomination-chip input { accent-color: var(--color-action-primary); width: 16px; height: 16px; flex-shrink: 0; }
+.nomination-finder-groups { display: flex; gap: 8px; border-bottom: 1px solid var(--color-border-default); }
+.nomination-finder-groups button { flex: 1; min-height: 44px; border: 0; border-bottom: 2px solid transparent; background: transparent; color: var(--color-text-secondary); padding: 8px; font: inherit; font-size: 14px; cursor: pointer; }
+.nomination-finder-groups button[aria-pressed='true'] { border-bottom-color: var(--color-action-primary); color: var(--color-text-brand); font-weight: 600; }
+.nomination-award-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; min-width: 0; border: 0; padding: 0; margin: 0; }
+.nomination-award-card { display: flex; flex-direction: column; min-width: 0; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); overflow: clip; }
+.nomination-award-card[data-selected='true'] { border-color: var(--color-action-primary); box-shadow: inset 0 0 0 1px var(--color-action-primary); background: var(--color-surface-brand-soft); }
+@media (hover: hover) {
+  .nomination-award-card:hover { box-shadow: 0 4px 16px rgb(38 60 83 / 12%); }
+  .nomination-award-card[data-selected='true']:hover { box-shadow: inset 0 0 0 1px var(--color-action-primary), 0 4px 16px rgb(38 60 83 / 12%); }
+}
+.nomination-award-card > label { display: flex; gap: 12px; align-items: flex-start; padding: 20px 16px 12px; cursor: pointer; flex: 1; }
+.nomination-award-card input { width: 20px; height: 20px; flex-shrink: 0; margin-top: 3px; accent-color: var(--color-action-primary); }
+.nomination-award-card label > span { display: grid; gap: 8px; min-width: 0; }
+.nomination-award-card small { font-size: 12px; color: var(--color-text-brand); }
+.nomination-award-card strong { font-weight: 600; font-size: 18px; line-height: 1.4; }
+.nomination-award-card label .nomination-muted { font-size: 14px; line-height: 1.5; }
+.nomination-award-card details { margin: 0 16px 8px; border-top: 1px solid var(--color-border-default); font-size: 14px; line-height: 1.5; }
+.nomination-award-card summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; color: var(--color-text-brand); cursor: pointer; list-style: none; }
+.nomination-award-card summary::-webkit-details-marker { display: none; }
+.nomination-award-card details ul { margin: 8px 0 12px; padding-left: 20px; }
+.nomination-choice-summary { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--color-surface-brand-soft); color: var(--color-text-brand); border-radius: var(--radius-control); font-size: 14px; }
+.nomination-choice-summary > .ui-icon { flex-shrink: 0; }
+.nomination-choice-summary strong { display: block; font-size: 16px; font-weight: 600; }
+.nomination-empty-state { padding: 32px 16px; text-align: center; display: grid; justify-items: center; gap: 12px; border: 1px dashed var(--color-border-default); }
+.nomination-desktop-parts { display: grid; gap: 4px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--color-border-default); }
+.nomination .nomination-desktop-parts button { font-size: 14px; min-height: 44px; }
+.nomination-desktop-parts button[aria-current='step'] { color: var(--color-text-brand); background: var(--color-surface-brand-soft); }
+.nomination-desktop-parts button > span { width: 22px; flex-shrink: 0; text-align: center; }
+.nomination .nomination-desktop-parts button[data-complete='true'] { color: var(--color-text-brand); }
+.nomination-desktop-parts button[data-complete='true'] > span { display: inline-grid; place-items: center; }
+.nomination-inner-progress { position: sticky; top: 65px; z-index: 25; display: grid; gap: 8px; padding: 12px 16px; margin-bottom: 16px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); box-shadow: 0 3px 12px rgb(38 60 83 / 5%); }
+.nomination:has(.nomination-registration-form) .home-header { position: relative; top: auto; }
+.nomination:has(.nomination-registration-form) .home-header:has(nav[data-scrolled='true']) .home-header-inner { padding-top: 0; }
+.nomination:has(.nomination-registration-form) .home-header:has(nav[data-scrolled='true']) .home-header-brand-row { position: static; inset: auto; padding-inline: 0; box-shadow: none; }
+.nomination:has(.nomination-registration-form) .nomination-inner-progress { top: 0; }
+.nomination-inner-progress > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.nomination-inner-progress progress { appearance: none; height: 4px; width: 100%; border: 0; border-radius: 4px; overflow: hidden; background: var(--color-border-default); }
+.nomination-inner-progress progress::-webkit-progress-bar { background: var(--color-border-default); }
+.nomination-inner-progress progress::-webkit-progress-value { background: var(--color-action-primary); }
+.nomination-inner-progress progress::-moz-progress-bar { background: var(--color-action-primary); }
+.nomination-inner-progress select { display: none; }
+.nomination-selected-strip { display: flex; gap: 8px; align-items: center; font-size: 14px; color: var(--color-text-secondary); margin-bottom: 20px; }
+.nomination-selected-strip > span:not(.ui-icon) { flex: 1; min-width: 0; }
+.nomination-selected-strip > .ui-icon { flex-shrink: 0; color: var(--color-text-brand); }
+.nomination .nomination-change-category { flex-shrink: 0; min-height: 44px; padding: 8px 12px; gap: 8px; font-size: 14px; font-weight: 500; white-space: nowrap; }
+.nomination-part-heading { display: grid; gap: 8px; margin-bottom: 8px; }
+.nomination-part-heading h3 { color: var(--color-text-primary); line-height: 1.4; scroll-margin-top: 210px; }
+.nomination-required-note { font-size: 14px; color: var(--color-text-secondary); }
+.nomination-part-body { display: grid; gap: 24px; padding: 24px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); min-width: 0; }
+.nomination .nomination-field label, .nomination .nomination-channel-picker legend { font-size: 16px; line-height: 1.5; font-weight: 600; }
+.nomination .nomination-field :is(input, textarea, select) { font-size: 16px; line-height: 1.5; }
+.nomination-field select { width: 100%; min-width: 0; min-height: 48px; padding: 12px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); background: var(--color-surface-primary); color: var(--color-text-primary); font: inherit; }
+.nomination-field select:focus-visible { outline: 2px solid var(--nomination-input-focus); outline-offset: 2px; }
+.nomination .nomination-word-count { font-size: 12px; right: 12px; bottom: 12px; }
+.nomination .nomination-word-count[data-invalid='true'] { color: var(--nomination-error); }
+.nomination .nomination-counted-field textarea { padding-bottom: 44px; min-height: 168px; }
+.nomination .nomination-field textarea[aria-invalid='true'], .nomination .nomination-url-control[data-invalid='true'] { border-color: var(--nomination-error); }
+.nomination-explainer { display: flex; gap: 12px; align-items: flex-start; background: var(--color-surface-brand-soft); border-radius: var(--radius-control); padding: 16px; font-size: 14px; line-height: 1.6; }
+.nomination-explainer > .ui-icon { flex-shrink: 0; color: var(--color-text-brand); margin-top: 2px; }
+.nomination-explainer strong { display: block; font-weight: 600; margin-bottom: 4px; }
+.nomination-subtitle { font-size: 20px; font-weight: 400; padding-top: 16px; border-top: 1px solid var(--color-border-default); }
+.nomination-help-details { padding: 12px 16px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); font-size: 14px; line-height: 1.6; }
+.nomination-help-details summary { min-height: 28px; cursor: pointer; color: var(--color-text-brand); }
+.nomination-help-details p, .nomination-help-details ul { margin-top: 12px; }
+.nomination-optional-fields { display: grid; gap: 20px; margin-top: 16px; }
+.nomination-help-details ul { padding-left: 20px; }
+.nomination-criterion { border: 1px solid var(--color-border-default); border-radius: var(--radius-control); min-width: 0; }
+.nomination-criterion > summary { display: flex; align-items: center; gap: 12px; list-style: none; padding: 16px; font-size: 16px; line-height: 1.5; cursor: pointer; }
+.nomination-criterion > summary::-webkit-details-marker { display: none; }
+.nomination-criterion > summary > span:nth-child(2) { flex: 1; min-width: 0; }
+.nomination-criterion-index { display: grid; place-items: center; flex-shrink: 0; width: 28px; height: 28px; border-radius: 50%; background: var(--color-surface-brand-soft); color: var(--color-text-brand); font-size: 14px; }
+.nomination-criterion small { display: block; color: var(--color-text-secondary); font-size: 12px; }
+.nomination-criterion > div { padding: 0 16px 16px; }
+.nomination-criterion[open] > summary > .ui-icon { transform: rotate(180deg); }
+.nomination-channel-picker { border: 0; padding: 0; margin: 0; min-width: 0; display: grid; gap: 16px; }
+.nomination-channel-picker legend { padding-bottom: 8px; }
+.nomination-channel-row { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); gap: 12px; padding-top: 16px; border-top: 1px solid var(--color-border-default); }
+.nomination-evidence-modes { border: 0; padding: 0; margin: 0; display: grid; gap: 12px; min-width: 0; }
+.nomination-mode-card { display: flex; align-items: flex-start; gap: 12px; padding: 16px; border: 1px solid var(--color-border-default); border-radius: var(--radius-control); cursor: pointer; }
+.nomination-mode-card[data-selected='true'] { border-color: var(--color-action-primary); background: var(--color-surface-brand-soft); }
+.nomination-mode-card input { width: 20px; height: 20px; flex-shrink: 0; accent-color: var(--color-action-primary); margin-top: 2px; }
+.nomination-mode-card > .ui-icon { margin-top: 3px; color: var(--color-text-brand); flex-shrink: 0; }
+.nomination-mode-card span:last-child { display: grid; gap: 4px; min-width: 0; }
+.nomination-mode-card strong { font-weight: 600; font-size: 16px; line-height: 1.5; }
+.nomination-mode-card small { font-size: 14px; color: var(--color-text-secondary); line-height: 1.5; }
+.nomination-folder-checklist { display: grid; gap: 16px; min-width: 0; border: 0; padding: 0; margin: 0; }
+.nomination-folder-checklist legend { font-weight: 600; padding-bottom: 12px; }
+.nomination .nomination-checks label { min-height: 44px; cursor: pointer; }
+.nomination .nomination-checks input { width: 20px; height: 20px; }
+.nomination-select-all { border-top: 1px solid var(--color-border-default); padding-top: 20px; font-weight: 600; color: var(--color-text-brand); }
+.nomination-session-note { display: flex; gap: 8px; align-items: flex-start; color: var(--color-text-secondary); font-size: 12px; line-height: 1.5; margin-top: 20px; }
+.nomination-session-note .ui-icon { flex-shrink: 0; margin-top: 1px; }
+.nomination-error-summary { scroll-margin-top: 210px; padding: 16px; margin-bottom: 20px; border: 1px solid var(--nomination-error); background: var(--color-surface-primary); border-radius: var(--radius-control); color: var(--nomination-error); }
+.nomination-error-summary ul { padding-left: 20px; margin-top: 8px; }
+.nomination-error-summary summary { min-height: 44px; display: flex; align-items: center; cursor: pointer; font-size: 14px; text-decoration: underline; }
+.nomination-error-summary button { border: 0; padding: 6px 0; background: transparent; color: inherit; text-align: left; font: inherit; font-size: 14px; text-decoration: underline; cursor: pointer; }
+.nomination-error-summary:focus { outline: 2px solid var(--nomination-error); outline-offset: 2px; }
+.nomination-part-actions > .button:last-child { margin-left: auto; }
+.nomination-arrow { display: inline-flex; flex: 0 0 auto; }
+.nomination-arrow--back .cta-arrow { transform: rotate(-135deg); }
+.nomination-arrow--next .cta-arrow { transform: rotate(45deg); }
+@media (min-width: 40rem) {
+  .nomination .nomination-content .nomination-actions { position: sticky; bottom: 0; z-index: 30; padding: 16px; background: var(--color-surface-primary); box-shadow: 0 -4px 16px rgb(38 60 83 / 8%); }
+}
+@media (max-width: 39.99rem) {
+  .nomination:has(.nomination-category-actions) { padding-bottom: calc(9rem + env(safe-area-inset-bottom)); }
+  .nomination .nomination-mobile-bar .button { height: 48px; min-height: 48px; }
+}
+.nomination-confirmation-form { display: grid; gap: 20px; }
+.nomination-review-section { border: 1px solid var(--color-border-default); background: var(--color-surface-primary); border-radius: var(--radius-control); padding: 20px; min-width: 0; }
+.nomination-review-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+.nomination-review-section-heading h3 { font-size: 20px; font-weight: 400; line-height: 1.4; }
+.nomination-review-section summary { display: flex; justify-content: space-between; align-items: center; min-height: 44px; font-size: 14px; color: var(--color-text-secondary); cursor: pointer; }
+.nomination-review-section details > div { padding-top: 16px; }
+.nomination-review-section .nomination-subtitle { margin-block: 24px 16px; }
+.nomination-review-section .nomination-review > div:last-child { border-bottom: 0; padding-bottom: 0; }
+.nomination-review-section a { color: var(--color-text-brand); text-decoration: underline; overflow-wrap: anywhere; }
+.nomination-review-section a .ui-icon { margin-left: 4px; }
+.nomination-final-consent { display: grid; gap: 20px; padding-block: 20px; }
+.nomination-final-consent h3 { font-size: 24px; font-weight: 400; }
+@media (max-width: 63.99rem) {
+  .nomination-desktop-parts { display: none; }
+  .nomination .nomination-progress ol { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+  .nomination-inner-progress select { display: block; width: 100%; min-height: 44px; border: 0; background: var(--color-surface-primary); color: var(--color-text-primary); font: inherit; font-size: 14px; }
+}
+@media (max-width: 39.99rem) {
+  .nomination-filter-toolbar { grid-template-columns: 44px minmax(0, 1fr) 44px; width: calc(100% + 2 * var(--spacing-gutter)); margin-inline: calc(-1 * var(--spacing-gutter)); padding: 8px 12px; border-inline: 0; border-radius: 0; gap: 4px; }
+  .nomination-search-toggle, .nomination-category-search { display: none; }
+  .nomination-filter-toolbar { top: 0; z-index: 55; }
+  .nomination[data-filter-at-top='true'] .home-header { visibility: hidden; pointer-events: none; }
+  .nomination .nomination-profile-chips .nomination-chip { font-size: 16px; padding-inline: 12px; min-height: 46px; }
+  .nomination-finder-groups button { font-size: 16px; min-height: 48px; }
+  .nomination-finder-intro > p, .nomination-group-help, .nomination-award-card label .nomination-muted, .nomination-award-card details { font-size: 16px; line-height: 1.5; }
+  .nomination-award-card small { font-size: 14px; }
+  .nomination .nomination-category-action-status { font-size: 14px; }
+  .nomination > .section-travel-awards-2026 { padding-top: 16px; }
+  .nomination-intro { gap: 12px; margin-bottom: 16px; }
+  .nomination-title-copy > p { display: none; }
+  .nomination-title-row { gap: 8px; }
+  .nomination .nomination-title-row .home-countdown { align-self: stretch; text-align: left; }
+  .nomination-intro .home-countdown-deadline, .nomination-intro .home-countdown-units { display: none; }
+  .nomination .nomination-intro .home-countdown time:last-of-type { position: static; display: block; width: auto; height: auto; margin: 0; padding: 0; clip: auto; clip-path: none; overflow: visible; white-space: normal; font-size: 13px; line-height: 1.5; color: var(--color-text-secondary); }
+  .nomination-layout { gap: 16px; padding-top: 16px; }
+  .nomination-step-heading:has(+ form .nomination-category-finder) h2 { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .nomination-category-finder[data-profile-filtered='true'] .nomination-group-help { display: none; }
+  .nomination .nomination-category-actions { flex-wrap: wrap; }
+  .nomination .nomination-category-actions .button { height: 48px; min-height: 48px; flex: 1; width: auto; }
+  .nomination-category-action-status { display: block; flex: 0 0 100%; font-size: 12px; line-height: 1.5; color: var(--color-text-secondary); }
+  .nomination-category-action-status strong { color: var(--color-text-brand); }
+  .nomination-award-cards { grid-template-columns: minmax(0, 1fr); }
+  .nomination-award-card > label { padding: 16px; }
+  .nomination .nomination-progress li .nomination-step-label { display: block; font-size: 12px; line-height: 1.4; }
+  .nomination .nomination-progress button { gap: 6px; align-items: center; justify-content: flex-start; }
+  .nomination .nomination-progress li[data-state='current'] .nomination-step-label { color: var(--color-text-brand); font-weight: 600; }
+  .nomination-part-heading h3.type-heading-3 { font-size: 24px; }
+  .nomination-part-body { padding: 16px; gap: 24px; }
+  .nomination-inner-progress { padding: 8px 12px; }
+  .nomination-inner-progress > div > .nomination-text-action { min-height: 40px; font-size: 13px; }
+  .nomination-inner-progress select { font-size: 16px; }
+  .nomination .nomination-part-actions { gap: 12px; flex-direction: row; }
+  .nomination .nomination-part-actions > .button { min-height: 48px; height: 48px; flex: 1; width: auto; font-size: 15px; }
+  .nomination-channel-row { grid-template-columns: minmax(0, 1fr); }
+  .nomination-review-section { padding: 16px; }
+  .nomination .nomination-review-section .nomination-review dt { font-size: 14px; }
+  .nomination-review-section-heading h3 { font-size: 20px; }
+  .nomination-review-section .nomination-review { gap: 16px; }
+  .nomination .nomination-field label { font-size: 16px; }
+  .nomination .nomination-phone-control select { flex-basis: 7.5rem; width: 7.5rem; }
+  .nomination .nomination-legal-fields { padding: 12px; }
+  .nomination .nomination-checks { font-size: 15px; line-height: 1.6; }
+  .nomination .nomination-confirmation-form > .nomination-actions { margin-top: 0; }
+}
+
+/* Glyphs from the existing self-hosted Flaticon UIcons 4.0.0 set; see its NOTICE.md. */
+.nomination .ui-icon { display: inline-grid; place-items: center; flex: 0 0 auto; width: var(--ui-icon-size, 20px); height: var(--ui-icon-size, 20px); font-size: var(--ui-icon-size, 20px); line-height: 1; vertical-align: middle; }
+.nomination .ui-icon::before { font-family: "uicons-regular-rounded"; font-weight: 400; font-style: normal; line-height: 1; }
+.nomination .fi-rr-search::before {content: "\f13a";}
+.nomination .fi-rr-angle-small-down::before {content: "\e0a1";}
+.nomination .fi-rr-check::before {content: "\e430";}
+.nomination .fi-rr-trophy::before {content: "\f48f";}
+.nomination .fi-rr-globe::before {content: "\e974";}
+.nomination .fi-rr-document::before {content: "\e6de";}
+.nomination .fi-rr-link::before {content: "\ec21";}
+.nomination .fi-rr-calendar::before {content: "\e35d";}
+.nomination .fi-rr-shield-check::before {content: "\f176";}
+.nomination .fi-rr-angle-left::before {content: "\e09f";}
+.nomination .fi-rr-angle-right::before {content: "\e0a0";}
+.nomination .fi-rr-arrow-up-right::before {content: "\e11b";}
+
+.nomination .fi-rr-exchange::before {content: "\e7a9";}
+.nomination .ui-icon[class*="fi-brands-"]::before { font-family: "uicons-brands"; }
+.nomination .fi-brands-facebook::before { content: "\e80c"; }
+.nomination .fi-brands-instagram::before { content: "\eb22"; }
+.nomination .fi-brands-tik-tok::before { content: "\f3e9"; }
+.nomination .fi-brands-youtube::before { content: "\f652"; }
+
+.wrap-homepage.width_common { width: 100%; }
+.wrap-homepage > .home-hero { padding-block: 0; }

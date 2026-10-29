@@ -44,22 +44,18 @@
 <div class="home-countdown">
 <p class="home-countdown-deadline">Thời gian nhận đề cử còn lại:</p><time class="home-sr-only" datetime="2026-10-26T12:00:00+07:00">Mở nhận đề cử: 12:00 ngày 26.10.2026</time><time class="home-sr-only" datetime="2026-11-20T23:59:00+07:00">Hạn gửi đề cử: 23:59 ngày 20.11.2026</time>
 <div class="home-countdown-units" role="timer" aria-live="off" aria-label="Thời gian còn lại để gửi đề cử">
-<div class="home-countdown-circle"><span class="home-countdown-value">28</span><span class="home-countdown-label">Ngày</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">22</span><span class="home-countdown-label">Ngày</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">08</span><span class="home-countdown-label">Giờ</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">09</span><span class="home-countdown-label">Giờ</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">32</span><span class="home-countdown-label">Phút</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">36</span><span class="home-countdown-label">Phút</span>
 </div><span class="home-countdown-separator" aria-hidden="true">:</span>
-<div class="home-countdown-circle"><span class="home-countdown-value">21</span><span class="home-countdown-label">Giây</span>
+<div class="home-countdown-circle"><span class="home-countdown-value">59</span><span class="home-countdown-label">Giây</span>
 </div>
 </div><noscript>Nhận đề cử từ 12:00 ngày 26.10.2026 đến 23:59 ngày 20.11.2026 (giờ Việt Nam).</noscript>
 </div>
 </div>
 </header>
-<dialog class="nomination-save-dialog nomination-mobile-notice" aria-labelledby="nomination-mobile-notice-title" aria-describedby="nomination-mobile-notice-copy">
-<h2 id="nomination-mobile-notice-title" class="type-heading-3">Đăng ký đề cử</h2>
-<p id="nomination-mobile-notice-copy">Vui lòng truy cập bằng thiết bị desktop/laptop để trải nghiệm đăng ký được tốt nhất.</p><button type="button" class="button button--primary">Đã hiểu</button>
-</dialog>
 <div class="nomination-layout">
 <nav class="nomination-progress" aria-label="Tiến trình đề cử">
 <p class="type-label">Các bước tham gia</p>
@@ -83,11 +79,18 @@
 </div>
 </header>
 <form class="nomination-confirmation-form">
-<p class="nomination-selection">Hạng mục đã đăng ký: <strong>Điểm đến du lịch của năm</strong>
-</p>
-<section class="nomination-form-section">
-<h3 class="type-heading-3">I. Thông tin</h3><dl class="nomination-review">
-<div><dt>Tên đơn vị/tổ chức/cá nhân</dt><dd>Chưa cung cấp</dd>
+<div class="nomination-choice-summary"><span class="ui-icon fi-rr-trophy" aria-hidden="true" style="--ui-icon-size: 20px;"></span><span>Hạng mục đã đăng ký<strong>Điểm đến du lịch của năm</strong></span>
+</div>
+<p class="nomination-muted">Mở từng phần để kiểm tra. Chọn “Chỉnh sửa” để quay lại đúng phần đó; các thông tin còn lại vẫn được giữ.</p>
+<section class="nomination-review-section">
+<div class="nomination-review-section-heading">
+<h3>Đơn vị &amp; liên hệ</h3><button type="button" class="nomination-text-action" aria-label="Chỉnh sửa Đơn vị &amp; liên hệ">Chỉnh sửa</button>
+</div>
+<details open="">
+<summary>Xem thông tin <span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 18px;"></span>
+</summary>
+<div><dl class="nomination-review">
+<div><dt>Tên đơn vị/tổ chức/cá nhân đứng tên hồ sơ</dt><dd>Chưa cung cấp</dd>
 </div>
 <div><dt>Loại hình đơn vị</dt><dd>Chưa cung cấp</dd>
 </div>
@@ -97,8 +100,8 @@
 </div>
 <div><dt>Fanpage/Kênh truyền thông chính thức</dt><dd>Chưa cung cấp</dd>
 </div></dl>
-<h4 class="type-body-large">Người đại diện hồ sơ</h4><dl class="nomination-review">
-<div><dt>Họ và tên</dt><dd>Chưa cung cấp</dd>
+<h4 class="nomination-subtitle">Người liên hệ hồ sơ</h4><dl class="nomination-review">
+<div><dt>Họ và tên người liên hệ</dt><dd>Chưa cung cấp</dd>
 </div>
 <div><dt>Chức vụ</dt><dd>Chưa cung cấp</dd>
 </div>
@@ -108,21 +111,37 @@
 </div></dl><dl class="nomination-review">
 <div><dt>Cơ quan/đơn vị đại diện đề cử</dt><dd>Chưa cung cấp</dd>
 </div></dl>
+</div>
+</details>
 </section>
-<section class="nomination-form-section">
-<h3 class="type-heading-3">II. Thông tin đề cử</h3><dl class="nomination-review">
+<section class="nomination-review-section">
+<div class="nomination-review-section-heading">
+<h3>Giới thiệu đề cử</h3><button type="button" class="nomination-text-action" aria-label="Chỉnh sửa Giới thiệu đề cử">Chỉnh sửa</button>
+</div>
+<details>
+<summary>Xem thông tin <span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 18px;"></span>
+</summary>
+<div><dl class="nomination-review">
 <div><dt>Tên đơn vị/điểm đến/thương hiệu/trải nghiệm được đề cử</dt><dd>Chưa cung cấp</dd>
 </div>
-<div><dt>Giới thiệu tổng quan</dt><dd>Chưa cung cấp</dd>
+<div><dt>Giới thiệu tổng quan<small class="nomination-muted"> 0 từ</small></dt><dd>Chưa cung cấp</dd>
 </div>
-<div><dt>Thành tích nổi bật trong năm xét giải</dt><dd>Chưa cung cấp</dd>
+<div><dt>Thành tích nổi bật trong năm xét giải<small class="nomination-muted"> 0 từ</small></dt><dd>Chưa cung cấp</dd>
 </div>
 <div><dt>Điểm khác biệt/nổi bật của đề cử</dt><dd>Chưa cung cấp</dd>
 </div></dl>
+</div>
+</details>
 </section>
-<section class="nomination-form-section">
-<h3 class="type-heading-3">III. Số liệu hoạt động &amp; thông tin minh chứng</h3>
-<p class="nomination-muted">Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026. Đối tượng: Các điểm đến cấp tỉnh, thành phố trực thuộc Trung ương, đề cử qua Sở Du lịch, Sở VHTTDL hoặc UBND tỉnh, thành phố.</p><dl class="nomination-review">
+<section class="nomination-review-section">
+<div class="nomination-review-section-heading">
+<h3>Số liệu hoạt động</h3><button type="button" class="nomination-text-action" aria-label="Chỉnh sửa Số liệu hoạt động">Chỉnh sửa</button>
+</div>
+<details>
+<summary>Xem thông tin <span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 18px;"></span>
+</summary>
+<div>
+<p class="nomination-muted">Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026.</p><dl class="nomination-review">
 <div><dt>Số liệu khách và tổng thu du lịch</dt><dd>Chưa cung cấp</dd>
 </div>
 <div><dt>Sản phẩm, hạ tầng và kết nối giao thông mới</dt><dd>Chưa cung cấp</dd>
@@ -133,16 +152,48 @@
 </div>
 <div><dt>Kênh truyền thông chính thức</dt><dd>Chưa cung cấp</dd>
 </div></dl>
-<h4 class="type-body-large">Thuyết minh theo tiêu chí chấm giải</h4><dl class="nomination-review">
-<div><dt>Trách nhiệm bền vững: bảo tồn di sản, môi trường và cộng đồng</dt><dd>Chưa cung cấp</dd>
 </div>
-<div><dt>Phát triển sản phẩm mới, hạ tầng và kết nối giao thông</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Chính sách, môi trường đầu tư và xúc tiến du lịch</dt><dd>Chưa cung cấp</dd>
-</div></dl>
+</details>
 </section>
-<section class="nomination-form-section">
-<h3 class="type-heading-3">IV. Điều kiện tuân thủ</h3>
+<section class="nomination-review-section">
+<div class="nomination-review-section-heading">
+<h3>Dấu ấn theo tiêu chí</h3><button type="button" class="nomination-text-action" aria-label="Chỉnh sửa Dấu ấn theo tiêu chí">Chỉnh sửa</button>
+</div>
+<details>
+<summary>Xem thông tin <span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 18px;"></span>
+</summary>
+<div><dl class="nomination-review">
+<div><dt>Trách nhiệm bền vững: bảo tồn di sản, môi trường và cộng đồng<small class="nomination-muted"> 0 từ</small></dt><dd>Chưa cung cấp</dd>
+</div>
+<div><dt>Phát triển sản phẩm mới, hạ tầng và kết nối giao thông<small class="nomination-muted"> 0 từ</small></dt><dd>Chưa cung cấp</dd>
+</div>
+<div><dt>Chính sách, môi trường đầu tư và xúc tiến du lịch<small class="nomination-muted"> 0 từ</small></dt><dd>Chưa cung cấp</dd>
+</div></dl>
+</div>
+</details>
+</section>
+<section class="nomination-review-section">
+<div class="nomination-review-section-heading">
+<h3>Hồ sơ &amp; minh chứng</h3><button type="button" class="nomination-text-action" aria-label="Chỉnh sửa Hồ sơ &amp; minh chứng">Chỉnh sửa</button>
+</div>
+<details>
+<summary>Xem thông tin <span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 18px;"></span>
+</summary>
+<div><dl class="nomination-review">
+<div><dt>Thư mục hồ sơ đầy đủ</dt><dd>Chưa cung cấp</dd>
+</div></dl>
+<p class="nomination-muted">Bạn cung cấp hồ sơ, tài liệu pháp lý, ảnh và minh chứng trong cùng thư mục. Quyền xem và nội dung do bạn xác nhận.</p>
+</div>
+</details>
+</section>
+<section class="nomination-review-section">
+<div class="nomination-review-section-heading">
+<h3>Điều kiện tham gia</h3><button type="button" class="nomination-text-action" aria-label="Chỉnh sửa Điều kiện tham gia">Chỉnh sửa</button>
+</div>
+<details>
+<summary>Xem thông tin <span class="ui-icon fi-rr-angle-small-down" aria-hidden="true" style="--ui-icon-size: 18px;"></span>
+</summary>
+<div>
 <ul class="nomination-review-checks">
 <li><strong>Chưa xác nhận:</strong> Hồ sơ do Sở Du lịch/Sở VHTTDL hoặc UBND tỉnh, thành phố chính thức lập và nộp (không nhận hồ sơ do cá nhân/doanh nghiệp tự đề cử một tỉnh, thành)</li>
 <li><strong>Chưa xác nhận:</strong> Mỗi tỉnh, thành phố chỉ nộp 01 hồ sơ cho hạng mục này</li>
@@ -153,49 +204,17 @@
 <li><strong>Chưa xác nhận:</strong> Đơn vị/đề cử không có sự cố nghiêm trọng liên quan đến an toàn du khách/khách hàng trong năm xét giải mà chưa được giải trình hoặc xử lý theo quy định.</li>
 <li><strong>Chưa xác nhận:</strong> Tôi đồng ý để Ban tổ chức Travel Awards xác minh thông tin và sử dụng các tư liệu được cung cấp cho mục đích đánh giá, truyền thông và giới thiệu giải thưởng.</li>
 </ul>
+</div>
+</details>
 </section>
-<section class="nomination-form-section">
-<h3 class="type-heading-3">V. Hồ sơ &amp; minh chứng</h3>
-<div class="nomination-evidence">
-<p class="type-body-large">Minh chứng cần chuẩn bị:</p>
-<ul>
-<li>Công văn đăng ký có chữ ký, con dấu của Sở Du lịch/Sở VHTTDL hoặc UBND tỉnh, thành phố</li>
-<li>Báo cáo thống kê khách du lịch chính thức gần nhất của Sở/Cục Thống kê</li>
-<li>Văn bản chính sách đã ban hành; hình ảnh sản phẩm/hạ tầng mới (tối đa 10 ảnh)</li>
-<li>Bộ ảnh điểm đến (bắt buộc): 3–10 ảnh có kích thước tối thiểu 1.600 px: sản phẩm/hạ tầng mới, cảnh quan, hoạt động bảo tồn</li>
-<li>Video quảng bá điểm đến (khuyến khích): không quá 3 phút; link YouTube/Drive</li>
-</ul>
-</div><dl class="nomination-review">
-<div><dt>Hồ sơ giới thiệu đề cử</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Tài liệu pháp lý/minh chứng</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Hình ảnh</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Link Google Docs bản scan</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Tài liệu chứng minh số liệu hoạt động</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Các tài liệu khác</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Video giới thiệu</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Minh chứng tiêu chí 1: Trách nhiệm bền vững: bảo tồn di sản, môi trường và cộng đồng</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Minh chứng tiêu chí 2: Phát triển sản phẩm mới, hạ tầng và kết nối giao thông</dt><dd>Chưa cung cấp</dd>
-</div>
-<div><dt>Minh chứng tiêu chí 3: Chính sách, môi trường đầu tư và xúc tiến du lịch</dt><dd>Chưa cung cấp</dd>
-</div></dl>
-</section>
-<section class="nomination-form-section">
-<h3 class="type-heading-3">Xác nhận và gửi hồ sơ</h3>
-<p>Người nộp hồ sơ xác nhận các thông tin trên là chính xác và đầy đủ, đồng thời đồng ý với quy định tham gia Travel Awards.</p>
-<div class="nomination-checks"><label><input required="" type="checkbox"><span>Tôi cam kết bản kê khai trên là sự thật và chịu mọi trách nhiệm nếu thông tin không đúng sự thật.<span class="nomination-required"> *</span></span></label>
+<section class="nomination-final-consent">
+<h3>Sẵn sàng gửi hồ sơ?</h3>
+<div class="nomination-checks"><label><input required="" type="checkbox"><span>Tôi cam kết thông tin trong hồ sơ là chính xác, đầy đủ và chịu trách nhiệm về nội dung đã cung cấp.<span class="nomination-required"> *</span></span></label>
 </div>
 </section>
-<div class="nomination-actions nomination-mobile-bar"><button type="button" class="button button--secondary"><span aria-hidden="true">←</span><span class="nomination-button-desktop-label">Quay lại chỉnh sửa</span><span class="nomination-button-mobile-label">Chỉnh sửa hồ sơ</span></button>
+<div class="nomination-actions nomination-mobile-bar"><button type="button" class="button button--secondary"><span class="nomination-arrow nomination-arrow--back"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>Chỉnh sửa</button>
 <div class="nomination-confirm-submit">
-<p id="nomination-consent-hint" class="type-body-small nomination-muted">Bạn cần cam kết thông tin trước khi gửi hồ sơ</p><button type="submit" class="button button--primary" disabled="" aria-describedby="nomination-consent-hint">Gửi hồ sơ <span aria-hidden="true">→</span></button>
+<p id="nomination-consent-hint" class="type-body-small nomination-muted">Bạn cần cam kết thông tin trước khi gửi hồ sơ.</p><button type="submit" class="button button--primary" disabled="" aria-describedby="nomination-consent-hint">Gửi hồ sơ<span class="nomination-arrow nomination-arrow--next"><svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
 </div>
 </div>
 </form>
@@ -206,13 +225,9 @@
 <div class="nomination-success-actions"><a class="button button--secondary" href="https://mail.google.com/" target="_blank" rel="noopener noreferrer">Gmail <svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><a class="button button--secondary" href="https://outlook.live.com/mail/" target="_blank" rel="noopener noreferrer">Outlook <svg class="cta-arrow" aria-hidden="true" width="12" height="12" viewBox="0 0 16 16" fill="none"><path d="M3 13 13 3M3 3h10v10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></a><button type="button" class="button button--primary">Đóng</button>
 </div>
 </dialog>
-<dialog class="nomination-save-dialog" aria-labelledby="nomination-submit-title">
-<h2 id="nomination-submit-title" class="type-heading-3">Xác nhận hồ sơ</h2>
-<p>Bạn đã hoàn tất bước xác nhận trong bản xem trước. Hồ sơ chưa được gửi đến Ban tổ chức.</p><button type="button" class="button button--primary">Đóng</button>
-</dialog>
 <dialog class="nomination-save-dialog" aria-labelledby="nomination-save-title">
 <h2 id="nomination-save-title" class="type-heading-3">Lưu hồ sơ</h2>
-<p>Hồ sơ của bạn đã được lưu lại trên hệ thống.</p><button type="button" class="button button--primary">Đóng</button>
+<p>Thông tin và tệp đang được giữ trong phiên đăng ký này. Bạn có thể chuyển phần để tiếp tục chỉnh sửa. Vui lòng không đóng hoặc tải lại trang.</p><button type="button" class="button button--primary">Đóng</button>
 </dialog>
 </div>
 </div>
@@ -244,6 +259,13 @@
 <div>
 <p class="home-footer-label">Thông tin liên hệ</p><dl>
 <div><dt>Email:</dt><dd><a href="mailto:sukien@vnexpress.net">sukien@vnexpress.net</a></dd>
+</div></dl>
+<p class="home-footer-label">Tài trợ sự kiện</p><dl>
+<div><dt>Đại diện:</dt><dd>Lương Thị Thanh Tú</dd>
+</div>
+<div><dt>Điện thoại:</dt><dd><a href="tel:+842473009999;ext=4567">+84 (24) 73009999/ Ext: 4567</a></dd>
+</div>
+<div><dt>Email:</dt><dd><a href="mailto:tultt@fpt.com">tultt@fpt.com</a></dd>
 </div></dl>
 </div>
 </div>

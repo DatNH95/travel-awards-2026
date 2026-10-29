@@ -543,9 +543,6 @@
   .home:not(.home-phase-2) .home-participate + .home-final-cta { padding-block: 40px; }
 }
 
-.wrap-homepage.width_common { width: 100%; }
-.wrap-homepage > .home-hero { padding-block: 0; }
-
 .nomination-guide-navigation { display: none; }
 @media (max-width: 47.99rem) {
   .nomination-guide-slider { min-width: 0; }
@@ -561,3 +558,6 @@
   .nomination-guide-navigation button:disabled { opacity: .35; cursor: default; }
   .nomination-guide-navigation button:focus-visible { outline: 2px solid var(--color-text-brand); outline-offset: 2px; }
 }
+
+.wrap-homepage.width_common { width: 100%; }
+.wrap-homepage > .home-hero { padding-block: 0; }

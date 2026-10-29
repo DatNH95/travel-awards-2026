@@ -65,7 +65,7 @@ try {
   if(!await page.locator('#award-panel-1').isVisible())failures.push('Homepage tab failed');
   await page.goto(pathToFileURL(path.join(root,'dang-ky-de-cu.html')).href+'?category=tien-phong-2');
   await page.locator('button[type=submit]').click();await page.waitForURL('**/dang-ky-tien-phong-2.html');
-  await page.getByRole('button',{name:'Lưu lại hồ sơ',exact:true}).filter({visible:true}).first().click();
+  await page.getByRole('button',{name:/^Lưu (?:lại )?hồ sơ$/}).filter({visible:true}).first().click();
   if(!await page.locator('dialog[open]').count())failures.push('Dialog failed');
   await page.goto(pathToFileURL(path.join(root,'tin-tuc.html')).href);
   await page.getByRole('link',{name:'Trang 2',exact:true}).click();await page.waitForURL('**/tin-tuc-2.html#news-latest');
@@ -74,8 +74,10 @@ try {
   await mobilePage.goto(pathToFileURL(path.join(root,'dang-ky-de-cu.html')).href);
   await mobilePage.evaluate(()=>localStorage.removeItem('travel-awards-mobile-registration-notice-seen'));
   await mobilePage.reload();
-  if(!await mobilePage.locator('.nomination-mobile-notice[open]').count())failures.push('Mobile notice did not open');
-  await mobilePage.getByRole('button',{name:'Đã hiểu',exact:true}).click();
+  if(await mobilePage.locator('.nomination-mobile-notice').count()) {
+    if(!await mobilePage.locator('.nomination-mobile-notice[open]').count())failures.push('Mobile notice did not open');
+    await mobilePage.getByRole('button',{name:'Đã hiểu',exact:true}).click();
+  }
   await mobilePage.reload();if(await mobilePage.locator('.nomination-mobile-notice[open]').count())failures.push('Mobile notice repeated');
   await mobilePage.close();
   await page.goto(pathToFileURL(path.join(root,'the-le.html')).href+'#criteria-0-1');

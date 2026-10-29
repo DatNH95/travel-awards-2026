@@ -24,7 +24,7 @@ export function dossierError(key: string, files: File[], legalLink = '', imagePo
     if (files.length < imagePolicy.min) return `Vui lòng chọn tối thiểu ${imagePolicy.min} ảnh.`;
     if (imagePolicy.max !== null && files.length > imagePolicy.max) return `Chỉ được chọn tối đa ${imagePolicy.max} ảnh.`;
     if (files.some(file => !imageExtensions.test(file.name))) return 'Chỉ chấp nhận ảnh JPG, JPEG hoặc PNG.';
-    if (files.some(file => file.size < megabyte || file.size > 10 * megabyte)) return 'Mỗi ảnh cần có dung lượng từ 1 MB đến 10 MB.';
+    if (files.some(file => file.size > 10 * megabyte)) return 'Mỗi ảnh không được vượt quá 10 MB.';
   }
   return '';
 }

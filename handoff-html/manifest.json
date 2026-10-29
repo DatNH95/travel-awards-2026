@@ -30,74 +30,372 @@
       "editStage": 1
     },
     {
-      "source": "/dang-ky-de-cu?preview=4",
-      "file": "xac-nhan-cap-nhat.html",
-      "editStage": 2
+      "source": "/dang-ky-de-cu?preview=3",
+      "file": "xac-nhan-cap-nhat.html"
     },
     {
       "source": "/dang-ky-de-cu?preview=4",
-      "file": "cap-nhat-thanh-cong.html",
-      "editStage": 3
+      "file": "cap-nhat-thanh-cong.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
       "file": "dang-ky-tru-cot-1.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
+      "file": "dang-ky-tru-cot-1-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
+      "file": "dang-ky-tru-cot-1-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
+      "file": "dang-ky-tru-cot-1-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
+      "file": "dang-ky-tru-cot-1-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-1&step=2",
+      "file": "dang-ky-tru-cot-1-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tru-cot-2&step=2",
       "file": "dang-ky-tru-cot-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-2&step=2",
+      "file": "dang-ky-tru-cot-2-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-2&step=2",
+      "file": "dang-ky-tru-cot-2-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-2&step=2",
+      "file": "dang-ky-tru-cot-2-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-2&step=2",
+      "file": "dang-ky-tru-cot-2-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-2&step=2",
+      "file": "dang-ky-tru-cot-2-phan-6.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tru-cot-3&step=2",
       "file": "dang-ky-tru-cot-3.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "file": "dang-ky-tru-cot-3-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "file": "dang-ky-tru-cot-3-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "file": "dang-ky-tru-cot-3-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "file": "dang-ky-tru-cot-3-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-3&step=2",
+      "file": "dang-ky-tru-cot-3-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tru-cot-4&step=2",
       "file": "dang-ky-tru-cot-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-4&step=2",
+      "file": "dang-ky-tru-cot-4-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-4&step=2",
+      "file": "dang-ky-tru-cot-4-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-4&step=2",
+      "file": "dang-ky-tru-cot-4-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-4&step=2",
+      "file": "dang-ky-tru-cot-4-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-4&step=2",
+      "file": "dang-ky-tru-cot-4-phan-6.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tru-cot-5&step=2",
       "file": "dang-ky-tru-cot-5.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tru-cot-5&step=2",
+      "file": "dang-ky-tru-cot-5-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-5&step=2",
+      "file": "dang-ky-tru-cot-5-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-5&step=2",
+      "file": "dang-ky-tru-cot-5-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-5&step=2",
+      "file": "dang-ky-tru-cot-5-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-5&step=2",
+      "file": "dang-ky-tru-cot-5-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tru-cot-6&step=2",
       "file": "dang-ky-tru-cot-6.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-6&step=2",
+      "file": "dang-ky-tru-cot-6-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-6&step=2",
+      "file": "dang-ky-tru-cot-6-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-6&step=2",
+      "file": "dang-ky-tru-cot-6-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-6&step=2",
+      "file": "dang-ky-tru-cot-6-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tru-cot-6&step=2",
+      "file": "dang-ky-tru-cot-6-phan-6.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tien-phong-1&step=2",
       "file": "dang-ky-tien-phong-1.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tien-phong-1&step=2",
+      "file": "dang-ky-tien-phong-1-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-1&step=2",
+      "file": "dang-ky-tien-phong-1-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-1&step=2",
+      "file": "dang-ky-tien-phong-1-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-1&step=2",
+      "file": "dang-ky-tien-phong-1-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-1&step=2",
+      "file": "dang-ky-tien-phong-1-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tien-phong-2&step=2",
       "file": "dang-ky-tien-phong-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-2&step=2",
+      "file": "dang-ky-tien-phong-2-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-2&step=2",
+      "file": "dang-ky-tien-phong-2-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-2&step=2",
+      "file": "dang-ky-tien-phong-2-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-2&step=2",
+      "file": "dang-ky-tien-phong-2-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-2&step=2",
+      "file": "dang-ky-tien-phong-2-phan-6.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tien-phong-3&step=2",
       "file": "dang-ky-tien-phong-3.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tien-phong-3&step=2",
+      "file": "dang-ky-tien-phong-3-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-3&step=2",
+      "file": "dang-ky-tien-phong-3-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-3&step=2",
+      "file": "dang-ky-tien-phong-3-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-3&step=2",
+      "file": "dang-ky-tien-phong-3-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-3&step=2",
+      "file": "dang-ky-tien-phong-3-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tien-phong-4&step=2",
       "file": "dang-ky-tien-phong-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-4&step=2",
+      "file": "dang-ky-tien-phong-4-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-4&step=2",
+      "file": "dang-ky-tien-phong-4-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-4&step=2",
+      "file": "dang-ky-tien-phong-4-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-4&step=2",
+      "file": "dang-ky-tien-phong-4-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-4&step=2",
+      "file": "dang-ky-tien-phong-4-phan-6.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tien-phong-5&step=2",
       "file": "dang-ky-tien-phong-5.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tien-phong-5&step=2",
+      "file": "dang-ky-tien-phong-5-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-5&step=2",
+      "file": "dang-ky-tien-phong-5-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-5&step=2",
+      "file": "dang-ky-tien-phong-5-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-5&step=2",
+      "file": "dang-ky-tien-phong-5-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-5&step=2",
+      "file": "dang-ky-tien-phong-5-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tien-phong-6&step=2",
       "file": "dang-ky-tien-phong-6.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-6&step=2",
+      "file": "dang-ky-tien-phong-6-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-6&step=2",
+      "file": "dang-ky-tien-phong-6-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-6&step=2",
+      "file": "dang-ky-tien-phong-6-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-6&step=2",
+      "file": "dang-ky-tien-phong-6-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-6&step=2",
+      "file": "dang-ky-tien-phong-6-phan-6.html"
     },
     {
       "source": "/dang-ky-de-cu?category=tien-phong-7&step=2",
       "file": "dang-ky-tien-phong-7.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "file": "dang-ky-tien-phong-7-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "file": "dang-ky-tien-phong-7-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "file": "dang-ky-tien-phong-7-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "file": "dang-ky-tien-phong-7-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-7&step=2",
+      "file": "dang-ky-tien-phong-7-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tien-phong-8&step=2",
       "file": "dang-ky-tien-phong-8.html"
     },
     {
+      "source": "/dang-ky-de-cu?category=tien-phong-8&step=2",
+      "file": "dang-ky-tien-phong-8-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-8&step=2",
+      "file": "dang-ky-tien-phong-8-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-8&step=2",
+      "file": "dang-ky-tien-phong-8-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-8&step=2",
+      "file": "dang-ky-tien-phong-8-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-8&step=2",
+      "file": "dang-ky-tien-phong-8-phan-6.html"
+    },
+    {
       "source": "/dang-ky-de-cu?category=tien-phong-9&step=2",
       "file": "dang-ky-tien-phong-9.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-9&step=2",
+      "file": "dang-ky-tien-phong-9-phan-2.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-9&step=2",
+      "file": "dang-ky-tien-phong-9-phan-3.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-9&step=2",
+      "file": "dang-ky-tien-phong-9-phan-4.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-9&step=2",
+      "file": "dang-ky-tien-phong-9-phan-5.html"
+    },
+    {
+      "source": "/dang-ky-de-cu?category=tien-phong-9&step=2",
+      "file": "dang-ky-tien-phong-9-phan-6.html"
     },
     {
       "source": "/tin-tuc?page=2",

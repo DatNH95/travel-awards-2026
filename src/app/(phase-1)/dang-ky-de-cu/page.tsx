@@ -8,6 +8,7 @@ import { NominationCountdown } from '@/components/hero-stage';
 import { NominationFlow } from './nomination-flow';
 import '@/app/home.css';
 import './nomination.css';
+import './nomination-ux.css';
 
 export const metadata: Metadata = {
   title: 'Đăng ký / Đề cử — Travel Awards 2026',
