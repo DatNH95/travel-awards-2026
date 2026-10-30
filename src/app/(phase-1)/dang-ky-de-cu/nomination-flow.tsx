@@ -139,8 +139,9 @@ function NominationForm({ initialSelection, previewStep, initialStep, initialGro
       </form> : step === 2 ? <ConfirmationStep selection={selection} draft={draft} isEditing={submitted} onEdit={(nextPart = 0) => { setPart(nextPart); navigate(1); }} onSubmit={() => { setUpdated(submitted); setSubmitted(true); navigate(3); }} /> : <div className="nomination-success">
         <div className="nomination-success-heading"><Image src="/assets/key-visual/tick.svg" width={56} height={56} alt="" aria-hidden="true" />
         <h2 ref={title} tabIndex={-1} className="type-heading-2">{updated ? 'Cập nhật hồ sơ thành công' : 'Thành công'}</h2></div>
-        <p className="type-body-large">Cảm ơn bạn đã tham gia đăng ký đề cử. Mọi thắc mắc, xin vui lòng liên hệ Ban tổ chức theo email <a href="mailto:sukien@vnexpress.net">sukien@vnexpress.net</a>.</p>
+        <p className="type-body-large">Cảm ơn bạn đã tham gia đăng ký đề cử. Mọi thắc mắc, xin vui lòng liên hệ Ban tổ chức theo email:</p>
         <div className="nomination-success-actions">
+          <a href="mailto:sukien@vnexpress.net" className="button button--secondary nomination-contact-email"><UiIcon name="envelope" size={18} />sukien@vnexpress.net</a>
           <Button type="button" onClick={() => emailDialog.current?.showModal()}>Kiểm tra email</Button>
         </div>
         <div className="nomination-actions nomination-mobile-bar"><Button type="button" variant="secondary" onClick={() => { setPart(0); navigate(1); }}><span className="nomination-arrow nomination-arrow--back"><CTAArrow /></span>Chỉnh sửa hồ sơ</Button><Link href="/" className="button button--secondary">Về trang chủ</Link></div>

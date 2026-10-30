@@ -2,17 +2,17 @@ export type RegistrationField = { label: string; type?: 'textarea' | 'email' | '
 export { categoryCriteria as professionalFields } from './category-criteria';
 export const assessmentPeriodLabel = 'Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026.';
 export const registrationFields: RegistrationField[] = [
-  { label: 'Tên đơn vị/tổ chức/cá nhân đứng tên hồ sơ*', help: 'Ghi đúng tên pháp lý của đơn vị nộp hồ sơ. Nếu nộp với tư cách cá nhân, điền họ tên của bạn.' }, { label: 'Loại hình đơn vị*' }, { label: 'Địa chỉ*' },
+  { label: 'Tên đơn vị/tổ chức/cá nhân đứng tên hồ sơ*', help: 'Tên pháp lý của đơn vị, hoặc họ tên nếu nộp cá nhân.' }, { label: 'Đăng ký với tư cách*' }, { label: 'Địa chỉ*' },
   { label: 'Website', type: 'url' }, { label: 'Fanpage/Kênh truyền thông chính thức', type: 'url' },
 ];
 export const representativeFields: RegistrationField[] = [
-  { label: 'Họ và tên người liên hệ*', help: 'Người phụ trách hồ sơ để Ban tổ chức trao đổi, yêu cầu bổ sung. Nếu bạn tự nộp, điền họ tên của bạn.' }, { label: 'Chức vụ' }, { label: 'Số điện thoại*', type: 'tel' }, { label: 'Email*', type: 'email' },
+  { label: 'Họ và tên người liên hệ*', help: 'Là người đại diện hồ sơ, trực tiếp làm việc với Ban tổ chức.' }, { label: 'Chức vụ' }, { label: 'Số điện thoại*', type: 'tel' }, { label: 'Email*', type: 'email' },
 ];
 export const nominationFields: RegistrationField[] = [
-  { label: 'Tên đơn vị/điểm đến/thương hiệu/trải nghiệm được đề cử*' },
-  { label: 'Giới thiệu tổng quan*', type: 'textarea', minWords: 300, maxWords: 500, help: 'Bạn là ai, hoạt động ở đâu, phục vụ ai và có dấu ấn gì trong năm xét giải? Viết từ 300 đến 500 từ.' },
-  { label: 'Thành tích nổi bật trong năm xét giải*', type: 'textarea', minWords: 300, maxWords: 500, help: 'Nêu kết quả, thành tựu nổi bật và số liệu làm cơ sở đề cử. Viết từ 300 đến 500 từ.' },
-  { label: 'Điểm khác biệt/nổi bật của đề cử*', type: 'textarea', help: 'Điều gì tạo nên giá trị hoặc dấu ấn riêng của đơn vị/điểm đến/thương hiệu/trải nghiệm.' },
+  { label: 'Tên đề cử*' },
+  { label: 'Giới thiệu tổng quan*', type: 'textarea', minWords: 300, maxWords: 500, help: 'Giới thiệu hoạt động, địa bàn, khách hàng và dấu ấn trong năm xét giải. 300–500 từ.' },
+  { label: 'Thành tích nổi bật trong năm xét giải*', type: 'textarea', minWords: 300, maxWords: 500, help: 'Nêu thành tựu và số liệu nổi bật trong năm xét giải. 300–500 từ.' },
+  { label: 'Điểm khác biệt/nổi bật của đề cử*', type: 'textarea', help: 'Điều gì tạo nên giá trị riêng của đề cử?' },
 ];
 export const complianceStatements = [
   'Đơn vị/đề cử đáp ứng các điều kiện pháp lý cần thiết để tham gia hạng mục đăng ký.',

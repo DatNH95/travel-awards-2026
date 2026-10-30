@@ -45,7 +45,7 @@ export function partIssues(part: number, selection: string, draft: RegistrationD
   function fields(items: RegistrationField[], prefix: string) {
     items.forEach((field, index) => {
       const key = `${prefix}-${index}`, value = draft.values[key] ?? '';
-      let message = wordError(value, field);
+      let message = key === 'registration-1' && !value ? 'Vui lòng chọn thông tin này.' : wordError(value, field);
       if (field.type === 'tel' || field.type === 'email') message = contactError(field.type, value, (draft.values['representative-country'] ?? 'VN') as CountryCode);
       if (field.type === 'url') message = urlError(field.label === 'Website' ? normalizeWebsite(value) : value, field.label.endsWith('*'));
       if (message) issues.push({ key, message: `${field.label.replace(/\*$/, '')}: ${message}` });

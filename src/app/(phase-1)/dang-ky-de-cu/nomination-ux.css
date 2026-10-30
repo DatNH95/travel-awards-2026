@@ -1,4 +1,21 @@
 /* Nomination-only refinement. Foundation tokens and other routes are unchanged. */
+.nomination-copy-mobile { display: none; }
+@media (max-width: 39.99rem) {
+  .nomination-copy-desktop { display: none; }
+  .nomination-copy-mobile { display: inline; }
+  .nomination .nomination-registration-form :is(.nomination-explainer, .nomination-help-details, .nomination-required-note, .nomination-session-note, .nomination-word-feedback, .nomination-field-error, .type-body-small, .nomination-checks, .nomination-chip, .nomination-selected-strip, .nomination-change-category) { font-size: 16px; line-height: 1.5; }
+  .nomination .nomination-registration-form .nomination-inner-progress .nomination-text-action { font-size: 16px; min-height: 44px; }
+  .nomination .nomination-inner-progress > div { flex-wrap: wrap; gap: 4px 12px; }
+  .nomination .nomination-selected-strip { flex-wrap: wrap; align-items: flex-start; }
+  .nomination .nomination-selected-strip .nomination-change-category { margin-left: 26px; }
+  .nomination-step-heading:has(+ .nomination-registration-form) { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .nomination-registration-form .nomination-part-heading > .nomination-kicker { display: none; }
+  .nomination .nomination-registration-form .nomination-checks label { min-height: 44px; align-items: flex-start; padding-block: 8px; }
+  .nomination-registration-form .nomination-checks input { flex-shrink: 0; margin-top: 2px; }
+  .nomination .nomination-registration-form :is(input, textarea, select) { scroll-margin-top: 160px; scroll-margin-bottom: 140px; }
+  .nomination .nomination-word-feedback > div { flex-wrap: wrap; gap: 4px 12px; }
+  .nomination .nomination-word-feedback strong { margin-left: auto; }
+}
 .nomination-kicker { display: block; color: var(--color-text-brand); font-size: 13px; line-height: 1.5; font-weight: 600; letter-spacing: .02em; }
 .nomination-step-heading { flex-wrap: wrap; gap: 8px 16px; }
 .nomination-step-heading > .nomination-kicker { flex-basis: 100%; }
@@ -57,6 +74,15 @@
 .nomination-award-card summary { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; color: var(--color-text-brand); cursor: pointer; list-style: none; }
 .nomination-award-card summary::-webkit-details-marker { display: none; }
 .nomination-award-card details ul { margin: 8px 0 12px; padding-left: 20px; }
+.nomination-award-card details ul > li { display: list-item; list-style-type: disc; padding-left: 2px; }
+.nomination-award-card details ul > li::marker { color: #000; }
+@media (prefers-reduced-motion: no-preference) {
+  .nomination .nomination-award-card details { interpolate-size: allow-keywords; }
+  .nomination .nomination-award-card details::details-content { height: 0; opacity: 0; overflow: clip; transition: height 280ms ease, opacity 200ms ease, content-visibility 280ms allow-discrete; }
+  .nomination .nomination-award-card details[open]::details-content { height: auto; opacity: 1; }
+  .nomination .nomination-award-card summary .ui-icon { transition: transform 240ms ease; }
+  .nomination .nomination-award-card details[open] summary .ui-icon { transform: rotate(180deg); }
+}
 .nomination-choice-summary { display: flex; align-items: center; gap: 12px; padding: 16px; background: var(--color-surface-brand-soft); color: var(--color-text-brand); border-radius: var(--radius-control); font-size: 14px; }
 .nomination-choice-summary > .ui-icon { flex-shrink: 0; }
 .nomination-choice-summary strong { display: block; font-size: 16px; font-weight: 600; }
@@ -136,6 +162,7 @@
 .nomination .nomination-checks label { min-height: 44px; cursor: pointer; }
 .nomination .nomination-checks input { width: 20px; height: 20px; }
 .nomination-select-all { border-top: 1px solid var(--color-border-default); padding-top: 20px; font-weight: 600; color: var(--color-text-brand); }
+.nomination-folder-select-all { font: inherit; color: inherit; }
 .nomination-session-note { display: flex; gap: 8px; align-items: flex-start; color: var(--color-text-secondary); font-size: 12px; line-height: 1.5; margin-top: 20px; }
 .nomination-session-note .ui-icon { flex-shrink: 0; margin-top: 1px; }
 .nomination-error-summary { scroll-margin-top: 210px; padding: 16px; margin-bottom: 20px; border: 1px solid var(--nomination-error); background: var(--color-surface-primary); border-radius: var(--radius-control); color: var(--nomination-error); }
@@ -238,6 +265,11 @@
 .nomination .fi-rr-arrow-up-right::before {content: "\e11b";}
 
 .nomination .fi-rr-exchange::before {content: "\e7a9";}
+.nomination .fi-rr-envelope::before { content: "\e785"; }
+.nomination .nomination-contact-email { min-height: 42px; gap: 8px; background: var(--color-surface-brand-soft); border: 1px solid var(--color-border-default); color: var(--color-text-brand); }
+@media (max-width: 39.99rem) {
+  .nomination-contact-email { width: 100%; }
+}
 @font-face { font-family: "uicons-brands"; src: url("/assets/icons/flaticon/uicons-brands.woff2") format("woff2"); font-display: swap; }
 .nomination .ui-icon[class*="fi-brands-"]::before { font-family: "uicons-brands"; }
 .nomination .fi-brands-facebook::before { content: "\e80c"; }

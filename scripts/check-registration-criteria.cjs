@@ -41,9 +41,9 @@ for (const key of ['menu']) {
   assert.ok(dossierError(key, [{ name: 'evidence.pdf', size: 20_000_001 }]));
 }
 for (const extension of ['jpg', 'JPEG', 'png']) {
-  for (const size of [1_000_000, 10_000_000]) assert.equal(dossierError('dossier-3', Array.from({ length: 3 }, () => ({ name: `image.${extension}`, size }))), '');
+  for (const size of [1, 999_999, 1_000_000, 10_000_000]) assert.equal(dossierError('dossier-3', Array.from({ length: 3 }, () => ({ name: `image.${extension}`, size }))), '');
 }
-for (const [name, size] of [['image.jpg', 999_999], ['image.jpg', 10_000_001], ['image.webp', 2_000_000]]) {
+for (const [name, size] of [['image.jpg', 10_000_001], ['image.webp', 2_000_000]]) {
   assert.ok(dossierError('dossier-3', Array.from({ length: 3 }, () => ({ name, size }))));
 }
-console.log('PASS: 13 categories require 3–10 JPG/JPEG/PNG images at 1–10 MB; legal 10 MB, introduction 50 MB, menu 20 MB.');
+console.log('PASS: 13 categories require 3–10 JPG/JPEG/PNG images up to 10 MB each; legal 10 MB, introduction 50 MB, menu 20 MB.');
