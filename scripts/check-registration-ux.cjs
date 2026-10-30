@@ -35,13 +35,13 @@ assert.equal(ux.normalizeWebsite('www.vnexpress.net/du-lich'), 'https://www.vnex
 assert.equal(ux.normalizeWebsite('http://vnexpress.net'), 'http://vnexpress.net');
 assert.ok(ux.urlError(ux.normalizeWebsite('javascript:alert(1)')));
 assert.ok(ux.urlError(ux.normalizeWebsite('not a domain')));
-for (const count of [299, 300, 500, 501]) {
+for (const count of [1, 249, 250, 251]) {
   const value = Array(count).fill('từ').join(' ');
   assert.equal(ux.countWords(value), count);
-  assert.equal(!!ux.wordError(value, nominationFields[1]), count < 300 || count > 500);
+  assert.equal(!!ux.wordError(value, nominationFields[1]), count > 250);
 }
 for (const [selection, config] of Object.entries(categoryCriteria)) {
-  const draft = { values: { 'registration-0': 'Đơn vị kiểm thử', 'registration-1': 'Doanh nghiệp', 'registration-2': 'Địa chỉ kiểm thử', 'representative-0': 'Người kiểm thử', 'representative-2': '0912345678', 'representative-3': 'qa@example.com', 'destination-0': 'Cơ quan kiểm thử', 'nominee-0': 'Đề cử kiểm thử', 'nominee-1': Array(300).fill('từ').join(' '), 'nominee-2': Array(500).fill('từ').join(' '), 'nominee-3': 'Điểm khác biệt', 'full-dossier-link': 'https://example.com/dossier' }, files: {}, checks: {} };
+  const draft = { values: { 'registration-0': 'Đơn vị kiểm thử', 'registration-1': 'Doanh nghiệp', 'registration-2': 'Địa chỉ kiểm thử', 'representative-0': 'Người kiểm thử', 'representative-2': '0912345678', 'representative-3': 'qa@example.com', 'destination-0': 'Cơ quan kiểm thử', 'nominee-0': 'Đề cử kiểm thử', 'nominee-1': Array(250).fill('từ').join(' '), 'nominee-2': Array(250).fill('từ').join(' '), 'nominee-3': 'Điểm khác biệt', 'full-dossier-link': 'https://example.com/dossier' }, files: {}, checks: {} };
   for (const key of ['folder-introduction', 'folder-legal', 'folder-images', 'folder-evidence', 'folder-access', 'folder-menu']) draft.checks[key] = true;
   [...config.conditions, ...complianceStatements].forEach((_, i) => { draft.checks[`compliance-${selection}-${i}`] = true; });
   for (let part = 0; part < 6; part++) {
@@ -65,3 +65,4 @@ for (const [selection, config] of Object.entries(categoryCriteria)) {
   }
 }
 console.log('PASS: phone/URL/word boundaries, 13 category journeys × 6 validated parts, both evidence modes, social channels and food menu.');
+

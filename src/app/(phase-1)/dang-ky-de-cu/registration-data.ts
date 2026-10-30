@@ -10,8 +10,8 @@ export const representativeFields: RegistrationField[] = [
 ];
 export const nominationFields: RegistrationField[] = [
   { label: 'Tên đề cử*' },
-  { label: 'Giới thiệu tổng quan*', type: 'textarea', minWords: 300, maxWords: 500, help: 'Giới thiệu hoạt động, địa bàn, khách hàng và dấu ấn trong năm xét giải. 300–500 từ.' },
-  { label: 'Thành tích nổi bật trong năm xét giải*', type: 'textarea', minWords: 300, maxWords: 500, help: 'Nêu thành tựu và số liệu nổi bật trong năm xét giải. 300–500 từ.' },
+  { label: 'Giới thiệu tổng quan*', type: 'textarea', maxWords: 250, help: 'Giới thiệu hoạt động, địa bàn, khách hàng và dấu ấn trong năm xét giải. Tối đa 250 từ.' },
+  { label: 'Thành tích nổi bật trong năm xét giải*', type: 'textarea', maxWords: 250, help: 'Nêu thành tựu và số liệu nổi bật trong năm xét giải. Tối đa 250 từ.' },
   { label: 'Điểm khác biệt/nổi bật của đề cử*', type: 'textarea', help: 'Điều gì tạo nên giá trị riêng của đề cử?' },
 ];
 export const complianceStatements = [
@@ -21,4 +21,5 @@ export const complianceStatements = [
   'Đơn vị/đề cử không có sự cố nghiêm trọng liên quan đến an toàn du khách/khách hàng trong năm xét giải mà chưa được giải trình hoặc xử lý theo quy định.',
   'Tôi đồng ý để Ban tổ chức Travel Awards xác minh thông tin và sử dụng các tư liệu được cung cấp cho mục đích đánh giá, truyền thông và giới thiệu giải thưởng.',
 ];
+
 

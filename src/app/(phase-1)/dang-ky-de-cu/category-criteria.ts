@@ -45,17 +45,17 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Trách nhiệm bền vững: bảo tồn di sản, môi trường và cộng đồng",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Phát triển sản phẩm mới, hạ tầng và kết nối giao thông",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Chính sách, môi trường đầu tư và xúc tiến du lịch",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -108,22 +108,22 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Trách nhiệm bền vững: du lịch có trách nhiệm với điểm đến và đối tác địa phương",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Đa dạng và chất lượng sản phẩm tour",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Năng lực vận hành, chất lượng đội ngũ nhân sự và hướng dẫn viên",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Ứng dụng công nghệ, đổi mới sản phẩm",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -173,22 +173,22 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Thực hành bền vững, bảo vệ môi trường",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Chất lượng cơ sở vật chất và tiện nghi",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Chất lượng dịch vụ và phát triển đội ngũ nhân sự",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Đổi mới trải nghiệm khách hàng",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -239,22 +239,22 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Thực hành bền vững, bảo vệ môi trường",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Không gian, kiến trúc và cảnh quan",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Trải nghiệm và dịch vụ nghỉ dưỡng cao cấp (spa, ẩm thực, giải trí) cung cấp cho du khách tại khu nghỉ",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Bản sắc địa phương và tính độc đáo tại khu nghỉ",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -313,27 +313,27 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Trách nhiệm bền vững: giảm phát thải, nhiên liệu bền vững",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Mạng đường bay, tần suất và đường bay du lịch mới",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Chính sách giá và chương trình kích cầu du lịch",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Hợp tác quảng bá điểm đến với địa phương/doanh nghiệp",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Đổi mới trải nghiệm khách hàng",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -382,17 +382,17 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Giá trị cộng đồng và di sản của sản phẩm trải nghiệm",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Tính sáng tạo, độc đáo của sản phẩm trải nghiệm",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Chất lượng tổ chức, chuyên nghiệp trong vận hành",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -433,22 +433,22 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Mức độ đổi mới so với thực hành hiện tại",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Tính khả thi và hiệu quả đo lường được",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Tác động môi trường và xã hội cụ thể",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Khả năng nhân rộng",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -483,17 +483,17 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Mức độ đổi mới trong chính sách và hành động môi trường",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Hiệu quả đo lường được",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Sự tham gia và hưởng lợi của cộng đồng địa phương và doanh nghiệp",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -532,12 +532,12 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Tính mới và độc đáo",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Tiềm năng phát triển và khả năng nhân rộng dài hạn",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -576,17 +576,17 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Mức độ ứng dụng công nghệ (AI, dữ liệu, ứng dụng…)",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Hiệu quả cải thiện trải nghiệm khách hàng",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Hiệu quả vận hành nội bộ",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -625,17 +625,17 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Tính đặc sắc, khác biệt của mô hình (bảo tồn văn hóa, bản sắc địa phương)",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Tính bền vững trong vận hành",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Mức độ tham gia và hưởng lợi của cộng đồng địa phương",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -685,12 +685,12 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Chất lượng và tính đặc trưng, sáng tạo của ẩm thực",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Chất lượng trải nghiệm phục vụ du khách",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -731,12 +731,12 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       {
         "label": "Tính sáng tạo và thông điệp chiến dịch",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       },
       {
         "label": "Hiệu quả đóng góp về tăng trưởng du lịch và tăng trưởng thương hiệu điểm đến đo lường được",
         "type": "textarea",
-        "maxWords": 300
+        "maxWords": 250
       }
     ],
     "evidence": [
@@ -750,3 +750,4 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
     "menuRequired": false
   }
 };
+

@@ -21,7 +21,7 @@ for (const category of all) {
   if (!categoryCriteria[category]) continue;
   const { fields, narratives, conditions, evidence } = categoryCriteria[category];
   assert.ok(fields.length && narratives.length && conditions.length && evidence.length, category);
-  assert.ok(narratives.every(field => field.maxWords === 300));
+  assert.ok(narratives.every(field => field.maxWords === 250));
 }
 const images = count => Array.from({ length: count }, (_, i) => ({ name: `${i}.jpg`, size: 2_000_000 }));
 for (const { images: policy } of Object.values(categoryCriteria)) {
@@ -47,3 +47,4 @@ for (const [name, size] of [['image.jpg', 10_000_001], ['image.webp', 2_000_000]
   assert.ok(dossierError('dossier-3', Array.from({ length: 3 }, () => ({ name, size }))));
 }
 console.log('PASS: 13 categories require 3–10 JPG/JPEG/PNG images up to 10 MB each; legal 10 MB, introduction 50 MB, menu 20 MB.');
+

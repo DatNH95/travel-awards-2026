@@ -9,7 +9,7 @@ export const partDescriptions = [
   'Cho biết ai đứng tên hồ sơ và ai là người Ban tổ chức có thể liên hệ.',
   'Giới thiệu đề cử bằng câu chuyện, thành tích và điểm khác biệt của bạn.',
   'Kê khai số liệu theo hạng mục đã chọn. Có thể bổ sung giải thích ngay trong từng ô.',
-  'Mỗi tiêu chí là một nội dung riêng, tối đa 300 từ. Mở từng tiêu chí để viết.',
+  'Mỗi tiêu chí là một nội dung riêng, tối đa 250 từ. Mở từng tiêu chí để viết.',
   'Dùng một thư mục tài liệu để thao tác nhanh trên điện thoại, hoặc bổ sung từng tệp.',
   'Đọc và xác nhận các điều kiện trước khi kiểm tra lại toàn bộ hồ sơ.',
 ];
@@ -95,3 +95,4 @@ export function partIssues(part: number, selection: string, draft: RegistrationD
   }
   return issues;
 }
+

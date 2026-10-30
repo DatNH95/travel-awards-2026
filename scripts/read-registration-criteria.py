@@ -59,7 +59,7 @@ for key, row in zip(keys, rows, strict=True):
         'audience': clean(title.split('Đối tượng:', 1)[1]),
         'conditions': bullets(conditions),
         'fields': [{'label': label, 'type': 'textarea', 'help': help} for label, help in zip(labels[keys.index(key)], bullets(declarations), strict=True)],
-        'narratives': [{'label': label, 'type': 'textarea', 'maxWords': 300} for label in narrative_labels],
+        'narratives': [{'label': label, 'type': 'textarea', 'maxWords': 250} for label in narrative_labels],
         'evidence': bullets(evidence),
     }
     # Editorial copy for the 22.10 changes; keep declarations in their existing fields.
@@ -89,3 +89,4 @@ export type CategoryCriteria = {
   images: { min: number; max: number | null }; menuRequired: boolean;
 };
 export const categoryCriteria: Record<string, CategoryCriteria> = ''' + json.dumps(records, ensure_ascii=False, indent=2) + ';\n', encoding='utf-8')
+
