@@ -1,3 +1,7 @@
+import { DestinationGallery } from '@/components/destination-gallery';
+import { NominationGuideSlider } from '@/components/nomination-guide-slider';
+import { UiIcon } from '@/components/ui-icon';
+import '@/styles/nomination-guide-icons.css';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import localFont from 'next/font/local';
@@ -7,7 +11,7 @@ import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { CTAArrow, Container, Eyebrow, Section, TextLink, VotingCTA } from '@/components/phase-2/primitives';
 import { AwardTabs } from '@/components/phase-2/award-tabs';
 import { ScrollReveal } from '@/components/scroll-reveal';
-import { HeroStage } from '@/components/hero-stage';
+import { HeroStage, HeroRouteGlow } from '@/components/hero-stage';
 import { NominationCountdown } from '@/components/phase-2/countdown';
 import { SiteHeader } from '@/components/phase-2/site-header';
 import { AwardCount } from '@/components/award-count';
@@ -53,8 +57,8 @@ export default function Phase2HomePage() {
   return <div className="home home-phase-2">
     <SiteHeader phase="voting" /><ScrollReveal />
     <main id="main">
-      <HeroStage>
-        <Image className="home-hero-landscape" src="/assets/key-visual/travel-awards-kv-v2.png" alt="" aria-hidden="true" width={1920} height={1080} unoptimized preload />
+      <HeroStage bg1>
+        <picture><source media="(max-width: 767px)" srcSet="/assets/key-visual/BG1%20Mobile.png" /><Image className="home-hero-landscape" src="/assets/key-visual/BG1%20SVG.svg" alt="" aria-hidden="true" width={1920} height={1080} unoptimized loading="eager" /></picture>
         <div className="home-hero-content">
           <h1 id="hero-title"><span className="home-sr-only">THE FIRST SIGNATURE — DẤU ẤN TIÊN PHONG</span><BrandGraphic variant="campaign" /></h1>
           <p className="home-hero-statement">Giai đoạn bình chọn đề cử</p>
@@ -63,19 +67,9 @@ export default function Phase2HomePage() {
       </HeroStage>
       <VotingBrowser id="about" />
       <VotingCommunity />
-      <Section id="participate" tone="brand-soft" className="home-participate">
-        <Container>
-          <div className="home-split"><div className="home-participate-heading"><h2 className="type-display-l">Cách tham gia<br />bình chọn</h2><TextLink href="/the-le">Tìm hiểu thể lệ</TextLink></div><div id="nomination-guide" className="home-steps">
-            <div><span>01</span><div><h3 className="type-heading-3">Đăng nhập MyVNEID</h3><p>Sử dụng tài khoản MyVNEID để tham gia bình chọn khi chương trình mở chính thức.</p></div></div>
-            <div><span>02</span><div><h3 className="type-heading-3">Chọn hồ sơ bạn biết</h3><p>Khám phá 15 hạng mục và chọn một hồ sơ trong mỗi hạng mục để chia sẻ trải nghiệm.</p></div></div>
-            <div><span>03</span><div><h3 className="type-heading-3">Hoàn tất khảo sát</h3><p>Trả lời đầy đủ các câu hỏi và gửi khảo sát. Mỗi tài khoản được bình chọn một hồ sơ cho mỗi hạng mục.</p></div></div>
-            <VotingCTA href="#about" label="Bình chọn ngay" className="voting-guide-cta" />
-          </div></div>
-        </Container>
-      </Section>
       <Section id="journey" className="home-journey">
         <Container>
-          <div className="home-section-title"><h2 className="type-display-l">Agenda sự kiện</h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
+          <div className="home-section-title"><h2 className="type-display-l">Agenda<span className="home-agenda-title-line"> sự kiện</span></h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
           <ol className="home-timeline">
             <li><span className="home-timeline-index">Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 10 - 11</p></div><p>Gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục trên chuyên trang Travel Awards.</p></li>
             <li><span className="home-timeline-index">Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Độc giả bình chọn song song với Hội đồng chuyên môn chấm điểm.</p></li>
@@ -100,8 +94,20 @@ export default function Phase2HomePage() {
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
-      <Section id="nominate" tone="brand-deep" className="home-final-cta">
-        <Container><Eyebrow>Góc nhìn từ hành trình của bạn</Eyebrow><h2 className="type-display-xl">Mỗi trải nghiệm.<br /><em>Một góc nhìn.</em></h2><p>Khám phá hồ sơ, chia sẻ cảm nhận và góp phần ghi nhận những dấu ấn du lịch Việt Nam.</p><Link href="/binh-chon" className="button button--primary home-cta">Bình chọn<CTAArrow /></Link></Container>
+      <DestinationGallery />
+      <Section id="participate" className="home-participate">
+        <Container>
+          <div className="nomination-guide-heading"><h2 className="type-display-l">Cách tham gia bình chọn</h2></div>
+          <NominationGuideSlider><ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn tham gia bình chọn">
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="globe" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">01</span></div><h3>Đăng nhập MyVNEID</h3><p>Sử dụng tài khoản MyVNEID để tham gia khi chương trình mở chính thức.</p></li>
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="trophy" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">02</span></div><h3>Chọn hồ sơ bạn biết</h3><p>Chọn một hồ sơ trong mỗi hạng mục để chia sẻ trải nghiệm.</p></li>
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="check" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">03</span></div><h3>Hoàn tất khảo sát</h3><p>Trả lời đầy đủ câu hỏi. Mỗi tài khoản được bình chọn một hồ sơ cho mỗi hạng mục.</p></li>
+            <li className="nomination-guide-frame nomination-guide-frame--cta"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="arrow-up-right" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">04</span></div><h3>Chia sẻ trải nghiệm của bạn</h3><VotingCTA href="#about" label="Bình chọn ngay" className="nomination-guide-cta" /></li>
+          </ol></NominationGuideSlider>
+        </Container>
+      </Section>
+      <Section id="nominate" tone="brand-deep" className="home-final-cta home-final-cta--bg1">
+        <HeroRouteGlow /><Container><Eyebrow>Góc nhìn từ hành trình của bạn</Eyebrow><h2 className="type-display-xl">Mỗi trải nghiệm.<br /><em>Một góc nhìn.</em></h2><p>Khám phá hồ sơ, chia sẻ cảm nhận và góp phần ghi nhận những dấu ấn du lịch Việt Nam.</p><Link href="/binh-chon" className="button button--primary home-cta">Bình chọn<CTAArrow /></Link></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
         <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>
