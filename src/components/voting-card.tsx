@@ -9,8 +9,8 @@ import { VotingSurvey } from './voting-survey';
 import { useVotingSession } from './voting-session';
 
 export function VotingCard({ profile }: { profile: VotingProfile }) {
-  const {completed} = useVotingSession();
-  const voted = completed[profile.categoryId] === profile.slug;
+  const {completedProfiles} = useVotingSession();
+  const voted = !!completedProfiles[profile.categoryId]?.includes(profile.slug);
   const [copyStatus, setCopyStatus] = useState('');
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (copyTimer.current) clearTimeout(copyTimer.current); }, []);

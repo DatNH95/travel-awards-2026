@@ -1,0 +1,20 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "multipleProfiles": 2,
+      "requiresAllRatings": true,
+      "categoryProgress": "1/15",
+      "locked": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "multipleProfiles": 2,
+      "requiresAllRatings": true,
+      "categoryProgress": "1/15",
+      "locked": true,
+      "errors": []
+    }
+  ]
+}
