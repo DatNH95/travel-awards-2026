@@ -207,3 +207,6 @@
 .rules-travel-glow .rules-glow-prize-label>p:not(.rules-glow-prize-value){width:100%;margin:0;font-size:16px;line-height:1.6;text-align:center}
 .rules-travel-glow .rules-glow-prize-label .rules-glow-prize-note{justify-content:center;font-size:14px;line-height:1.5;text-align:center}
 }
+.rules-regulation-copy .rules-regulation-bullets{list-style:disc;margin:0;padding-left:20px}
+.rules-regulation-copy .rules-regulation-bullets>li{display:list-item;padding:0;border:0}
+.rules-regulation-copy .rules-regulation-bullets>li+li{margin-top:12px}

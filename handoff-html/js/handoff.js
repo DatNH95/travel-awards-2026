@@ -131,7 +131,7 @@
       const now = Date.now();
 
 
-      const seconds = Math.max(0, Math.floor((Date.parse('2026-11-20T23:59:00+07:00') - now) / 1000));
+      const seconds = Math.max(0, Math.floor((Date.parse('2026-11-30T23:59:00+07:00') - now) / 1000));
       const values = [Math.floor(seconds / 86400), Math.floor(seconds / 3600) % 24, Math.floor(seconds / 60) % 60, seconds % 60];
       countdowns.forEach(block => {
         $$('.home-countdown-value', block).forEach((el, i) => { el.textContent = String(values[i]).padStart(2,'0'); });

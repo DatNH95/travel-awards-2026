@@ -86,8 +86,8 @@ try {
   await page.waitForFunction(()=>document.querySelector('.rules-nav a[href="#quy-dinh"]')?.getAttribute('aria-current')==='location');
   for(const [now,label,seconds] of [
     ['2026-10-26T11:59:59+07:00','Thời gian nhận đề cử còn lại:','01'],
-    ['2026-11-20T23:58:59+07:00','Thời gian nhận đề cử còn lại:','01'],
-    ['2026-11-20T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
+    ['2026-11-30T23:58:59+07:00','Thời gian nhận đề cử còn lại:','01'],
+    ['2026-11-30T23:59:00+07:00','Đã hết hạn gửi đề cử','00']
   ]) {
     const phasePage=await browser.newPage();
     await phasePage.route(/^https?:/,route=>route.abort());

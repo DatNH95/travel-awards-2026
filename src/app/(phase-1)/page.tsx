@@ -22,7 +22,7 @@ const showDestinationGallery = false;
 
 export const metadata: Metadata = {
   title: 'Travel Awards 2026 — Dấu ấn tiên phong',
-  description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 20.11.2026.',
+  description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 30.11.2026.',
 };
 
 
@@ -110,7 +110,7 @@ export default function HomePage() {
           <NominationGuideSlider><ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn và đăng ký đề cử">
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="trophy" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">01</span></div><h3>Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></li>
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="document" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">02</span></div><h3>Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></li>
-            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="check" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">03</span></div><h3>Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 20.11.2026.</p></li>
+            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="check" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">03</span></div><h3>Gửi đề cử</h3><p>Hoàn thành đề cử trước ngày 30.11.2026.</p></li>
             <li className="nomination-guide-frame nomination-guide-frame--cta"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="arrow-up-right" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">04</span></div><h3>Đăng ký đề cử ngay hôm nay</h3><NominationCTA className="nomination-guide-cta cta-mobile-dang-ky" /></li>
           </ol></NominationGuideSlider>
         </Container>

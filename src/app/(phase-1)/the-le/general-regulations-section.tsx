@@ -13,6 +13,7 @@ export function GeneralRegulationsSection() {
       <h4>{item.title}</h4>
       <div className="rules-regulation-copy">
         {item.paragraphs?.map(paragraph => <p key={paragraph}>{paragraph}</p>)}
+        {item.bullets && <ul className="rules-regulation-bullets">{item.bullets.map(text => <li key={text}>{text}</li>)}</ul>}
         {item.facts && <dl className="rules-regulation-facts">{item.facts.map(fact => <div key={fact.label}><dt>{fact.label}</dt><dd>{fact.value}</dd></div>)}</dl>}
       </div>
     </li>)}</ul>

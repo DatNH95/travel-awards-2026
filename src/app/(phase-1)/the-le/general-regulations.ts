@@ -1,6 +1,6 @@
 // Source: “Quy định chung”, rows 4–15, workbook 1HMOULL6KwcNWDQLWpkycWWaXnOkvlJsn.
 // Dates, organizer nominations and upload limits follow the user's latest instructions.
-type Regulation = { title: string; paragraphs?: string[]; facts?: { label: string; value: string }[] };
+type Regulation = { title: string; paragraphs?: string[]; bullets?: string[]; facts?: { label: string; value: string }[] };
 type RegulationGroup = { id: string; title: string; icon: 'participation' | 'dossier' | 'integrity'; items: Regulation[] };
 export const regulationGroups: RegulationGroup[] = [
   {
@@ -16,7 +16,7 @@ export const regulationGroups: RegulationGroup[] = [
       ] },
       { title: 'Nhận đề cử', facts: [
         { label: 'Mở đăng ký', value: '12:00 ngày 26/10/2026' },
-        { label: 'Đóng đăng ký', value: '23:59 ngày 20/11/2026' },
+        { label: 'Đóng đăng ký', value: '23:59 ngày 30/11/2026' },
       ], paragraphs: ['Thời gian tính theo giờ Việt Nam.'] },
       { title: 'Phí tham gia', paragraphs: ['Miễn phí.'] },
     ],
@@ -36,7 +36,10 @@ export const regulationGroups: RegulationGroup[] = [
         { label: 'Hình ảnh', value: 'Bắt buộc 3–10 ảnh · JPG/JPEG/PNG · 1–10 MB/ảnh' },
         { label: 'Video', value: 'Gửi qua đường link' },
       ] },
-      { title: 'Nguyên tắc chấm', paragraphs: ['Hội đồng chuyên môn chỉ đánh giá thông tin trong hồ sơ, không khảo sát thực tế. Nội dung không kê khai sẽ không được xem xét.'] },
+      { title: 'Kết quả xét chọn và vinh danh', bullets: [
+        'Kết quả giải thưởng được đánh giá trên tổng điểm của hội đồng chuyên môn và khảo sát từ độc giả.',
+        'TOP 5 đề cử của từng hạng mục được vinh danh tại Lễ trao giải Travel Awards 2026. Trong đó, đề cử có kết quả cao nhất được trao danh hiệu chung cuộc của hạng mục.',
+      ] },
     ],
   },
   {

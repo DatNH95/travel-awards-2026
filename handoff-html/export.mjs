@@ -70,7 +70,7 @@ const page = await browser.newPage({viewport:{width:1440,height:1000},reducedMot
 await page.addInitScript(`window.flattenHandoffDocument = ${flattenDocument.toString()}`);
 let count = 0;
 for(const [route,file,kind,editStage,partIndex] of routes.filter(([,file]) => process.argv.length < 3 || process.argv.slice(2).includes(file))) {
-  await page.goto('http://127.0.0.1:3001'+route,{waitUntil:'networkidle'});
+  await page.goto((process.env.HANDOFF_SOURCE_URL || 'http://127.0.0.1:3001')+route,{waitUntil:'networkidle'});
   if(kind==='nomination') await page.waitForSelector('.nomination-layout');
   if(editStage) {
     await page.getByRole('button',{name:'Chỉnh sửa hồ sơ',exact:true}).click();
@@ -134,6 +134,8 @@ for(const [route,file,kind,editStage,partIndex] of routes.filter(([,file]) => pr
 await browser.close();
 const {exportTravelGlow}=await import('./travel-glow.mjs');
 await exportTravelGlow();
+const {syncNominationDeadline}=await import('./nomination-deadline.mjs');
+await syncNominationDeadline();
 await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify({pages:routes.map(([source,file,,editStage])=>({source,file,...(editStage?{editStage}:{})})),categories},null,2));
 console.log(`Done: ${count} HTML pages`);
 if(process.argv.length<3 || process.argv.slice(2).some(file=>/^(dang-ky|xac-nhan|thanh-cong|chinh-sua|cap-nhat)/.test(file))) {
