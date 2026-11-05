@@ -23,5 +23,11 @@ export async function exportTravelGlow(){
  html=html.replace('</head>','<link rel="stylesheet" href="css/30plus.css"></head>');
  await fs.writeFile('handoff-html/css/30plus.css',styles.join('\n').replaceAll('/assets/','../assets/'));
  await fs.copyFile('public/30plus-phone-validation.js','handoff-html/js/30plus-phone-validation.js');
- const target='handoff-html/dang-ky-30-plus.html';await fs.writeFile(target+'.tmp',html);await fs.rename(target+'.tmp',target);
+ html=html.replace(/(href|src)=(["'])([^"']+)\2/g,(whole,attr,quote,value)=>{
+  if(/^(?:[a-z][a-z\d+.-]*:|\/\/|#)/i.test(value))return whole;
+  const target=value==='dang-ky-30-plus.html'?value:'../'+value;
+  return `${attr}=${quote}${target}${quote}`;
+ });
+ await fs.mkdir('handoff-html/dangky-30plus-travel',{recursive:true});
+ const target='handoff-html/dangky-30plus-travel/dang-ky-30-plus.html';await fs.writeFile(target+'.tmp',html);await fs.rename(target+'.tmp',target);
 }

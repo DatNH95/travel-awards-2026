@@ -120,7 +120,7 @@ for(const [route,file,kind,editStage,partIndex] of routes.filter(([,file]) => pr
     else if(u.pathname==='/tin-tuc')dest=u.searchParams.get('page')&&u.searchParams.get('page')!=='1'?`tin-tuc-${u.searchParams.get('page')}.html`:'tin-tuc.html';
     else if(u.pathname.startsWith('/tin-tuc/'))dest=`tin-${u.pathname.split('/').pop()}.html`;
     else if(u.pathname==='/dang-ky-de-cu')dest='dang-ky-de-cu.html'+(u.search?'?'+u.searchParams.toString():'');
-    else if(u.pathname==='/dang-ky-30-plus')dest='dang-ky-30-plus.html';
+    else if(u.pathname==='/dang-ky-30-plus')dest='dangky-30plus-travel/dang-ky-30-plus.html';
     return dest?`${attr}="${dest}${u.hash}"`:whole;
   });
   // Readable block boundaries without adding whitespace inside inline text.

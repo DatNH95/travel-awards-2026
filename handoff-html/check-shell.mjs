@@ -8,6 +8,7 @@ const require=createRequire(import.meta.url);
 const {chromium}=require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root=path.resolve('handoff-html');
 const files=(await fs.readdir(root)).filter(file=>file.endsWith('.html'));
+files.push('dangky-30plus-travel/dang-ky-30-plus.html');
 const browser=await chromium.launch({channel:'msedge',headless:true});
 const page=await browser.newPage({reducedMotion:'reduce'});
 await page.addInitScript(()=>{try{localStorage.setItem('travel-awards-mobile-registration-notice-seen','1');}catch{}});
@@ -43,7 +44,7 @@ try {
       if(doc.querySelectorAll('#main').length!==1)errors.push('Missing or duplicate main anchor');
       const ids=[...doc.querySelectorAll('[id]')].map(el=>el.id);
       if(new Set(ids).size!==ids.length)errors.push('Duplicate IDs');
-      if([...doc.scripts].some(script=>script.src&&!script.getAttribute('src').startsWith('js/')||!script.src))errors.push('Unexpected script');
+      if([...doc.scripts].some(script=>!script.getAttribute('src')||!/^(?:\.\.\/)?js\//.test(script.getAttribute('src'))))errors.push('Unexpected script');
       for(const link of doc.querySelectorAll('a[href^="#"]'))if(link.hash.length>1&&!doc.getElementById(decodeURIComponent(link.hash.slice(1))))errors.push('Broken anchor '+link.hash);
       return {errors,links:[...doc.querySelectorAll('[href],[src]')].map(el=>el.getAttribute('href')||el.getAttribute('src')).filter(Boolean)};
     },html);
@@ -53,7 +54,7 @@ try {
       if(/^(?:https?:|mailto:|tel:|data:|#)/.test(link))continue;
       if(link.startsWith('/'))failures.push(`${file}: nonportable absolute link ${link}`);
       const target=decodeURIComponent(link.split(/[?#]/)[0]);
-      try{await fs.access(path.join(root,target));}catch{failures.push(`${file}: missing ${target}`);}
+      try{await fs.access(path.join(root,path.dirname(file),target));}catch{failures.push(`${file}: missing ${target}`);}
     }
   }
   for(const file of ['index.html','the-le.html','tin-tuc.html','tin-travel-awards-dau-an-tien-phong.html','dang-ky-de-cu.html','dang-ky-tru-cot-1.html','xac-nhan.html','thanh-cong.html'])for(const width of [1440,390]) {
