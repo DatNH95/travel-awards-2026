@@ -1,0 +1,28 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "isolated": true,
+      "personalStep": true,
+      "backRetainsData": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 390,
+      "isolated": true,
+      "personalStep": true,
+      "backRetainsData": true,
+      "errors": [],
+      "failed": []
+    },
+    {
+      "width": 320,
+      "isolated": true,
+      "personalStep": true,
+      "backRetainsData": true,
+      "errors": [],
+      "failed": []
+    }
+  ]
+}
