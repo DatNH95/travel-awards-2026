@@ -39,6 +39,8 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 ## Quy ước route và triển khai Phase 2
 
+- Cập nhật 02.11.2026: người dùng xác nhận cho tick nhiều hồ sơ cùng hạng mục trong popup, thay hạn mức một hồ sơ/hạng mục cũ. Phải chấm đủ các hồ sơ đã tick trước khi hoàn tất; ghi nhận trạng thái từng hồ sơ trong phiên demo, khóa hạng mục sau lần hoàn tất. Tiến độ vẫn đếm số hạng mục (tối đa 15), không đếm số hồ sơ. Không tích hợp backend/storage.
+
 - Refinement 20.10.2026: Phase 2 không có CTA/link đăng ký đề cử; AwardTabs dùng prop `phase="voting"`, link hạng mục và “Xem tất cả” dẫn `/binh-chon?category=...`. Phase 1 giữ mặc định đề cử. “Xem tất cả” dùng CTAArrow giống “Xem thể lệ” ở Agenda.
 - Hai box đề cử trên Homepage Phase 2 đổi thành hướng dẫn tham gia bình chọn và lời mời chia sẻ trải nghiệm; không tự công bố thêm hoạt động/sự kiện. Header Phase 2 cuộn khỏi viewport, thanh search/filter sticky trong section Bình chọn.
 - Card có dòng “Đã có 245 người tham gia bình chọn” dưới action, font 14px, line mảnh phía trên; phần chữ màu text-primary, riêng số màu action-primary. 245 vẫn là fixture. Hover/active CTA sáng hơn, disabled dùng màu DS và chặn click.

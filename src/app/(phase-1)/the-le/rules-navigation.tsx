@@ -1,6 +1,6 @@
 'use client';
 import { useEffect, useRef, useState } from 'react';
-export const sections = [['gioi-thieu','Giới thiệu chung'],['hang-muc','Hạng mục & đối tượng'],['thoi-gian','Thời gian tổ chức'],['tieu-chi','Tiêu chí đánh giá'],['ho-so','Hồ sơ đề cử'],['quy-dinh','Điều lệ & quy định']] as const;
+export const sections = [['gioi-thieu','Giới thiệu chung'],['hang-muc','Hạng mục & đối tượng'],['thoi-gian','Thời gian tổ chức'],['tieu-chi','Tiêu chí đánh giá'],['ho-so','Hồ sơ đề cử'],['quy-dinh','Điều lệ & quy định'],['cuoc-thi-30plus-travelglow','Cuộc thi 30Plus TravelGlow']] as const;
 export function RulesNavigation() {
  const [active,setActive]=useState<string>('gioi-thieu');
  const navRef=useRef<HTMLElement>(null);

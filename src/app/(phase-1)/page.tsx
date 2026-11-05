@@ -7,6 +7,7 @@ import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
 import { CTAArrow, Container, Eyebrow, Section, TextLink, NominationCTA } from '@/components/primitives';
 import { AwardTabs } from '@/components/award-tabs';
 import { NominationGuideSlider } from '@/components/nomination-guide-slider';
+import { TravelGlowIntro } from '@/components/travel-glow-intro';
 import { DestinationGallery } from '@/components/destination-gallery';
 import { UiIcon } from '@/components/ui-icon';
 import { ScrollReveal } from '@/components/scroll-reveal';
@@ -16,6 +17,8 @@ import { AwardCount } from '@/components/award-count';
 import { SiteFooter } from '@/components/site-footer';
 import '@/app/home.css';
 import '@/styles/nomination-guide-icons.css';
+
+const showDestinationGallery = false;
 
 export const metadata: Metadata = {
   title: 'Travel Awards 2026 — Dấu ấn tiên phong',
@@ -99,7 +102,8 @@ export default function HomePage() {
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
-      <DestinationGallery />
+      {showDestinationGallery && <DestinationGallery />}
+      <TravelGlowIntro />
       <Section id="participate" className="home-participate">
         <Container>
           <div className="nomination-guide-heading"><h2 className="type-display-l">Đăng ký tham gia đề cử</h2></div>
@@ -116,7 +120,7 @@ export default function HomePage() {
         <HeroRouteGlow /><Container><Eyebrow>The First Signature</Eyebrow><h2 className="type-display-xl">Dấu ấn tiếp theo.<br /><em>Có thể là bạn.</em></h2><p>Cùng định hình tương lai du lịch Việt Nam.</p><NominationCTA className="home-cta cta-mobile-dang-ky" /></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
-        <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>
+        <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div><div className="home-partner-stack"><div className="home-organizer-unit"><Eyebrow>Đối tác kim cương</Eyebrow><div className="home-partner-vacure"><Image src="/assets/key-visual/vacure.png" alt="Vacure" width={2732} height={2732} unoptimized /></div></div><div className="home-organizer-unit"><Eyebrow>Đối tác chuyên môn</Eyebrow><Image className="home-partner-outbox" src="/assets/key-visual/outbox.png" alt="Outbox" width={2599} height={1167} unoptimized /></div></div></Container>
       </Section>
     </main>
     <SiteFooter />

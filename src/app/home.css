@@ -565,3 +565,55 @@
   .nomination-guide-navigation button:disabled { opacity: .35; cursor: default; }
   .nomination-guide-navigation button:focus-visible { outline: 2px solid var(--color-text-brand); outline-offset: 2px; }
 }
+
+.home-partner-stack { display: grid; justify-items: center; gap: 36px; margin-top: 40px; text-align: center; }
+.home-partner-outbox { width: 240px; height: auto; max-width: 100%; }
+.home-partner-vacure { width: 240px; height: 140px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.home-partner-vacure img { width: 240px; height: 240px; max-width: none; object-fit: contain; transform: scale(2); }
+@media (max-width: 47.99rem) { .home-partner-stack { margin-top: 32px; gap: 28px; } .home-partner-outbox { width: 200px; } }
+
+/* Phase 1 community contest introduction. */
+.home-travel-glow { background: var(--color-surface-brand-soft); padding-block: 64px; }
+.travel-glow-layout { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: start; }
+.travel-glow-title h2 { margin: 16px 0; line-height: 1.15; }
+.travel-glow-title h2 span { color: var(--color-text-brand); }
+.travel-glow-hashtag { color: var(--color-text-brand); font-size: 14px; }
+.travel-glow-copy h3 { font-size: 26px; line-height: 1.4; font-weight: 400; margin: 0 0 16px; }
+.travel-glow-copy p { font-size: 16px; line-height: 1.6; }
+.travel-glow-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin: 24px 0; padding-block: 20px; border-block: var(--home-rule); }
+.travel-glow-facts dt { font-size: 14px; color: var(--color-text-secondary); margin-bottom: 8px; }
+.travel-glow-facts dd { margin: 0; font-size: 16px; }
+.travel-glow-details summary { cursor: pointer; display: flex; justify-content: space-between; align-items: center; min-height: 44px; color: var(--color-text-brand); list-style: none; }
+.travel-glow-details summary::-webkit-details-marker { display: none; }
+.travel-glow-details[open] summary span { transform: rotate(45deg); }
+.travel-glow-details > div { display: grid; gap: 16px; padding-block: 16px; }
+.travel-glow-copy .travel-glow-organizers { font-size: 13px; color: var(--color-text-secondary); margin-top: 24px; }
+.home:not(.home-phase-2) .home-travel-glow + .home-participate { padding-block: 64px; }
+@media (max-width: 47.99rem) {
+ .home-travel-glow { padding-block: 40px; }
+ .travel-glow-layout { grid-template-columns: 1fr; gap: 24px; }
+ .travel-glow-title h2 { font-size: 36px; }
+ .travel-glow-copy h3 { font-size: 24px; }
+ .travel-glow-facts { grid-template-columns: 1fr; gap: 16px; }
+ .home:not(.home-phase-2) .home-travel-glow + .home-participate { padding-block: 40px; }
+}
+
+/* BG1 artwork decorates the contest without competing with the copy. */
+.home-travel-glow { position: relative; isolation: isolate; overflow: hidden; }
+.home-travel-glow::before { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: url('/assets/key-visual/BG1%20SVG.svg') left center / cover no-repeat; opacity: .1; }
+.home-travel-glow::after { content: ''; position: absolute; z-index: -1; inset: 0; pointer-events: none; background: linear-gradient(90deg, transparent, var(--color-surface-brand-soft) 65%); }
+@media (max-width: 47.99rem) {
+ .home-travel-glow::before { background-image: url('/assets/key-visual/BG1%20Mobile.png'); background-position: center top; }
+ .home-travel-glow::after { background: linear-gradient(180deg, transparent, var(--color-surface-brand-soft) 55%); }
+}
+
+.travel-glow-art { display: block; width: min(320px, 100%); height: auto; margin-top: 24px; color: var(--color-text-brand); }
+.travel-glow-art > circle:first-child { fill: var(--color-brand-accent); opacity: .6; }
+@media (max-width: 47.99rem) { .travel-glow-art { width: 220px; margin-top: 16px; } }
+
+/* Gentle sunlight motion; respect the device motion preference. */
+.travel-glow-sun-rays { transform-box: view-box; transform-origin: 180px 68px; animation: travel-glow-sun-turn 40s linear infinite; }
+.travel-glow-art > circle:first-child { transform-box: view-box; transform-origin: 180px 68px; animation: travel-glow-sun-breathe 5s ease-in-out infinite; }
+@keyframes travel-glow-sun-turn { to { transform: rotate(360deg); } }
+@keyframes travel-glow-sun-breathe { 0%, 100% { transform: scale(.92); opacity: .4; } 50% { transform: scale(1.12); opacity: .7; } }
+@media (prefers-reduced-motion: reduce) { .travel-glow-sun-rays, .travel-glow-art > circle:first-child { animation: none; } }
