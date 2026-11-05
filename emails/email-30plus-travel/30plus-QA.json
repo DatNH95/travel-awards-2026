@@ -1,0 +1,29 @@
+{
+  "checks": [
+    {
+      "width": 694,
+      "overflow": false,
+      "imageLoaded": true,
+      "unresolved": false,
+      "scripts": 0,
+      "category": true
+    },
+    {
+      "width": 390,
+      "overflow": false,
+      "imageLoaded": true,
+      "unresolved": false,
+      "scripts": 0,
+      "category": true
+    },
+    {
+      "width": 320,
+      "overflow": false,
+      "imageLoaded": true,
+      "unresolved": false,
+      "scripts": 0,
+      "category": true
+    }
+  ],
+  "note": "Browser layout checks only; Gmail/Outlook/Apple Mail delivery not tested."
+}

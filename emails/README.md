@@ -1,5 +1,7 @@
 # Email Travel Awards 2026
 
+Mẫu xác nhận riêng cho game **30Plus Travel Glow** được tách tại [email-30plus-travel/](email-30plus-travel/). Xem [hướng dẫn 30Plus](email-30plus-travel/30plus-README.md). Email Travel Awards giữ tại thư mục hiện tại.
+
 Mẫu `registration-success.html` đối chiếu với `public/assets/key-visual/email dang ky ho so.svg`. Banner PNG được cắt trực tiếp từ SVG gốc, kích thước 1270 × 400, hiển thị 635 × 200. Nội dung dùng chữ HTML, table layout và CSS inline; không có runtime hoặc JavaScript.
 
 Subject: **Travel Awards 2026 — Đăng ký hồ sơ thành công**

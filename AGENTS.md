@@ -384,3 +384,9 @@ Sau mỗi iteration, cập nhật phần trạng thái/checklist của file này
 - Thể lệ: ảnh public/assets/key-visual/ADS 300x600.jpg dưới mục lục, cách 24px; cả cụm sidebar sticky desktop, có cuộn nội bộ khi cao hơn viewport; mobile xếp bình thường.
 - Nền riêng trang Thể lệ dùng #F7F7F7 theo yêu cầu người dùng; giữ palette foundation và header/footer dùng chung.
 - Footer dùng chung luôn có background #FFFFFF trên toàn bộ các trang, độc lập với nền trang.
+
+## Phạm vi email khi đẩy GitHub
+
+- Khi người dùng yêu cầu cập nhật/đẩy email đăng ký **30Plus**, xử lý `emails/email-30plus-travel/` và phụ thuộc cần thiết; không sửa bộ email Travel Awards.
+- Khi người dùng yêu cầu cập nhật/đẩy email đăng ký **Travel** hoặc **Travel Awards**, xử lý bộ `emails/registration-success*`, `emails/assets/registration-banner.png` và tài liệu liên quan; không sửa bộ 30Plus.
+- Không gửi email thật hoặc tự tích hợp backend khi chỉ được yêu cầu chỉnh template. Không tự đồng bộ handoff website cho yêu cầu email.

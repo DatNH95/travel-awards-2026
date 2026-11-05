@@ -1,0 +1,21 @@
+Thân gửi {{recipient_name}}
+
+Chúc mừng bạn đã đăng ký thành công hồ sơ tham dự 30Plus Travel Glow.
+
+Thông tin hồ sơ:
+Tên: {{application_name}}
+Hạng mục: 30PlusTravelGlow
+Xem chi tiết hồ sơ: {{application_url}}
+
+Ban tổ chức sẽ xem xét, đánh giá hồ sơ dự thi của bạn và sẽ gửi thông báo sau khi có kết quả thông qua địa chỉ email này.
+
+Bạn vui lòng để ý email để nhận được thông báo.
+Chúc bạn thành công!
+
+Ban tổ chức
+Travel Awards 2026
+
+Mọi thắc mắc vui lòng liên hệ:
+Bà Lương Thị Thanh Tú
++84 (24) 73009999/ Ext: 4567
+Email: sukien@vnexpress.net
