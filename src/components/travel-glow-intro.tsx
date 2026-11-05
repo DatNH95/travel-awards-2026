@@ -2,6 +2,7 @@ import { Container, Eyebrow, Section, TextLink } from './primitives';
 
 export function TravelGlowIntro() {
   return <Section id="travel-glow" className="home-travel-glow">
+    <span className="travel-glow-camera" aria-hidden="true" />
     <Container>
       <div className="travel-glow-layout">
         <div className="travel-glow-title">

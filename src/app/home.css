@@ -617,3 +617,7 @@
 @keyframes travel-glow-sun-turn { to { transform: rotate(360deg); } }
 @keyframes travel-glow-sun-breathe { 0%, 100% { transform: scale(.92); opacity: .4; } 50% { transform: scale(1.12); opacity: .7; } }
 @media (prefers-reduced-motion: reduce) { .travel-glow-sun-rays, .travel-glow-art > circle:first-child { animation: none; } }
+
+.travel-glow-camera { position: absolute; z-index: 0; pointer-events: none; right: -80px; bottom: -30px; width: min(620px, 48vw); height: 100%; background: url('/assets/key-visual/travel-glow-camera.jpg') center / contain no-repeat; opacity: .09; mix-blend-mode: multiply; mask-image: linear-gradient(90deg, transparent, black 30%); }
+.home-travel-glow > .container { position: relative; z-index: 1; }
+@media (max-width: 47.99rem) { .travel-glow-camera { right: -90px; bottom: 0; width: 360px; height: 300px; opacity: .06; } }

@@ -106,7 +106,7 @@ export default function HomePage() {
       <TravelGlowIntro />
       <Section id="participate" className="home-participate">
         <Container>
-          <div className="nomination-guide-heading"><h2 className="type-display-l">Đăng ký tham gia đề cử</h2></div>
+          <div className="nomination-guide-heading"><h2 className="type-display-l">Đăng ký đề cử Travel Awards</h2></div>
           <NominationGuideSlider><ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn và đăng ký đề cử">
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="trophy" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">01</span></div><h3>Chọn hạng mục</h3><p>Chọn hạng mục phù hợp với dấu ấn của bạn.</p></li>
             <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="document" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">02</span></div><h3>Chuẩn bị hồ sơ</h3><p>Chuẩn bị thông tin và minh chứng cho đề cử.</p></li>

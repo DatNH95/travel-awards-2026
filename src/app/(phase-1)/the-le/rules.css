@@ -197,3 +197,14 @@
 .rules-glow-prize-note .fi-rr-gift::before { content: '\e95d'; }
 .rules-glow-prize-label[data-prize-icon=camera] { --glow-prize-accent:#e5bb3d; }
 @media(max-width:640px) { .rules-travel-glow .rules-glow-prize-grid .rules-glow-prize-label { display: flex; grid-row: auto; gap: 16px; } }
+/* Mobile prize labels — 30Plus rules only. */
+@media(max-width:640px){
+.rules-travel-glow .rules-glow-prize-grid .rules-glow-prize-label{flex-direction:column;align-items:center;text-align:center;gap:16px;padding:24px 20px}
+.rules-travel-glow .rules-glow-prize-label>h5{width:100%;max-width:28ch;margin:0;font-size:18px;line-height:1.4;font-weight:600;text-align:center;text-wrap:balance}
+.rules-travel-glow .rules-glow-prize-label .rules-glow-prize-icon{align-self:center;margin:0;width:56px;height:56px}
+.rules-travel-glow .rules-glow-prize-label .rules-glow-prize-value{width:100%;justify-items:center;gap:6px;margin:0;text-align:center}
+.rules-travel-glow .rules-glow-prize-value>span{font-size:14px;line-height:1.4}
+.rules-travel-glow .rules-glow-prize-value>strong{font-size:clamp(24px,7vw,28px);line-height:1.3;font-weight:600;text-align:center}
+.rules-travel-glow .rules-glow-prize-label>p:not(.rules-glow-prize-value){width:100%;margin:0;font-size:16px;line-height:1.6;text-align:center}
+.rules-travel-glow .rules-glow-prize-label .rules-glow-prize-note{justify-content:center;font-size:14px;line-height:1.5;text-align:center}
+}
