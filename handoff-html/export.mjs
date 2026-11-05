@@ -120,6 +120,7 @@ for(const [route,file,kind,editStage,partIndex] of routes.filter(([,file]) => pr
     else if(u.pathname==='/tin-tuc')dest=u.searchParams.get('page')&&u.searchParams.get('page')!=='1'?`tin-tuc-${u.searchParams.get('page')}.html`:'tin-tuc.html';
     else if(u.pathname.startsWith('/tin-tuc/'))dest=`tin-${u.pathname.split('/').pop()}.html`;
     else if(u.pathname==='/dang-ky-de-cu')dest='dang-ky-de-cu.html'+(u.search?'?'+u.searchParams.toString():'');
+    else if(u.pathname==='/dang-ky-30-plus')dest='dang-ky-30-plus.html';
     return dest?`${attr}="${dest}${u.hash}"`:whole;
   });
   // Readable block boundaries without adding whitespace inside inline text.
@@ -131,6 +132,8 @@ for(const [route,file,kind,editStage,partIndex] of routes.filter(([,file]) => pr
   if(++count%15===0) console.log(`Exported ${count}/${routes.length}`);
 }
 await browser.close();
+const {exportTravelGlow}=await import('./travel-glow.mjs');
+await exportTravelGlow();
 await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify({pages:routes.map(([source,file,,editStage])=>({source,file,...(editStage?{editStage}:{})})),categories},null,2));
 console.log(`Done: ${count} HTML pages`);
 if(process.argv.length<3 || process.argv.slice(2).some(file=>/^(dang-ky|xac-nhan|thanh-cong|chinh-sua|cap-nhat)/.test(file))) {
