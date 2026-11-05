@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "rulesLinkRemoved": true,
+      "demoVote": true,
+      "prizes": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "rulesLinkRemoved": true,
+      "demoVote": true,
+      "prizes": true,
+      "errors": []
+    }
+  ]
+}

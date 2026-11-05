@@ -1,14 +1,14 @@
-import { DestinationGallery } from '@/components/destination-gallery';
-import { NominationGuideSlider } from '@/components/nomination-guide-slider';
-import { UiIcon } from '@/components/ui-icon';
-import '@/styles/nomination-guide-icons.css';
+import { TravelGlowIntro } from '@/components/travel-glow-intro';
+import { TravelGlowVoting } from '@/components/travel-glow-voting';
+
+
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import localFont from 'next/font/local';
 import Link from 'next/link';
 
 import { BrandGraphic, SignatureDivider } from '@/components/brand-graphics';
-import { CTAArrow, Container, Eyebrow, Section, TextLink, VotingCTA } from '@/components/phase-2/primitives';
+import { CTAArrow, Container, Eyebrow, Section, TextLink } from '@/components/phase-2/primitives';
 import { AwardTabs } from '@/components/phase-2/award-tabs';
 import { ScrollReveal } from '@/components/scroll-reveal';
 import { HeroStage, HeroRouteGlow } from '@/components/hero-stage';
@@ -17,7 +17,6 @@ import { SiteHeader } from '@/components/phase-2/site-header';
 import { AwardCount } from '@/components/award-count';
 import { SiteFooter } from '@/components/phase-2/site-footer';
 import { VotingBrowser } from '@/components/voting-browser';
-import { VotingCommunity } from '@/components/voting-community';
 import '@/app/home.css';
 import '../binh-chon/voting.css';
 
@@ -66,7 +65,7 @@ export default function Phase2HomePage() {
         </div>
       </HeroStage>
       <VotingBrowser id="about" />
-      <VotingCommunity />
+      <TravelGlowVoting />
       <Section id="journey" className="home-journey">
         <Container>
           <div className="home-section-title"><h2 className="type-display-l">Agenda<span className="home-agenda-title-line"> sự kiện</span></h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
@@ -94,23 +93,13 @@ export default function Phase2HomePage() {
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
-      <DestinationGallery />
-      <Section id="participate" className="home-participate">
-        <Container>
-          <div className="nomination-guide-heading"><h2 className="type-display-l">Cách tham gia bình chọn</h2></div>
-          <NominationGuideSlider><ol id="nomination-guide" className="nomination-guide-frames nomination-guide-frames--four" aria-label="Hướng dẫn tham gia bình chọn">
-            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="globe" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">01</span></div><h3>Đăng nhập MyVNEID</h3><p>Sử dụng tài khoản MyVNEID để tham gia khi chương trình mở chính thức.</p></li>
-            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="trophy" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">02</span></div><h3>Chọn hồ sơ bạn biết</h3><p>Chọn các hồ sơ bạn đã trải nghiệm trong cùng hạng mục.</p></li>
-            <li className="nomination-guide-frame"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="check" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">03</span></div><h3>Hoàn tất khảo sát</h3><p>Trả lời đầy đủ câu hỏi. Đánh giá đầy đủ các hồ sơ đã chọn trước khi hoàn tất.</p></li>
-            <li className="nomination-guide-frame nomination-guide-frame--cta"><div className="nomination-guide-frame-top"><span className="nomination-guide-icon"><UiIcon name="arrow-up-right" size={20} /></span><span className="nomination-guide-number" aria-hidden="true">04</span></div><h3>Chia sẻ trải nghiệm của bạn</h3><VotingCTA href="#about" label="Bình chọn ngay" className="nomination-guide-cta" /></li>
-          </ol></NominationGuideSlider>
-        </Container>
-      </Section>
+      <TravelGlowIntro />
+
       <Section id="nominate" tone="brand-deep" className="home-final-cta home-final-cta--bg1">
         <HeroRouteGlow /><Container><Eyebrow>Góc nhìn từ hành trình của bạn</Eyebrow><h2 className="type-display-xl">Mỗi trải nghiệm.<br /><em>Một góc nhìn.</em></h2><p>Khám phá hồ sơ, chia sẻ cảm nhận và góp phần ghi nhận những dấu ấn du lịch Việt Nam.</p><Link href="/binh-chon" className="button button--primary home-cta">Bình chọn<CTAArrow /></Link></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
-        <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div></Container>
+        <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div><div className="home-partner-stack"><div className="home-organizer-unit"><Eyebrow>Đối tác kim cương</Eyebrow><div className="home-partner-vacure"><Image src="/assets/key-visual/vacure.png" alt="Vacure" width={2732} height={2732} unoptimized /></div></div><div className="home-organizer-unit"><Eyebrow>Đối tác chuyên môn</Eyebrow><Image className="home-partner-outbox" src="/assets/key-visual/outbox.png" alt="Outbox" width={2599} height={1167} unoptimized /></div></div></Container>
       </Section>
     </main>
     <SiteFooter />

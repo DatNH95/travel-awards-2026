@@ -2,7 +2,6 @@ import type { ReactNode } from 'react';
 import blocks from '@/data/travel-glow-rules.json';
 import { UiIcon } from '@/components/ui-icon';
 
-const formUrl = '/dang-ky-30-plus';
 function prizeIcon(title: string) {
   if (title.includes('Chuyến đi được yêu thích nhất')) return 'heart';
   if (title.includes('Travel Glow Choice')) return 'star';
@@ -34,7 +33,7 @@ function Paragraphs({ texts }: { texts: string[] }) {
       i--;
       nodes.push(<ul key={i}>{items.map(item => <li key={item}>{item}</li>)}</ul>);
     } else if (text === 'Form đăng ký:') {
-      nodes.push(<p className="rules-glow-form" key={i}>Form đăng ký: <a className="text-link" href={formUrl} aria-label="Form đăng ký 30Plus TravelGlow: tại đây">tại đây</a></p>);
+      continue;
     } else if (/^Điều \d|^\d\. Nhóm giải|^Cách thức tham gia:|^Cách thức tính điểm:/.test(text)) {
       nodes.push(<h4 key={i}>{text}</h4>);
     } else {

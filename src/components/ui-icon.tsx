@@ -1,6 +1,6 @@
 import type { CSSProperties } from 'react';
 
-export const uiIconNames = ['home', 'search', 'angle-small-down', 'angle-left', 'angle-right', 'arrow-up-right', 'cross', 'expand', 'trophy', 'heart', 'star', 'book-open-cover', 'camera', 'gift', 'medal', 'document', 'link', 'globe', 'phone-call', 'bell', 'comment-alt', 'check', 'calendar', 'shield-check', 'facebook', 'instagram', 'tik-tok', 'youtube', 'exchange', 'envelope'] as const;
+export const uiIconNames = ['thumbs-up-trust', 'home', 'search', 'angle-small-down', 'angle-left', 'angle-right', 'arrow-up-right', 'cross', 'expand', 'trophy', 'heart', 'star', 'book-open-cover', 'camera', 'gift', 'medal', 'document', 'link', 'globe', 'phone-call', 'bell', 'comment-alt', 'check', 'calendar', 'shield-check', 'facebook', 'instagram', 'tik-tok', 'youtube', 'exchange', 'envelope'] as const;
 export type UiIconName = (typeof uiIconNames)[number];
 
 /** Decorative UI icon. Put the accessible label on its button/link. */
