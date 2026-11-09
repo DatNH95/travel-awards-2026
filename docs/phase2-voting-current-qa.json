@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "sliderEdges": true,
+      "multipleProfiles": 2,
+      "incompleteBlocked": true,
+      "historyCategories": 1,
+      "historyProfiles": 2,
+      "categoryLocked": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "sliderEdges": true,
+      "multipleProfiles": 2,
+      "incompleteBlocked": true,
+      "historyCategories": 1,
+      "historyProfiles": 2,
+      "categoryLocked": true,
+      "errors": []
+    },
+    {
+      "width": 320,
+      "sliderEdges": true,
+      "multipleProfiles": 2,
+      "incompleteBlocked": true,
+      "historyCategories": 1,
+      "historyProfiles": 2,
+      "categoryLocked": true,
+      "errors": []
+    }
+  ]
+}

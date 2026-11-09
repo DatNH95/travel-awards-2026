@@ -331,7 +331,7 @@
 .travel-glow-voting-heading h2 { font-size:36px; line-height:1.4; }
 .travel-glow-voting-heading p { max-width:64ch; margin-top:8px; font-size:16px; line-height:1.6; color:var(--color-text-secondary); }
 .travel-glow-voting-heading > a { flex-shrink:0; margin-top:12px; }
-.travel-glow-entry .voting-card-copy h3 { font-size:20px; line-height:1.4; font-weight:400; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
+.travel-glow-entry .voting-card-copy h3 { font-size:var(--text-body-large); line-height:1.4; font-weight:400; display:-webkit-box; -webkit-box-orient:vertical; -webkit-line-clamp:2; overflow:hidden; }
 .travel-glow-entry-actions { display:flex; justify-content:space-between; align-items:center; gap:16px; margin-top:auto; padding-top:20px; }
 .travel-glow-entry-actions > p { font-size:14px; color:var(--color-text-secondary); }
 .travel-glow-entry-actions strong { color:var(--color-action-primary); }
@@ -367,3 +367,87 @@
 .travel-glow-prize-note { font-size:13px; line-height:1.6; color:var(--color-text-secondary); }
 @media(max-width:1023px) { .travel-glow-prizes-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:20px; } .travel-glow-prizes-grid > .travel-glow-prize-item { grid-column:auto; grid-row:auto; margin-top:0; transform:none; } .travel-glow-prizes-grid > .travel-glow-prize-item:first-child { grid-column:1 / -1; max-width:480px; width:100%; justify-self:center; } }
 @media(max-width:600px) { .travel-glow-prizes { margin-top:36px; padding-top:28px; } .travel-glow-prizes-heading { margin-bottom:28px; } .travel-glow-prizes-heading h3 {font-size:28px;} .travel-glow-prizes-grid { grid-template-columns:1fr; } .travel-glow-prize-cash > strong { font-size:40px; } }
+.travel-glow-entry-actions > p { justify-content:flex-start; }
+.travel-glow-prizes-heading { display:flex; align-items:center; justify-content:space-between; gap:24px; text-align:left; max-width:none; margin:0 0 24px; }
+.travel-glow-prizes-heading h3 { margin:0; }
+.travel-glow-prizes-heading > a { flex-shrink:0; }
+.travel-glow-prizes-grid { grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:calc((100% - 40px) / 3); gap:20px; align-items:stretch; overflow-x:auto; scroll-snap-type:x mandatory; overscroll-behavior-x:contain; scrollbar-width:none; padding:4px 4px 16px; margin:-4px; }
+.travel-glow-prizes-grid::-webkit-scrollbar { display:none; }
+.travel-glow-prizes-grid > .travel-glow-prize-item,.travel-glow-prizes-grid > .travel-glow-prize-item:first-child { grid-column:auto; grid-row:auto; transform:none; margin:0; padding:24px 20px; max-width:none; width:auto; border:1px solid var(--color-border-default); scroll-snap-align:start; display:flex; flex-direction:column; align-items:center; }
+.travel-glow-prizes-grid > .travel-glow-prize-item[data-featured=true] { border-color:#eda33b; }
+.travel-glow-prize-laurel { width:64px; height:60px; margin-bottom:16px; }
+.travel-glow-prize-item h4 { font-size:18px; line-height:1.45; margin-bottom:16px; }
+.travel-glow-prize-cash { margin:auto 0 12px; padding-top:8px; }
+.travel-glow-prize-controls { display:flex; justify-content:flex-end; gap:8px; margin-top:16px; }
+@media(max-width:1023px) { .travel-glow-prizes-grid { grid-auto-columns:calc((100% - 20px) / 2); } }
+@media(max-width:600px) { .travel-glow-prizes-grid { grid-auto-columns:100%; } .travel-glow-prizes-heading { gap:12px; } .travel-glow-prizes-heading h3 { font-size:24px; } }
+/* Phase 2: alternate calm surfaces and consistent section spacing. */
+.home-phase-2 { --phase2-section-space:clamp(40px,5vw,72px); }
+.home-phase-2 :is(.home-travel-glow-voting,.home-journey,.home-news,.home-awards,.home-travel-glow) { padding-block:var(--phase2-section-space); }
+.home-phase-2 .home-travel-glow-voting { background:linear-gradient(180deg,var(--color-surface-primary),var(--color-surface-brand-soft) 160px); }
+.home-phase-2 .travel-glow-prizes { margin-top:40px; padding:32px; border:1px solid color-mix(in srgb,var(--color-border-default) 55%,transparent); border-radius:20px; background:color-mix(in srgb,var(--color-surface-primary) 88%,transparent); }
+.home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item { box-shadow:0 4px 16px rgb(38 60 83 / 5%); }
+.home-phase-2 .home-journey { background:#f5f7f8; }
+.home-phase-2 .home-journey > .layout-container::before { content:none; }
+.home-phase-2 .home-news { background:var(--color-surface-primary); }
+.home-phase-2 .home-awards { background:var(--color-surface-brand-soft); }
+.home-phase-2 .home-travel-glow { background:var(--color-surface-primary); }
+.home-phase-2 .home-travel-glow::before { opacity:.06; }
+.home-phase-2 .home-travel-glow::after { background:linear-gradient(90deg,transparent,var(--color-surface-primary) 68%); }
+.home-phase-2 :is(.home-journey,.home-news) .home-section-title { margin-bottom:32px; }
+.home-phase-2 .home-final-cta { padding-block:var(--phase2-section-space); }
+.home-phase-2 .home-organizer { background:var(--color-surface-primary); padding-block:var(--phase2-section-space); }
+@media(max-width:767px) {
+  .home-phase-2 .travel-glow-prizes { margin-top:28px; padding:24px 16px 16px; border-radius:14px; }
+  .home-phase-2 :is(.home-journey,.home-news) .home-section-title { margin-bottom:24px; }
+  .home-phase-2 .home-travel-glow::after { background:linear-gradient(180deg,transparent,var(--color-surface-primary) 60%); }
+}
+.home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item { transition:transform 220ms ease,box-shadow 220ms ease,border-color 220ms ease; }
+@media(hover:hover) {
+  .home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item:hover { transform:translateY(-3px); border-color:#eda33b; box-shadow:0 8px 24px rgb(185 140 46 / 14%); }
+}
+@media(prefers-reduced-motion:reduce) {
+  .home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item { transition:none; }
+  .home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item:hover { transform:none; }
+}
+.home-phase-2 .travel-glow-prizes { background:transparent; border:0; border-radius:0; padding:0; margin-top:48px; }
+@media(max-width:767px) { .home-phase-2 .travel-glow-prizes { padding:0; margin-top:32px; } }
+/* Distinct award accents on flat card surfaces. */
+.home-phase-2 .travel-glow-prize-item { --prize-accent:#0076be; }
+.home-phase-2 .travel-glow-prize-item:nth-child(2) { --prize-accent:#238361; }
+.home-phase-2 .travel-glow-prize-item:nth-child(3) { --prize-accent:#7658a5; }
+.home-phase-2 .travel-glow-prize-item:nth-child(4) { --prize-accent:#337e91; }
+.home-phase-2 .travel-glow-prize-item:nth-child(5) { --prize-accent:#b45379; }
+.home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item { background:var(--color-surface-primary); border-color:color-mix(in srgb,var(--prize-accent) 35%,var(--color-surface-primary)); }
+.home-phase-2 .travel-glow-prize-cash > strong { background:none; color:var(--prize-accent); -webkit-text-fill-color:currentColor; }
+.home-phase-2 .travel-glow-prize-laurel { background:var(--prize-accent); mask:url('/assets/phase-2/prize-laurel.svg') center / contain no-repeat; }
+@media(hover:hover) { .home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item:hover { border-color:var(--prize-accent); box-shadow:0 8px 24px color-mix(in srgb,var(--prize-accent) 14%,transparent); } }
+
+.home-phase-2 .travel-glow-prizes-grid > .travel-glow-prize-item { padding:18px 16px; border-radius:10px; }
+.home-phase-2 .travel-glow-prize-laurel { width:52px; height:48px; margin-bottom:10px; }
+.home-phase-2 .travel-glow-prize-item h4 { font-size:16px; line-height:1.4; margin:0 0 10px; }
+.home-phase-2 .travel-glow-prize-cash { margin:auto 0 8px; padding-top:4px; gap:2px; }
+.home-phase-2 .travel-glow-prize-cash > span { font-size:12px; line-height:1.4; }
+.home-phase-2 .travel-glow-prize-cash > strong { font-size:34px; line-height:1.2; }
+.home-phase-2 .travel-glow-prize-note { font-size:12px; line-height:1.4; }
+.home-phase-2 .travel-glow-prize-controls { margin-top:8px; }
+.home-phase-2 .travel-glow-prize-cash > span { font-size:15px; line-height:1.5; }
+.home-phase-2 .travel-glow-prize-cash { margin-bottom:0; }
+.home-phase-2 .travel-glow-prize-item h4 { margin-bottom:14px; }
+.home-phase-2 .travel-glow-prize-cash { margin:0; padding-top:0; }
+
+.home-phase-2 .travel-glow-prizes-heading .travel-glow-prize-controls { margin:0; flex-shrink:0; }
+.home-phase-2 .travel-glow-prizes-heading h3 a { color:inherit; }
+.home-phase-2 .travel-glow-prizes-heading h3 a:hover { color:var(--color-action-primary); }
+/* Licensed travel motifs from Magnific: quiet edge decoration for 30Plus only. */
+.home-phase-2 .home-travel-glow-voting { position:relative; isolation:isolate; background:radial-gradient(ellipse at 0 5%,rgb(145 213 216 / 18%),transparent 42%),radial-gradient(ellipse at 100% 95%,rgb(175 221 214 / 22%),transparent 44%),#f3f9f8; }
+.home-phase-2 .home-travel-glow-voting::before,
+.home-phase-2 .home-travel-glow-voting::after { content:''; position:absolute; inset-inline:0; height:280px; z-index:-1; pointer-events:none; background-image:url('/assets/phase-2/travel-glow/travel-elements.webp'); background-size:1000px 1000px; background-repeat:repeat-x; filter:hue-rotate(140deg) saturate(.55); mix-blend-mode:multiply; }
+.home-phase-2 .home-travel-glow-voting::before { top:0; background-position:20% top; opacity:.075; mask-image:linear-gradient(to bottom,#000,transparent); animation:travel-glow-pattern-drift 18s ease-in-out infinite alternate; }
+.home-phase-2 .home-travel-glow-voting::after { bottom:0; background-position:70% bottom; opacity:.055; mask-image:linear-gradient(to top,#000,transparent); }
+@keyframes travel-glow-pattern-drift { from {background-position:20% top;} to {background-position:calc(20% + 20px) top;} }
+@media(max-width:767px) { .home-phase-2 .home-travel-glow-voting::before,.home-phase-2 .home-travel-glow-voting::after { height:220px; opacity:.05; } }
+@media(prefers-reduced-motion:reduce) { .home-phase-2 .home-travel-glow-voting::before { animation:none; } }
+
+.travel-glow-entry-actions > p,.travel-glow-entry-actions strong { font-size:var(--text-body-small); line-height:1.4; }
+.travel-glow-entry-actions strong { font-size:24px; line-height:1.2; font-weight:700; }

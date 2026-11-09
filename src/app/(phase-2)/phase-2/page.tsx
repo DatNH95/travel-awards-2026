@@ -76,13 +76,6 @@ export default function Phase2HomePage() {
           </ol>
         </Container>
       </Section>
-      <Section id="awards" tone="brand-soft" className="home-awards">
-        <Container>
-          <div className="home-split"><div><h2 className="type-display-l home-awards-title">Hạng mục <span>giải thưởng</span><br />Travel Awards</h2><p className="home-awards-intro">Hai nhóm giải thưởng chính, 15 hạng mục.</p></div><div className="home-awards-count"><AwardCount /><Eyebrow>Hạng mục vinh danh</Eyebrow></div></div>
-          <SignatureDivider />
-          <AwardTabs phase="voting" />
-        </Container>
-      </Section>
       <Section id="news" className={`home-news ${newsFont.variable}`}>
         <Container>
           <div className="home-section-title"><h2 className="type-display-l"><Link href="/tin-tuc">Tin tức</Link></h2><Link className="text-link" href="/tin-tuc">Xem tất cả<span aria-hidden="true"><CTAArrow /></span></Link></div>
@@ -93,6 +86,14 @@ export default function Phase2HomePage() {
             </article>)} </div><aside className="home-news-ad" aria-label="Vị trí quảng cáo demo"><Image src="/assets/key-visual/ADS%20300x600.jpg" alt="Quảng cáo demo Travel Awards" width={300} height={600} unoptimized /></aside></div>
         </Container>
       </Section>
+      <Section id="awards" tone="brand-soft" className="home-awards">
+        <Container>
+          <div className="home-split"><div><h2 className="type-display-l home-awards-title">Hạng mục <span>giải thưởng</span><br />Travel Awards</h2><p className="home-awards-intro">Hai nhóm giải thưởng chính, 15 hạng mục.</p></div><div className="home-awards-count"><AwardCount /><Eyebrow>Hạng mục vinh danh</Eyebrow></div></div>
+          <SignatureDivider />
+          <AwardTabs phase="voting" />
+        </Container>
+      </Section>
+
       <TravelGlowIntro />
 
       <Section id="nominate" tone="brand-deep" className="home-final-cta home-final-cta--bg1">

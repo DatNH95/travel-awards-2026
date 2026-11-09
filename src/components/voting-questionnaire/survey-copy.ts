@@ -50,7 +50,8 @@ const copyByCategory: Record<string, ScreeningCopy> = {
 };
 
 export function getScreeningCopy(categoryId: string): ScreeningCopy {
-  return copyByCategory[categoryId] ?? {
+  const mapping:Record<string,string>={'tru-cot-1':'destination','tru-cot-2':'tour-operator','tru-cot-3':'hotel','tru-cot-4':'resort','tru-cot-5':'airline','tru-cot-6':'travel-experience','tien-phong-1':'tourism-personality','tien-phong-2':'sustainability','tien-phong-3':'green-destination','tien-phong-4':'creative-product','tien-phong-5':'digital','tien-phong-6':'community-tourism','tien-phong-7':'culinary-experience','tien-phong-8':'tourism-ambassador','tien-phong-9':'tourism-campaign'};
+  return copyByCategory[mapping[categoryId]??categoryId] ?? {
     stepTitle: 'Chọn hồ sơ',
     question: 'Chọn những hồ sơ bạn biết đến hoặc đã trải nghiệm',
     noneLabel: 'Chưa biết đến hoặc trải nghiệm các hồ sơ trên',

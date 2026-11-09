@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { UiIcon } from './ui-icon';
 import Image from 'next/image';
+import Link from 'next/link';
 import rules from '@/data/travel-glow-rules.json';
 import { votingProfiles } from '@/data/voting';
 import { Container, Section, TextLink } from './phase-2/primitives';
@@ -25,6 +26,10 @@ for(const raw of rules.find(block=>block.title==='Cơ cấu giải thưởng')?.
 }
 export function TravelGlowVoting() {
   const [voted,setVoted]=useState<number[]>([]);
+  const prizeTrack=useRef<HTMLUListElement>(null);
+  const [edges,setEdges]=useState({start:true,end:false});
+  useEffect(()=>{const el=prizeTrack.current;if(!el)return;const update=()=>{const bounds=el.getBoundingClientRect();const first=el.firstElementChild?.getBoundingClientRect();const last=el.lastElementChild?.getBoundingClientRect();setEdges({start:!first||first.left>=bounds.left-2,end:!last||last.right<=bounds.right+2});};update();el.addEventListener('scroll',update,{passive:true});const ro=new ResizeObserver(update);ro.observe(el);return()=>{el.removeEventListener('scroll',update);ro.disconnect();};},[]);
+  function movePrizes(direction:number){const el=prizeTrack.current;if(el)el.scrollBy({left:direction*el.clientWidth,behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'instant':'smooth'});}
   return <Section id="participate" className="home-travel-glow-voting"><Container>
     <header className="travel-glow-voting-heading"><div><h2 className="type-display-l">Cuộc thi 30Plus Travel Glow</h2><p>Chia sẻ hành trình trải nghiệm du lịch tuổi 30, lưu giữ những khoảnh khắc rạng rỡ theo cách của bạn.</p></div><TextLink href="/the-le#cuoc-thi-30plus-travelglow">Xem chi tiết thể lệ</TextLink></header>
     <div className="voting-grid">{entries.map((entry,index)=>{
@@ -32,18 +37,17 @@ export function TravelGlowVoting() {
       return <article className="voting-card travel-glow-entry" key={entry.title}>
         <div className="voting-image"><Image src={votingProfiles[index].image.src} alt="" width={720} height={432} unoptimized /></div>
         <div className="voting-card-body"><div className="voting-card-copy"><h3>{entry.title}</h3><p className="voting-card-organization">{entry.author}</p></div>
-          <div className="travel-glow-entry-actions"><p><UiIcon name="heart" size={22} /><strong>{(entry.likes+(selected?1:0)).toLocaleString('vi-VN')}</strong><span>lượt thích</span></p><button type="button" className="button button--primary voting-survey-trigger" disabled={selected} onClick={()=>setVoted(previous=>previous.includes(index)?previous:[...previous,index])}>{selected?'Đã bình chọn':'Bình chọn'}</button></div>
+          <div className="travel-glow-entry-actions"><p><span>Lượt thích:</span><strong>{(entry.likes+(selected?1:0)).toLocaleString('vi-VN')}</strong><UiIcon name="heart" size={22} /></p><button type="button" className="button button--primary voting-survey-trigger" disabled={selected} onClick={()=>setVoted(previous=>previous.includes(index)?previous:[...previous,index])}>{selected?'Đã bình chọn':'Bình chọn'}</button></div>
           {selected&&<p className="travel-glow-entry-success" role="status">Bạn đã bình chọn cho bài thi này.</p>}
         </div>
       </article>;
     })}</div>
     <section className="travel-glow-prizes" aria-labelledby="travel-glow-prizes-title">
-      <header className="travel-glow-prizes-heading"><h3 id="travel-glow-prizes-title">Cơ cấu <span>giải thưởng</span></h3><p>Những câu chuyện và hành trình rạng rỡ được ghi nhận cùng giải thưởng tiền mặt và quà tặng từ Nhà tài trợ.</p></header>
-      <ul className="travel-glow-prizes-grid">{prizeGroups.flatMap(group=>group.prizes.map(prize=>({...prize,group:group.title}))).map((prize,index)=><li className="travel-glow-prize-item" data-featured={index===0} key={prize.title}>
-        <Image className="travel-glow-prize-laurel" src="/assets/phase-2/prize-laurel.svg" alt="" width={100} height={92} unoptimized />
-        <h4>{prize.title}</h4><p className="travel-glow-prize-method">{prize.group.includes('cộng đồng')?'Cộng đồng bình chọn':'BTC / Ban Giám khảo lựa chọn'}</p>
-        <p className="travel-glow-prize-cash"><span>Tiền mặt / giải</span><strong>{prize.cash.split(' đồng')[0]}<small>VNĐ</small></strong></p>
-        <p className="travel-glow-prize-description">{prize.description}</p>{prize.notes.map(note=><p className="travel-glow-prize-note" key={note}>{note}</p>)}
+      <header className="travel-glow-prizes-heading"><h3 id="travel-glow-prizes-title"><Link href="/the-le#cuoc-thi-30plus-travelglow">Cơ cấu giải thưởng</Link></h3><div className="travel-glow-prize-controls" role="group" aria-label="Chuyển giải thưởng"><button type="button" className="voting-category-arrow" aria-label="Giải thưởng trước" aria-controls="travel-glow-prize-track" disabled={edges.start} onClick={()=>movePrizes(-1)}><span className="voting-slider-arrow-icon voting-slider-arrow-icon--prev" aria-hidden="true"/></button><button type="button" className="voting-category-arrow" aria-label="Giải thưởng tiếp theo" aria-controls="travel-glow-prize-track" disabled={edges.end} onClick={()=>movePrizes(1)}><span className="voting-slider-arrow-icon voting-slider-arrow-icon--next" aria-hidden="true"/></button></div></header>
+      <ul className="travel-glow-prizes-grid" ref={prizeTrack} id="travel-glow-prize-track" tabIndex={0} aria-label="Danh sách giải thưởng">{prizeGroups.flatMap(group=>group.prizes.map(prize=>({...prize,group:group.title}))).map((prize,index)=><li className="travel-glow-prize-item" data-featured={index===0} key={prize.title}>
+        <span className="travel-glow-prize-laurel" aria-hidden="true" />
+        <h4>{index===0?'Giải chuyến đi yêu thích nhất':prize.title}</h4>
+        <p className="travel-glow-prize-cash"><span>Giá trị / 01 giải</span><strong>{prize.cash.split(' đồng')[0]}<small>VNĐ</small></strong></p>
       </li>)}</ul>
     </section>
   </Container></Section>;

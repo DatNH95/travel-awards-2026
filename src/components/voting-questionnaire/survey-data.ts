@@ -1,4 +1,4 @@
-export type SurveyProfile = Readonly<{ id: string; name: string; location: string; image?: string }>;
+export type SurveyProfile = Readonly<{ id: string; name: string; location: string; entrant?: string; image?: string }>;
 export type CategoryResponse = { selected: string[]; noneUsed: boolean; ratings: Record<string, number>; completed: boolean };
 
 export const ratingLevels = [
