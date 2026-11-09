@@ -9,9 +9,10 @@ function ratingTone(value: number | undefined) {
   return value !== undefined && value <= 2 ? 'negative' : value !== undefined && value >= 4 ? 'positive' : 'neutral';
 }
 
-export function ProfileScreening({ categoryId, profiles, currentProfileId, response, onChange, onBack, onNext }: {
+export function ProfileScreening({ completedIds = [], categoryId, profiles, currentProfileId, response, onChange, onBack, onNext }: {
   categoryId: string;
   currentProfileId: string;
+  completedIds?: readonly string[];
   profiles: readonly SurveyProfile[];
   response: CategoryResponse;
   onChange: (response: CategoryResponse) => void;
@@ -30,10 +31,10 @@ export function ProfileScreening({ categoryId, profiles, currentProfileId, respo
       {[{title:'Hồ sơ đang chọn hiện tại',items:profiles.filter(item=>item.id===currentProfileId),current:true},{title:'Hồ sơ khác cùng hạng mục',items:profiles.filter(item=>item.id!==currentProfileId),current:false}].map(group=>group.items.length>0&&<section className="survey-profile-group" data-current={group.current} key={group.title} aria-label={group.title}>
         <header className="survey-profile-group-heading"><h4>{group.title}</h4><span>{group.items.length} hồ sơ</span></header>
         <ProfileScrollList count={group.items.length}>{group.items.map(item=><label className="survey-profile-card" data-selected={response.selected.includes(item.id)} key={item.id}>
-          <input type="checkbox" name="experienced-profile" value={item.id} checked={response.selected.includes(item.id)} onChange={event=>toggleProfile(item.id,event.target.checked)} />
+          <input type="checkbox" name="experienced-profile" disabled={completedIds.includes(item.id)} value={item.id} checked={response.selected.includes(item.id)} onChange={event=>toggleProfile(item.id,event.target.checked)} />
           {item.image?<Image unoptimized className="survey-profile-image" src={item.image} width={100} height={60} alt=""/>:<span className="survey-profile-image survey-profile-placeholder" aria-hidden="true"><UiIcon name="document" size={28}/></span>}
           <span className="survey-profile-copy"><strong>{item.name}</strong><span>{item.location}</span></span>
-          <span className="survey-profile-state" aria-hidden="true">{response.selected.includes(item.id)?'Đã chọn khảo sát':'Chưa chọn'}</span>
+          <span className="survey-profile-state" aria-hidden="true">{completedIds.includes(item.id)?'Đã bình chọn':response.selected.includes(item.id)?'Đã chọn khảo sát':'Chưa chọn'}</span>
         </label>)}</ProfileScrollList>
       </section>)}
       <p className="survey-choice-divider">{copy.divider}</p>

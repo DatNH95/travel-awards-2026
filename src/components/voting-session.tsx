@@ -13,19 +13,23 @@ export function VotingSessionProvider({children}: {children: ReactNode}) {
   const [completedProfiles,setCompletedProfiles] = useState<Record<string,string[]>>({});
   const [recentCompletions,setRecentCompletions] = useState<CompletedSurvey[]>([]);
   const [history,setHistory] = useState<Record<string,CategoryResponse>>({});
-  const recorded = useRef<Record<string,string>>({});
+  const recorded = useRef<Record<string,string[]>>({});
   function finish(category: string, slug: string | string[], response?: CategoryResponse) {
     const slugs = [...new Set(Array.isArray(slug)?slug:[slug])];
-    if (!slugs.length || recorded.current[category]) return false;
-    recorded.current = {...recorded.current,[category]:slugs[0]};
-    setCompleted(recorded.current);
-    if(response) setHistory(previous=>({...previous,[category]:{...response,selected:[...response.selected],ratings:{...response.ratings},completed:true}}));
-    setCompletedProfiles(previous=>({...previous,[category]:slugs}));
+    const existing=recorded.current[category]??[];
+    if (!slugs.length || slugs.some(id=>existing.includes(id))) return false;
+    const merged=[...existing,...slugs];
+    recorded.current={...recorded.current,[category]:merged};
+    setCompleted(previous=>({...previous,[category]:merged[0]}));
+    setCompletedProfiles(recorded.current);
+    if(response) setHistory(previous=>{
+      const before=previous[category];
+      return {...previous,[category]:{...response,selected:[...new Set([...(before?.selected??[]),...response.selected])],ratings:{...before?.ratings,...response.ratings},noneUsed:!before?.selected.length&&response.noneUsed,completed:true}};
+    });
     const completedAt=new Date().toISOString();
     setRecentCompletions(previous => [...slugs.map(slug=>({slug,completedAt})),...previous]);
     return true;
-  }
-  return <VotingSession.Provider value={{history,completed,completedProfiles,recentCompletions,finish}}>{children}</VotingSession.Provider>;
+  }  return <VotingSession.Provider value={{history,completed,completedProfiles,recentCompletions,finish}}>{children}</VotingSession.Provider>;
 }
 
 export function useVotingSession() {

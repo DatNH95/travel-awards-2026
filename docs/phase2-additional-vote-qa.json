@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "additionalProfileAllowed": true,
+      "duplicatesLocked": true,
+      "history": "1 category / 2 profiles",
+      "errors": []
+    },
+    {
+      "width": 390,
+      "additionalProfileAllowed": true,
+      "duplicatesLocked": true,
+      "history": "1 category / 2 profiles",
+      "errors": []
+    }
+  ]
+}
