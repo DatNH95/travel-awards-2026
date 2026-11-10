@@ -11,6 +11,7 @@ const base = process.env.QA_BASE_URL || 'http://127.0.0.1:3001';
 await fs.mkdir(path.join(out,'js'),{recursive:true});
 await fs.mkdir(path.join(out,'css'),{recursive:true});
 for (const name of ['tokens','base','home']) await fs.copyFile(`handoff-html/css/${name}.css`,path.join(out,`css/${name}.css`));
+await fs.writeFile(path.join(out,'css/home.css'),flattenStyles((await fs.readFile('src/app/home.css','utf8')).replaceAll('/assets/','../assets/')));
 for (const name of ['assets','fonts']) await fs.cp(`public/${name}`,path.join(out,name),{recursive:true});
 const fontLicense=path.join(out,'fonts/merriweather/OFL.txt');
 await fs.writeFile(fontLicense,(await fs.readFile(fontLicense,'utf8')).replace(/[ \t]+$/gm,''));
@@ -20,6 +21,7 @@ for(const name of ['regular-rounded','brands']) {
 }
 let css = await fs.readFile('src/app/(phase-2)/binh-chon/voting.css','utf8');
 css += '\n'+await fs.readFile('src/app/(phase-2)/phase-2.css','utf8');
+css += '\n'+await fs.readFile('src/components/voting-questionnaire/questionnaire.css','utf8');
 await fs.writeFile(path.join(out,'css/voting.css'),await embedSvgAssets(flattenStyles(css.replaceAll('/assets/','../assets/')),path.join(out,'css')));
 await packageHandoffStyles(out,{phase:2});
 // Match production cascade: homepage spacing refinements follow voting styles.
@@ -55,12 +57,21 @@ try {
   const page=await browser.newPage({viewport:{width:1440,height:1000},reducedMotion:'reduce'});
   await page.addInitScript(`window.flattenHandoffDocument=${flattenDocument.toString()}`);
   // Capture public card markup and category names, never private dossier data.
-  const groups=[[],[]],cards={};
+  const groups=[[],[]],cards={},surveys={};
   for(const [index,category] of categories.entries()) {
     await page.goto(`${base}/binh-chon?category=${category}`,{waitUntil:'networkidle'});
     await page.waitForFunction(id=>document.querySelector('.voting-view-all')?.getAttribute('href')?.includes(`category=${id}`),category);
     groups[index<6?0:1].push({id:category,name:await page.locator('.voting-results-heading h3').innerText()});
     cards[category]=await page.locator('.voting-grid').innerHTML();
+    await page.locator('.voting-survey-trigger').first().click();
+    const modal=page.locator('dialog[open]');
+    const screening=portable(await modal.innerHTML());
+    for(const input of await modal.locator('input[name=experienced-profile]').all())await input.check();
+    await modal.getByRole('button',{name:'Tiếp tục',exact:true}).click();
+    const rating=portable(await modal.innerHTML());
+    await modal.getByRole('button',{name:'Chọn lại hồ sơ',exact:true}).click();
+    await modal.getByRole('button',{name:'Chọn lại giải thưởng',exact:true}).click();
+    surveys[category]={screening:screening.replace(/\sdata-nimg="[^"]*"/g,''),rating:rating.replace(/\sdata-nimg="[^"]*"/g,''),category:portable(await modal.innerHTML()).replace(/\sdata-nimg="[^"]*"/g,'')};
   }
   const galleryCredits=new Map();
   const routes=[['/phase-2','index.html'],['/binh-chon','binh-chon.html'],...profiles.map(slug=>[`/binh-chon/${slug}`,`ho-so-${slug}.html`])];
@@ -96,6 +107,8 @@ try {
     await page.evaluate(()=>new Promise(resolve=>{scrollTo(0,0);requestAnimationFrame(()=>requestAnimationFrame(resolve));}));
     let html=await page.evaluate(({extraPanel,detail,credits})=>{
       const doc=document.cloneNode(true);
+      doc.querySelectorAll('.voting-survey-modal').forEach(node=>node.remove());
+      doc.querySelectorAll('source[srcset]').forEach(node=>node.setAttribute('srcset',node.getAttribute('srcset').replace(/(^|,\s*)\/assets\//g,'$1assets/')));
       doc.querySelectorAll('.voting-gallery-slide').forEach(node=>{node.dataset.credit=credits[node.getAttribute('src')]||'';});
       if(extraPanel) {const holder=doc.createElement('div');holder.innerHTML=extraPanel;holder.firstChild.hidden=true;doc.querySelector('[role=tabpanel]').after(holder.firstChild);}
       doc.querySelectorAll('script,link,style,meta[name=next-size-adjust],next-route-announcer,nextjs-portal').forEach(node=>node.remove());
@@ -110,7 +123,7 @@ try {
       doc.querySelectorAll('.home-award-count').forEach(node=>node.textContent='15');
       window.flattenHandoffDocument(doc);
       for(const name of ['tokens','font','base','voting','home','icons']){const link=doc.createElement('link');link.rel='stylesheet';link.href=`css/${name}.css`;doc.head.append(link);}
-      for(const name of ['data','handoff']){const script=doc.createElement('script');script.src=`js/${name}.js`;script.defer=true;doc.head.append(script);}
+      for(const name of ['data','handoff','survey']){const script=doc.createElement('script');script.src=`js/${name}.js`;script.defer=true;doc.head.append(script);}
       if(detail)doc.body.dataset.profile=detail;
       // React useId values become stable, readable HTML identifiers with matching references.
       const ids=new Map();let n=0;
@@ -129,11 +142,11 @@ try {
   for(const category of categories)cards[category]=portable(await page.evaluate(html=>{
     const holder=document.createElement('div');holder.innerHTML=html;
     holder.querySelectorAll('*').forEach(node=>{for(const attr of [...node.attributes])if(/^on|^data-next|^data-nimg/.test(attr.name))node.removeAttribute(attr.name);});
-    holder.querySelectorAll('.voting-survey').forEach(node=>node.remove());
+    holder.querySelectorAll('.voting-survey,.voting-survey-modal').forEach(node=>node.remove());
     holder.querySelectorAll('img').forEach(node=>{node.removeAttribute('srcset');node.removeAttribute('sizes');});
     return holder.innerHTML;
   },cards[category]));
-  await fs.writeFile(path.join(out,'js/data.js'),'/* Public demo card templates; no private dossier fields. */\nwindow.phase2Handoff='+JSON.stringify({groups,cards})+';\n');
+  await fs.writeFile(path.join(out,'js/data.js'),'/* Public demo card templates; no private dossier fields. */\nwindow.phase2Handoff='+JSON.stringify({groups,cards,surveys})+';\n');
   await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify({phase:2,pages:routes.map(([source,file])=>({source,file})),categories},null,2));
 } finally {await browser.close();}
 console.log('Phase 2 handoff exported.');

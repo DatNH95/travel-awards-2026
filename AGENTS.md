@@ -390,3 +390,5 @@ Sau mỗi iteration, cập nhật phần trạng thái/checklist của file này
 - Khi người dùng yêu cầu cập nhật/đẩy email đăng ký **30Plus**, xử lý `emails/email-30plus-travel/` và phụ thuộc cần thiết; không sửa bộ email Travel Awards.
 - Khi người dùng yêu cầu cập nhật/đẩy email đăng ký **Travel** hoặc **Travel Awards**, xử lý bộ `emails/registration-success*`, `emails/assets/registration-banner.png` và tài liệu liên quan; không sửa bộ 30Plus.
 - Không gửi email thật hoặc tự tích hợp backend khi chỉ được yêu cầu chỉnh template. Không tự đồng bộ handoff website cho yêu cầu email.
+
+- Cập nhật 09.11.2026: Một tài khoản được bình chọn nhiều hồ sơ trong cùng hạng mục qua nhiều lần khảo sát. Chỉ khóa từng hồ sơ đã hoàn tất, không khóa cả hạng mục. Lịch sử cộng dồn hồ sơ và điểm; tiến độ vẫn đếm hạng mục đã tham gia (6 Trụ cột, 9 Tiên phong). Quy tắc này thay thế các hạn mức một hồ sơ hoặc khóa hạng mục cũ; hiện vẫn chỉ mô phỏng trong bộ nhớ, không backend/storage.

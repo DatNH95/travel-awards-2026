@@ -6,11 +6,11 @@ import Image from 'next/image';
 import Link from 'next/link';
 import type { VotingProfile } from '@/data/voting';
 import { VotingSurvey } from './voting-survey';
-import { useVotingSession } from './voting-session';
+
 
 export function VotingCard({ profile }: { profile: VotingProfile }) {
-  const {completedProfiles} = useVotingSession();
-  const voted = !!completedProfiles[profile.categoryId]?.includes(profile.slug);
+
+
   const [copyStatus, setCopyStatus] = useState('');
   const copyTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   useEffect(() => () => { if (copyTimer.current) clearTimeout(copyTimer.current); }, []);
@@ -48,7 +48,7 @@ export function VotingCard({ profile }: { profile: VotingProfile }) {
       </div>
       </div>
       <p className="voting-card-count">Đã có <strong>{profile.surveyCount.toLocaleString('vi-VN')}</strong> người tham gia bình chọn</p>
-      {voted && <p className="voting-card-confirmation" role="status">Bạn đã bình chọn cho hồ sơ này.</p>}
+
     </div>
   </article>;
 }

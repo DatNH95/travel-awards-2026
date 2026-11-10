@@ -20,13 +20,8 @@
       const slug=slugOf(button.closest('.voting-card')||document.createElement('div'))||document.body.dataset.profile;
       if(!slug)return;
       button.dataset.profile=slug;
-      if(!completed.has(categoryOf(slug)))return;
-      button.disabled=true;button.textContent='Đã bình chọn';
-      button.title=completed.get(categoryOf(slug))===slug?'Bạn đã bình chọn cho hồ sơ này':'Bạn đã bình chọn hồ sơ khác trong hạng mục này';
-      const card=button.closest('.voting-card');
-      if(card&&completed.get(categoryOf(slug))===slug&&!$('.voting-card-confirmation',card)) {
-        const p=document.createElement('p');p.className='voting-card-confirmation';p.setAttribute('role','status');p.textContent='Bạn đã bình chọn cho hồ sơ này.';$('.voting-card-body',card).append(p);
-      }
+      if(!completed.get(categoryOf(slug))?.has(slug))return;
+      button.disabled=true;button.textContent='Đã bình chọn';button.removeAttribute('title');
     });
   }
   // Tabs preserve keyboard navigation and both semantic tab panels.
@@ -90,25 +85,8 @@
     addEventListener('resize',glow);document.fonts.ready.then(glow);
   }
   function showDialog(dialog){const previous=document.body.style.overflow;dialog.showModal();document.body.style.overflow='hidden';dialog.addEventListener('close',()=>{document.body.style.overflow=previous;},{once:true});}
-  // One shared survey dialog avoids duplicating React's per-card state and IDs.
-  $$('.voting-survey').forEach(dialog=>dialog.remove());
-  const survey=document.createElement('dialog');survey.className='voting-survey surface surface--primary';survey.setAttribute('aria-labelledby','survey-title');document.body.append(survey);
-  function openSurvey(slug){
-    if(completed.has(categoryOf(slug)))return;
-    const name=profileInfo.get(slug)?.name||$('.voting-detail-intro h1')?.textContent;
-    survey.innerHTML=`<button type="button" class="voting-dialog-close" aria-label="Đóng khảo sát"><i class="ui-icon fi fi-rr-cross" aria-hidden="true"></i></button><p class="eyebrow">Góc nhìn từ hành trình của bạn</p><h2 class="type-heading-3" id="survey-title">Bạn đã trải nghiệm ${escape(name)}?</h2><form><p class="type-body-small">Khảo sát mẫu · Chọn một câu trả lời cho mỗi câu hỏi. Không thu thập thông tin cá nhân.</p><fieldset><legend>01. Bạn đã đến hoặc sử dụng dịch vụ, trải nghiệm này chưa?</legend>${['Đã trải nghiệm','Chưa trải nghiệm'].map(value=>`<label class="voting-survey-option"><input type="radio" name="experience" value="${value}" required>${value}</label>`).join('')}</fieldset><div class="survey-followup"></div><div class="voting-survey-actions"><button type="button" class="button button--secondary">Để sau</button><button type="submit" class="button button--primary" disabled>Hoàn tất bình chọn mẫu</button></div></form>`;
-    $('.voting-dialog-close',survey).onclick=()=>survey.close();$('.button--secondary',survey).onclick=()=>survey.close();
-    $$('[name=experience]',survey).forEach(input=>input.addEventListener('change',()=>{
-      const experienced=input.value==='Đã trải nghiệm',choices=experienced?['Rất hài lòng','Hài lòng','Bình thường','Chưa hài lòng']:['Rất muốn','Có thể cân nhắc','Chưa có kế hoạch'];
-      $('.survey-followup',survey).innerHTML=`<fieldset><legend>${experienced?'02. Bạn đánh giá trải nghiệm của mình như thế nào?':'02. Bạn có muốn trải nghiệm trong tương lai?'}</legend>${choices.map(value=>`<label class="voting-survey-option"><input type="radio" name="impression" value="${value}" required>${value}</label>`).join('')}</fieldset>`;$('[type=submit]',survey).disabled=false;
-    }));
-    $('form',survey).addEventListener('submit',event=>{
-      event.preventDefault();if(!event.target.reportValidity()||completed.has(categoryOf(slug)))return;
-      completed.set(categoryOf(slug),slug);events.unshift({slug,time:new Date()});applyCompleted();updateCommunity();
-      $('.eyebrow',survey).remove();$('#survey-title',survey).textContent='Cảm ơn bạn đã chia sẻ';$('form',survey).outerHTML='<div class="voting-survey-success" role="status"><p>Bạn đã bình chọn cho hồ sơ này.</p><p class="type-body-small">Trạng thái được mô phỏng trong phiên trải nghiệm; chưa gửi dữ liệu thật.</p><button type="button" class="button button--primary">Đóng</button></div>';$('.voting-survey-success button',survey).onclick=()=>survey.close();
-    });showDialog(survey);
-  }
-  survey.addEventListener('click',event=>{if(event.target===survey){const r=survey.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)survey.close();}});
+  function openSurvey(slug){const open=()=>window.dispatchEvent(new CustomEvent('phase2-open-survey',{detail:{slug}}));if(window.phase2SurveyReady){open();return;}window.phase2SurveyLoader ||= new Promise((resolve,reject)=>{const script=document.createElement('script');script.src='js/survey.js';script.onload=resolve;script.onerror=reject;document.head.append(script);});window.phase2SurveyLoader.then(open);}
+  window.addEventListener('phase2-handoff-complete',event=>{const {category,slugs}=event.detail;const before=completed.get(category)||new Set();slugs.forEach(slug=>{if(!before.has(slug))events.unshift({slug,time:new Date()});before.add(slug);});completed.set(category,before);applyCompleted();updateCommunity();});
   document.addEventListener('click',async event=>{
     const trigger=event.target.closest('.voting-survey-trigger');if(trigger&&!trigger.disabled)openSurvey(trigger.dataset.profile);
     const share=event.target.closest('.voting-card-share button');if(!share)return;

@@ -57,7 +57,7 @@ export function VotingSurvey({ profile, label = 'Bình chọn' }: { profile: Pic
   function continueCategory(){if(!nextCategory)return;selectCategory(nextCategory);navigate(0);}
   function close(){dialog.current?.close();}
   return <>
-    <Button className="voting-survey-trigger" disabled={!!previous} title={previous?'Bạn đã bình chọn cho hồ sơ này':undefined} onClick={()=>{setCategoryId(profile.categoryId);setStep(1);drafts.current={};setResponse({...emptyResponse(),selected:[profile.slug]});dialog.current?.showModal();setOpen(true);}}>{previous?'Đã bình chọn':label}</Button>
+    <Button className="voting-survey-trigger" disabled={!!previous} onClick={()=>{setCategoryId(profile.categoryId);setStep(1);drafts.current={};setResponse({...emptyResponse(),selected:[profile.slug]});dialog.current?.showModal();setOpen(true);}}>{previous?'Đã bình chọn':label}</Button>
     <dialog ref={dialog} className="voting-survey-modal surface surface--primary" aria-labelledby={`${uid}-title`} onClose={()=>setOpen(false)} onClick={event=>{if(event.target===dialog.current){const r=dialog.current.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();}}}>
       <header className="voting-questionnaire-header"><div><p className="eyebrow">Travel Awards 2026</p><h2 ref={heading} tabIndex={-1} id={`${uid}-title`}>Khảo sát trải nghiệm</h2></div><button type="button" className="voting-dialog-close" aria-label="Đóng khảo sát" onClick={close}><UiIcon name="cross" /></button></header>
       <div className="nomination-layout survey-workspace" data-step={step}>

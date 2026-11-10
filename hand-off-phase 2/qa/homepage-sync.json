@@ -1,0 +1,187 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "selector": ".home-hero",
+      "source": {
+        "width": 1440,
+        "height": 436.140625
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 436.140625
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 1440,
+      "selector": "#about",
+      "source": {
+        "width": 1440,
+        "height": 2297.71875
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 2297.71875
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 1440,
+      "selector": "#participate",
+      "source": {
+        "width": 1440,
+        "height": 1525.484375
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 1525.484375
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 1440,
+      "selector": "#news",
+      "source": {
+        "width": 1440,
+        "height": 846.9375
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 846.9375
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 1440,
+      "selector": "#awards",
+      "source": {
+        "width": 1440,
+        "height": 1131.015625
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 1131.015625
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 1440,
+      "selector": "#nominate",
+      "source": {
+        "width": 1440,
+        "height": 527.984375
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 527.984375
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 1440,
+      "selector": ".home-footer",
+      "source": {
+        "width": 1440,
+        "height": 533.6875
+      },
+      "handoff": {
+        "width": 1440,
+        "height": 533.6875
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": ".home-hero",
+      "source": {
+        "width": 390,
+        "height": 370.953125
+      },
+      "handoff": {
+        "width": 390,
+        "height": 370.953125
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": "#about",
+      "source": {
+        "width": 390,
+        "height": 5150
+      },
+      "handoff": {
+        "width": 390,
+        "height": 5150
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": "#participate",
+      "source": {
+        "width": 390,
+        "height": 3436.109375
+      },
+      "handoff": {
+        "width": 390,
+        "height": 3436.109375
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": "#news",
+      "source": {
+        "width": 390,
+        "height": 1402.390625
+      },
+      "handoff": {
+        "width": 390,
+        "height": 1402.390625
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": "#awards",
+      "source": {
+        "width": 390,
+        "height": 1090.78125
+      },
+      "handoff": {
+        "width": 390,
+        "height": 1090.78125
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": "#nominate",
+      "source": {
+        "width": 390,
+        "height": 362.25
+      },
+      "handoff": {
+        "width": 390,
+        "height": 362.25
+      },
+      "heightDifference": 0
+    },
+    {
+      "width": 390,
+      "selector": ".home-footer",
+      "source": {
+        "width": 390,
+        "height": 936.203125
+      },
+      "handoff": {
+        "width": 390,
+        "height": 936.203125
+      },
+      "heightDifference": 0
+    }
+  ],
+  "interactions": "PASS: desktop/390/320, slider edges, selection, required ratings, same-category additions, history totals; list regression passed."
+}
