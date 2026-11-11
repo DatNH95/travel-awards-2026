@@ -25,7 +25,7 @@
 .home-header nav { display: flex; align-items: center; gap: 2rem; font-size: var(--text-navigation); font-weight: 400; }
 .home-header-links { display: flex; align-items: center; gap: inherit; }
 .home-header nav a:not(.button) { display: inline-flex; align-items: center; min-height: 2.75rem; padding-block: .75rem; }
-.home-header .button--nomination { --spacing-cta-nomination-height: 45px; }
+.home-header .button--nomination, .travel-glow-actions .button--nomination { --spacing-cta-nomination-height: 45px; }
 .home-header a:not(.button):hover { color: var(--color-text-brand); }
 .home-header nav a:not(.button) { color: var(--color-text-brand); transition: color var(--duration-fast); text-underline-offset: .35rem; text-decoration-thickness: var(--border-width); }
 .home-header nav a:not(.button):hover { color: var(--color-link-hover); text-decoration: underline; }

@@ -15,7 +15,7 @@ export function TravelGlowIntro() {
           <h3>30+ rồi, chuyến đi nào khiến bạn rạng rỡ nhất?</h3>
           <p>Chia sẻ chuyến đi, khoảnh khắc và trải nghiệm giúp bạn vui hơn, tự tin hơn và tìm thấy phiên bản rạng rỡ của chính mình. Một hoạt động cộng đồng trong khuôn khổ Travel Awards, dành cho công dân Việt Nam từ đủ 30 tuổi.</p>
           <dl className="travel-glow-facts"><div><dt>Nhận bài dự thi</dt><dd>18/11 – 18/12/2026</dd></div><div><dt>Bình chọn</dt><dd>22/12/2026 – 05/01/2027</dd></div></dl>
-          <div className="travel-glow-actions"><TextLink href="/the-le#cuoc-thi-30plus-travelglow">Thể lệ cuộc thi</TextLink><a className="button button--primary button--nomination" href="/dang-ky-30-plus">Đăng ký tham dự<CTAArrow /></a></div>
+          <div className="travel-glow-actions"><a className="button button--primary button--nomination" href="/dang-ky-30-plus">Đăng ký tham dự<CTAArrow /></a><TextLink href="/the-le#cuoc-thi-30plus-travelglow">Thể lệ</TextLink></div>
         </div>
       </div>
     </Container>
