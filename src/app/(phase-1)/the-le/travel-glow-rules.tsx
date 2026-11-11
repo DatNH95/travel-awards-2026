@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react';
 import blocks from '@/data/travel-glow-rules.json';
 import { UiIcon } from '@/components/ui-icon';
+import { CTAArrow } from '@/components/primitives';
 
 function prizeIcon(title: string) {
   if (title.includes('Chuyến đi được yêu thích nhất')) return 'heart';
@@ -73,6 +74,7 @@ function Participation({ texts }: { texts: string[] }) {
     <p>{texts[1]}</p>
     <ul>{texts.slice(2, 5).map(text => <li key={text}>{text}</li>)}</ul>
     <Paragraphs texts={[texts[5]]} />
+    <a className="button button--primary button--nomination cta-mobile-dang-ky" href="/dang-ky-30-plus">Đăng ký tham dự<CTAArrow /></a>
     <div className="rules-glow-prompts">
       <h4>Gợi ý nội dung dự thi</h4>
       <p>{texts[suggestions + 1].replace(/^-\s*/, '')}</p>

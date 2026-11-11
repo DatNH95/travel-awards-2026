@@ -243,8 +243,13 @@
  document.addEventListener('submit',event=>{
   if(!event.target.matches('.nomination-registration-form'))return;
   event.preventDefault();event.stopImmediatePropagation();
+  const folderLink=form.querySelector('[name=full-dossier-link]');if(folderLink)folderLink.setCustomValidity(folderLink.value&&!/^https?:\/\//i.test(folderLink.value)?'Vui lòng nhập link HTTP hoặc HTTPS.':'');
+  form.querySelectorAll('input[type=checkbox][name^=folder-]:not([name=folder-all])').forEach(input=>input.required=true);
   if(!form.reportValidity())return;
   if(active<5)show(active+1);
   else {for(let i=0;i<6;i++){if(!cache.has(i)){show(i);return;}if(!cache.get(i).checkValidity()){show(i);form.reportValidity();return;}}location.href='xac-nhan.html';}
  },true);
 })();
+
+// Folder-only evidence: the bulk toggle follows the live form after panel changes.
+document.addEventListener('change',event=>{const input=event.target;if(!input.matches('input[name=folder-all],input[name=confirm-all]'))return;const group=input.closest('fieldset')||input.closest('.nomination-checks');group?.querySelectorAll('input[type=checkbox]').forEach(box=>box.checked=input.checked);});

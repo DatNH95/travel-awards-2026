@@ -46,6 +46,7 @@ function portable(html) {
     else if(url.pathname.startsWith('/binh-chon/'))target=`ho-so-${url.pathname.split('/').pop()}.html`;
     else if(url.pathname==='/')target='../handoff-html/index.html';
     else if(url.pathname==='/the-le')target='../handoff-html/the-le.html';
+    else if(url.pathname==='/dang-ky-30-plus')target='../handoff-html/dangky-30plus-travel/dang-ky-30-plus.html';
     else if(url.pathname==='/tin-tuc')target='../handoff-html/tin-tuc.html'+(url.search?'?'+url.searchParams.toString():'');
     else if(url.pathname.startsWith('/tin-tuc/'))target=`../handoff-html/tin-${url.pathname.split('/').pop()}.html`;
     else throw new Error(`Unmapped internal path: ${value}`);
@@ -58,7 +59,13 @@ try {
   await page.addInitScript(`window.flattenHandoffDocument=${flattenDocument.toString()}`);
   // Capture public card markup and category names, never private dossier data.
   const groups=[[],[]],cards={},surveys={};
-  for(const [index,category] of categories.entries()) {
+  const reuseData=process.argv.includes('--reuse-data');
+  if(reuseData){
+    const text=await fs.readFile(path.join(out,'js/data.js'),'utf8');
+    const existing=JSON.parse(text.slice(text.indexOf('window.phase2Handoff=')+'window.phase2Handoff='.length).trim().replace(/;$/,''));
+    existing.groups.forEach((group,index)=>groups[index].push(...group));Object.assign(cards,existing.cards);Object.assign(surveys,existing.surveys);
+  }
+  for(const [index,category] of reuseData?[]:categories.entries()) {
     await page.goto(`${base}/binh-chon?category=${category}`,{waitUntil:'networkidle'});
     await page.waitForFunction(id=>document.querySelector('.voting-view-all')?.getAttribute('href')?.includes(`category=${id}`),category);
     groups[index<6?0:1].push({id:category,name:await page.locator('.voting-results-heading h3').innerText()});

@@ -11,7 +11,7 @@ export function ConfirmationStep({ selection, draft, isEditing = false, onEdit, 
   const [agreed, setAgreed] = useState(false);
   const professional = professionalFields[selection];
   const conditions = [...(professional?.conditions ?? []), ...complianceStatements];
-  const folderMode = draft.values['evidence-mode'] !== 'files';
+  const folderMode = true;
   function review(items: RegistrationField[], prefix: string) {
     return <dl className="nomination-review">{items.map((field, index) => {
       const value = draft.values[`${prefix}-${index}`];

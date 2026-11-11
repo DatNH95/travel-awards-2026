@@ -48,13 +48,15 @@ for (const [selection, config] of Object.entries(categoryCriteria)) {
     assert.equal(ux.partIssues(part, selection, draft).length, 0, `${selection}, part ${part}`);
 
   }
+  // Legacy draft flags/files must not bypass the folder-only requirement.
   draft.values['evidence-mode'] = 'files';
-  assert.ok(ux.partIssues(4, selection, draft).length >= 3);
-  draft.files['dossier-0'] = [{ name: 'intro.pdf', size: 1_000_000 }];
-  draft.files['dossier-3'] = Array.from({ length: 3 }, (_, i) => ({ name: `${i}.png`, size: 1_000_000 }));
-  draft.values['legal-scan-link'] = 'https://example.com/legal';
-  if (config.menuRequired) draft.files.menu = [{ name: 'menu.pdf', size: 1_000_000 }];
   assert.equal(ux.partIssues(4, selection, draft).length, 0);
+  draft.values['full-dossier-link'] = '';
+  assert.ok(ux.partIssues(4, selection, draft).length > 0);
+  draft.values['full-dossier-link'] = 'https://example.com/dossier';
+  draft.checks['folder-access'] = false;
+  assert.ok(ux.partIssues(4, selection, draft).length > 0);
+  draft.checks['folder-access'] = true;
   const channelIndex = config.fields.findIndex(field => field.label === 'Kênh truyền thông chính thức');
   if (channelIndex >= 0) {
     const key = `channel-professional-${selection}-${channelIndex}-1`;
@@ -64,5 +66,5 @@ for (const [selection, config] of Object.entries(categoryCriteria)) {
     assert.equal(ux.partIssues(2, selection, draft).length, 0);
   }
 }
-console.log('PASS: phone/URL/word boundaries, 13 category journeys × 6 validated parts, both evidence modes, social channels and food menu.');
+console.log('PASS: phone/URL/word boundaries, 13 category journeys × 6 validated parts, folder-only evidence with legacy draft protection, social channels and food menu.');
 

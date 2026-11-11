@@ -615,5 +615,8 @@
 .home-travel-glow > .container { position: relative; z-index: 1; }
 @media (max-width: 47.99rem) { .travel-glow-camera { right: -90px; bottom: 0; width: 360px; height: 300px; opacity: .06; } }
 
+.travel-glow-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
+.travel-glow-actions .text-link { flex-shrink: 0; }
+
 .wrap-homepage.width_common { width: 100%; }
 .wrap-homepage > .home-hero { padding-block: 0; }

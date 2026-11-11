@@ -10,7 +10,7 @@ export const partDescriptions = [
   'Giới thiệu đề cử bằng câu chuyện, thành tích và điểm khác biệt của bạn.',
   'Kê khai số liệu theo hạng mục đã chọn. Có thể bổ sung giải thích ngay trong từng ô.',
   'Mỗi tiêu chí là một nội dung riêng, tối đa 250 từ. Mở từng tiêu chí để viết.',
-  'Dùng một thư mục tài liệu để thao tác nhanh trên điện thoại, hoặc bổ sung từng tệp.',
+  'Dán một link thư mục chứa toàn bộ hồ sơ và cấp quyền xem cho Ban tổ chức.',
   'Đọc và xác nhận các điều kiện trước khi kiểm tra lại toàn bộ hồ sơ.',
 ];
 export function countWords(value: string): number { return value.trim().split(/\s+/u).filter(Boolean).length; }
@@ -72,19 +72,11 @@ export function partIssues(part: number, selection: string, draft: RegistrationD
   }
   if (part === 3 && professional) fields(professional.narratives, `narrative-${selection}`);
   if (part === 4) {
-    if (draft.values['evidence-mode'] !== 'files') {
+    {
       const message = urlError(draft.values['full-dossier-link'] ?? '', true);
       if (message) issues.push({ key: 'full-dossier-link', message });
       for (const key of ['folder-introduction', 'folder-legal', 'folder-images', 'folder-evidence', 'folder-access', ...(professional?.menuRequired ? ['folder-menu'] : [])]) {
         if (!draft.checks[key]) { issues.push({ key, message: 'Vui lòng kiểm tra và xác nhận đủ thành phần hồ sơ, ảnh và quyền xem thư mục.' }); break; }
-      }
-    } else {
-      for (const key of ['dossier-0', 'dossier-1', 'dossier-3', ...(professional?.menuRequired ? ['menu'] : [])]) {
-        const message = dossierError(key, draft.files[key] ?? [], draft.values['legal-scan-link'] ?? '', professional?.images);
-        if (message) issues.push({ key, message });
-      }
-      for (const key of ['legal-scan-link', 'activity-evidence-link', 'other-documents-link', 'video-0', ...(professional?.narratives.map((_, i) => `criterion-${selection}-${i}`) ?? [])]) {
-        const message = urlError(draft.values[key] ?? ''); if (message) issues.push({ key, message });
       }
     }
   }
