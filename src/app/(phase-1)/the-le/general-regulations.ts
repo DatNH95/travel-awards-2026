@@ -11,8 +11,9 @@ export const regulationGroups: RegulationGroup[] = [
         'Nhân vật du lịch của năm và Gương mặt truyền thông du lịch của năm (Đại sứ) do Ban tổ chức đề cử theo danh sách riêng, không nhận đăng ký trực tuyến.',
       ] },
       { title: 'Số hồ sơ', paragraphs: [
-        'Mỗi đơn vị, cá nhân được tham gia tối đa 3 hạng mục, mỗi hạng mục một hồ sơ.',
+        'Mỗi đơn vị được đề cử 03 hạng mục, mỗi hạng mục một hồ sơ.',
         'Chuỗi khách sạn, resort nộp riêng cho từng cơ sở. Một cơ sở chỉ chọn Khách sạn của năm hoặc Khu nghỉ dưỡng của năm (Resort).',
+        'Một tài khoản MyVNEID chỉ được đăng ký 1 hồ sơ / 1 hạng mục. Cá nhân/đơn vị đề cử có nhiều hơn 1 hồ sơ, vui lòng sử dụng tài khoản khác để gửi đề cử.',
       ] },
       { title: 'Nhận đề cử', facts: [
         { label: 'Mở đăng ký', value: '12:00 ngày 26/10/2026' },
