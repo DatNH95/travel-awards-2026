@@ -23,7 +23,7 @@ const participants = [
   {id:'bao-long',name:'Bảo Long',completed:1,profile:96,time:'10:12',avatar:10},
 ];
 const completedFixtures = participants.slice(0,5).map(person => ({
-  slug:votingProfiles[person.profile].slug,
+  slug:votingProfiles[person.profile % votingProfiles.length].slug,
   completedAt:`2026-10-21T${person.time}:00+07:00`,
 }));
 const displayTime = (value: string) => new Intl.DateTimeFormat('vi-VN',{hour:'2-digit',minute:'2-digit',timeZone:'Asia/Ho_Chi_Minh'}).format(new Date(value));

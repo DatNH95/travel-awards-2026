@@ -1,6 +1,6 @@
 # Travel Awards — Phase 2
 
-Bản HTML/CSS thuần cho Tech: `index.html` (Homepage), `binh-chon.html` (15 hạng mục qua query `?category=...`) và 150 trang `ho-so-*.html`. Giữ folder này cạnh `handoff-html/` để link Thể lệ/Tin tức Phase 1 hoạt động.
+Bản HTML/CSS thuần cho Tech: `index.html` (Homepage), `binh-chon.html` (15 hạng mục qua query `?category=...`) và 21 trang hồ sơ thực `ho-so-*.html`. Giữ folder này cạnh `handoff-html/` để link Thể lệ/Tin tức Phase 1 hoạt động.
 
 Không có React/Next.js/Tailwind runtime. CSS foundation và asset được đóng gói tại chỗ; ảnh hồ sơ/tin tức demo vẫn dùng URL gốc. Giữ credit Uicons by Flaticon và các giấy phép đi kèm.
 
@@ -13,3 +13,11 @@ Gallery Đà Nẵng/Phú Quốc có 6 ảnh, nguồn và credit nằm trong popu
 Chạy lại từ project: build, mở production server tại port 3001, chạy `node handoff-html/export.mjs`, sau đó `node scripts/export-phase2-handoff.mjs`. Công cụ export nằm ngoài runtime bàn giao. Header/footer là con trực tiếp body; không có wrapper `div.home` hay thẻ main. Skip-link dẫn `#main` trên section nội dung.
 
 Homepage đã đồng bộ bố cục hiện tại, box 30Plus, slider giải thưởng và popup. QA so sánh kích thước section desktop/mobile và kiểm tra chọn nhiều hồ sơ, lịch sử, khóa trùng, bình chọn bổ sung: `qa/homepage-sync.json`. Chỉ Homepage được xuất lại trong lần đồng bộ này; CSS/JS dùng chung đã kiểm tra hồi quy ở danh sách.
+
+## Hồ sơ review ngày 16.11.2026
+
+21 hồ sơ từ export gốc đang ghi Chờ duyệt, không phải danh sách đã duyệt. Chỉ xuất dữ liệu công khai; dossier được đọc ở server, không đưa dữ liệu đại diện, liên hệ, MyVNE, pháp lý hoặc minh chứng riêng vào HTML/bundle. Theo yêu cầu review, toàn bộ card/gallery hồ sơ thực dùng ảnh demo Đà Nẵng/VinWonders; dữ liệu import và nội dung detail giữ nguyên. Không có tổng lượt khảo sát trong nguồn nên không tự thêm số mẫu. Sáu hạng mục chưa có hồ sơ bị khóa trong popup.
+
+30Plus tiếp tục dùng fixture riêng, nhãn Bình chọn và hành vi demo cũ; Travel Awards dùng Khảo sát/Đã khảo sát. Các trang hồ sơ mẫu cũ đã được loại khỏi bộ handoff.
+
+QA: `node scripts/qa-phase2-handoff.mjs` kiểm tra toàn bộ HTML mới và 21 detail/popup. Kết quả: `qa/real-profiles.json`, `qa/real-homepage.json`, `qa/homepage-sync.json`. Import và whitelist: `scripts/import-voting-profiles.py`, `docs/voting-import-report.json`.

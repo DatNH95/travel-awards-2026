@@ -21,7 +21,7 @@ const steps = [
   {id:'rating',title:'Đánh giá',description:'Đánh giá mức độ hài lòng.'},
   {id:'completion',title:'Hoàn thành',description:'Xem lại phản hồi.'},
 ];
-export function VotingSurvey({ profile, label = 'Bình chọn' }: { profile: Pick<VotingProfile,'name'|'slug'|'categoryId'>; label?: string }) {
+export function VotingSurvey({ profile, label = 'Khảo sát' }: { profile: Pick<VotingProfile,'name'|'slug'|'categoryId'>; label?: string }) {
   const {history,completed,completedProfiles,finish} = useVotingSession();
   const previous = completedProfiles[profile.categoryId]?.includes(profile.slug);
   const [categoryId,setCategoryId]=useState(profile.categoryId);
@@ -53,11 +53,11 @@ export function VotingSurvey({ profile, label = 'Bình chọn' }: { profile: Pic
   const progressGroups=categoryGroups.map((group,index)=>({label:group.title,total:group.categories.length,ids:group.categories.map((_,categoryIndex)=>awardCategoryId(index,categoryIndex))}));
   const currentGroup=progressGroups.find(group=>group.ids.includes(categoryId))!;
   const currentIndex=currentGroup.ids.indexOf(categoryId);
-  const nextCategory=[...currentGroup.ids.slice(currentIndex+1),...currentGroup.ids.slice(0,currentIndex),...progressGroups.filter(group=>group!==currentGroup).flatMap(group=>group.ids)].find(id=>!completed[id]);
+  const nextCategory=[...currentGroup.ids.slice(currentIndex+1),...currentGroup.ids.slice(0,currentIndex),...progressGroups.filter(group=>group!==currentGroup).flatMap(group=>group.ids)].find(id=>!completed[id]&&votingProfiles.some(item=>item.categoryId===id));
   function continueCategory(){if(!nextCategory)return;selectCategory(nextCategory);navigate(0);}
   function close(){dialog.current?.close();}
   return <>
-    <Button className="voting-survey-trigger" disabled={!!previous} onClick={()=>{setCategoryId(profile.categoryId);setStep(1);drafts.current={};setResponse({...emptyResponse(),selected:[profile.slug]});dialog.current?.showModal();setOpen(true);}}>{previous?'Đã bình chọn':label}</Button>
+    <Button className="voting-survey-trigger" disabled={!!previous} onClick={()=>{setCategoryId(profile.categoryId);setStep(1);drafts.current={};setResponse({...emptyResponse(),selected:[profile.slug]});dialog.current?.showModal();setOpen(true);}}>{previous?'Đã khảo sát':label}</Button>
     <dialog ref={dialog} className="voting-survey-modal surface surface--primary" aria-labelledby={`${uid}-title`} onClose={()=>setOpen(false)} onClick={event=>{if(event.target===dialog.current){const r=dialog.current.getBoundingClientRect();if(event.clientX<r.left||event.clientX>r.right||event.clientY<r.top||event.clientY>r.bottom)close();}}}>
       <header className="voting-questionnaire-header"><div><p className="eyebrow">Travel Awards 2026</p><h2 ref={heading} tabIndex={-1} id={`${uid}-title`}>Khảo sát trải nghiệm</h2></div><button type="button" className="voting-dialog-close" aria-label="Đóng khảo sát" onClick={close}><UiIcon name="cross" /></button></header>
       <div className="nomination-layout survey-workspace" data-step={step}>
@@ -66,8 +66,8 @@ export function VotingSurvey({ profile, label = 'Bình chọn' }: { profile: Pic
           {step===0?<form onSubmit={event=>{event.preventDefault();navigate(1);}}>
             <div className="survey-category-groups">{categoryGroups.map((group,groupIndex)=><section className="survey-category-group" key={group.id} aria-label={group.title}>
               <header className="survey-group-heading"><h3>{group.title}</h3><span className="survey-group-count">{group.categories.length} hạng mục</span></header>
-              <div className="survey-category-list" tabIndex={0} role="region" aria-label={`Danh sách ${group.title}`}>{group.categories.map((category,index)=>{const id=awardCategoryId(groupIndex,index);return <label className="nomination-category survey-category" data-selected={categoryId===id} data-completed={false} key={id}>
-                <input type="radio" name="survey-category" value={id} checked={categoryId===id} onChange={()=>selectCategory(id)}/><span className="survey-category-icon"><SurveyIcon name={category.icon} size={22}/></span><span className="survey-category-copy"><span className="survey-category-title">{category.title}</span><span className="survey-category-description">{category.summary??category.description}</span></span><span className="survey-category-arrow"><UiIcon name={categoryId===id?'check':'angle-right'} size={16}/></span>
+              <div className="survey-category-list" tabIndex={0} role="region" aria-label={`Danh sách ${group.title}`}>{group.categories.map((category,index)=>{const id=awardCategoryId(groupIndex,index);const available=votingProfiles.some(item=>item.categoryId===id);return <label className="nomination-category survey-category" data-selected={categoryId===id} data-completed={false} key={id}>
+                <input type="radio" name="survey-category" disabled={!available} value={id} checked={categoryId===id} onChange={()=>selectCategory(id)}/><span className="survey-category-icon"><SurveyIcon name={category.icon} size={22}/></span><span className="survey-category-copy"><span className="survey-category-title">{category.title}</span><span className="survey-category-description">{available?category.summary??category.description:'Chưa có hồ sơ'}</span></span><span className="survey-category-arrow"><UiIcon name={categoryId===id?'check':'angle-right'} size={16}/></span>
               </label>;})}</div>
             </section>)}</div>
             <div className="nomination-actions"><Button variant="secondary" onClick={close}>Để sau</Button><Button type="submit">Tiếp tục</Button></div>

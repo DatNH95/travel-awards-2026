@@ -11,9 +11,9 @@ import { NominationCountdown } from './phase-2/countdown';
 
 const normalize = (value: string) => value.normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/đ/g, 'd').replace(/Đ/g, 'D').toLowerCase().trim();
 
-export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategoryId, directory = false }: { id?: string; headingLevel?: 1 | 2; initialCategoryId?: string; directory?: boolean }) {
-  const [groupIndex, setGroupIndex] = useState(0);
-  const [categoryIndex, setCategoryIndex] = useState(0);
+export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategoryId, initialGroup, directory = false }: { id?: string; headingLevel?: 1 | 2; initialCategoryId?: string; initialGroup?: string; directory?: boolean }) {
+  const [groupIndex, setGroupIndex] = useState(initialGroup === 'tien-phong' ? 1 : 0);
+  const [categoryIndex, setCategoryIndex] = useState(-1);
   const [openGroup, setOpenGroup] = useState<number | null>(null);
   const [query, setQuery] = useState('');
   const [searchOpen, setSearchOpen] = useState(false);
@@ -37,8 +37,9 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
     observer.observe(marker);
     return () => observer.disconnect();
   }, []);
-  const categoryId = awardCategoryId(groupIndex, categoryIndex);
-  const profiles = votingProfiles.filter(profile => profile.categoryId === categoryId && normalize(`${profile.name} ${profile.organization}`).includes(normalize(query)));
+  const categoryId = categoryIndex < 0 ? null : awardCategoryId(groupIndex, categoryIndex);
+  const groupProfiles = votingProfiles.filter(profile => profile.group === awardGroups[groupIndex].name && (!categoryId || profile.categoryId === categoryId));
+  const profiles = groupProfiles.filter(profile => normalize(`${profile.name} ${profile.organization}`).includes(normalize(query)));
   useEffect(() => {
     if (!initialCategoryId) return;
     for (const [groupIndex,group] of awardGroups.entries()) {
@@ -62,7 +63,7 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
     schedule();
     return ()=>{cancelAnimationFrame(frame);window.removeEventListener('resize',schedule);};
   },[id]);
-  const suggestions = [...new Set(votingProfiles.filter(profile => profile.categoryId === categoryId).flatMap(profile => [profile.name, profile.organization]))]
+  const suggestions = [...new Set(groupProfiles.flatMap(profile => [profile.name, profile.organization]))]
     .filter(value => normalize(query) && normalize(value).includes(normalize(query)))
     .sort((a,b) => Number(normalize(b).startsWith(normalize(query))) - Number(normalize(a).startsWith(normalize(query))))
     .slice(0,6);
@@ -94,7 +95,7 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
   }, [groupIndex]);
   useEffect(() => {
     const list = categoryList.current;
-    const selected = list?.children[categoryIndex] as HTMLElement | undefined;
+    const selected = list?.children[categoryIndex + 1] as HTMLElement | undefined;
     if (!list || !selected) return;
     const left = selected.offsetLeft;
     const right = left + selected.offsetWidth;
@@ -111,10 +112,10 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
   }, [openGroup]);
 
   return <Section id={id} className={`home-voting${directory ? ' voting-folder' : ''}`}><Container>
-    {directory && <nav className="voting-breadcrumb type-body-small" aria-label="Breadcrumb"><Link href="/phase-2">Trang chủ</Link><span aria-hidden="true">/</span><span aria-current="page">Bình chọn</span></nav>}
+    {directory && <nav className="voting-breadcrumb type-body-small" aria-label="Breadcrumb"><Link href="/phase-2">Trang chủ</Link><span aria-hidden="true">/</span><span aria-current="page">Khảo sát</span></nav>}
     <div className={directory ? 'voting-folder-intro' : undefined}>
-    <header className="voting-intro"><Heading className="type-display-l">Bình chọn</Heading><p className="type-body">Cho các hạng mục và hồ sơ đề cử tương ứng. Mỗi bình chọn tương đương 1 phiếu khảo sát.</p></header>
-    {directory && <NominationCountdown label="Thời gian bình chọn còn lại:" kind="survey" />}
+    <header className="voting-intro"><Heading className="type-display-l">Khảo sát</Heading><p className="type-body">Cho các hạng mục và hồ sơ đề cử tương ứng. Mỗi lần hoàn tất tương đương 1 phiếu khảo sát.</p></header>
+    {directory && <NominationCountdown label="Thời gian khảo sát còn lại:" kind="survey" />}
     </div>
     <div className="voting-sticky-marker" ref={stickyMarker} aria-hidden="true" />
     <div className="voting-filter-toolbar" data-sticky={isSticky} ref={toolbar} onBlur={event => { if (!event.currentTarget.contains(event.relatedTarget)) setOpenGroup(null); }}>
@@ -133,20 +134,20 @@ export function VotingBrowser({ id = 'voting', headingLevel = 2, initialCategory
           }
         }} />
         {query && <button type="button" aria-label="Xóa tìm kiếm" onClick={() => { setQuery(''); setSearchOpen(false); setSuggestionIndex(-1); searchInput.current?.focus(); }}>×</button>}
-        {showSuggestions && <div className="voting-suggestions"><p className="voting-suggestions-label">Gợi ý trong hạng mục đang chọn</p><div role="listbox" id={`${uid}-suggestions`} aria-label="Gợi ý tìm kiếm">{suggestions.map((value,index) => <button type="button" role="option" tabIndex={-1} aria-selected={suggestionIndex === index} id={`${uid}-suggestion-${index}`} key={value} onMouseDown={event => event.preventDefault()} onClick={() => chooseSuggestion(value)}>{value}</button>)}</div>{!suggestions.length && <p className="voting-suggestions-empty" role="status">Không có từ khóa phù hợp.</p>}</div>}
+        {showSuggestions && <div className="voting-suggestions"><p className="voting-suggestions-label">Gợi ý trong nhóm / hạng mục đang chọn</p><div role="listbox" id={`${uid}-suggestions`} aria-label="Gợi ý tìm kiếm">{suggestions.map((value,index) => <button type="button" role="option" tabIndex={-1} aria-selected={suggestionIndex === index} id={`${uid}-suggestion-${index}`} key={value} onMouseDown={event => event.preventDefault()} onClick={() => chooseSuggestion(value)}>{value}</button>)}</div>{!suggestions.length && <p className="voting-suggestions-empty" role="status">Không có từ khóa phù hợp.</p>}</div>}
       </div>
       <div className="voting-filter-groups">{awardGroups.map((group, index) => <div className="voting-group-dropdown" key={group.name}>
-        <button type="button" className="voting-group-trigger" ref={node => { triggers.current[index] = node; }} data-active={groupIndex === index} aria-expanded={openGroup === index} aria-controls={`${uid}-group-${index}`} onClick={() => setOpenGroup(openGroup === index ? null : index)}>{group.name}<UiIcon name="angle-small-down" size={16} /></button>
-        {openGroup === index && <div className="voting-group-menu" id={`${uid}-group-${index}`} role="group" aria-label={`Hạng mục ${group.name}`}>{group.categories.map((category, categoryId) => <button type="button" key={category} aria-pressed={groupIndex === index && categoryIndex === categoryId} onClick={() => selectCategory(index, categoryId)}>{category}</button>)}</div>}
+        <button type="button" className="voting-group-trigger" ref={node => { triggers.current[index] = node; }} data-active={groupIndex === index} aria-expanded={openGroup === index} aria-controls={`${uid}-group-${index}`} onClick={() => { if(groupIndex !== index) { setGroupIndex(index); setCategoryIndex(-1); } setOpenGroup(openGroup === index ? null : index); }}>{group.name}<UiIcon name="angle-small-down" size={16} /></button>
+        {openGroup === index && <div className="voting-group-menu" id={`${uid}-group-${index}`} role="group" aria-label={`Hạng mục ${group.name}`}><button type="button" aria-pressed={groupIndex === index && categoryIndex === -1} onClick={() => selectCategory(index,-1)}>Tất cả</button>{group.categories.map((category, categoryId) => <button type="button" key={category} aria-pressed={groupIndex === index && categoryIndex === categoryId} onClick={() => selectCategory(index, categoryId)}>{category}</button>)}</div>}
       </div>)}</div>
     </div>
     <div>
       <div className="voting-category-navigation">
         <button type="button" className="voting-category-arrow" aria-label="Cuộn hạng mục sang trái" aria-controls={`${uid}-categories`} disabled={!scrollable.left} onClick={() => scrollCategories(-1)}><span className="voting-slider-arrow-icon voting-slider-arrow-icon--prev" aria-hidden="true" /></button>
-        <div key={groupIndex} ref={categoryList} id={`${uid}-categories`} className="voting-category-filters" role="group" aria-label="Hạng mục bình chọn">{awardGroups[groupIndex].categories.map((category, index) => <button key={category} aria-pressed={categoryIndex === index} onClick={() => setCategoryIndex(index)}>{category}</button>)}</div>
+        <div key={groupIndex} ref={categoryList} id={`${uid}-categories`} className="voting-category-filters" role="group" aria-label="Hạng mục khảo sát"><button type="button" aria-pressed={categoryIndex === -1} onClick={() => setCategoryIndex(-1)}>Tất cả</button>{awardGroups[groupIndex].categories.map((category, index) => <button key={category} aria-pressed={categoryIndex === index} onClick={() => setCategoryIndex(index)}>{category}</button>)}</div>
         <button type="button" className="voting-category-arrow" aria-label="Cuộn hạng mục sang phải" aria-controls={`${uid}-categories`} disabled={!scrollable.right} onClick={() => scrollCategories(1)}><span className="voting-slider-arrow-icon voting-slider-arrow-icon--next" aria-hidden="true" /></button>
       </div>
-      <div className="voting-results-heading"><h3 className="type-heading-3">{awardGroups[groupIndex].categories[categoryIndex]}</h3><Link className="text-link voting-view-all" href={`/binh-chon?category=${categoryId}`}>Xem tất cả<span aria-hidden="true"><CTAArrow /></span></Link></div>
+      <div className="voting-results-heading"><h3 className="type-heading-3">{categoryIndex < 0 ? 'Hồ sơ' : awardGroups[groupIndex].categories[categoryIndex]}</h3><Link className="text-link voting-view-all" href={categoryId ? `/binh-chon?category=${categoryId}` : `/binh-chon?group=${groupIndex === 0 ? 'tru-cot' : 'tien-phong'}`}>Xem tất cả<span aria-hidden="true"><CTAArrow /></span></Link></div>
       {profiles.length ? <div className="voting-grid">{profiles.map(profile => <VotingCard key={profile.slug} profile={profile} />)}</div> : <div className="voting-empty" role="status"><p>Không tìm thấy bài thi phù hợp trong hạng mục này.</p><button type="button" className="button button--secondary" onClick={() => setQuery('')}>Xóa tìm kiếm</button></div>}
     </div>
   </Container></Section>;

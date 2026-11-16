@@ -21,7 +21,7 @@ import '@/app/home.css';
 import '../binh-chon/voting.css';
 
 export const metadata: Metadata = {
-  title: 'Travel Awards 2026 — Bình chọn',
+  title: 'Travel Awards 2026 — Khảo sát',
   description: 'Tôn vinh những dấu ấn góp phần định hình tương lai du lịch Việt Nam. Đề cử đến ngày 20.11.2026.',
 };
 
@@ -60,7 +60,7 @@ export default function Phase2HomePage() {
         <picture><source media="(max-width: 767px)" srcSet="/assets/key-visual/BG1%20Mobile.png" /><Image className="home-hero-landscape" src="/assets/key-visual/BG1%20SVG.svg" alt="" aria-hidden="true" width={1920} height={1080} unoptimized loading="eager" /></picture>
         <div className="home-hero-content">
           <h1 id="hero-title"><span className="home-sr-only">THE FIRST SIGNATURE — DẤU ẤN TIÊN PHONG</span><BrandGraphic variant="campaign" /></h1>
-          <p className="home-hero-statement">Giai đoạn bình chọn đề cử</p>
+          <p className="home-hero-statement">Giai đoạn khảo sát đề cử</p>
           <div className="home-hero-actions"><NominationCountdown label="Thời gian còn lại:" kind="survey" /></div>
         </div>
       </HeroStage>
@@ -71,7 +71,7 @@ export default function Phase2HomePage() {
           <div className="home-section-title"><h2 className="type-display-l">Agenda<span className="home-agenda-title-line"> sự kiện</span></h2><TextLink className="home-agenda-rules-cta" href="/the-le">Xem thể lệ</TextLink></div>
           <ol className="home-timeline">
             <li><span className="home-timeline-index">Đề cử</span><div className="home-timeline-summary"><h3 className="type-heading-2">Vòng Sơ loại</h3><p className="home-timeline-date">Tháng 10 - 11</p></div><p>Gửi hồ sơ đề cử hoặc tự đề cử theo từng hạng mục trên chuyên trang Travel Awards.</p></li>
-            <li><span className="home-timeline-index">Bình chọn</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Độc giả bình chọn song song với Hội đồng chuyên môn chấm điểm.</p></li>
+            <li><span className="home-timeline-index">Khảo sát</span><div className="home-timeline-summary"><h3 className="type-heading-2">Sơ loại / Chung kết</h3><p className="home-timeline-date">Tháng 11 - Tháng 12</p></div><p>Độc giả khảo sát song song với Hội đồng chuyên môn chấm điểm.</p></li>
             <li><span className="home-timeline-index">Vinh danh</span><div className="home-timeline-summary"><h3 className="type-heading-2">Gala trao giải</h3><p className="home-timeline-date">Tháng 1/2027</p></div><p>Công bố các đề cử trúng giải, hoạt động bên lề Gala vinh danh.</p></li>
           </ol>
         </Container>
@@ -97,7 +97,7 @@ export default function Phase2HomePage() {
       <TravelGlowIntro />
 
       <Section id="nominate" tone="brand-deep" className="home-final-cta home-final-cta--bg1">
-        <HeroRouteGlow /><Container><Eyebrow>Góc nhìn từ hành trình của bạn</Eyebrow><h2 className="type-display-xl">Mỗi trải nghiệm.<br /><em>Một góc nhìn.</em></h2><p>Khám phá hồ sơ, chia sẻ cảm nhận và góp phần ghi nhận những dấu ấn du lịch Việt Nam.</p><Link href="/binh-chon" className="button button--primary home-cta">Bình chọn<CTAArrow /></Link></Container>
+        <HeroRouteGlow /><Container><Eyebrow>Góc nhìn từ hành trình của bạn</Eyebrow><h2 className="type-display-xl">Mỗi trải nghiệm.<br /><em>Một góc nhìn.</em></h2><p>Khám phá hồ sơ, chia sẻ cảm nhận và góp phần ghi nhận những dấu ấn du lịch Việt Nam.</p><Link href="/binh-chon" className="button button--primary home-cta">Khảo sát<CTAArrow /></Link></Container>
       </Section>
       <Section id="organizer" className="home-organizer">
         <Container className="home-organizer-inner"><div className="home-organizer-logos"><div className="home-organizer-unit"><Eyebrow>Đơn vị tổ chức</Eyebrow><Image src="/assets/key-visual/logo vnexpress.svg" alt="VnExpress" width={1366} height={768} unoptimized /></div><div className="home-organizer-unit"><Eyebrow>Đơn vị vận hành</Eyebrow><Image src="/assets/key-visual/logo fpt online.svg" alt="FPT Online" width={1366} height={768} unoptimized /></div></div><div className="home-partner-stack"><div className="home-organizer-unit"><Eyebrow>Đối tác kim cương</Eyebrow><div className="home-partner-vacure"><Image src="/assets/key-visual/vacure.png" alt="Vacure" width={2732} height={2732} unoptimized /></div></div><div className="home-organizer-unit"><Eyebrow>Đối tác chuyên môn</Eyebrow><Image className="home-partner-outbox" src="/assets/key-visual/outbox.png" alt="Outbox" width={2599} height={1167} unoptimized /></div></div></Container>

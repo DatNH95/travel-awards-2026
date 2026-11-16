@@ -34,7 +34,7 @@ export function ProfileScreening({ completedIds = [], categoryId, profiles, curr
           <input type="checkbox" name="experienced-profile" disabled={completedIds.includes(item.id)} value={item.id} checked={response.selected.includes(item.id)} onChange={event=>toggleProfile(item.id,event.target.checked)} />
           {item.image?<Image unoptimized className="survey-profile-image" src={item.image} width={100} height={60} alt=""/>:<span className="survey-profile-image survey-profile-placeholder" aria-hidden="true"><UiIcon name="document" size={28}/></span>}
           <span className="survey-profile-copy"><strong>{item.name}</strong><span>{item.location}</span></span>
-          <span className="survey-profile-state" aria-hidden="true">{completedIds.includes(item.id)?'Đã bình chọn':response.selected.includes(item.id)?'Đã chọn khảo sát':'Chưa chọn'}</span>
+          <span className="survey-profile-state" aria-hidden="true">{completedIds.includes(item.id)?'Đã khảo sát':response.selected.includes(item.id)?'Đã chọn khảo sát':'Chưa chọn'}</span>
         </label>)}</ProfileScrollList>
       </section>)}
       <p className="survey-choice-divider">{copy.divider}</p>

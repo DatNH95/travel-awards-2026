@@ -446,6 +446,9 @@
 .travel-glow-entry-actions > p,.travel-glow-entry-actions strong { font-size:var(--text-body-small); line-height:1.4; }
 .travel-glow-entry-actions strong { font-size:24px; line-height:1.2; font-weight:700; }
 
+/* Keep the line breaks submitted in public profile descriptions. */
+.voting-dossier-paragraphs p { white-space:pre-line; }
+
 @scope (.voting-survey-modal) {
 /* Shared plain CSS for the app and HTML handoff.
    Structure follows HTML-PC/app/template/main.html and css/scss/base + components. */

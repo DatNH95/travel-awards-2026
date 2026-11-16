@@ -1,0 +1,120 @@
+{
+  "profiles": [
+    {
+      "code": "686",
+      "status": 200
+    },
+    {
+      "code": "684",
+      "status": 200
+    },
+    {
+      "code": "682",
+      "status": 200
+    },
+    {
+      "code": "672",
+      "status": 200
+    },
+    {
+      "code": "671",
+      "status": 200
+    },
+    {
+      "code": "655",
+      "status": 200
+    },
+    {
+      "code": "646",
+      "status": 200
+    },
+    {
+      "code": "643",
+      "status": 200
+    },
+    {
+      "code": "641",
+      "status": 200
+    },
+    {
+      "code": "637",
+      "status": 200
+    },
+    {
+      "code": "624",
+      "status": 200
+    },
+    {
+      "code": "622",
+      "status": 200
+    },
+    {
+      "code": "608",
+      "status": 200
+    },
+    {
+      "code": "607",
+      "status": 200
+    },
+    {
+      "code": "606",
+      "status": 200
+    },
+    {
+      "code": "605",
+      "status": 200
+    },
+    {
+      "code": "604",
+      "status": 200
+    },
+    {
+      "code": "602",
+      "status": 200
+    },
+    {
+      "code": "597",
+      "status": 200
+    },
+    {
+      "code": "579",
+      "status": 200
+    },
+    {
+      "code": "578",
+      "status": 200
+    }
+  ],
+  "gallery": [
+    {
+      "loaded": true,
+      "src": "https://static.vinwonders.com/production/Ngoi-lang-chien-binh-scaled-1.jpg"
+    },
+    {
+      "loaded": true,
+      "src": "https://static.vinwonders.com/production/Tet-VN-du-xuan-the-gioi-scaled-1.jpg"
+    },
+    {
+      "loaded": true,
+      "src": "https://static.vinwonders.com/2022/11/BXjgvzxd-Once-Show-1.jpg"
+    },
+    {
+      "loaded": true,
+      "src": "https://static.vinwonders.com/production/2026/03/tien-ca.jpg"
+    },
+    {
+      "loaded": true,
+      "src": "https://static.vinwonders.com/production/2025/08/Anh-chup-man-hinh-2025-08-05-152810-1.png"
+    },
+    {
+      "loaded": true,
+      "src": "https://static.vinwonders.com/production/2025/12/vinwonders-phu-quoc.jpg"
+    }
+  ],
+  "desktop": 1440,
+  "mobile": 390,
+  "overflow": false,
+  "popup": true,
+  "phase1Unchanged": true,
+  "errors": []
+}

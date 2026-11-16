@@ -28,7 +28,7 @@ export function HeaderNavigation({ homePrefix = '', phase = 'voting' }: { homePr
     <div className="home-header-links">
     <a href={phase === 'voting' ? '/phase-2#main' : '/#main'} className="home-nav-home" aria-label="Trang chủ" aria-current={active === '#main' ? 'location' : undefined}><Image src="/assets/key-visual/home.svg" alt="" aria-hidden="true" width={20} height={20} unoptimized /></a>
     <Link href="/the-le" aria-current={pathname === '/the-le' ? 'page' : undefined}>Thể lệ</Link>
-    {phase === 'voting' && <Link href="/binh-chon" aria-current={pathname === '/binh-chon' || pathname.startsWith('/binh-chon/') ? 'page' : undefined}>Bình chọn</Link>}
+    {phase === 'voting' && <Link href="/binh-chon" aria-current={pathname === '/binh-chon' || pathname.startsWith('/binh-chon/') ? 'page' : undefined}>Khảo sát</Link>}
     <Link href="/tin-tuc" aria-current={pathname === '/tin-tuc' || pathname.startsWith('/tin-tuc/') ? 'page' : undefined}>Tin tức</Link>
     </div>
 

@@ -7,6 +7,21 @@ const require=createRequire(import.meta.url);
 const {chromium}=require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root=path.resolve('hand-off-phase 2'),base=process.env.QA_BASE_URL||'http://127.0.0.1:3001';
 const manifest=JSON.parse(await fs.readFile(path.join(root,'manifest.json'),'utf8'));
+const realProfiles=JSON.parse(await fs.readFile('src/data/voting-profiles.json','utf8'));
+if(realProfiles.length&&manifest.pages.some(({file})=>file===`ho-so-${realProfiles[0].slug}.html`)){
+  assert.equal(manifest.pages.length,realProfiles.length+2);
+  for(const {file} of manifest.pages){
+    const html=await fs.readFile(path.join(root,file),'utf8');
+    assert(!/<main\b|<div class="home(?: |")|_next\/|self\.__next|data-nimg|next-route-announcer/.test(html),file+': clean shell');
+    for(const match of html.matchAll(/(?:href|src)="([^"]+)"/g)){
+      const value=match[1];if(/^(?:https?:|mailto:|tel:|data:|#)/.test(value))continue;
+      assert(!value.startsWith('/'),file+': portable link');await fs.access(path.resolve(root,decodeURIComponent(value.split(/[?#]/)[0])));
+    }
+  }
+  const {execFile}=await import('node:child_process');
+  await new Promise((resolve,reject)=>execFile(process.execPath,['scripts/qa-real-voting-profiles.cjs'],{env:{...process.env,QA_HANDOFF:'1'}},(error,stdout,stderr)=>{if(stdout)process.stdout.write(stdout);if(error)reject(new Error(stderr||error.message));else resolve();}));
+  console.log(`Real-profile handoff: ${manifest.pages.length} pages, portable links and survey passed.`);process.exit(0);
+}
 const errors=[],checks=[],measurements=[];
 const browser=await chromium.launch({channel:'msedge',headless:true});
 try {

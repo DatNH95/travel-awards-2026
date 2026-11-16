@@ -1,3 +1,4 @@
+import { VotingParticipantCount } from '@/components/voting-participant-count';
 import { UiIcon } from '@/components/ui-icon';
 import type { Metadata } from 'next';
 import Image from 'next/image';
@@ -19,7 +20,7 @@ export function generateStaticParams() { return votingProfiles.map(({slug}) => (
 export async function generateMetadata({params}: {params: Promise<{slug: string}>}): Promise<Metadata> {
   const {slug} = await params;
   const profile = votingProfiles.find(item => item.slug === slug);
-  return {title: profile ? `${profile.name} — Bình chọn Travel Awards 2026` : 'Không tìm thấy hồ sơ'};
+  return {title: profile ? `${profile.name} — Khảo sát Travel Awards 2026` : 'Không tìm thấy hồ sơ'};
 }
 
 export default async function VotingDetail({params}: {params: Promise<{slug: string}>}) {
@@ -27,7 +28,7 @@ export default async function VotingDetail({params}: {params: Promise<{slug: str
   const profile = votingProfiles.find(item => item.slug === slug);
   if (!profile) notFound();
   return <div className="home voting-site surface surface--primary"><SiteHeader homePrefix="/" phase="voting" /><ScrollReveal /><main id="main"><section className="voting-detail"><Container>
-    <nav className="voting-breadcrumb type-body-small" aria-label="Breadcrumb"><Link href="/phase-2">Trang chủ</Link><span aria-hidden="true">/</span><Link href="/binh-chon">Bình chọn</Link></nav>
+    <nav className="voting-breadcrumb type-body-small" aria-label="Breadcrumb"><Link href="/phase-2">Trang chủ</Link><span aria-hidden="true">/</span><Link href="/binh-chon">Khảo sát</Link></nav>
     <div className="voting-detail-layout">
       <article className="voting-detail-main">
         <VotingDetailGallery images={profile.gallery} />
@@ -41,7 +42,7 @@ export default async function VotingDetail({params}: {params: Promise<{slug: str
         <div className="voting-detail-actions">
           <div className="voting-detail-survey">
             <VotingSurvey profile={profile} />
-            <p className="type-body-small"><strong>{profile.surveyCount.toLocaleString('vi-VN')}</strong> người đã tham gia khảo sát</p>
+            <VotingParticipantCount profile={profile} className="type-body-small" />
           </div>
           <VotingDetailShare slug={profile.slug} />
         </div>

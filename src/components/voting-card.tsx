@@ -1,4 +1,6 @@
 'use client';
+import { VotingParticipantCount } from './voting-participant-count';
+
 import { UiIcon } from './ui-icon';
 
 import { useEffect, useRef, useState } from 'react';
@@ -47,7 +49,7 @@ export function VotingCard({ profile }: { profile: VotingProfile }) {
         <p className="voting-copy-status" role="status">{copyStatus}</p>
       </div>
       </div>
-      <p className="voting-card-count">Đã có <strong>{profile.surveyCount.toLocaleString('vi-VN')}</strong> người tham gia bình chọn</p>
+      <VotingParticipantCount profile={profile} />
 
     </div>
   </article>;

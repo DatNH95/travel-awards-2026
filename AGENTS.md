@@ -10,6 +10,16 @@ This block is written and re-added by `next dev` — verify at `node_modules/nex
 
 # Travel Awards 2026 — Project handoff
 
+### Hồ sơ thực và nhãn khảo sát — 16.11.2026
+
+- Theo yêu cầu mới nhất: toàn bộ hồ sơ thực dùng ảnh demo từ gallery Đà Nẵng/VinWonders để review. Chỉ thay image/gallery ở lớp hiển thị `voting.ts`, giữ nguyên dữ liệu import và nội dung detail; không thay đổi phần thi 30Plus. Quy tắc này thay thế việc dùng placeholder cho 17 hồ sơ thiếu ảnh phía dưới.
+
+- Phase 2 dùng 21 hồ sơ thực từ file export ngày 16.11.2026 để review. Nguồn đang ghi Chờ duyệt; không tự coi là đã duyệt. Import bằng `scripts/import-voting-profiles.py <export.xls>`; chỉ whitelist dữ liệu công khai. Không đưa thông tin đại diện/liên hệ/MyVNE/pháp lý/minh chứng vào HTML hoặc bundle.
+- `voting-profiles.json` chứa thông tin card/gallery; `voting-public-dossiers.json` chỉ đọc trên server. Các cột 28–33 và 34–38 ghép theo thứ tự tiêu chí từng hạng mục, không theo nhãn cột dùng chung của export. Cột 39 là xác nhận, không phải mô tả chiến dịch.
+- Chỉ 4 hồ sơ có ảnh trong export, còn 17 hồ sơ dùng placeholder trung tính. Không gán ảnh địa danh khác hoặc số lượt khảo sát giả. Hạng mục chưa có hồ sơ không được chọn trong popup. Giữ hạng mục theo nguồn, cần BTC đối chiếu trường hợp Lam Kinh với phạm vi tiêu chí cấp tỉnh/thành.
+- Travel Awards dùng nhãn Khảo sát / Đã khảo sát trên menu, card và detail; giữ URL `/binh-chon`. Cuộc thi 30Plus giữ nguyên Bình chọn, giao diện/chức năng và fixture riêng tại `voting-demo.ts`; không thay bằng dữ liệu Travel Awards.
+- QA dữ liệu: `docs/voting-import-report.json`, `scripts/qa-real-voting-profiles.cjs`, `docs/voting-real-profiles-qa.json`.
+
 - Ưu tiên review tại `http://localhost:8080` bằng `pnpm dev` với Fast Refresh, giữ server chạy nền để CSS/component tự cập nhật; không dùng `pnpm start` cho refinement thường ngày, không reload thủ công sau mỗi chỉnh sửa. Giữ route và trạng thái người dùng đang xem; chỉ reload khi Fast Refresh không thể cập nhật hoặc khi chuyển/restart server. Build production dùng để kiểm tra, không thay dev server đang review.
 
 ### Chi tiết hồ sơ — 20.10.2026

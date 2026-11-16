@@ -618,5 +618,15 @@
 .travel-glow-actions { display: flex; align-items: center; flex-wrap: wrap; gap: 20px; }
 .travel-glow-actions .text-link { flex-shrink: 0; }
 
+/* Responsive nomination support contacts, shared by both phases. */
+.home-footer-support-contacts { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:24px; }
+.home-footer-information .home-footer-support-contacts dl { min-width:0; margin:0 0 16px; }
+.home-footer-information .home-footer-support-contacts dl > div { display:block; margin-top:8px; }
+.home-footer-support-contacts dt { font-size:13px; }
+.home-footer-support-contacts dd { overflow-wrap:anywhere; font-size:14px; }
+.home-footer-support-contacts dl > div:first-child dt { display:none; }
+.home-footer-support-contacts dl > div:first-child dd { font-size:16px; font-weight:600; }
+@media(max-width:600px) { .home-footer-support-contacts { grid-template-columns:1fr; gap:8px; } }
+
 .wrap-homepage.width_common { width: 100%; }
 .wrap-homepage > .home-hero { padding-block: 0; }

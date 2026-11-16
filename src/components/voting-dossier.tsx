@@ -24,7 +24,7 @@ export function VotingDossier({ profile }: { profile: VotingProfile }) {
   return <div className="voting-detail-copy">
     <section className="voting-dossier-section" aria-labelledby="dossier-introduction">
       <h2 id="dossier-introduction" className="voting-dossier-introduction">Giới thiệu</h2>
-      <p className="type-body-large">{dossier.intro}</p>
+      <div className="voting-dossier-paragraphs type-body-large">{dossier.intro.split(/\n\n+/).map((paragraph,index)=><p key={index}>{paragraph}</p>)}</div>
       {dossier.highlights.length > 0 && <div className="voting-dossier-highlights"><dl aria-label="Số liệu nổi bật">{dossier.highlights.map(item => <div key={item.label}><dt>{item.label}</dt><dd><AnimatedStatistic key={item.value} value={item.value} /></dd></div>)}</dl></div>}
     </section>
     <section className="voting-dossier-section" aria-labelledby="dossier-information">

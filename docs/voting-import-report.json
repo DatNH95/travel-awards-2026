@@ -1,0 +1,94 @@
+{
+  "source": "Danh_sach_ho_so_Travel-Awards-2026_2026_11_16_103212.xls",
+  "records": 21,
+  "categories": {
+    "tru-cot-2": 5,
+    "tien-phong-7": 1,
+    "tru-cot-4": 7,
+    "tien-phong-4": 2,
+    "tien-phong-6": 1,
+    "tien-phong-5": 1,
+    "tru-cot-3": 2,
+    "tien-phong-2": 1,
+    "tru-cot-1": 1
+  },
+  "sourceStatuses": {
+    "Chờ duyệt": 21
+  },
+  "mapping": "Fields 28–33 and 34–38 map by category criterion order, NOT repeated export column labels. Column 39 is a confirmation and is excluded. No fabricated metrics or survey counts.",
+  "warnings": [
+    {
+      "code": "686",
+      "issue": "Generic category title replaced with registered organization"
+    },
+    {
+      "code": "686",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "684",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "682",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "672",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "671",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "655",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "646",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "641",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "624",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "622",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "608",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "607",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "606",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "605",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "604",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "602",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    },
+    {
+      "code": "597",
+      "issue": "No public images in export; neutral placeholder used, no unrelated demo photo"
+    }
+  ],
+  "excluded": "Representative/contact/account/approval/legal/evidence/Drive fields are not exported."
+}

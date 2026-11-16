@@ -5,7 +5,7 @@ import { UiIcon } from './ui-icon';
 import Image from 'next/image';
 import Link from 'next/link';
 import rules from '@/data/travel-glow-rules.json';
-import { votingProfiles } from '@/data/voting';
+import { votingProfiles } from '@/data/voting-demo';
 import { Container, Section, TextLink } from './phase-2/primitives';
 
 // Front-end fixtures only. Names and like counts are illustrative.

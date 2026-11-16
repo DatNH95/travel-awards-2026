@@ -9,11 +9,11 @@
   const escape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
   const profileHref=slug=>`ho-so-${slug}.html`;
   const slugOf=card=>$('.voting-card-link',card)?.getAttribute('href').match(/ho-so-(.+)\.html/)?.[1];
-  const categoryOf=slug=>slug?.split('-ho-so-')[0];
+  const categoryOf=slug=>profileInfo.get(slug)?.categoryId;
   const profileInfo=new Map();
   for(const [category,html] of Object.entries(data.cards)) {
     const holder=document.createElement('div');holder.innerHTML=html;
-    $$('.voting-card',holder).forEach(card=>profileInfo.set(slugOf(card),{name:$('.voting-card-link',card).textContent,organization:$('.voting-card-organization',card).textContent,image:$('img',card).getAttribute('src'),category:data.groups.flat().find(item=>item.id===category).name}));
+    $$('.voting-card',holder).forEach(card=>profileInfo.set(slugOf(card),{name:$('.voting-card-link',card).textContent,organization:$('.voting-card-organization',card).textContent,image:$('img',card).getAttribute('src'),categoryId:category,category:data.groups.flat().find(item=>item.id===category).name}));
   }
   function applyCompleted() {
     $$('.voting-survey-trigger').forEach(button=>{
@@ -21,7 +21,7 @@
       if(!slug)return;
       button.dataset.profile=slug;
       if(!completed.get(categoryOf(slug))?.has(slug))return;
-      button.disabled=true;button.textContent='Đã bình chọn';button.removeAttribute('title');
+      button.disabled=true;button.textContent='Đã khảo sát';button.removeAttribute('title');const host=button.closest('.voting-card-body,.voting-detail-survey');if(host&&!$('.voting-card-count',host)){const count=document.createElement('p');count.className='voting-card-count';count.setAttribute('role','status');count.innerHTML='Đã có <strong>1</strong> người tham gia khảo sát';host.append(count);}
     });
   }
   // Tabs preserve keyboard navigation and both semantic tab panels.
@@ -34,12 +34,13 @@
   if(voting) {
     const marker=$('.voting-sticky-marker',voting),toolbar=$('.voting-filter-toolbar',voting);
     if(marker)new IntersectionObserver(([entry])=>{toolbar.dataset.sticky=String(!entry.isIntersecting&&entry.boundingClientRect.top<0);}).observe(marker);
-    let category=data.groups[0][0].id,query='',suggestionIndex=-1;
+    let category=null,activeGroup=new URLSearchParams(location.search).get('group')==='tien-phong'?1:0,query='',suggestionIndex=-1;
     const search=$('.voting-search input',voting),grid=$('.voting-grid',voting),filters=$('.voting-category-filters',voting),triggers=$$('.voting-group-trigger',voting);
     function closeMenus(){ $$('.voting-group-menu',voting).forEach(menu=>menu.remove());triggers.forEach(trigger=>trigger.setAttribute('aria-expanded','false')); }
     function updateEdges(){const arrows=$$('.voting-category-navigation > button',voting);arrows[0].disabled=filters.scrollLeft<=1;arrows[1].disabled=filters.scrollWidth-filters.clientWidth-filters.scrollLeft<=1;}
     function renderCards(){
-      grid.innerHTML=data.cards[category];
+      grid.innerHTML=category?data.cards[category]:data.groups[activeGroup].map(item=>data.cards[item.id]).join('');
+      if(!category&&data.order)[...grid.children].sort((a,b)=>data.order.indexOf(slugOf(a))-data.order.indexOf(slugOf(b))).forEach(card=>grid.append(card));
       $$('.voting-survey',grid).forEach(dialog=>dialog.remove());
       $$('.voting-card',grid).forEach(card=>card.hidden=!normalize($('.voting-card-link',card).textContent+' '+$('.voting-card-organization',card).textContent).includes(normalize(query)));
       const count=$$('.voting-card:not([hidden])',grid).length;
@@ -47,24 +48,24 @@
       if(!count){const empty=document.createElement('div');empty.className='voting-empty';empty.setAttribute('role','status');empty.innerHTML='<p>Không tìm thấy bài thi phù hợp trong hạng mục này.</p><button type="button" class="button button--secondary">Xóa tìm kiếm</button>';empty.lastChild.addEventListener('click',()=>{query='';search.value='';renderCards();closeSuggestions();});grid.after(empty);}
       applyCompleted();
     }
-    function choose(id){
-      const group=data.groups.findIndex(items=>items.some(item=>item.id===id));if(group<0)return;
-      category=id;closeMenus();closeSuggestions();
+    function choose(id,groupIndex=activeGroup){
+      const group=id?data.groups.findIndex(items=>items.some(item=>item.id===id)):groupIndex;if(group<0)return;
+      activeGroup=group;category=id;closeMenus();closeSuggestions();
       triggers.forEach((trigger,index)=>trigger.dataset.active=String(index===group));
-      filters.replaceChildren(...data.groups[group].map(item=>{const b=document.createElement('button');b.type='button';b.textContent=item.name;b.setAttribute('aria-pressed',String(item.id===id));b.addEventListener('click',()=>choose(item.id));return b;}));
-      $('.voting-results-heading h3',voting).textContent=data.groups[group].find(item=>item.id===id).name;
-      $('.voting-view-all',voting).href=`binh-chon.html?category=${id}`;
+      filters.replaceChildren(...[{id:null,name:'Tất cả'},...data.groups[group]].map(item=>{const button=document.createElement('button');button.type='button';button.textContent=item.name;button.setAttribute('aria-pressed',String(item.id===id));button.addEventListener('click',()=>choose(item.id,group));return button;}));
+      $('.voting-results-heading h3',voting).textContent=id?data.groups[group].find(item=>item.id===id).name:'Hồ sơ';
+      $('.voting-view-all',voting).href=id?'binh-chon.html?category='+id:'binh-chon.html?group='+(group?'tien-phong':'tru-cot');
       renderCards();requestAnimationFrame(()=>{const selected=$('[aria-pressed=true]',filters);filters.scrollLeft=Math.max(0,selected.offsetLeft-filters.offsetLeft);updateEdges();});
     }
     triggers.forEach((trigger,index)=>trigger.addEventListener('click',()=>{
       const wasOpen=trigger.getAttribute('aria-expanded')==='true';closeMenus();closeSuggestions();if(wasOpen)return;
       const menu=document.createElement('div');menu.className='voting-group-menu';menu.id=trigger.getAttribute('aria-controls');menu.setAttribute('role','group');menu.setAttribute('aria-label',`Hạng mục ${trigger.textContent.trim()}`);
-      data.groups[index].forEach(item=>{const button=document.createElement('button');button.type='button';button.textContent=item.name;button.setAttribute('aria-pressed',String(item.id===category));button.addEventListener('click',()=>{choose(item.id);trigger.focus();});menu.append(button);});trigger.after(menu);trigger.setAttribute('aria-expanded','true');
+      [{id:null,name:'Tất cả'},...data.groups[index]].forEach(item=>{const button=document.createElement('button');button.type='button';button.textContent=item.name;button.setAttribute('aria-pressed',String(item.id===category));button.addEventListener('click',()=>{choose(item.id,index);trigger.focus();});menu.append(button);});trigger.after(menu);trigger.setAttribute('aria-expanded','true');
     }));
     const closeSuggestions=()=>{$('.voting-suggestions',voting)?.remove();search.setAttribute('aria-expanded','false');search.removeAttribute('aria-activedescendant');suggestionIndex=-1;};
     function suggest(){
       closeSuggestions();if(!normalize(query))return;
-      const names=[...new Set([...profileInfo].filter(([slug])=>categoryOf(slug)===category).flatMap(([,item])=>[item.name,item.organization]))].filter(name=>normalize(name).includes(normalize(query))).sort((a,b)=>Number(normalize(b).startsWith(normalize(query)))-Number(normalize(a).startsWith(normalize(query)))).slice(0,6);
+      const names=[...new Set([...profileInfo].filter(([slug])=>(category?categoryOf(slug)===category:data.groups[activeGroup].some(item=>item.id===categoryOf(slug)))).flatMap(([,item])=>[item.name,item.organization]))].filter(name=>normalize(name).includes(normalize(query))).sort((a,b)=>Number(normalize(b).startsWith(normalize(query)))-Number(normalize(a).startsWith(normalize(query)))).slice(0,6);
       const box=document.createElement('div');box.className='voting-suggestions';box.innerHTML='<p class="voting-suggestions-label">Gợi ý trong hạng mục đang chọn</p>';
       const list=document.createElement('div');list.setAttribute('role','listbox');list.id=search.getAttribute('aria-controls');list.setAttribute('aria-label','Gợi ý tìm kiếm');
       names.forEach((name,index)=>{const button=document.createElement('button');button.type='button';button.textContent=name;button.setAttribute('role','option');button.setAttribute('aria-selected','false');button.tabIndex=-1;button.id=`search-option-${index}`;button.addEventListener('mousedown',event=>event.preventDefault());button.addEventListener('click',()=>{query=name;search.value=name;renderCards();closeSuggestions();search.focus();});list.append(button);});box.append(list);
@@ -80,7 +81,7 @@
     $$('.voting-category-navigation > button',voting).forEach((button,index)=>button.addEventListener('click',()=>filters.scrollBy({left:(index?1:-1)*filters.clientWidth*.7,behavior:behavior()})));
     filters.addEventListener('scroll',updateEdges,{passive:true});new ResizeObserver(updateEdges).observe(filters);
     const requestedCategory=new URLSearchParams(location.search).get('category');
-    choose(data.cards[requestedCategory]?requestedCategory:category);
+    choose(data.cards[requestedCategory]?requestedCategory:null,activeGroup);
     function glow(){const heading=$('.voting-intro > h1,.voting-intro > h2',voting),a=voting.getBoundingClientRect(),b=heading.getBoundingClientRect();voting.style.setProperty('--voting-glow-y',`${b.top-a.top+b.height/2}px`);}
     addEventListener('resize',glow);document.fonts.ready.then(glow);
   }

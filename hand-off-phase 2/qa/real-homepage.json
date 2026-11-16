@@ -1,0 +1,18 @@
+{
+  "checks": [
+    {
+      "width": 1440,
+      "realCards": 15,
+      "emptyCategoriesDisabled": 6,
+      "thirtyPlusUnchanged": true,
+      "errors": []
+    },
+    {
+      "width": 390,
+      "realCards": 15,
+      "emptyCategoriesDisabled": 6,
+      "thirtyPlusUnchanged": true,
+      "errors": []
+    }
+  ]
+}

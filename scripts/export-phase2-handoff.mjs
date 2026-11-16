@@ -7,6 +7,7 @@ import {packageHandoffStyles,updateHandoffStyleLinks} from '../handoff-html/styl
 const require = createRequire(import.meta.url);
 const {chromium} = require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const out = path.resolve('hand-off-phase 2');
+const previousPages=await fs.readFile(path.join(out,'manifest.json'),'utf8').then(text=>JSON.parse(text).pages).catch(()=>[]);
 const base = process.env.QA_BASE_URL || 'http://127.0.0.1:3001';
 await fs.mkdir(path.join(out,'js'),{recursive:true});
 await fs.mkdir(path.join(out,'css'),{recursive:true});
@@ -34,7 +35,8 @@ if(process.argv.includes('--styles-only')) {
   await updateHandoffStyleLinks(out);console.log('Phase 2 styles refreshed.');process.exit(0);
 }
 const categories = [...Array.from({length:6},(_,i)=>`tru-cot-${i+1}`),...Array.from({length:9},(_,i)=>`tien-phong-${i+1}`)];
-const profiles = categories.flatMap(category=>Array.from({length:10},(_,i)=>`${category}-ho-so-${i+1}`));
+const publicProfiles=JSON.parse(await fs.readFile('src/data/voting-profiles.json','utf8'));
+const profiles = publicProfiles.map(profile=>profile.slug);
 function portable(html) {
   return html.replace(/(href|src|poster)="([^"]+)"/g,(match,attr,value)=>{
     if(value.startsWith('/assets/')||value.startsWith('/fonts/'))return `${attr}="${value.slice(1)}"`;
@@ -69,6 +71,7 @@ try {
     await page.goto(`${base}/binh-chon?category=${category}`,{waitUntil:'networkidle'});
     await page.waitForFunction(id=>document.querySelector('.voting-view-all')?.getAttribute('href')?.includes(`category=${id}`),category);
     groups[index<6?0:1].push({id:category,name:await page.locator('.voting-results-heading h3').innerText()});
+    if(!publicProfiles.some(profile=>profile.categoryId===category)){cards[category]='';continue;}
     cards[category]=await page.locator('.voting-grid').innerHTML();
     await page.locator('.voting-survey-trigger').first().click();
     const modal=page.locator('dialog[open]');
@@ -140,7 +143,7 @@ try {
     },{extraPanel,detail,credits:Object.fromEntries(galleryCredits)});
     html=portable(html).replace(/><(?=\/?(?:html|head|body|header|footer|nav|section|article|aside|div|form|fieldset|ul|ol|li|h[1-6]|p|dialog|link|meta|script)\b)/g,'>\n<');
     for(let attempt=0;;attempt++) {
-      try {await fs.writeFile(path.join(out,file),html);break;}
+      try {await fs.writeFile(path.join(out,file),html.replace(/[ \t]+$/gm,''));break;}
       catch(error){if(!['UNKNOWN','EBUSY','EPERM'].includes(error.code)||attempt>=7)throw error;await new Promise(resolve=>setTimeout(resolve,200));}
     }
     if(index%25===0)console.log(`Phase 2: ${index+1}/${selectedRoutes.length}`);
@@ -153,7 +156,15 @@ try {
     holder.querySelectorAll('img').forEach(node=>{node.removeAttribute('srcset');node.removeAttribute('sizes');});
     return holder.innerHTML;
   },cards[category]));
-  await fs.writeFile(path.join(out,'js/data.js'),'/* Public demo card templates; no private dossier fields. */\nwindow.phase2Handoff='+JSON.stringify({groups,cards,surveys})+';\n');
+  await fs.writeFile(path.join(out,'js/data.js'),'/* Public demo card templates; no private dossier fields. */\nwindow.phase2Handoff='+JSON.stringify({groups,cards,surveys,order:publicProfiles.map(profile=>profile.slug)})+';\n');
   await fs.writeFile(path.join(out,'manifest.json'),JSON.stringify({phase:2,pages:routes.map(([source,file])=>({source,file})),categories},null,2));
+  if(selectedRoutes.length===routes.length){
+    const current=new Set(routes.map(([,file])=>file));
+    for(const {file} of previousPages){
+      if(current.has(file)||!/^ho-so-[a-z0-9-]+\.html$/.test(file))continue;
+      const target=path.resolve(out,file);if(!target.startsWith(out+path.sep))throw Error('Invalid obsolete handoff path');
+      await fs.unlink(target).catch(error=>{if(error.code!=='ENOENT')throw error;});
+    }
+  }
 } finally {await browser.close();}
 console.log('Phase 2 handoff exported.');

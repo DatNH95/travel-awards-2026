@@ -18,11 +18,11 @@
       "selector": "#about",
       "source": {
         "width": 1440,
-        "height": 2297.71875
+        "height": 2584.578125
       },
       "handoff": {
         "width": 1440,
-        "height": 2297.71875
+        "height": 2584.578125
       },
       "heightDifference": 0
     },
@@ -83,11 +83,11 @@
       "selector": ".home-footer",
       "source": {
         "width": 1440,
-        "height": 533.6875
+        "height": 672.875
       },
       "handoff": {
         "width": 1440,
-        "height": 533.6875
+        "height": 672.875
       },
       "heightDifference": 0
     },
@@ -109,11 +109,11 @@
       "selector": "#about",
       "source": {
         "width": 390,
-        "height": 5150
+        "height": 6673.578125
       },
       "handoff": {
         "width": 390,
-        "height": 5150
+        "height": 6673.578125
       },
       "heightDifference": 0
     },
@@ -174,11 +174,11 @@
       "selector": ".home-footer",
       "source": {
         "width": 390,
-        "height": 936.203125
+        "height": 1282.53125
       },
       "handoff": {
         "width": 390,
-        "height": 936.203125
+        "height": 1282.53125
       },
       "heightDifference": 0
     }
