@@ -4,9 +4,11 @@ const root=path.resolve('handoff-html');
 export async function finishRegistrationHandoff(){
  const files=(await fs.readdir(root)).filter(f=>f.endsWith('.html'));
  const initial=await fs.readFile(path.join(root,'dang-ky-de-cu.html'),'utf8');
+ const checklist=initial.match(/<a class="button button--secondary nomination-checklist-link"[\s\S]*?<\/a>/)?.[0];
  const footer=initial.match(/<footer class="home-footer"[\s\S]*?<\/footer>/)?.[0];
  for(const file of files){
   let html=await fs.readFile(path.join(root,file),'utf8');
+  if(checklist && html.includes('class="nomination-intro"') && !html.includes('nomination-checklist-link')) html=html.replace(/(<header class="nomination-intro">[\s\S]*?)(<\/header>)/,(_,intro,end)=>intro+checklist+'\n'+end);
   if(footer) html=html.replace(/<footer class="home-footer"[\s\S]*?<\/footer>/,footer);
   html=html.replace(/<template data-registration-part="\d+">[\s\S]*?<\/template>/g,'');
   const match=file.match(/^dang-ky-((?:tru-cot|tien-phong)-\d+)(?:-phan-\d+)?\.html$/);

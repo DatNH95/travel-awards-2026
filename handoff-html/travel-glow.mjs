@@ -16,6 +16,12 @@ export async function exportTravelGlow(){
  }
  await fs.writeFile(path.join(out,'js/30plus-form.js'),scripts.join('\n;\n'));
  await fs.copyFile('public/30plus-phone-validation.js',path.join(out,'js/30plus-phone-validation.js'));
+ const nominationHtml=await fs.readFile('handoff-html/dang-ky-de-cu.html','utf8');
+ const support=nominationHtml.match(/<p class="home-footer-label">Hỗ trợ đề cử<\/p>[\s\S]*?(?=<p class="home-footer-label">Thông tin liên hệ)/)?.[0];
+ if(support && !html.includes('home-footer-support-contacts'))html=html.replace('<p class="home-footer-label">Thông tin liên hệ',support+'<p class="home-footer-label">Thông tin liên hệ');
+ const homeCss=await fs.readFile('src/app/home.css','utf8');
+ const supportCss=homeCss.slice(homeCss.indexOf('/* Responsive nomination support contacts'));
+ if(support && homeCss.includes('/* Responsive nomination support contacts'))styles.push(supportCss);
  const css=styles.join('\n').replaceAll('/assets/','../assets/');
  await fs.writeFile(path.join(out,'css/30plus.css'),css);
  const assets=new Set([...css.matchAll(/url\(["']?(\.\.\/assets\/[^"')]+)["']?\)/g)].map(m=>m[1].slice(3)));

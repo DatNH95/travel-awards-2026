@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { SiteHeader } from '@/components/site-header';
 import { SiteFooter } from '@/components/site-footer';
 import { Container, Section } from '@/components/primitives';
+import { UiIcon } from '@/components/ui-icon';
 import { NominationCountdown } from '@/components/hero-stage';
 import { NominationFlow } from './nomination-flow';
 import '@/app/home.css';
@@ -28,6 +29,9 @@ export default function NominationPage() {
           </div>
           <NominationCountdown label="Thời gian nhận đề cử còn lại:" />
         </div>
+        <a className="button button--secondary nomination-checklist-link" href="/assets/documents/Checklist-ho-so-Travel-Awards-2026.docx" download>
+          <UiIcon name="document" size={16} /> Tải checklist hồ sơ
+        </a>
       </header>
       <Suspense fallback={<p>Đang tải hạng mục đề cử…</p>}><NominationFlow /></Suspense>
     </Container></Section></main>

@@ -1,4 +1,5 @@
 /* Nomination-only refinement. Foundation tokens and other routes are unchanged. */
+.nomination .nomination-checklist-link { justify-self: start; min-height: 44px; }
 .nomination-copy-mobile { display: none; }
 @media (max-width: 39.99rem) {
   .nomination-copy-desktop { display: none; }
