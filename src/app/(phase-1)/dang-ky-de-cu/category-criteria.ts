@@ -22,7 +22,7 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       { label: 'Minh chứng tác động', type: 'textarea', help: 'Liệt kê bài báo, số liệu hoặc thư xác nhận nếu có.' },
       ...[1, 2].flatMap(number => [
         { label: `Họ và tên người tham chiếu ${number}` },
-        { label: 'Liên hệ', accessibleLabel: `Liên hệ người tham chiếu ${number}` },
+        { label: 'Số điện thoại liên hệ', accessibleLabel: `Số điện thoại liên hệ của người tham chiếu ${number}` },
       ]),
     ],
     narratives: [
