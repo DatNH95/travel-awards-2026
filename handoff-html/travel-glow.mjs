@@ -20,8 +20,8 @@ export async function exportTravelGlow(){
  const support=nominationHtml.match(/<p class="home-footer-label">Hỗ trợ đề cử<\/p>[\s\S]*?(?=<p class="home-footer-label">Thông tin liên hệ)/)?.[0];
  if(support && !html.includes('home-footer-support-contacts'))html=html.replace('<p class="home-footer-label">Thông tin liên hệ',support+'<p class="home-footer-label">Thông tin liên hệ');
  const homeCss=await fs.readFile('src/app/home.css','utf8');
- const supportCss=homeCss.slice(homeCss.indexOf('/* Responsive nomination support contacts'));
- if(support && homeCss.includes('/* Responsive nomination support contacts'))styles.push(supportCss);
+ const supportCss=homeCss.match(/\/\* Responsive nomination support contacts[^\n]*\n[^]*?(?=\r?\n\r?\n|$)/)?.[0];
+ if(support && supportCss)styles.push(supportCss+'\n');
  const css=styles.join('\n').replaceAll('/assets/','../assets/');
  await fs.writeFile(path.join(out,'css/30plus.css'),css);
  const assets=new Set([...css.matchAll(/url\(["']?(\.\.\/assets\/[^"')]+)["']?\)/g)].map(m=>m[1].slice(3)));

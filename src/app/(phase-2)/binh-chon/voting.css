@@ -435,6 +435,8 @@
 .home-phase-2 .travel-glow-prize-cash { margin-bottom:0; }
 .home-phase-2 .travel-glow-prize-item h4 { margin-bottom:14px; }
 .home-phase-2 .travel-glow-prize-cash { margin:0; padding-top:0; }
+.home-phase-2 .travel-glow-prize-gift { display:flex; align-items:flex-start; gap:8px; margin:12px 0 0; padding-top:12px; border-top:1px solid var(--color-border-default); font-size:14px; line-height:1.5; color:var(--color-text-primary); }
+.home-phase-2 .travel-glow-prize-gift > .ui-icon { flex-shrink:0; margin-top:2px; color:var(--prize-accent); }
 
 .home-phase-2 .travel-glow-prizes-heading .travel-glow-prize-controls { margin:0; flex-shrink:0; }
 .home-phase-2 .travel-glow-prizes-heading h3 a { color:inherit; }

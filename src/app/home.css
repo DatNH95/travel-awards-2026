@@ -634,3 +634,7 @@
 .home-footer-support-contacts dl > div:first-child dt { display:none; }
 .home-footer-support-contacts dl > div:first-child dd { font-size:16px; font-weight:600; }
 @media(max-width:600px) { .home-footer-support-contacts { grid-template-columns:1fr; gap:8px; } }
+
+.home-partner-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 4vw, 48px); width: min(100%, 560px); }
+.home-partner-row .eyebrow, .home-partner-media .eyebrow { text-align: center; }
+.home-partner-row img, .home-partner-media img { width: min(100%, 240px); height: auto; aspect-ratio: 2 / 1; object-fit: contain; }

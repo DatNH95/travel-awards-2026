@@ -48,6 +48,12 @@ export function TravelGlowVoting() {
         <span className="travel-glow-prize-laurel" aria-hidden="true" />
         <h4>{index===0?'Giải chuyến đi yêu thích nhất':prize.title}</h4>
         <p className="travel-glow-prize-cash"><span>Giá trị / 01 giải</span><strong>{prize.cash.split(' đồng')[0]}<small>VNĐ</small></strong></p>
+        {prize.notes.filter(note => !note.startsWith('Chấm ')).map(gift => (
+          <p className="travel-glow-prize-gift" key={gift}>
+            <UiIcon name="gift" size={16} />
+            <span><strong>Quà tặng:</strong> {gift}</span>
+          </p>
+        ))}
       </li>)}</ul>
     </section>
   </Container></Section>;

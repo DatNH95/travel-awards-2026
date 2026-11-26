@@ -61,7 +61,7 @@ function Prizes({ texts }: { texts: string[] }) {
       <h5>{prize.title}</h5>
       {prize.notes.filter(note => note.startsWith('Tiền mặt:')).map(note => <p className="rules-glow-prize-value" key={note}><span>Tiền mặt</span><strong>{note.replace(/^Tiền mặt:\s*/, '')}</strong></p>)}
       <p>{prize.description}</p>
-      <div className="rules-glow-prize-extras">{prize.notes.filter(note => !note.startsWith('Tiền mặt:')).map(note => <p className="rules-glow-prize-note" key={note}>{note.includes('Quà tặng') && <UiIcon name="gift" size={18} />}<span>{note}</span></p>)}</div>
+      <div className="rules-glow-prize-extras">{prize.notes.filter(note => !note.startsWith('Tiền mặt:')).map(note => <p className="rules-glow-prize-note" key={note}>{!note.startsWith('Chấm ') && <UiIcon name="gift" size={18} />}<span>{note}</span></p>)}</div>
     </li>)}</ul>
   </div>)}</div>;
 }
