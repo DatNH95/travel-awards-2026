@@ -7,6 +7,36 @@ export type CategoryCriteria = {
   images: { min: number; max: number | null }; menuRequired: boolean;
 };
 export const categoryCriteria: Record<string, CategoryCriteria> = {
+  // Nguồn: Vietnam Travel Award_Tieu chi ho so tu ung cu_Nhan vat cua nam.xlsx, Nhân vật của năm!B2:F2.
+  'Nhân vật du lịch của năm (Cá nhân)': {
+    audience: 'Cá nhân đang hoạt động trong ngành du lịch, tự ứng cử hoặc được tổ chức, doanh nghiệp, hiệp hội ngành nơi đang công tác hoặc hoạt động đề cử.',
+    conditions: [
+      'Đang hoạt động trong ngành du lịch và tự ứng cử hoặc được tổ chức, doanh nghiệp, hiệp hội ngành nơi đang công tác hoặc hoạt động đề cử.',
+      'Không là thành viên Hội đồng chuyên môn và đồng ý công khai thông tin cá nhân phục vụ bình chọn.',
+      'Mỗi tổ chức đề cử tối đa 02 cá nhân.',
+      'Có ít nhất 01 dự án, sáng kiến hoặc đóng góp đã hoàn thành hoặc có kết quả đo lường được trong kỳ xét giải (01/10/2025–30/09/2026).',
+    ],
+    fields: [
+      { label: 'Vai trò trong ngành du lịch*' },
+      { label: 'Đơn vị công tác*' },
+      { label: 'Minh chứng tác động', type: 'textarea', help: 'Liệt kê bài báo, số liệu hoặc thư xác nhận nếu có.' },
+      ...[1, 2].flatMap(number => [
+        { label: `Họ tên người tham chiếu ${number}*` },
+        { label: `Đơn vị của người tham chiếu ${number}*` },
+        { label: `Liên hệ người tham chiếu ${number}*`, help: 'Cung cấp email hoặc số điện thoại. Đính kèm thư giới thiệu trong thư mục hồ sơ nếu có.' },
+      ]),
+    ],
+    narratives: [
+      { label: 'Tóm tắt đóng góp, sáng kiến hoặc dự án tiêu biểu trong kỳ*', type: 'textarea' },
+    ],
+    evidence: [
+      'Thư tự ứng cử nếu cá nhân tự nộp, hoặc thư đề cử từ tổ chức, doanh nghiệp, hiệp hội hay đơn vị nơi cá nhân đang công tác hoặc hoạt động.',
+      'Tài liệu và số liệu minh chứng dự án hoặc đóng góp.',
+      'Thư giới thiệu của người tham chiếu, nếu có.',
+    ],
+    images: { min: 3, max: 10 },
+    menuRequired: false,
+  },
   "Điểm đến du lịch của năm": {
     "audience": "Các điểm đến cấp tỉnh, thành phố trực thuộc Trung ương, đề cử qua Sở Du lịch, Sở VHTTDL hoặc UBND tỉnh, thành phố.",
     "conditions": [

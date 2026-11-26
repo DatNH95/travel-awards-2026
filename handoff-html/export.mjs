@@ -5,7 +5,7 @@ import { createRequire } from 'node:module';
 import { flattenDocument, flattenStyles, embedSvgAssets } from './structure.mjs';
 import {packageHandoffStyles,updateHandoffStyleLinks} from './styles.mjs';
 const require = createRequire(import.meta.url);
-const { chromium } = require('C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const { chromium } = require(process.env.HANDOFF_PLAYWRIGHT_PATH || 'C:/Users/haidat/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
 const root = process.cwd();
 const out = path.join(root, 'handoff-html');
 await fs.mkdir(path.join(out, 'css'), {recursive:true});

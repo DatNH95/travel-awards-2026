@@ -1,4 +1,7 @@
+import { pioneeringCategories } from '@/data/awards';
+
 export type RegistrationField = { label: string; type?: 'textarea' | 'email' | 'tel' | 'url' | 'number'; help?: string; minWords?: number; maxWords?: number };
+export const tourismPersonalityCategory = pioneeringCategories[0];
 export { categoryCriteria as professionalFields } from './category-criteria';
 export const assessmentPeriodLabel = 'Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026.';
 export const registrationFields: RegistrationField[] = [
@@ -14,6 +17,13 @@ export const nominationFields: RegistrationField[] = [
   { label: 'Thành tích nổi bật trong năm xét giải*', type: 'textarea', maxWords: 250, help: 'Nêu thành tựu và số liệu nổi bật trong năm xét giải. Tối đa 250 từ.' },
   { label: 'Điểm khác biệt/nổi bật của đề cử*', type: 'textarea', help: 'Điều gì tạo nên giá trị riêng của đề cử?' },
 ];
+const personalityNominationFields: RegistrationField[] = [
+  { label: 'Họ và tên người được đề cử*' },
+  { label: 'Tiểu sử ngắn*', type: 'textarea', maxWords: 500 },
+];
+export function nominationFieldsFor(selection: string) {
+  return selection === tourismPersonalityCategory ? personalityNominationFields : nominationFields;
+}
 export const complianceStatements = [
   'Đơn vị/đề cử đáp ứng các điều kiện pháp lý cần thiết để tham gia hạng mục đăng ký.',
   'Các giấy phép/chứng nhận liên quan còn hiệu lực tại thời điểm đăng ký.',

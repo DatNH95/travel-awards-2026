@@ -22,6 +22,7 @@ const hints: Record<string, string> = {
   'tru-cot-4': 'Cơ sở nghỉ dưỡng 4–5 sao hoặc chứng nhận tương đương',
   'tru-cot-5': 'Hãng hàng không có hoạt động phục vụ du lịch Việt Nam',
   'tru-cot-6': 'Trải nghiệm, sự kiện, lễ hội phục vụ khách du lịch',
+  'tien-phong-1': 'Cá nhân hoạt động trong ngành du lịch, tự ứng cử hoặc được đơn vị giới thiệu',
   'tien-phong-2': 'Sáng kiến tạo tác động bền vững có kết quả đo lường',
   'tien-phong-3': 'Điểm đến triển khai phát triển du lịch xanh',
   'tien-phong-4': 'Sản phẩm du lịch mới, khác biệt và có hiệu quả thực tế',

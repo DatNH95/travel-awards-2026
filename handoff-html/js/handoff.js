@@ -5,10 +5,10 @@
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const categoryIds = ['tru-cot-1','tru-cot-2','tru-cot-3','tru-cot-4','tru-cot-5','tru-cot-6',
     'tien-phong-1','tien-phong-2','tien-phong-3','tien-phong-4','tien-phong-5','tien-phong-6','tien-phong-7','tien-phong-8','tien-phong-9'];
-  const radioCategoryIds = categoryIds.filter(id => !['tien-phong-1','tien-phong-8'].includes(id));
+  const radioCategoryIds = categoryIds.filter(id => id !== 'tien-phong-8');
   const category = new URLSearchParams(location.search).get('category') || location.pathname.match(/dang-ky-((?:tru-cot|tien-phong)-\d+)\.html$/)?.[1];
   const radios = $$('input[name="award-category"]');
-  let selectedCategory = categoryIds.includes(category) && !['tien-phong-1','tien-phong-8'].includes(category) ? category : null;
+  let selectedCategory = radioCategoryIds.includes(category) ? category : null;
   for (const list of $$('[role=tablist]')) {
     const tabs = $$('[role=tab]', list);
     function activate(index, focus = false) {
@@ -91,16 +91,22 @@
     input.addEventListener('invalid', () => input.setAttribute('aria-invalid', 'true'));
     input.addEventListener('input', () => input.setAttribute('aria-invalid', String(!input.validity.valid)));
   });
-  $$('.nomination-counted-field').forEach(field => {
-    const input = $('textarea', field), counter = $('.nomination-word-count', field);
-    if (!input || !counter) return;
-    const limit = Number(counter.textContent.split('/')[1]);
-    if (!limit) return;
-    input.addEventListener('input', () => {
-      const words = [...input.value.matchAll(/\S+/gu)];
-      if (words.length > limit) input.value = input.value.slice(0, words[limit].index).trimEnd();
-      counter.textContent = `${Math.min(words.length, limit)}/${limit}`;
-    });
+  document.addEventListener('input', event => {
+    const input = event.target;
+    if (!input.matches('.nomination-counted-field textarea')) return;
+    const feedback = $('.nomination-word-feedback', input.closest('.nomination-counted-field'));
+    const progress = feedback && $('progress', feedback);
+    if (!progress) return;
+    const limit = progress.max;
+    const count = (input.value.match(/\S+/gu) || []).length;
+    const excess = count - limit;
+    const error = excess > 0 ? `Đã vượt giới hạn. Vui lòng rút gọn ${excess} từ.` : '';
+    progress.value = Math.min(count, limit);
+    $('strong', feedback).textContent = `${count}/${limit}`;
+    $('span', feedback).textContent = error || (count ? 'Đã đủ yêu cầu về số từ.' : 'Chưa nhập nội dung.');
+    feedback.dataset.state = error ? 'invalid' : count ? 'valid' : 'empty';
+    input.setCustomValidity(error);
+    input.setAttribute('aria-invalid', String(!input.validity.valid));
   });
   $$('.nomination-form-section').forEach(section => {
     const boxes = $$('input[type=checkbox]', section);

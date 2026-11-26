@@ -8,7 +8,8 @@ export const regulationGroups: RegulationGroup[] = [
     items: [
       { title: 'Hình thức tham gia', paragraphs: [
         'Tự ứng cử hoặc được Ban tổ chức đề cử, tùy hạng mục.',
-        'Nhân vật du lịch của năm và Gương mặt truyền thông du lịch của năm (Đại sứ) do Ban tổ chức đề cử theo danh sách riêng, không nhận đăng ký trực tuyến.',
+        'Nhân vật du lịch của năm nhận hồ sơ tự ứng cử hoặc do tổ chức, doanh nghiệp, hiệp hội ngành nơi cá nhân công tác hoặc hoạt động đề cử.',
+        'Gương mặt truyền thông du lịch của năm (Đại sứ) do Ban tổ chức đề cử theo danh sách riêng, không nhận đăng ký trực tuyến.',
       ] },
       { title: 'Số hồ sơ', paragraphs: [
         'Mỗi đơn vị được đề cử 03 hạng mục, mỗi hạng mục một hồ sơ.',

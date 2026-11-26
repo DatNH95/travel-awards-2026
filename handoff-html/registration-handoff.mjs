@@ -13,7 +13,7 @@ export async function finishRegistrationHandoff(){
   html=html.replace(/<template data-registration-part="\d+">[\s\S]*?<\/template>/g,'');
   const match=file.match(/^dang-ky-((?:tru-cot|tien-phong)-\d+)(?:-phan-\d+)?\.html$/);
   if(match){const part=Number(file.match(/-phan-(\d+)\.html$/)?.[1]||1)-1;html=html.replace(/<option value="(\d+)"[^>]*>/g,(_,value)=>`<option value="${value}"${Number(value)===part?' selected':''}>`);}
-  if(match && !['tien-phong-1','tien-phong-8'].includes(match[1])){
+  if(match && match[1]!=='tien-phong-8'){
    const forms=[];
    for(let i=0;i<6;i++){
     const source=await fs.readFile(path.join(root,`dang-ky-${match[1]}${i?`-phan-${i+1}`:''}.html`),'utf8');

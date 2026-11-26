@@ -22,7 +22,7 @@ export const pioneeringCategories = [
 export const awardGroups = [{ name: 'Trụ cột', categories: pillarCategories }, { name: 'Tiên phong', categories: pioneeringCategories }];
 
 export function isOrganizerNominated(category: string) {
-  return category === pioneeringCategories[0] || category === pioneeringCategories[7];
+  return category === pioneeringCategories[7];
 }
 
 export function awardCategoryId(groupIndex: number, categoryIndex: number) {

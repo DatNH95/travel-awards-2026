@@ -1,6 +1,6 @@
 import { contactError } from './contact-validation';
 import { dossierError } from './dossier-validation';
-import { complianceStatements, nominationFields, professionalFields, registrationFields, representativeFields, type RegistrationField } from './registration-data';
+import { complianceStatements, nominationFieldsFor, professionalFields, registrationFields, representativeFields, type RegistrationField } from './registration-data';
 import type { RegistrationDraft } from './registration-fields';
 import type { CountryCode } from 'libphonenumber-js';
 
@@ -9,7 +9,7 @@ export const partDescriptions = [
   'Cho biết ai đứng tên hồ sơ và ai là người Ban tổ chức có thể liên hệ.',
   'Giới thiệu đề cử bằng câu chuyện, thành tích và điểm khác biệt của bạn.',
   'Kê khai số liệu theo hạng mục đã chọn. Có thể bổ sung giải thích ngay trong từng ô.',
-  'Mỗi tiêu chí là một nội dung riêng, tối đa 250 từ. Mở từng tiêu chí để viết.',
+  'Mở từng mục để viết và xem giới hạn từ nếu có.',
   'Dán một link thư mục chứa toàn bộ hồ sơ và cấp quyền xem cho Ban tổ chức.',
   'Đọc và xác nhận các điều kiện trước khi kiểm tra lại toàn bộ hồ sơ.',
 ];
@@ -55,7 +55,7 @@ export function partIssues(part: number, selection: string, draft: RegistrationD
     fields(registrationFields, 'registration'); fields(representativeFields, 'representative');
     if (selection === 'Điểm đến du lịch của năm') fields([{ label: 'Cơ quan/đơn vị đại diện đề cử*' }], 'destination');
   }
-  if (part === 1) fields(nominationFields, 'nominee');
+  if (part === 1) fields(nominationFieldsFor(selection), 'nominee');
   if (part === 2 && professional) {
     fields(professional.fields, `professional-${selection}`);
     professional.fields.forEach((field, index) => {

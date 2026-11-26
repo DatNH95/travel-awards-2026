@@ -2,7 +2,7 @@
 import { useState, type ReactNode } from 'react';
 import { Button, CTAArrow } from '@/components/primitives';
 import { UiIcon } from '@/components/ui-icon';
-import { assessmentPeriodLabel, complianceStatements, nominationFields, professionalFields, registrationFields, representativeFields, type RegistrationField } from './registration-data';
+import { assessmentPeriodLabel, complianceStatements, nominationFieldsFor, professionalFields, registrationFields, representativeFields, type RegistrationField } from './registration-data';
 import type { RegistrationDraft } from './registration-fields';
 import { phoneCountries } from './contact-validation';
 import { countWords, urlError } from './registration-ux';
@@ -30,7 +30,7 @@ export function ConfirmationStep({ selection, draft, isEditing = false, onEdit, 
     <div className="nomination-choice-summary"><UiIcon name="trophy" /><span>Hạng mục đề cử<strong>{selection}</strong></span></div>
     <p className="nomination-muted">Kiểm tra từng phần trước khi gửi. Chọn “Chỉnh sửa” nếu cần thay đổi.</p>
     {section('Đơn vị & liên hệ', 0, <>{review(registrationFields, 'registration')}<h4 className="nomination-subtitle">Người liên hệ hồ sơ</h4>{review(representativeFields, 'representative')}{selection === 'Điểm đến du lịch của năm' && review([{ label: 'Cơ quan/đơn vị đại diện đề cử' }], 'destination')}</>)}
-    {section('Giới thiệu đề cử', 1, review(nominationFields, 'nominee'))}
+    {section('Giới thiệu đề cử', 1, review(nominationFieldsFor(selection), 'nominee'))}
     {section('Số liệu hoạt động', 2, <><p className="nomination-muted">{assessmentPeriodLabel}</p>{professional && review(professional.fields, `professional-${selection}`)}</>)}
     {section('Dấu ấn theo tiêu chí', 3, professional && review(professional.narratives, `narrative-${selection}`))}
     {section('Hồ sơ & minh chứng', 4, folderMode ? <><dl className="nomination-review">{link('full-dossier-link', 'Thư mục hồ sơ đầy đủ')}</dl><p className="nomination-muted">Bạn đã xác nhận tài liệu đầy đủ và Ban tổ chức có quyền xem thư mục.</p></> : <dl className="nomination-review">{[{ key: 'dossier-0', label: 'Hồ sơ giới thiệu đề cử' }, { key: 'dossier-1', label: 'Tài liệu pháp lý/minh chứng' }, { key: 'dossier-3', label: 'Hình ảnh' }, ...(professional?.menuRequired ? [{ key: 'menu', label: 'Thực đơn hiện hành' }] : [])].map(({ key, label }) => <div key={key}><dt>{label}</dt><dd>{draft.files[key]?.length ? <ul>{draft.files[key].map(file => <li key={`${file.name}-${file.size}-${file.lastModified}`}>{file.name}</li>)}</ul> : key === 'dossier-1' && draft.values['legal-scan-link'] ? 'Đã cung cấp qua link bản scan' : 'Chưa cung cấp'}</dd></div>)}{link('legal-scan-link', 'Link bản scan pháp lý')}{link('activity-evidence-link', 'Minh chứng số liệu hoạt động')}{professional?.narratives.map((criterion, index) => link(`criterion-${selection}-${index}`, `Minh chứng ${index + 1}: ${criterion.label}`))}{link('other-documents-link', 'Các tài liệu khác')}{link('video-0', 'Video giới thiệu')}</dl>)}
