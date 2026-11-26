@@ -37,7 +37,7 @@ export function RegistrationInput({ field, fieldKey, id, draft, onChange }: { fi
     onChange({ ...draft, values });
   };
   useEffect(() => { input.current?.setCustomValidity(error); }, [error]);
-  const props = { id, name: fieldKey, value, required, 'aria-invalid': !!shownError, 'aria-describedby': [field.help ? `${id}-help` : '', field.maxWords ? `${id}-count` : '', shownError && !field.maxWords ? `${id}-error` : ''].filter(Boolean).join(' ') || undefined, onBlur: () => setTouched(true), onInvalid: () => setTouched(true), onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => update(event.target.value) };
+  const props = { id, name: fieldKey, value, required, 'aria-label': field.accessibleLabel, 'aria-invalid': !!shownError, 'aria-describedby': [field.help ? `${id}-help` : '', field.maxWords ? `${id}-count` : '', shownError && !field.maxWords ? `${id}-error` : ''].filter(Boolean).join(' ') || undefined, onBlur: () => setTouched(true), onInvalid: () => setTouched(true), onChange: (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => update(event.target.value) };
   return <div className={`nomination-field${field.type === 'textarea' || fieldKey === 'nominee-0' || fieldKey === 'registration-0' || fieldKey === 'representative-0' ? ' nomination-field--wide' : ''}`}>
     <label htmlFor={id}>{required ? <RequiredLabel>{label}</RequiredLabel> : label}</label>
     {field.help && <p id={`${id}-help`} className="type-body-small nomination-muted">{mobileFieldHelp[fieldKey] ? <><span className="nomination-copy-desktop">{field.help}</span><span className="nomination-copy-mobile">{mobileFieldHelp[fieldKey]}</span></> : field.help}</p>}

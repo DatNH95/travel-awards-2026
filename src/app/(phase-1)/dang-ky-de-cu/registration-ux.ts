@@ -1,10 +1,13 @@
 import { contactError } from './contact-validation';
 import { dossierError } from './dossier-validation';
-import { complianceStatements, nominationFieldsFor, professionalFields, registrationFields, representativeFields, type RegistrationField } from './registration-data';
+import { complianceStatements, nominationFieldsFor, professionalFields, registrationFields, representativeFields, tourismPersonalityCategory, type RegistrationField } from './registration-data';
 import type { RegistrationDraft } from './registration-fields';
 import type { CountryCode } from 'libphonenumber-js';
 
 export const registrationParts = ['Đơn vị & liên hệ', 'Giới thiệu đề cử', 'Số liệu hoạt động', 'Dấu ấn theo tiêu chí', 'Hồ sơ & minh chứng', 'Điều kiện tham gia'];
+export function registrationPartLabel(part: number, selection: string) {
+  return part === 2 && selection === tourismPersonalityCategory ? 'Trường dữ liệu tự khai' : registrationParts[part];
+}
 export const partDescriptions = [
   'Cho biết ai đứng tên hồ sơ và ai là người Ban tổ chức có thể liên hệ.',
   'Giới thiệu đề cử bằng câu chuyện, thành tích và điểm khác biệt của bạn.',

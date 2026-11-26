@@ -5,7 +5,7 @@ import { UiIcon } from '@/components/ui-icon';
 import { assessmentPeriodLabel, complianceStatements, nominationFieldsFor, professionalFields, registrationFields, representativeFields, type RegistrationField } from './registration-data';
 import type { RegistrationDraft } from './registration-fields';
 import { phoneCountries } from './contact-validation';
-import { countWords, urlError } from './registration-ux';
+import { countWords, registrationPartLabel, urlError } from './registration-ux';
 
 export function ConfirmationStep({ selection, draft, isEditing = false, onEdit, onSubmit }: { selection: string; draft: RegistrationDraft; isEditing?: boolean; onEdit: (part?: number) => void; onSubmit: () => void }) {
   const [agreed, setAgreed] = useState(false);
@@ -16,7 +16,7 @@ export function ConfirmationStep({ selection, draft, isEditing = false, onEdit, 
     return <dl className="nomination-review">{items.map((field, index) => {
       const value = draft.values[`${prefix}-${index}`];
       const country = phoneCountries.find(item => item.code === (draft.values['representative-country'] ?? 'VN'));
-      return <div key={field.label}><dt>{field.label.replace(/\*$/, '')}{field.maxWords && <small className="nomination-muted"> {countWords(value ?? '')} từ</small>}</dt><dd>{value ? <>{field.type === 'tel' && country && !value.startsWith('+') ? `+${country.callingCode} · ` : ''}{value}</> : 'Chưa cung cấp'}</dd></div>;
+      return <div key={`${prefix}-${index}`}><dt>{(field.accessibleLabel ?? field.label).replace(/\*$/, '')}{field.maxWords && <small className="nomination-muted"> {countWords(value ?? '')} từ</small>}</dt><dd>{value ? <>{field.type === 'tel' && country && !value.startsWith('+') ? `+${country.callingCode} · ` : ''}{value}</> : 'Chưa cung cấp'}</dd></div>;
     })}</dl>;
   }
   function link(key: string, label: string) {
@@ -31,7 +31,7 @@ export function ConfirmationStep({ selection, draft, isEditing = false, onEdit, 
     <p className="nomination-muted">Kiểm tra từng phần trước khi gửi. Chọn “Chỉnh sửa” nếu cần thay đổi.</p>
     {section('Đơn vị & liên hệ', 0, <>{review(registrationFields, 'registration')}<h4 className="nomination-subtitle">Người liên hệ hồ sơ</h4>{review(representativeFields, 'representative')}{selection === 'Điểm đến du lịch của năm' && review([{ label: 'Cơ quan/đơn vị đại diện đề cử' }], 'destination')}</>)}
     {section('Giới thiệu đề cử', 1, review(nominationFieldsFor(selection), 'nominee'))}
-    {section('Số liệu hoạt động', 2, <><p className="nomination-muted">{assessmentPeriodLabel}</p>{professional && review(professional.fields, `professional-${selection}`)}</>)}
+    {section(registrationPartLabel(2, selection), 2, <><p className="nomination-muted">{assessmentPeriodLabel}</p>{professional && review(professional.fields, `professional-${selection}`)}</>)}
     {section('Dấu ấn theo tiêu chí', 3, professional && review(professional.narratives, `narrative-${selection}`))}
     {section('Hồ sơ & minh chứng', 4, folderMode ? <><dl className="nomination-review">{link('full-dossier-link', 'Thư mục hồ sơ đầy đủ')}</dl><p className="nomination-muted">Bạn đã xác nhận tài liệu đầy đủ và Ban tổ chức có quyền xem thư mục.</p></> : <dl className="nomination-review">{[{ key: 'dossier-0', label: 'Hồ sơ giới thiệu đề cử' }, { key: 'dossier-1', label: 'Tài liệu pháp lý/minh chứng' }, { key: 'dossier-3', label: 'Hình ảnh' }, ...(professional?.menuRequired ? [{ key: 'menu', label: 'Thực đơn hiện hành' }] : [])].map(({ key, label }) => <div key={key}><dt>{label}</dt><dd>{draft.files[key]?.length ? <ul>{draft.files[key].map(file => <li key={`${file.name}-${file.size}-${file.lastModified}`}>{file.name}</li>)}</ul> : key === 'dossier-1' && draft.values['legal-scan-link'] ? 'Đã cung cấp qua link bản scan' : 'Chưa cung cấp'}</dd></div>)}{link('legal-scan-link', 'Link bản scan pháp lý')}{link('activity-evidence-link', 'Minh chứng số liệu hoạt động')}{professional?.narratives.map((criterion, index) => link(`criterion-${selection}-${index}`, `Minh chứng ${index + 1}: ${criterion.label}`))}{link('other-documents-link', 'Các tài liệu khác')}{link('video-0', 'Video giới thiệu')}</dl>)}
     {section('Điều kiện tham gia', 5, <ul className="nomination-review-checks">{conditions.map((statement, index) => <li key={statement}><strong>{draft.checks[`compliance-${selection}-${index}`] ? 'Đã xác nhận' : 'Chưa xác nhận'}:</strong> {statement}</li>)}</ul>)}

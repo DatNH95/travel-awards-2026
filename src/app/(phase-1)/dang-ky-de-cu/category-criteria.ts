@@ -21,9 +21,8 @@ export const categoryCriteria: Record<string, CategoryCriteria> = {
       { label: 'Đơn vị công tác*' },
       { label: 'Minh chứng tác động', type: 'textarea', help: 'Liệt kê bài báo, số liệu hoặc thư xác nhận nếu có.' },
       ...[1, 2].flatMap(number => [
-        { label: `Họ tên người tham chiếu ${number}*` },
-        { label: `Đơn vị của người tham chiếu ${number}*` },
-        { label: `Liên hệ người tham chiếu ${number}*`, help: 'Cung cấp email hoặc số điện thoại. Đính kèm thư giới thiệu trong thư mục hồ sơ nếu có.' },
+        { label: `Họ và tên người tham chiếu ${number}` },
+        { label: 'Liên hệ', accessibleLabel: `Liên hệ người tham chiếu ${number}` },
       ]),
     ],
     narratives: [

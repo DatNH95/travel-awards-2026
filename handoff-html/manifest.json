@@ -25,6 +25,10 @@
       "file": "thanh-cong.html"
     },
     {
+      "source": "/dang-ky-de-cu?preview=3&category=tien-phong-1",
+      "file": "xac-nhan-tien-phong-1.html"
+    },
+    {
       "source": "/dang-ky-de-cu?preview=4",
       "file": "chinh-sua-ho-so.html",
       "editStage": 1

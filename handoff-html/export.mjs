@@ -61,6 +61,7 @@ const newsSource = await fs.readFile(path.join(root,'src/data/news.ts'),'utf8');
 const slugs = [...newsSource.matchAll(/(?:slug:|'slug':|"slug":)\s*['"]([^'"]+)['"]/g)].map(m=>m[1]).filter(s=>!s.includes('`'));
 slugs.push(...Array.from({length:71},(_,i)=>`cau-chuyen-du-lich-${i+1}`));
 const routes = [['/','index.html','home'],['/the-le','the-le.html','rules'],['/tin-tuc','tin-tuc.html','news'],['/dang-ky-de-cu','dang-ky-de-cu.html','nomination'],['/dang-ky-de-cu?preview=3','xac-nhan.html','nomination'],['/dang-ky-de-cu?preview=4','thanh-cong.html','nomination']];
+routes.push(['/dang-ky-de-cu?preview=3&category=tien-phong-1','xac-nhan-tien-phong-1.html','nomination']);
 routes.push(...['chinh-sua-ho-so.html','xac-nhan-cap-nhat.html','cap-nhat-thanh-cong.html'].map((file,index)=>[`/dang-ky-de-cu?preview=${index===1?3:4}`,file,'nomination',index===0?1:0]));
 for(const id of categories) for(let part=0;part<6;part++) routes.push([`/dang-ky-de-cu?category=${id}&step=2`,`dang-ky-${id}${part?`-phan-${part+1}`:''}.html`,'nomination',0,part]);
 for(let i=2;i<=7;i++) routes.push([`/tin-tuc?page=${i}`,`tin-tuc-${i}.html`,'news']);

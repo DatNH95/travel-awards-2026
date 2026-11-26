@@ -59,7 +59,7 @@
     if (label === 'Đã hiểu') button.addEventListener('click', () => button.closest('dialog')?.close());
     if (label.includes('Quay lại')) button.addEventListener('click', () => { location.href = 'dang-ky-de-cu.html'; });
     if (label.includes('Xem lại hồ sơ')) button.addEventListener('click', () => { location.href = 'xac-nhan.html'; });
-    if (label.includes('Chỉnh sửa hồ sơ')) button.addEventListener('click', () => { location.href = 'chinh-sua-ho-so.html'; });
+    if (label.includes('Chỉnh sửa hồ sơ')) button.addEventListener('click', () => { location.href = location.pathname.endsWith('/xac-nhan-tien-phong-1.html') ? 'dang-ky-tien-phong-1.html' : 'chinh-sua-ho-so.html'; });
   });
   const mobileNotice = $('.nomination-mobile-notice');
   if (mobileNotice && matchMedia('(max-width: 39.99rem)').matches) {
@@ -253,7 +253,7 @@
   form.querySelectorAll('input[type=checkbox][name^=folder-]:not([name=folder-all])').forEach(input=>input.required=true);
   if(!form.reportValidity())return;
   if(active<5)show(active+1);
-  else {for(let i=0;i<6;i++){if(!cache.has(i)){show(i);return;}if(!cache.get(i).checkValidity()){show(i);form.reportValidity();return;}}location.href='xac-nhan.html';}
+  else {for(let i=0;i<6;i++){if(!cache.has(i)){show(i);return;}if(!cache.get(i).checkValidity()){show(i);form.reportValidity();return;}}location.href=/\/dang-ky-tien-phong-1(?:-phan-\d+)?\.html$/.test(location.pathname)?'xac-nhan-tien-phong-1.html':'xac-nhan.html';}
  },true);
 })();
 

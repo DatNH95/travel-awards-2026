@@ -1,6 +1,6 @@
 import { pioneeringCategories } from '@/data/awards';
 
-export type RegistrationField = { label: string; type?: 'textarea' | 'email' | 'tel' | 'url' | 'number'; help?: string; minWords?: number; maxWords?: number };
+export type RegistrationField = { label: string; accessibleLabel?: string; type?: 'textarea' | 'email' | 'tel' | 'url' | 'number'; help?: string; minWords?: number; maxWords?: number };
 export const tourismPersonalityCategory = pioneeringCategories[0];
 export { categoryCriteria as professionalFields } from './category-criteria';
 export const assessmentPeriodLabel = 'Thời gian hoạt động được xét giải: 01/10/2025–30/09/2026.';

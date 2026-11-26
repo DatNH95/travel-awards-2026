@@ -10,7 +10,7 @@ export async function finishRegistrationHandoff(){
   let html=await fs.readFile(path.join(root,file),'utf8');
   if(checklist && html.includes('class="nomination-intro"') && !html.includes('nomination-checklist-link')) html=html.replace(/(<header class="nomination-intro">[\s\S]*?)(<\/header>)/,(_,intro,end)=>intro+checklist+'\n'+end);
   if(footer) html=html.replace(/<footer class="home-footer"[\s\S]*?<\/footer>/,footer);
-  html=html.replace(/<template data-registration-part="\d+">[\s\S]*?<\/template>/g,'');
+  html=html.replace(/<template data-registration-part="\d+">[\s\S]*?<\/template>\r?\n?/g,'');
   const match=file.match(/^dang-ky-((?:tru-cot|tien-phong)-\d+)(?:-phan-\d+)?\.html$/);
   if(match){const part=Number(file.match(/-phan-(\d+)\.html$/)?.[1]||1)-1;html=html.replace(/<option value="(\d+)"[^>]*>/g,(_,value)=>`<option value="${value}"${Number(value)===part?' selected':''}>`);}
   if(match && match[1]!=='tien-phong-8'){

@@ -9,7 +9,7 @@ import { CTAArrow, Button } from '@/components/primitives';
 import { awardGroups, awardCategoryFromId, isOrganizerNominated } from '@/data/awards';
 import { UiIcon } from '@/components/ui-icon';
 import { CategoryChooser } from './category-chooser';
-import { partIssues, registrationParts, type RegistrationIssue } from './registration-ux';
+import { partIssues, registrationPartLabel, registrationParts, type RegistrationIssue } from './registration-ux';
 import { RegistrationFields, type RegistrationDraft } from './registration-fields';
 
 const steps = ['Chọn giải thưởng', 'Thông tin đăng ký', 'Xác nhận', 'Thành công'];
@@ -104,7 +104,7 @@ function NominationForm({ initialSelection, previewStep, initialStep, initialGro
           <span className="sr-only">{index === step ? ' — Bước hiện tại' : index < step ? ' — Đã hoàn tất' : ' — Chưa mở'}</span>
         </button>
       </li>)}</ol>
-      {step === 1 && <div className="nomination-desktop-parts"><p className="nomination-kicker">Các phần trong hồ sơ</p>{registrationParts.map((label, index) => <button type="button" key={label} data-complete={visitedParts.includes(index) && !errorsByPart[index].length} aria-current={part === index ? 'step' : undefined} onClick={() => goPart(index)}><span>{visitedParts.includes(index) && !errorsByPart[index].length ? <UiIcon name="check" size={16} /> : index + 1}</span>{label}</button>)}</div>}
+      {step === 1 && <div className="nomination-desktop-parts"><p className="nomination-kicker">Các phần trong hồ sơ</p>{registrationParts.map((_, index) => <button type="button" key={index} data-complete={visitedParts.includes(index) && !errorsByPart[index].length} aria-current={part === index ? 'step' : undefined} onClick={() => goPart(index)}><span>{visitedParts.includes(index) && !errorsByPart[index].length ? <UiIcon name="check" size={16} /> : index + 1}</span>{registrationPartLabel(index, selection)}</button>)}</div>}
     </nav>
     <div className="nomination-content">
       <header className="nomination-step-heading">
@@ -129,7 +129,7 @@ function NominationForm({ initialSelection, previewStep, initialStep, initialGro
         <div className="nomination-inner-progress">
           <div><span className="nomination-kicker">Bước 2 / 4 · Phần {part + 1} / 6</span><button className="nomination-text-action" type="button" onClick={() => saveDialog.current?.showModal()}><UiIcon name="document" size={16} /> Lưu hồ sơ</button></div>
           <progress value={visitedParts.filter(index => !errorsByPart[index].length).length} max={6} aria-label="Số phần đáp ứng yêu cầu" />
-          <label className="sr-only" htmlFor="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part" value={part} onChange={event => goPart(Number(event.target.value))}>{registrationParts.map((label, index) => <option value={index} key={label}>{index + 1}. {label}{visitedParts.includes(index) && !errorsByPart[index].length ? ' ✓' : ''}</option>)}</select>
+          <label className="sr-only" htmlFor="nomination-jump-part">Chuyển phần trong hồ sơ</label><select id="nomination-jump-part" value={part} onChange={event => goPart(Number(event.target.value))}>{registrationParts.map((_, index) => <option value={index} key={index}>{index + 1}. {registrationPartLabel(index, selection)}{visitedParts.includes(index) && !errorsByPart[index].length ? ' ✓' : ''}</option>)}</select>
         </div>
         <div className="nomination-selected-strip"><UiIcon name="trophy" size={18} /><span>{selection}</span><a href="?step=1" className="button button--secondary nomination-change-category" onClick={event => { event.preventDefault(); navigate(0); }}><UiIcon name="exchange" size={16} />Đổi hạng mục</a></div>
         {issues.length > 0 && <div className="nomination-error-summary" id="nomination-error-summary" tabIndex={-1} role="alert"><strong>{issues.length} thông tin cần bổ sung trước khi tiếp tục</strong><ul>{issues.slice(0, 1).map(issueItem)}</ul>{issues.length > 1 && <details><summary>Xem {issues.length - 1} mục còn lại</summary><ul>{issues.slice(1).map(issueItem)}</ul></details>}</div>}
